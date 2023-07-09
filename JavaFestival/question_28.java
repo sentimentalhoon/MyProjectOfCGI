@@ -9,7 +9,8 @@ public class question_28 {
         System.out.print("2진수로 입력하여 주십시요. (0,1만 이용 가능!) : ");
 
         String str2Num = sc.next();
-
+        /******* Integer.parseInt 사용 ******/
         System.out.printf("%s(2) = %d(10)", str2Num, Integer.parseInt(str2Num, 2));
+        /******* For 문 사용 ******/
     }
 }
