@@ -12,7 +12,7 @@ public class question_01 {
          * 주차별 감량 몸무게를 입력 받아 목표 달성 시
          * 축하 메세지를 띄우는 프로그램을 구현하시오.
          * 
-         * Changed File Name
+         *
          */
 
 
