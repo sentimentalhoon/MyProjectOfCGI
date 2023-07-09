@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,6 +41,10 @@ public class MusicPlayer {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
+            /**
+             * 노래 데이타를 json 에서 읽어오는 방식으로 변경하였다. 
+             * data 폴더 안에 mp3, json 파일 존재
+             */
             try (FileInputStream fileInputStream = new FileInputStream(relativePath + "musiclist.json")) {
                 JsonReader reader = new JsonReader(new InputStreamReader(fileInputStream, "UTF-8"));
                 mp3List = getInstance().fromJson(reader, MUSICLIST_TYPE);
