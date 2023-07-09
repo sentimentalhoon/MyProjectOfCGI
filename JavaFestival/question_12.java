@@ -15,9 +15,8 @@ public class question_12 {
             for (int j = 1; j < num; j++){
                 array[i][j] = array[i][j-1] + num;
             }
-        }
-        for (int i = 0; i < array.length; i++){
-           System.out.println(Arrays.toString(array[i]));
-        }        
+
+            System.out.println(Arrays.toString(array[i]));
+        }     
     }
 }
