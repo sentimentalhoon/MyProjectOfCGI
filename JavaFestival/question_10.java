@@ -19,24 +19,10 @@ public class question_10 {
         System.out.printf("\n가장 큰 값 : %d", array[array.length - 1]);
         System.out.printf("\n가장 작은 값 : %d", array[0]);
 
-        System.out.print("\n/************ for문 Math.max, Math.min 을 사용 ***********/");
-        int min = 0, max = 0, minValue = 0, maxValue = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 1; j < array.length; j++) {
-                minValue = Math.min(array[i], array[j]);
-                maxValue = Math.max(array[i], array[j]);
-                if (min == 0) {
-                    min = minValue;
-                } else if (min > 0) {
-                    if (minValue < min)
-                        min = minValue;
-                }
-
-                if (maxValue > max) {
-                    max = maxValue;
-                }
-            }
+        int min = array[0], max = 0;
+        for (int i : array) {
+            if (min > i) min = i;
+            if (max < i) max = i;
         }
         System.out.printf("\n가장 큰 값 : %d", max);
         System.out.printf("\n가장 작은 값 : %d", min);
