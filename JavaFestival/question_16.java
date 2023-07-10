@@ -7,7 +7,7 @@ public class question_16 {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("정수 입력 : ");
-        String[] str = Integer.toString(sc.nextInt()).split("");
+        String[] str = sc.next().split("");
         int sum = 0;
 
         for (String strInt : str){

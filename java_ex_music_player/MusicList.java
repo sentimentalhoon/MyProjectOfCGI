@@ -1,4 +1,4 @@
-package java_ex;
+package java_ex_music_player;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

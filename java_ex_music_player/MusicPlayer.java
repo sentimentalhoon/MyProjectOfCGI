@@ -1,4 +1,4 @@
-package java_ex;
+package java_ex_music_player;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,18 +11,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import JavaFestival.ConsoleColor;
-import javazoom.jl.player.MP3Player;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
 public class MusicPlayer {
-    private static final String relativePath = "java_ex\\data\\";
-    private static int mp3PlayNumber = -1;
-    private static ArrayList<MusicList> mp3List;
-    private static MusicList musicList;
-    private static MP3Player mp3Player;
+    private static final String relativePath = "java_ex_music_player\\data\\";
+
     private static int playType = 0;
     private static final int PLAY = 1;
     private static final int NEXT = 2;
@@ -42,14 +37,25 @@ public class MusicPlayer {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-             mp3Player = new MP3Player();
             /**
-             * 노래 데이타를 json 에서 읽어오는 방식으로 변경하였다. 
+             * 노래 데이타를 json 에서 읽어오는 방식으로 변경하였다.
              * data 폴더 안에 mp3, json 파일 존재
              */
             try (FileInputStream fileInputStream = new FileInputStream(relativePath + "musiclist.json")) {
                 JsonReader reader = new JsonReader(new InputStreamReader(fileInputStream, "UTF-8"));
-                mp3List = getInstance().fromJson(reader, MUSICLIST_TYPE);
+                ArrayList<MusicList> playlist = new ArrayList<MusicList>();
+                playlist = getInstance().fromJson(reader, MUSICLIST_TYPE);
+                MusicController musicControl = new MusicController(playlist);
+                playList(musicControl);
+
+                while (true) {
+                    System.out.print("  [1]노래재생 [2]다음곡 [3]이전곡 [4]정지 [5]종료 >> ");
+                    playType = sc.nextInt();
+                    System.out.println();
+                    if (!mp3Play(playType, musicControl)) {
+                        break;
+                    }
+                }
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             } catch (FileNotFoundException e) {
@@ -57,65 +63,37 @@ public class MusicPlayer {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            playList();
-
-            while (true) {
-                System.out.print("  [1]노래재생 [2]다음곡 [3]이전곡 [4]정지 [5]종료 >> ");
-                playType = sc.nextInt();
-                System.out.println();
-                if (!mp3Play(playType)) {
-                    break;
-                }
-            }
         }
     }
 
-    private static boolean mp3Play(int playType) {
+    private static boolean mp3Play(int playType, MusicController musicControl) {
         switch (playType) {
             case PLAY:
-                if (mp3Player.isPlaying()) {
-                    mp3Player.stop();
-                }
-                mp3PlayNumber = 0;
-                playInformation();
+                musicControl.play();
+                playInformation(musicControl);
                 return true;
             case NEXT: {
-                if (mp3Player.isPlaying()) {
-                    mp3Player.stop();
-                }
-                if (mp3PlayNumber >= mp3List.size() - 1) {
+                if (musicControl.getMp3PlayNumber() >= musicControl.getPlayListSize() - 1) {
                     System.out.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "  #### 다음곡이 없습니다. 처음 곡으로 재생합니다. ####\n"
                             + ConsoleColor.RESET);
-                    mp3PlayNumber = 0;
-                    playInformation();
-                    return true;
                 }
-                mp3PlayNumber++;
-                playInformation();
+                musicControl.next();
+
+                playInformation(musicControl);
                 return true;
             }
             case PREVIOUSLY: {
-                if (mp3Player.isPlaying()) {
-                    mp3Player.stop();
-                }
-
-                if (mp3PlayNumber <= 0) {
+                if (musicControl.getMp3PlayNumber() <= 0) {
                     System.out.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "  #### 이전곡 없습니다. 처음 곡으로 재생합니다.####\n"
                             + ConsoleColor.RESET);
-                    mp3PlayNumber = 0;
-                    playInformation();
-                    return true;
                 }
-                mp3PlayNumber--;
-                playInformation();
+                musicControl.previous();
+
+                playInformation(musicControl);
                 return true;
             }
             case STOP: {
-                if (mp3Player.isPlaying()) {
-                    mp3Player.stop();
-                }
-                mp3PlayNumber = -1;
+                musicControl.stop();
                 System.out.println(
                         "================================================================\n"
                                 + "  플레이어가 정지 되었습니다.\n"
@@ -123,9 +101,7 @@ public class MusicPlayer {
                 return true;
             }
             case EXIT: {
-                if (mp3Player.isPlaying()) {
-                    mp3Player.stop();
-                }
+                musicControl.stop();
                 System.out.println(
                         "================================================================\n"
                                 + "  플레이어가 종료 되었습니다.\n"
@@ -133,25 +109,23 @@ public class MusicPlayer {
                 return false;
             }
             default:
-                playList();
+                playList(musicControl);
                 return true;
         }
     }
 
-    private static void playInformation() {
-        musicList = mp3List.get(mp3PlayNumber);
-        mp3Player.play(musicList.getFilePath());
+    private static void playInformation(MusicController musicControl) {
         System.out.printf(
                 "======================== 재생 중인 노래 ========================\n"
                         + "  제목 : %20s | 가수 : %20s\n"
                         + "================================================================\n\n",
-                musicList.getTitle(), musicList.getSinger());
+                musicControl.getPlayList().get(musicControl.getMp3PlayNumber()).getTitle(),
+                musicControl.getPlayList().get(musicControl.getMp3PlayNumber()).getSinger());
     }
-    
 
-    private static void playList() {
+    private static void playList(MusicController musicControl) {
         System.out.println("======================== P L A Y L I S T =======================");
-        for (MusicList musicList : mp3List) {
+        for (MusicList musicList : musicControl.getPlayList()) {
             System.out.printf("  제목 : %20s | 가수 : %20s\n", musicList.getTitle(), musicList.getSinger());
         }
         System.out.println("================================================================\n");

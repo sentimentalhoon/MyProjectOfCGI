@@ -30,7 +30,6 @@ public class question_04 {
         for (int i : cointUnit){
             System.out.println(i + "원 : " + money / i);
             money %= i;
-        }
-        
+        }        
     }
 }

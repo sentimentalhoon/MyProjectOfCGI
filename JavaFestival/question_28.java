@@ -17,6 +17,7 @@ public class question_28 {
         int sum = 0;
         int sqr = 0;
         // 1 1 1 0  0 0 0 1
+        // 기본적으로 for문 1회 돌 때 sql 값도 +1 증가 시켜준다.
         // 1일 때는 sum 에 합쳐준다.
         // 1 (2^6)
         // 1 (2^5)
