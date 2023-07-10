@@ -22,7 +22,8 @@ public class MusicPlayer {
     private static int mp3PlayNumber = -1;
     private static ArrayList<MusicList> mp3List;
     private static MusicList musicList;
-    private static MP3Player mp3Player = new MP3Player();
+    private static MP3Player mp3Player;
+    private static int playType = 0;
     private static final int PLAY = 1;
     private static final int NEXT = 2;
     private static final int PREVIOUSLY = 3;
@@ -41,6 +42,7 @@ public class MusicPlayer {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
+             mp3Player = new MP3Player();
             /**
              * 노래 데이타를 json 에서 읽어오는 방식으로 변경하였다. 
              * data 폴더 안에 mp3, json 파일 존재
@@ -60,7 +62,7 @@ public class MusicPlayer {
 
             while (true) {
                 System.out.print("  [1]노래재생 [2]다음곡 [3]이전곡 [4]정지 [5]종료 >> ");
-                int playType = sc.nextInt();
+                playType = sc.nextInt();
                 System.out.println();
                 if (!mp3Play(playType)) {
                     break;

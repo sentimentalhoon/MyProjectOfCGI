@@ -13,6 +13,7 @@ public class question_30 {
         for (int i = 'a'; i <= 'z'; i++){
             System.out.println((char)(i) + " : " + countChar(stringArray, (char) (i)));
         }
+
     }
 
     private static int countChar(String str, char ch){
