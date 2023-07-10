@@ -38,7 +38,7 @@ public class MusicController {
     public MusicList play() {
         MusicList musicList = playList.get(mp3PlayNumber);
 
-        if (mp3Player.isPlaying()) {
+        if (isPlaying()) {
             mp3Player.stop();
         }
 
