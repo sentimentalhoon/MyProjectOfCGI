@@ -16,11 +16,11 @@ public class question_02 {
          */
 
 
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("일한 시간을 입력하세요 : ");
-        int workTime = sc.nextInt();
-        double pay = ((workTime - (workTime % 8)) * 5000) + (workTime % 8 * 5000 * 1.5);
-        System.out.printf("총 임금은 %d 원입니다.", (int) pay);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("일한 시간을 입력하세요 : ");
+            int workTime = sc.nextInt();
+            double pay = ((workTime - (workTime % 8)) * 5000) + (workTime % 8 * 5000 * 1.5);
+            System.out.printf("총 임금은 %d 원입니다.", (int) pay);
+        }
     }
 }

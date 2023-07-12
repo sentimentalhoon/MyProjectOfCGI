@@ -8,5 +8,13 @@ public class question_06 {
             sum += i * (j - i);
         }
         System.out.println(sum);
+
+        int n = 77;
+        sum = 0;
+        for (int i = 0; i < n; i++){
+            sum+= (n - i) * (i + 1);
+        }
+
+        System.out.println(sum);
     }
 }

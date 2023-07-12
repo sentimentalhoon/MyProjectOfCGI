@@ -26,5 +26,15 @@ public class question_10 {
         }
         System.out.printf("\n가장 큰 값 : %d", max);
         System.out.printf("\n가장 작은 값 : %d", min);
+
+        min = 0;
+        max = 0;
+        for (int i : array){
+            if (max < i) max = i;
+            min = (min == 0 ? i : min > i ? i : min);
+        }
+
+        System.out.printf("가장 큰 값 : %d\n", max);
+        System.out.printf("가장 작은 값 : %d", min);
     }
 }

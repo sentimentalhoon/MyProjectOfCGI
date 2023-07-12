@@ -16,25 +16,26 @@ public class question_01 {
          */
 
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("현재 몸무게 : ");
-        int nowWeight = sc.nextInt();
-        System.out.print("목표 몸무게 : ");
-        int targetWeight = sc.nextInt();
-        int i = 1;
-        while (true) {
-            System.out.print(i + " 주차 감량 몸무게 : ");
-            int minusWeight = sc.nextInt();
-            nowWeight -= minusWeight;
-            if (targetWeight > nowWeight) {
-                if (nowWeight <= 0) {
-                    System.out.println(nowWeight + "kg 달성!! 당신은 인간이 아닙니다.");
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("현재 몸무게 : ");
+            int nowWeight = sc.nextInt();
+            System.out.print("목표 몸무게 : ");
+            int targetWeight = sc.nextInt();
+            int i = 1;
+            while (true) {
+                System.out.print(i + " 주차 감량 몸무게 : ");
+                int minusWeight = sc.nextInt();
+                nowWeight -= minusWeight;
+                if (targetWeight > nowWeight) {
+                    if (nowWeight <= 0) {
+                        System.out.println(nowWeight + "kg 달성!! 당신은 인간이 아닙니다.");
+                        break;
+                    }
+                    System.out.println(nowWeight + "kg 달성!! 축하합니다.");
                     break;
                 }
-                System.out.println(nowWeight + "kg 달성!! 축하합니다.");
-                break;
+                i++;
             }
-            i++;
         }
     }
 }
