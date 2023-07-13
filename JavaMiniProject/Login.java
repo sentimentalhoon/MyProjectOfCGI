@@ -42,16 +42,6 @@ public class Login {
 
     @Override
     public String toString() {
-        StringBuilder strB = new StringBuilder();
-        strB.append(ConsoleColor.BLACK_BACKGROUND_BRIGHT);
-        strB.append("[1] 로그인 \t ");
-        strB.append(ConsoleColor.RESET);
-        strB.append("[2] 회원가입 \t ");
-        strB.append("[3] 랭킹 \t ");
-        strB.append("[4] 관리자 \t ");
-        strB.append("[5] 종료 \t ");
-        strB.append(ConsoleColor.RESET);
-
-        return strB.toString();
+        return null;
     }
 }

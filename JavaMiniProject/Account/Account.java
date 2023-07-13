@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import JavaMiniProject.PageId;
 import JavaMiniProject.DAO.DBFactory;
 import JavaMiniProject.Utils.Base64;
 import JavaMiniProject.Utils.SQLUtil;
@@ -241,7 +242,7 @@ public class Account {
 	}
 
 	public boolean isExit() {
-		return (this._page == 5);
+		return (this._page == PageId.EXIT);
 	}
 
 	// 웹 연동을 위한 메소드 추가
