@@ -26,6 +26,6 @@ public class CreateAccount {
 
     @Override
     public String toString() {
-        return null;
+        return this.toString();
     }
 }
