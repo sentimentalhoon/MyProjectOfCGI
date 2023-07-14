@@ -71,10 +71,12 @@ public class Account {
 		PreparedStatement pstm = null;
 		try {
 			if (doesCharNameExist(name)) {
+				System.out.println("해당 계정명이 존재합니다.");
 				return false;
 			}
 
-			if (AccountNameFilter.getInstance().nameFilter(name)) {
+			if (!AccountNameFilter.getInstance().nameFilter(name)) {
+				System.out.println("계정명에 불필요한 단어가 포함되어 있습니다.");
 				return false;
 			}
 			Account account = new Account();
@@ -83,12 +85,11 @@ public class Account {
 			account._lastActive = new Timestamp(System.currentTimeMillis());
 
 			con = DBFactory.getInstance().getConnection();
-			String sqlstr = "INSERT INTO accounts SET login=?,password=password(?),lastactive=?";
+			String sqlstr = "INSERT INTO accounts SET id=?,password=password(?),lastactive=?";
 			pstm = con.prepareStatement(sqlstr);
 			pstm.setString(1, account._name);
 			pstm.setString(2, account._password);
 			pstm.setTimestamp(3, account._lastActive);
-			pstm.setInt(4, 0);
 			pstm.execute();
 			_log.info("created new account for " + name);
 			System.out.println("계정이 만들어졌습니다.");
@@ -110,7 +111,7 @@ public class Account {
 		try {
 			con = DBFactory.getInstance().getConnection();
 			pstm = con
-					.prepareStatement("SELECT account_name FROM characters WHERE char_name=?");
+					.prepareStatement("SELECT id FROM accounts WHERE id=?");
 			pstm.setString(1, name);
 			rs = pstm.executeQuery();
 			result = rs.next();
@@ -140,7 +141,7 @@ public class Account {
 		Account account = null;
 		try {
 			con = DBFactory.getInstance().getConnection();
-			String sqlstr = "SELECT * FROM accounts WHERE login=? LIMIT 1";
+			String sqlstr = "SELECT * FROM accounts WHERE id=? LIMIT 1";
 			pstm = con.prepareStatement(sqlstr);
 			pstm.setString(1, name);
 			rs = pstm.executeQuery();
@@ -148,7 +149,7 @@ public class Account {
 				return null;
 			}
 			account = new Account();
-			account._name = rs.getString("login");
+			account._name = rs.getString("id");
 			account._password = rs.getString("password");
 			account._lastActive = rs.getTimestamp("lastactive");
 			_log.fine("account exists");
@@ -176,7 +177,7 @@ public class Account {
 
 		try {
 			con = DBFactory.getInstance().getConnection();
-			String sqlstr = "UPDATE accounts SET lastactive=? WHERE login = ?";
+			String sqlstr = "UPDATE accounts SET lastactive=? WHERE id = ?";
 			pstm = con.prepareStatement(sqlstr);
 			pstm.setTimestamp(1, ts);
 			pstm.setString(2, account.getName());
@@ -261,9 +262,6 @@ public class Account {
 			if (rs.next()) {
 				_inputPwd = rs.getString("pwd");
 			}
-			SQLUtil.close(rs);
-			SQLUtil.close(pstm);
-			SQLUtil.close(con);
 			if (_pwd.equals(_inputPwd)) { // 동일하다면
 				return true;
 			} else

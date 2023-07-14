@@ -35,8 +35,8 @@ public class Server {
 	}
 
 	private void initDBFactory() {// L1DatabaseFactory 초기설정
-		DBFactory.setDatabaseSettings("com.mysql.jdbc.Driver",
-				"jdbc:mysql://localhost/l1jdb?useUnicode=true&characterEncoding=euckr&autoReconnect=true",
+		DBFactory.setDatabaseSettings("org.mariadb.jdbc.Driver",
+				"jdbc:mysql://localhost:3306/miniproject?useUnicode=true&characterEncoding=euckr&autoReconnect=true",
 				"root", "Tkfkdgo12#$");
 		try {
 			DBFactory.getInstance();

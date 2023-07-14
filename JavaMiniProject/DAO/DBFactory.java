@@ -1,13 +1,17 @@
 package JavaMiniProject.DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Logger;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class DBFactory {
     private static DBFactory _instance = null;
-    private Connection _connection;
-
+	/** 메세지 로그용.  */
+	private static Logger _log = Logger.getLogger(DBFactory.class.getName());
+	/** DB접속 정보를 집계한 것?  */
+	private ComboPooledDataSource _source;
     /* DB 액세스에 필요한 정보들 */
     /** DB접속 드라이버. */
     private static String _driver;
@@ -56,24 +60,19 @@ public class DBFactory {
 
     private DBFactory() throws SQLException {
         try {
-            // 1. JDBC 드라이버 로딩
-            Class.forName(_driver);
-            // 2. Connection 생성
-            _connection = DriverManager.getConnection(_url, _user, _password); // 데이터베이스 연결
+			_source = new ComboPooledDataSource();
+			_source.setDriverClass(_driver);
+			_source.setJdbcUrl(_url);
+			_source.setUser(_user);
+			_source.setPassword(_password);
+
+            _source.getConnection().close();// 데이터베이스 연결
             System.out.println("[Database 연결 성공]");
         } catch (SQLException e) {
             System.out.println("[SQL Error : " + e.getMessage() + "]");
-        } catch (ClassNotFoundException e1) {
-            System.out.println("[JDBC Connector Driver Error : " + e1.getMessage() + "]");
-        } finally {
-            // Connection 사용 후 Close
-            if (_connection != null) {
-                try {
-                    _connection.close();
-                } catch (Exception e) {
-
-                }
-            }
+        } catch (Exception e) {
+			_log.fine("Database Connection FAILED");
+			throw new SQLException("could not init DB connection:" + e);
         }
     }
 
@@ -84,6 +83,15 @@ public class DBFactory {
      * @throws SQLException
      */
     public Connection getConnection() {
-        return _connection;
+		Connection con = null;
+
+		while (con == null) {
+			try {
+				con = _source.getConnection();
+			} catch (SQLException e) {
+				_log.warning("L1DatabaseFactory: getConnection() failed, trying again " + e);
+			}
+		}
+		return con;
     }
 }

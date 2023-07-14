@@ -15,6 +15,8 @@ public class Main {
         while (true) {
             System.out.println(MainPage.getInstance().getPages(userPage == 0 ? 0 : account.getPages()));
             if (account != null) {
+                System.out.print(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "  메뉴를 선택하여 주십시요 : "
+                        + ConsoleColor.RESET);
                 userPage = InputScanner.getInstance().getScanner().nextInt();
                 account.setPages(userPage);
                 if (account.isExit()) {
@@ -27,9 +29,11 @@ public class Main {
                 System.out.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "로그인이 필요합니다.\n"
                         + "만약 회원 가입을 하지 않았다면 먼저 회원 가입을 하여 주시기 바랍니다."
                         + ConsoleColor.RESET);
+                System.out.print(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "  메뉴를 선택하여 주십시요 : "
+                        + ConsoleColor.RESET);
                 userPage = InputScanner.getInstance().getScanner().nextInt();
                 setPage(account, userPage);
-            }            
+            }
         }
     }
 
@@ -39,7 +43,7 @@ public class Main {
                 account = Login.getInstance().isLogin();
                 break;
             case PageId.CREATEACCOUNT:
-                if (!CreateAccount.getInstance().create()){
+                if (!CreateAccount.getInstance().create()) {
                     System.out.println("계정 생성에 실패하였습니다.");
                 }
                 break;
