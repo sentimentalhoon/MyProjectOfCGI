@@ -17,9 +17,12 @@ public class CreateAccount {
     }
 
     public boolean create() {
-        System.out.print("계정명 : ");
+        System.out.println("\n=====================================================================================================================");
+        System.out.println("\t\t게스트 계정으로 로그인 하셨습니다. 회원 가입을 진행합니다.");
+        System.out.println("=====================================================================================================================\n");
+        System.out.print("I D :\t");
         String name = InputScanner.getInstance().getScanner().nextLine();
-        System.out.print("비밀번호 : ");
+        System.out.print("P W :\t");
         String password = InputScanner.getInstance().getScanner().nextLine();
         return Account.create(name, password, "127.0.0.1", "127.0.0.1");
     }

@@ -27,6 +27,7 @@ public class Account {
 	private boolean _isValid = false;
 	/** 현재 상태, 페이지 번호 */
 	private int _page;
+	private int _subPage;
 	/** 메세지 로그용 */
 	private static Logger _log = Logger.getLogger(Account.class.getName());
 
@@ -79,17 +80,13 @@ public class Account {
 				System.out.println("계정명에 불필요한 단어가 포함되어 있습니다.");
 				return false;
 			}
-			Account account = new Account();
-			account._name = name;
-			account._password = rawPassword;
-			account._lastActive = new Timestamp(System.currentTimeMillis());
 
 			con = DBFactory.getInstance().getConnection();
 			String sqlstr = "INSERT INTO accounts SET id=?,password=password(?),lastactive=?";
 			pstm = con.prepareStatement(sqlstr);
-			pstm.setString(1, account._name);
-			pstm.setString(2, account._password);
-			pstm.setTimestamp(3, account._lastActive);
+			pstm.setString(1, name);
+			pstm.setString(2, rawPassword);
+			pstm.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
 			pstm.execute();
 			_log.info("created new account for " + name);
 			System.out.println("계정이 만들어졌습니다.");
@@ -133,12 +130,11 @@ public class Account {
 	 * @return Account
 	 */
 
-	public static Account load(final String name) {
+	public static Account load(final Account account, final String name) {
 		Connection con = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 
-		Account account = null;
 		try {
 			con = DBFactory.getInstance().getConnection();
 			String sqlstr = "SELECT * FROM accounts WHERE id=? LIMIT 1";
@@ -146,9 +142,8 @@ public class Account {
 			pstm.setString(1, name);
 			rs = pstm.executeQuery();
 			if (!rs.next()) {
-				return null;
+				return account;
 			}
-			account = new Account();
 			account._name = rs.getString("id");
 			account._password = rs.getString("password");
 			account._lastActive = rs.getTimestamp("lastactive");
@@ -229,7 +224,9 @@ public class Account {
 	public String getName() {
 		return _name;
 	}
-
+	public void setName(String name) {
+		this._name = name;;
+	}
 	public Timestamp getLastActive() {
 		return _lastActive;
 	}
@@ -238,8 +235,16 @@ public class Account {
 		return _page;
 	}
 
-	public int setPages(int _page) {
-		return this._page = _page;
+	public void setPages(int _page) {
+		this._page = _page;
+	}
+
+	public int getSubPage() {
+		return _subPage;
+	}
+
+	public void setSubPage(int _subPage) {
+		this._subPage = _subPage;
 	}
 
 	public boolean isExit() {

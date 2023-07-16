@@ -1,6 +1,7 @@
 package JavaMiniProject;
 
 import JavaMiniProject.Account.Account;
+import JavaMiniProject.Board.BoardId;
 import JavaMiniProject.Utils.ConsoleColor;
 import JavaMiniProject.Utils.InputScanner;
 
@@ -10,51 +11,64 @@ public class Main {
         Server.createServer().start();
         Account account = new Account();
 
-        int userPage = 0;
-
+        char userPage = 0;
+        int third = 0;
         while (true) {
-            System.out.println(MainPage.getInstance().getPages(userPage == 0 ? 0 : account.getPages()));
-            if (account != null) {
-                System.out.print(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "  메뉴를 선택하여 주십시요 : "
-                        + ConsoleColor.RESET);
-                userPage = InputScanner.getInstance().getScanner().nextInt();
-                account.setPages(userPage);
+            System.out.print(
+                    MainPage.getInstance().getPage(account.getPages(), account.getSubPage(), third));
+            third = 0;
+            if (account.getPages() == PageId.NOTHING || account.getPages() == PageId.LOGIN) {
+                String accountName = "";
+                try {
+                    accountName = InputScanner.getInstance().getScanner().nextLine().trim().toLowerCase();
+                } catch (Exception e) {
+                    System.out.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "잘못된 인자를 입력하였습니다."
+                            + ConsoleColor.RESET);
+                    continue;
+                }
+
+                if (accountName.equals("손님") || accountName.equals("guest")) {
+                    account.setName(accountName);
+                    account.setPages(PageId.CREATEACCOUNT);
+                    PageHandler.handlePage(account, PageId.CREATEACCOUNT, account.getName());
+                    account.setPages(PageId.LOGIN);
+                } else {
+                    account = PageHandler.handlePage(account, PageId.LOGIN, accountName);
+                    if (account.isValid())
+                        account.setPages(PageId.MAIN);
+                }
+            } else {
+                if (!account.isValid()) {
+                    account.setPages(PageId.LOGIN);
+                    continue;
+                }
+                try {
+                    String[] input = InputScanner.getInstance().getScanner().nextLine().toLowerCase().split(" ");
+                    userPage = input[0].toCharArray()[0];
+                    if (input.length > 1)
+                        third = Integer.parseInt(input[1]);
+                } catch (Exception e) {
+                    System.out.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "없는 명령어입니다!"
+                            + ConsoleColor.RESET);
+                    continue;
+                }
+                if (account.getPages() == PageId.BOARD) {
+                    account.setSubPage(userPage);
+                } else {
+                    if (userPage == PageId.BOARD) {
+                        account.setSubPage(BoardId.BOARDLIST);
+                    } else {
+                        account.setSubPage(BoardId.BOARDNOTHING);
+                    }
+                    account.setPages(userPage);
+                }
                 if (account.isExit()) {
                     System.out.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "종료 되었습니다."
                             + ConsoleColor.RESET);
                     break;
                 }
-                setPage(account, account.getPages());
-            } else {
-                System.out.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "로그인이 필요합니다.\n"
-                        + "만약 회원 가입을 하지 않았다면 먼저 회원 가입을 하여 주시기 바랍니다."
-                        + ConsoleColor.RESET);
-                System.out.print(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "  메뉴를 선택하여 주십시요 : "
-                        + ConsoleColor.RESET);
-                userPage = InputScanner.getInstance().getScanner().nextInt();
-                setPage(account, userPage);
+                account = PageHandler.handlePage(account, account.getPages(), null);
             }
-        }
-    }
-
-    private static void setPage(Account account, int page) {
-        switch (page) {
-            case PageId.LOGIN:
-                account = Login.getInstance().isLogin();
-                break;
-            case PageId.CREATEACCOUNT:
-                if (!CreateAccount.getInstance().create()) {
-                    System.out.println("계정 생성에 실패하였습니다.");
-                }
-                break;
-            case PageId.RANKING:
-                break;
-            case PageId.ADMIN:
-                break;
-            case PageId.EXIT:
-                break;
-            default:
-                break;
         }
     }
 }

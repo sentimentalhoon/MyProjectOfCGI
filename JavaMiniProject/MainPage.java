@@ -1,9 +1,10 @@
 package JavaMiniProject;
 
-import java_ex_music_player.ConsoleColor;
+import JavaMiniProject.Pages.BottomPage;
+import JavaMiniProject.Pages.MiddlePage;
+import JavaMiniProject.Pages.TopPage;
 
 public class MainPage {
-
     private static MainPage _instance = null;
 
     public static MainPage getInstance() {
@@ -16,99 +17,11 @@ public class MainPage {
     public MainPage() {
     }
 
-    public String getPages(int page) {
-        StringBuilder strB = new StringBuilder();
-        strB.append("\n\n\n\n\n\n\n\n\n\n\n");
-        strB.append("\n==============================================================================================\n");
-        switch (page) {
-            case PageId.LOGIN:
-                strB.append(ConsoleColor.BLACK_BACKGROUND_BRIGHT);
-                strB.append("[1] 로그인");
-                strB.append(ConsoleColor.RESET);
-                strB.append("\t");
-                strB.append("[2] 회원가입");
-                strB.append("\t");
-                strB.append("[3] 랭킹");
-                strB.append("\t");
-                strB.append("[4] 관리자");
-                strB.append("\t");
-                strB.append("[5] 종료");
-                strB.append(ConsoleColor.RESET);
-                strB.append("\n==============================================================================================\n");
-                return strB.toString();
-            case PageId.CREATEACCOUNT:
-                strB.append("[1] 로그인");
-                strB.append("\t");
-                strB.append(ConsoleColor.BLACK_BACKGROUND_BRIGHT);
-                strB.append("[2] 회원가입");
-                strB.append(ConsoleColor.RESET);
-                strB.append("\t");
-                strB.append("[3] 랭킹");
-                strB.append("\t");
-                strB.append("[4] 관리자");
-                strB.append("\t");
-                strB.append("[5] 종료");
-                strB.append(ConsoleColor.RESET);
-                strB.append("\n==============================================================================================\n");
-                return strB.toString();
-            case PageId.RANKING:
-                strB.append("[1] 로그인");
-
-                strB.append("\t");
-                strB.append("[2] 회원가입");
-
-                strB.append("\t");
-                strB.append(ConsoleColor.BLACK_BACKGROUND_BRIGHT);
-                strB.append("[3] 랭킹");
-                strB.append(ConsoleColor.RESET);
-                strB.append("\t");
-                strB.append("[4] 관리자");
-                strB.append("\t");
-                strB.append("[5] 종료");
-                strB.append(ConsoleColor.RESET);
-                strB.append("\n==============================================================================================\n");
-                return strB.toString();
-            case PageId.ADMIN:
-                strB.append("[1] 로그인");
-                strB.append("\t");
-                strB.append("[2] 회원가입");
-                strB.append("\t");
-                strB.append("[3] 랭킹");
-                strB.append("\t");
-                strB.append(ConsoleColor.BLACK_BACKGROUND_BRIGHT);
-                strB.append("[4] 관리자");
-                strB.append(ConsoleColor.RESET);
-                strB.append("\t");
-                strB.append("[5] 종료");
-                strB.append(ConsoleColor.RESET);
-                strB.append("\n==============================================================================================\n");
-                return strB.toString();
-            case PageId.EXIT:
-                strB.append("[1] 로그인");
-                strB.append("\t");
-                strB.append("[2] 회원가입");
-                strB.append("\t");
-                strB.append("[3] 랭킹");
-                strB.append("\t");
-                strB.append("[4] 관리자");
-                strB.append("\t");
-                strB.append(ConsoleColor.BLACK_BACKGROUND_BRIGHT);
-                strB.append("[5] 종료");
-                strB.append(ConsoleColor.RESET);
-                strB.append("\n==============================================================================================\n");
-                return strB.toString();
-            default:
-                strB.append("[1] 로그인");
-                strB.append("\t");
-                strB.append("[2] 회원가입");
-                strB.append("\t");
-                strB.append("[3] 랭킹");
-                strB.append("\t");
-                strB.append("[4] 관리자");
-                strB.append("\t");
-                strB.append("[5] 종료");
-                strB.append("\n==============================================================================================\n");
-                return strB.toString();
-        }
+    public String getPage(int page, int subPage, int third) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(TopPage.getInstance().getPages(page));
+        stringBuilder.append(MiddlePage.getInstance().getPages(page, subPage, third));
+        stringBuilder.append(BottomPage.getInstance().getPages(page));
+        return stringBuilder.toString();
     }
 }

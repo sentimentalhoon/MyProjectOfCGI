@@ -5,12 +5,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AccountNameFilter {
-    private static Logger _log = Logger.getLogger(AccountNameFilter.class
-    .getName());
+	private static Logger _log = Logger.getLogger(AccountNameFilter.class
+			.getName());
 
-    private static AccountNameFilter _instance = null;
+	private static AccountNameFilter _instance = null;
 
-    public static AccountNameFilter getInstance() {
+	public static AccountNameFilter getInstance() {
 		if (_instance == null) {
 			_instance = new AccountNameFilter();
 		}
@@ -20,16 +20,13 @@ public class AccountNameFilter {
 	private AccountNameFilter() {
 	}
 
-    public Boolean nameFilter(String name){
+	public Boolean nameFilter(String name) {
 		if (name.length() == 0) {
 			return false;
 		}
-        
-		if (isInvalidName(name)) {
-            return false;
-		}
-        return true;
-    }
+
+		return isInvalidName(name);
+	}
 
 	private static boolean isAlphaNumeric(String s) {
 		boolean flag = true;
@@ -56,11 +53,15 @@ public class AccountNameFilter {
 			_log.log(Level.SEVERE, e.getLocalizedMessage(), e);
 			return false;
 		}
-
-		if (isAlphaNumeric(name)) {
+		if (!name.matches("^[a-zA-Z0-9]+$")) {
 			return false;
 		}
-		// 문자가 5 문자를 넘는지, 전체로 12바이트를 넘으면(자) 무효인 이름으로 한다
+		if (name.matches("^[0-9].*$")) {
+			return false;
+		}
+		if (!isAlphaNumeric(name)) {
+			return false;
+		}
 		if (5 < (numOfNameBytes - name.length()) || 12 < numOfNameBytes) {
 			return false;
 		}
