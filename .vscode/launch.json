@@ -2,6 +2,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MemberDelete",
+            "request": "launch",
+            "mainClass": "ex_23_07_14.JDBC.MemberDelete",
+            "projectName": "MyProjectOfCGI_ba4515ca"
+        },
+        {
+            "type": "java",
+            "name": "MemberLogin",
+            "request": "launch",
+            "mainClass": "ex_23_07_14.JDBC.MemberLogin",
+            "projectName": "MyProjectOfCGI_ba4515ca"
+        },
+        {
+            "type": "java",
+            "name": "MemberJoin",
+            "request": "launch",
+            "mainClass": "ex_23_07_14.JDBC.MemberJoin",
+            "projectName": "MyProjectOfCGI_ba4515ca"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "JavaMiniProject.Main",
+            "projectName": "MyProjectOfCGI_ba4515ca"
+        },
+        {
+            "type": "java",
             "name": "BoardApplication",
             "request": "launch",
             "mainClass": "JavaMiniProject.ConsoleManager.BoardApplication",

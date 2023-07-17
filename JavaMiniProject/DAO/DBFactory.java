@@ -65,7 +65,7 @@ public class DBFactory {
 			_source.setJdbcUrl(_url);
 			_source.setUser(_user);
 			_source.setPassword(_password);
-
+            
             _source.getConnection().close();// 데이터베이스 연결
             System.out.println("[Database 연결 성공]");
         } catch (SQLException e) {
@@ -83,15 +83,15 @@ public class DBFactory {
      * @throws SQLException
      */
     public Connection getConnection() {
-		Connection con = null;
+		Connection connection = null;
 
-		while (con == null) {
+		while (connection == null) {
 			try {
-				con = _source.getConnection();
+				connection = _source.getConnection();
 			} catch (SQLException e) {
 				_log.warning("L1DatabaseFactory: getConnection() failed, trying again " + e);
 			}
 		}
-		return con;
+		return connection;
     }
 }

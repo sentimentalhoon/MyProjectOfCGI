@@ -68,9 +68,8 @@ public class Account {
 	 */
 	public static boolean create(final String name, final String rawPassword,
 			final String ip, final String host) {
-		Connection con = null;
 		PreparedStatement pstm = null;
-		try {
+		try (Connection con = DBFactory.getInstance().getConnection()) {
 			if (doesCharNameExist(name)) {
 				System.out.println("해당 계정명이 존재합니다.");
 				return false;
@@ -81,7 +80,6 @@ public class Account {
 				return false;
 			}
 
-			con = DBFactory.getInstance().getConnection();
 			String sqlstr = "INSERT INTO accounts SET id=?,password=password(?),lastactive=?";
 			pstm = con.prepareStatement(sqlstr);
 			pstm.setString(1, name);
@@ -95,7 +93,6 @@ public class Account {
 			_log.log(Level.SEVERE, e.getLocalizedMessage(), e);
 		} finally {
 			SQLUtil.close(pstm);
-			SQLUtil.close(con);
 		}
 		return false;
 	}

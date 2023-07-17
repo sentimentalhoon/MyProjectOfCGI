@@ -22,7 +22,7 @@ public class Main {
                 try {
                     accountName = InputScanner.getInstance().getScanner().nextLine().trim().toLowerCase();
                 } catch (Exception e) {
-                    System.out.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "잘못된 인자를 입력하였습니다."
+                    System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "잘못된 인자를 입력하였습니다."
                             + ConsoleColor.RESET);
                     continue;
                 }
@@ -40,15 +40,15 @@ public class Main {
             } else {
                 if (!account.isValid()) {
                     account.setPages(PageId.LOGIN);
+                    account.setSubPage(BoardId.BOARDNOTHING);
                     continue;
                 }
                 try {
                     String[] input = InputScanner.getInstance().getScanner().nextLine().toLowerCase().split(" ");
                     userPage = input[0].toCharArray()[0];
-                    if (input.length > 1)
-                        third = Integer.parseInt(input[1]);
+                    if (input.length > 1) third = Integer.parseInt(input[1]);
                 } catch (Exception e) {
-                    System.out.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "없는 명령어입니다!"
+                    System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "없는 명령어입니다!"
                             + ConsoleColor.RESET);
                     continue;
                 }
@@ -63,7 +63,7 @@ public class Main {
                     account.setPages(userPage);
                 }
                 if (account.isExit()) {
-                    System.out.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "종료 되었습니다."
+                    System.err.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "종료 되었습니다."
                             + ConsoleColor.RESET);
                     break;
                 }
