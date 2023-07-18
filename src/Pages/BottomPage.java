@@ -1,7 +1,5 @@
 package Pages;
 
-import Main.PageId;
-
 public class BottomPage {
     private static BottomPage _instance = null;
 

@@ -1,6 +1,7 @@
 package Main;
 
 import Account.Account;
+import Pages.PageId;
 
 public class PageHandler {
     public PageHandler(Account account) {

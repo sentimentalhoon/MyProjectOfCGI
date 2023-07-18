@@ -6,7 +6,6 @@ import java.util.Map;
 import Board.Board;
 import Board.BoardDao;
 import Board.BoardId;
-import Main.PageId;
 
 public class MiddlePage {
     private static MiddlePage _instance = null;

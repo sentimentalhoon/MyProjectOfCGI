@@ -1,4 +1,4 @@
-package Main;
+package Pages;
 
 public class PageId {
     public static final int NOTHING = 0;

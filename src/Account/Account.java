@@ -12,9 +12,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import DAO.DBFactory;
+import Pages.PageId;
 import Utils.Base64;
 import Utils.SQLUtil;
-import Main.PageId;
 
 public class Account {
 	/** 계정명 */

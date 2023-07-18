@@ -1,12 +1,10 @@
+package Main;
 
 import Account.Account;
 import Board.BoardId;
 import Utils.ConsoleColor;
 import Utils.InputScanner;
-import Main.MainPage;
-import Main.PageHandler;
-import Main.PageId;
-import Main.Server;
+import Pages.PageId;
 
 public class Main {
 
