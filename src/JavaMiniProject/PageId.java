@@ -1,5 +1,7 @@
 package JavaMiniProject;
 
+
+
 public class PageId {
     public static final int NOTHING = 0;
     public static final int LOGIN = 1;

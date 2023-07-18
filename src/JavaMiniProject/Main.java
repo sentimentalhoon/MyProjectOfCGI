@@ -1,5 +1,7 @@
 package JavaMiniProject;
 
+
+
 import JavaMiniProject.Account.Account;
 import JavaMiniProject.Board.BoardId;
 import JavaMiniProject.Utils.ConsoleColor;
