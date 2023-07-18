@@ -35,6 +35,45 @@ public class Account {
 	}
 
 	/**
+	 * 유효한 계정인가
+	 * 
+	 * @return boolean
+	 */
+	public boolean isValid() {
+		return _isValid;
+	}
+
+	public String getName() {
+		return _name;
+	}
+	public void setName(String name) {
+		this._name = name;;
+	}
+	public Timestamp getLastActive() {
+		return _lastActive;
+	}
+
+	public int getPages() {
+		return _page;
+	}
+
+	public void setPages(int _page) {
+		this._page = _page;
+	}
+
+	public int getSubPage() {
+		return _subPage;
+	}
+
+	public void setSubPage(int _subPage) {
+		this._subPage = _subPage;
+	}
+
+	public boolean isExit() {
+		return (this._page == PageId.EXIT);
+	}
+	
+	/**
 	 * 패스워드를 암호화한다.
 	 * 
 	 * @param rawPassword
@@ -209,44 +248,6 @@ public class Account {
 		return false;
 	}
 
-	/**
-	 * 유효한 계정인가
-	 * 
-	 * @return boolean
-	 */
-	public boolean isValid() {
-		return _isValid;
-	}
-
-	public String getName() {
-		return _name;
-	}
-	public void setName(String name) {
-		this._name = name;;
-	}
-	public Timestamp getLastActive() {
-		return _lastActive;
-	}
-
-	public int getPages() {
-		return _page;
-	}
-
-	public void setPages(int _page) {
-		this._page = _page;
-	}
-
-	public int getSubPage() {
-		return _subPage;
-	}
-
-	public void setSubPage(int _subPage) {
-		this._subPage = _subPage;
-	}
-
-	public boolean isExit() {
-		return (this._page == PageId.EXIT);
-	}
 
 	// 웹 연동을 위한 메소드 추가
 	public static boolean checkPassword(String accountName, String _pwd,

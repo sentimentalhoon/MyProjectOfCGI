@@ -1,5 +1,14 @@
 {
     "configurations": [
+
+        {
+            "type": "java",
+            "name": "BoardApplication",
+            "request": "launch",
+            "mainClass": "JavaMiniProject.ConsoleManager.BoardApplication",
+            "projectName": "MyProjectOfCGI_ba4515ca",
+             "vmArgs": "--module-path C:\\Users\\SMHRD\\Documents\\MyProjectOfCGI\\MyProjectOfCGI\\lib --add-modules javafx.controls,javafx.base,javafx.fxml,javafx.graphics,javafx.media,javafx.web --add-opens=javafx.graphics/javafx.scene=ALL-UNNAMED --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED"
+        },
         {
             "type": "java",
             "name": "MemberDelete",
@@ -34,7 +43,7 @@
             "request": "launch",
             "mainClass": "JavaMiniProject.ConsoleManager.BoardApplication",
             "projectName": "MyProjectOfCGI_90b902e7",
-            "vmArgs": "--module-path lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path --module-path C:\\Users\\SMHRD\\Documents\\MyProjectOfCGI\\MyProjectOfCGI\\lib  --add-modules javafx.controls,javafx.base,javafx.fxml,javafx.graphics,javafx.media,javafx.web --add-opens=javafx.graphics/javafx.scene=ALL-UNNAMED --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED"
         },
         {
             "type": "java",

@@ -4,15 +4,16 @@ public class Member {
     String id;
     String name;
     int age;
-    
+    Boolean isValid;
     public Member(){
 
     }
     
-    public Member(String id, String name, int age) {
+    public Member(String id, String name, int age, Boolean isValid) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.isValid = isValid;
     }
 
     public String getId() {
@@ -32,5 +33,13 @@ public class Member {
     }
     public void setAge(int age) {
         this.age = age;
+    }
+        
+    public Boolean getIsValid() {
+        return isValid;
+    }
+
+    public void setIsValid(Boolean isValid) {
+        this.isValid = isValid;
     }
 }

@@ -6,12 +6,19 @@ import java.util.Scanner;
 public class MemberDelete {
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-            System.out.print("I D : \t");
-            String id = sc.next();
 
-            System.out.print("P W : \t");
-            String pw = sc.next();
             try {
+                DAO.setDatabaseSettings("oracle.jdbc.driver.OracleDriver",
+                        "jdbc:oracle:thin:@localhost:1521:xe",
+                        "service",
+                        "Tkfkdgo12#$");
+                DAO.getInstance();
+                
+                System.out.print("I D : \t");
+                String id = sc.next();
+
+                System.out.print("P W : \t");
+                String pw = sc.next();
                 Member member = MemberTable.getInstance().isLogin(id, pw);
                 if (member.getName() != null) {
                     if (MemberTable.getInstance().deleteMember(id, pw)) {

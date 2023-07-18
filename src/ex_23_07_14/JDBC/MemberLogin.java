@@ -19,7 +19,7 @@ public class MemberLogin {
                 System.out.print("P W : \t");
                 String pw = sc.next();
                 Member member = MemberTable.getInstance().isLogin(id, pw);
-                if (member.getName() != null) {
+                if (member.getIsValid()) {
                     System.out.printf("%s [%d] 님 어서 오십시오.", member.getName(), member.getAge());
                 } else {
                     System.out.println("로그인에 실패하였습니다.");

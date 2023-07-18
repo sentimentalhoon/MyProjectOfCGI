@@ -1,4 +1,4 @@
-package java_ex_music_player;
+package ex_23_07_10.java_ex_music_player;
 
 public class ConsoleColor {
 	// Reset

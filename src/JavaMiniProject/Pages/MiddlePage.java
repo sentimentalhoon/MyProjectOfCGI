@@ -5,8 +5,8 @@ import java.util.Map;
 
 import JavaMiniProject.PageId;
 import JavaMiniProject.Board.Board;
-import JavaMiniProject.Board.BoardId;
 import JavaMiniProject.Board.BoardDao;
+import JavaMiniProject.Board.BoardId;
 
 public class MiddlePage {
     private static MiddlePage _instance = null;

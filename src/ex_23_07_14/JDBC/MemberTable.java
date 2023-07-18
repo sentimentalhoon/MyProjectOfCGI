@@ -64,7 +64,7 @@ public class MemberTable {
         Member member = new Member();
         try {            
             connection = DAO.getInstance().getConnection();
-            pstm = connection.prepareStatement("Select * From aimember Where id=? AND pw=?");
+            pstm = connection.prepareStatement("Select * From aimember Where id=? AND pw=? Limit 1");
             pstm.setString(1, id);
             pstm.setString(2, pw);
             rs = pstm.executeQuery();
@@ -72,6 +72,7 @@ public class MemberTable {
                 member.setId(rs.getString("id"));
                 member.setName(rs.getString("name"));
                 member.setAge(rs.getInt("age"));
+                member.setIsValid(true);
             }
             return member;
         } catch (SQLException e) {
