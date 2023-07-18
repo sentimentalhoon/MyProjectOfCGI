@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "MyProjectOfCGI_ba4515ca"
+        },
+        {
+            "type": "java",
             "name": "MemberList",
             "request": "launch",
             "mainClass": "ex_23_07_14.JDBC.MemberList",
