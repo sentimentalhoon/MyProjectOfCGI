@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.zaxxer.hikari.HikariDataSource;
 
 public class DBFactory {
     private static DBFactory _instance = null;
 	/** 메세지 로그용.  */
 	private static Logger _log = Logger.getLogger(DBFactory.class.getName());
 	/** DB접속 정보를 집계한 것?  */
-	private ComboPooledDataSource _source;
+    private HikariDataSource hikariDataSource;
     /* DB 액세스에 필요한 정보들 */
     /** DB접속 드라이버. */
     private static String _driver;
@@ -60,13 +60,13 @@ public class DBFactory {
 
     private DBFactory() throws SQLException {
         try {
-			_source = new ComboPooledDataSource();
-			_source.setDriverClass(_driver);
-			_source.setJdbcUrl(_url);
-			_source.setUser(_user);
-			_source.setPassword(_password);
-            
-            _source.getConnection().close();// 데이터베이스 연결
+            hikariDataSource = new HikariDataSource();
+            hikariDataSource.setDriverClassName(_driver);
+            hikariDataSource.setJdbcUrl(_url);
+            hikariDataSource.setUsername(_user);
+            hikariDataSource.setPassword(_password);
+
+            hikariDataSource.getConnection().close();// 데이터베이스 연결
             System.out.println("[Database 연결 성공]");
         } catch (SQLException e) {
             System.out.println("[SQL Error : " + e.getMessage() + "]");
@@ -87,7 +87,7 @@ public class DBFactory {
 
 		while (connection == null) {
 			try {
-				connection = _source.getConnection();
+				connection = hikariDataSource.getConnection();
 			} catch (SQLException e) {
 				_log.warning("L1DatabaseFactory: getConnection() failed, trying again " + e);
 			}
