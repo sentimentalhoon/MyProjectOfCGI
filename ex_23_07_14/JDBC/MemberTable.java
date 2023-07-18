@@ -57,26 +57,29 @@ public class MemberTable {
         }
     }
 
-    public String isLogin(String id, String pw) {
+    public Member isLogin(String id, String pw) {
         ResultSet rs = null;
         PreparedStatement pstm = null;
         Connection connection = null;
-        try {
+        Member member = new Member();
+        try {            
             connection = DAO.getInstance().getConnection();
             pstm = connection.prepareStatement("Select * From aimember Where id=? AND pw=?");
             pstm.setString(1, id);
             pstm.setString(2, pw);
             rs = pstm.executeQuery();
             while (rs.next()) {
-                return rs.getString("name");
+                member.setId(rs.getString("id"));
+                member.setName(rs.getString("name"));
+                member.setAge(rs.getInt("age"));
             }
+            return member;
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+            return member;
         } finally {
             close(rs, pstm, connection);
         }
-        return null;
     }
 
     public SQLException close(Connection con) {

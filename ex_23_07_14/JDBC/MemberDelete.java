@@ -12,8 +12,8 @@ public class MemberDelete {
             System.out.print("P W : \t");
             String pw = sc.next();
             try {
-                String name = MemberTable.getInstance().isLogin(id, pw);
-                if (name != null) {
+                Member member = MemberTable.getInstance().isLogin(id, pw);
+                if (member.getName() != null) {
                     if (MemberTable.getInstance().deleteMember(id, pw)) {
                         System.out.printf("계정 [ %s ] 이 삭제되었습니다.");
                     } else {

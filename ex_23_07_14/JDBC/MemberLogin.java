@@ -6,15 +6,21 @@ import java.util.Scanner;
 public class MemberLogin {
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-            System.out.print("I D : \t");
-            String id = sc.next();
-
-            System.out.print("P W : \t");
-            String pw = sc.next();
             try {
-                String name = MemberTable.getInstance().isLogin(id, pw);
-                if (name != null) {
-                    System.out.printf("[ %s ] 님 어서 오십시오.", name);
+                DAO.setDatabaseSettings("oracle.jdbc.driver.OracleDriver",
+                        "jdbc:oracle:thin:@localhost:1521:xe",
+                        "service",
+                        "Tkfkdgo12#$");
+                DAO.getInstance();
+
+                System.out.print("I D : \t");
+                String id = sc.next();
+
+                System.out.print("P W : \t");
+                String pw = sc.next();
+                Member member = MemberTable.getInstance().isLogin(id, pw);
+                if (member.getName() != null) {
+                    System.out.printf("%s [%d] 님 어서 오십시오.", member.getName(), member.getAge());
                 } else {
                     System.out.println("로그인에 실패하였습니다.");
                 }
