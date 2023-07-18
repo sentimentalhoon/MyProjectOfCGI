@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class MemberTable {
     private static MemberTable _instance = null;
@@ -26,6 +27,26 @@ public class MemberTable {
         try {
             connection = DAO.getInstance().getConnection();
             pstm = connection.prepareStatement("INSERT INTO aimember values (?, ?, ? , ?)");
+            pstm.setString(1, id);
+            pstm.setString(2, pw);
+            pstm.setString(3, name);
+            pstm.setInt(4, age);
+            pstm.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            close(pstm, connection);
+        }
+    }
+
+    public boolean updateData(String id, String pw, String name, int age) {
+        PreparedStatement pstm = null;
+        Connection connection = null;
+        try {
+            connection = DAO.getInstance().getConnection();
+            pstm = connection.prepareStatement("UPDATE INTO aimember values (?, ?, ? , ?)");
             pstm.setString(1, id);
             pstm.setString(2, pw);
             pstm.setString(3, name);
@@ -62,7 +83,7 @@ public class MemberTable {
         PreparedStatement pstm = null;
         Connection connection = null;
         Member member = new Member();
-        try {            
+        try {
             connection = DAO.getInstance().getConnection();
             pstm = connection.prepareStatement("Select * From aimember Where id=? AND pw=? Limit 1");
             pstm.setString(1, id);
@@ -78,6 +99,32 @@ public class MemberTable {
         } catch (SQLException e) {
             e.printStackTrace();
             return member;
+        } finally {
+            close(rs, pstm, connection);
+        }
+    }
+
+    public ArrayList<Member> getMemberList(){
+        ResultSet rs = null;
+        PreparedStatement pstm = null;
+        Connection connection = null;
+        ArrayList<Member> arrayListMember = new ArrayList<Member>();        
+        try {
+            connection = DAO.getInstance().getConnection();
+            pstm = connection.prepareStatement("Select * From aimember");
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Member member = new Member();
+                member.setId(rs.getString("id"));
+                member.setName(rs.getString("name"));
+                member.setAge(rs.getInt("age"));
+                member.setIsValid(true);
+                arrayListMember.add(member);
+            }
+            return arrayListMember;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return arrayListMember;
         } finally {
             close(rs, pstm, connection);
         }

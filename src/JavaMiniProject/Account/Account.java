@@ -119,12 +119,18 @@ public class Account {
 				return false;
 			}
 
-			String sqlstr = "INSERT INTO accounts SET id=?,password=password(?),lastactive=?";
+			String sqlstr = "INSERT INTO accounts (id, password, lastactive) VALUES (?, ?, ?)";
 			pstm = con.prepareStatement(sqlstr);
 			pstm.setString(1, name);
-			pstm.setString(2, rawPassword);
+			try {
+				pstm.setString(2, encodePassword(rawPassword));
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 			pstm.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
-			pstm.execute();
+			pstm.executeUpdate();
 			_log.info("created new account for " + name);
 			System.out.println("계정이 만들어졌습니다.");
 			return true;
@@ -173,7 +179,7 @@ public class Account {
 
 		try {
 			con = DBFactory.getInstance().getConnection();
-			String sqlstr = "SELECT * FROM accounts WHERE id=? LIMIT 1";
+			String sqlstr = "SELECT * FROM accounts WHERE id=?";
 			pstm = con.prepareStatement(sqlstr);
 			pstm.setString(1, name);
 			rs = pstm.executeQuery();

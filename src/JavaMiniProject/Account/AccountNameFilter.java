@@ -48,21 +48,24 @@ public class AccountNameFilter {
 	private static boolean isInvalidName(String name) {
 		int numOfNameBytes = 0;
 		try {
-			numOfNameBytes = name.getBytes("EUC-KR").length;
+			numOfNameBytes = name.getBytes("UTF-8").length;
+			if (5 < (numOfNameBytes - name.length()) || 12 < numOfNameBytes) {
+				return false;
+			}
 		} catch (UnsupportedEncodingException e) {
 			_log.log(Level.SEVERE, e.getLocalizedMessage(), e);
 			return false;
 		}
-		if (!name.matches("^[a-zA-Z0-9]+$")) {
+		if (!name.matches("^[a-zA-Z].*$")) {
 			return false;
 		}
 		if (name.matches("^[0-9].*$")) {
 			return false;
 		}
-		if (!isAlphaNumeric(name)) {
+		if (!name.matches("^[a-zA-Z0-9]+$")) {
 			return false;
 		}
-		if (5 < (numOfNameBytes - name.length()) || 12 < numOfNameBytes) {
+		if (!isAlphaNumeric(name)) {
 			return false;
 		}
 		return true;

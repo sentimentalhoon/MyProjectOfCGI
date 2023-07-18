@@ -9,7 +9,7 @@ public class Member {
 
     }
     
-    public Member(String id, String name, int age, Boolean isValid) {
+    public Member(final String id, final String name, final int age, final Boolean isValid) {
         this.id = id;
         this.name = name;
         this.age = age;
