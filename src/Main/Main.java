@@ -71,6 +71,8 @@ public class Main {
                 }
                 account = PageHandler.handlePage(account, account.getPages(), null);
             }
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
         }
     }
 }
