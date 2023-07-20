@@ -36,8 +36,8 @@ public class Server {
 
 	private void initDBFactory() {// L1DatabaseFactory 초기설정
 		DBFactory.setDatabaseSettings("oracle.jdbc.driver.OracleDriver",
-				"jdbc:oracle:thin:@localhost:1521:xe",
-				"service", "Tkfkdgo12#$");
+				"jdbc:oracle:thin:@project-db-cgi.smhrd.com:1524:xe",
+				"cgi_5_230721_2", "smhrd2");
 		try {
 			DBFactory.getInstance();
 		} catch (Exception e) { /* e.printStackTrace(); */

@@ -6,13 +6,15 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import Account.Account;
 import Utils.InputScanner;
 
 public class Blackjack {
-    public static void main(String[] args) {
+	
+	public void Blackjack1(Account account) {
         // 카드 덱 생성
         List<String> deck = createDeck();
-        
+        account.getName() + "님 반갑습니다."
         // 딜러와 플레이어 카드 리스트 생성
         List<String> dealerHand = new ArrayList<>(); // 딜러
         List<String> playerHand = new ArrayList<>(); // 플레이어
