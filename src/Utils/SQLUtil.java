@@ -40,6 +40,10 @@ public class SQLUtil {
 		return null;
 	}
 
+	public static void close(Statement pstm, Connection con) {
+		close(pstm);
+		close(con);
+	}
 	public static void close(ResultSet rs, Statement pstm, Connection con) {
 		close(rs);
 		close(pstm);

@@ -46,9 +46,12 @@ public class Account {
 	public String getName() {
 		return _name;
 	}
+
 	public void setName(String name) {
-		this._name = name;;
+		this._name = name;
+		;
 	}
+
 	public Timestamp getLastActive() {
 		return _lastActive;
 	}
@@ -72,7 +75,7 @@ public class Account {
 	public boolean isExit() {
 		return (this._page == PageId.EXIT);
 	}
-	
+
 	/**
 	 * 패스워드를 암호화한다.
 	 * 
@@ -157,9 +160,7 @@ public class Account {
 		} catch (SQLException e) {
 			_log.warning("could not check existing charname:" + e.getMessage());
 		} finally {
-			SQLUtil.close(rs);
-			SQLUtil.close(pstm);
-			SQLUtil.close(con);
+			SQLUtil.close(rs, pstm, con);
 		}
 		return result;
 	}
@@ -193,9 +194,7 @@ public class Account {
 		} catch (SQLException e) {
 			_log.log(Level.SEVERE, e.getLocalizedMessage(), e);
 		} finally {
-			SQLUtil.close(rs);
-			SQLUtil.close(pstm);
-			SQLUtil.close(con);
+			SQLUtil.close(rs, pstm, con);
 		}
 
 		return account;
@@ -224,8 +223,7 @@ public class Account {
 		} catch (Exception e) {
 			_log.log(Level.SEVERE, e.getLocalizedMessage(), e);
 		} finally {
-			SQLUtil.close(pstm);
-			SQLUtil.close(con);
+			SQLUtil.close(pstm, con);
 		}
 	}
 
