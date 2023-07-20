@@ -6,6 +6,7 @@ import java.util.Map;
 import Board.Board;
 import Board.BoardDao;
 import Board.BoardId;
+import Game.GameId;
 
 public class MiddlePage {
     private static MiddlePage _instance = null;
@@ -141,30 +142,36 @@ public class MiddlePage {
                         return strB.toString();
                 }
             case PageId.GAME:
-                strB.append("\n")
-                        .append("\tGame List\n")
-                        .append("\t\n")
-                        .append("\tGiwon Presents : BlackJack\n")
-                        .append("\t단축키 : J\n")
-                        
-                        .append("\t\n")
-                        .append("\tHero Presents : Baccarat\n")
-                        .append("\t단축키 : B\n")
-                        .append("\t .----------------.  .----------------.  .----------------.  .----------------. \n")
-                        .append("\t| .--------------. || .--------------. || .--------------. || .--------------. |\n")
-                        .append("\t| |    ______    | || |      __      | || | ____    ____ | || |  _________   | |\n")
-                        .append("\t| |  .' ___  |   | || |     /  \\     | || ||_   \\  /   _|| || | |_   ___  |  | |\n")
-                        .append("\t| | / .'   \\_|   | || |    / /\\ \\    | || |  |   \\/   |  | || |   | |_  \\_|  | |\n")
-                        .append("\t| | | |    ____  | || |   / ____ \\   | || |  | |\\  /| |  | || |   |  _|  _   | |\n")
-                        .append("\t| | \\ `.___]  _| | || | _/ /    \\ \\_ | || | _| |_\\/_| |_ | || |  _| |___/ |  | |\n")
-                        .append("\t| |  `._____.'   | || ||____|  |____|| || ||_____||_____|| || | |_________|  | |\n")
-                        .append("\t| |              | || |              | || |              | || |              | |\n")
-                        .append("\t| '--------------' || '--------------' || '--------------' || '--------------' |\n")
-                        .append("\t '----------------'  '----------------'  '----------------'  '----------------' \n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("");
-                return strB.toString();
+                switch (secondPage) {
+                    case GameId.BACCARAT:
+                    case GameId.BLACKJACK:
+                        return "";
+                    default:
+                        strB.append("\n")
+                                .append("\tGame List\n")
+                                .append("\t\n")
+                                .append("\tGiwon Presents : BlackJack\n")
+                                .append("\t단축키 : J\n")
+
+                                .append("\t\n")
+                                .append("\tHero Presents : Baccarat\n")
+                                .append("\t단축키 : B\n")
+                                .append("\t .----------------.  .----------------.  .----------------.  .----------------. \n")
+                                .append("\t| .--------------. || .--------------. || .--------------. || .--------------. |\n")
+                                .append("\t| |    ______    | || |      __      | || | ____    ____ | || |  _________   | |\n")
+                                .append("\t| |  .' ___  |   | || |     /  \\     | || ||_   \\  /   _|| || | |_   ___  |  | |\n")
+                                .append("\t| | / .'   \\_|   | || |    / /\\ \\    | || |  |   \\/   |  | || |   | |_  \\_|  | |\n")
+                                .append("\t| | | |    ____  | || |   / ____ \\   | || |  | |\\  /| |  | || |   |  _|  _   | |\n")
+                                .append("\t| | \\ `.___]  _| | || | _/ /    \\ \\_ | || | _| |_\\/_| |_ | || |  _| |___/ |  | |\n")
+                                .append("\t| |  `._____.'   | || ||____|  |____|| || ||_____||_____|| || | |_________|  | |\n")
+                                .append("\t| |              | || |              | || |              | || |              | |\n")
+                                .append("\t| '--------------' || '--------------' || '--------------' || '--------------' |\n")
+                                .append("\t '----------------'  '----------------'  '----------------'  '----------------' \n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("");
+                        return strB.toString();
+                }
             case PageId.ADMIN:
                 strB.append("\n")
                         .append("\tAdmin Page Login Complete\n")
