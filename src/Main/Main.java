@@ -21,7 +21,7 @@ public class Main {
             if (account.getPages() == PageId.NOTHING || account.getPages() == PageId.LOGIN) {
                 String accountName = "";
                 try {
-                    accountName = InputScanner.getInstance().getScanner().nextLine().trim().toLowerCase();
+                    accountName = InputScanner.getScanner().nextLine().trim().toLowerCase();
                 } catch (Exception e) {
                     System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "잘못된 인자를 입력하였습니다."
                             + ConsoleColor.RESET);
@@ -43,9 +43,9 @@ public class Main {
                     account.setPages(PageId.LOGIN);
                     account.setSubPage(BoardId.BOARDNOTHING);
                     continue;
-                }
+                } 
                 try {
-                    String[] input = InputScanner.getInstance().getScanner().nextLine().toLowerCase().split(" ");
+                    String[] input = InputScanner.getScanner().nextLine().toLowerCase().split(" ");
                     userPage = input[0].toCharArray()[0];
                     if (input.length > 1)
                         third = Integer.parseInt(input[1]);
@@ -71,8 +71,6 @@ public class Main {
                 }
                 account = PageHandler.handlePage(account, account.getPages(), null);
             }
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
         }
     }
 }

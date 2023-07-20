@@ -242,45 +242,13 @@ public class Account {
 		// return false;
 		// }
 		try {
-			_isValid = (_password.equals(encodePassword(rawPassword)) || checkPassword(
-					accountName, _password, rawPassword));
+			_isValid = (_password.equals(encodePassword(rawPassword)));
 			if (_isValid) {
-				_password = null; // 인증이 성공했을 경우, 패스워드를 파기한다.
+				_password = null;
 			}
 			return _isValid;
 		} catch (Exception e) {
 			_log.log(Level.SEVERE, e.getLocalizedMessage(), e);
-		}
-		return false;
-	}
-
-
-	// 웹 연동을 위한 메소드 추가
-	public static boolean checkPassword(String accountName, String _pwd,
-			String rawPassword) {
-		String _inputPwd = null;
-		Connection con = null;
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-		try {
-			con = DBFactory.getInstance().getConnection();
-			pstm = con.prepareStatement("SELECT password(?) as pwd ");
-
-			pstm.setString(1, rawPassword);
-			rs = pstm.executeQuery();
-			if (rs.next()) {
-				_inputPwd = rs.getString("pwd");
-			}
-			if (_pwd.equals(_inputPwd)) { // 동일하다면
-				return true;
-			} else
-				return false;
-		} catch (Exception e) {
-			_log.log(Level.SEVERE, e.getLocalizedMessage(), e);
-		} finally {
-			SQLUtil.close(rs);
-			SQLUtil.close(pstm);
-			SQLUtil.close(con);
 		}
 		return false;
 	}

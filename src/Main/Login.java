@@ -21,7 +21,7 @@ public class Login {
         account = Account.load(account, id);
         if (account.getName() != null) {
             System.out.print("P W :\t");
-            String pw = InputScanner.getInstance().getScanner().nextLine();
+            String pw = InputScanner.getScanner().nextLine();
             if (account.validatePassword(account.getName(), pw)) {
                 AccountController.getInstance().login(account);
                 Account.updateLastActive(account);
