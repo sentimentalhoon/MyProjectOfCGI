@@ -33,23 +33,23 @@ public class BottomPage {
                 return strB.toString();
             case PageId.TOPPAGE:
             case PageId.MAIN:
-                strB.append("명령어안내(C) 도움말(H) 초기화면(T) 이동(G) 종료(X)\n");
+                strB.append("초기화면(T) 랭킹(R) 게시판(B) 게임(G) 종료(X)\n");
                 strB.append("선택>\t");
                 return strB.toString();
             case PageId.RANKING:
-                strB.append("명령어안내(C) 도움말(H) 초기화면(T) 이동(G) 종료(X)\n");
+                strB.append("명령어안내(C) 도움말(H) 초기화면(T) 게임(G) 종료(X)\n");
                 strB.append("선택>\t");
                 return strB.toString();
             case PageId.BOARD:
-                strB.append("명령어안내(C) 읽기(R) 쓰기(W) 수정(M) 초기화면(T) 이동(G) 종료(X)\n");
+                strB.append("읽기(R) 쓰기(W) 수정(M) 초기화면(T) 종료(X)\n");
                 strB.append("선택>\t");
                 return strB.toString();
             case PageId.GAME:
-                strB.append("명령어안내(C) 도움말(H) 초기화면(T) 이동(G) 종료(X)\n");
+                strB.append("명령어안내(C) 도움말(H) 초기화면(T) 게임(G) 종료(X)\n");
                 strB.append("선택>\t");
                 return strB.toString();
             case PageId.ADMIN:
-                strB.append("명령어안내(C) 도움말(H) 초기화면(T) 이동(G) 종료(X)\n");
+                strB.append("명령어안내(C) 도움말(H) 초기화면(T) 게임(G) 종료(X)\n");
                 strB.append("선택>\t");
                 return strB.toString();
             case PageId.EXIT:
