@@ -14,7 +14,7 @@ public class Blackjack {
 	public void Blackjack1(Account account) {
         // 카드 덱 생성
         List<String> deck = createDeck();
-        account.getName() + "님 반갑습니다."
+//        account.getName() + "님 반갑습니다."
         // 딜러와 플레이어 카드 리스트 생성
         List<String> dealerHand = new ArrayList<>(); // 딜러
         List<String> playerHand = new ArrayList<>(); // 플레이어
