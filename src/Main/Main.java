@@ -2,6 +2,8 @@ package Main;
 
 import Account.Account;
 import Board.BoardId;
+import Game.GameId;
+import Game.giwon.Blackjack;
 import Utils.ConsoleColor;
 import Utils.InputScanner;
 import Pages.PageId;
@@ -43,7 +45,7 @@ public class Main {
                     account.setPages(PageId.LOGIN);
                     account.setSubPage(BoardId.BOARDNOTHING);
                     continue;
-                } 
+                }
                 try {
                     String[] input = InputScanner.getScanner().nextLine().toLowerCase().split(" ");
                     userPage = input[0].toCharArray()[0];
@@ -56,6 +58,10 @@ public class Main {
                 }
                 if (account.getPages() == PageId.BOARD) {
                     account.setSubPage(userPage);
+                } else if (account.getPages() == PageId.GAME) {
+                    if (userPage == GameId.BLACKJACK){
+                        //Blackjack.Blackjack1(account);
+                    }
                 } else {
                     if (userPage == PageId.BOARD) {
                         account.setSubPage(BoardId.BOARDLIST);
