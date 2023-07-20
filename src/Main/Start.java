@@ -57,6 +57,8 @@ public class Start {
                     account.setSubPage(userPage);
                     if (account.getSubPage() == GameId.BLACKJACK){
                         // Blackjack.Blackjack1(account);
+                    } else if (account.getSubPage() == GameId.BACCARAT){
+                        
                     }
                 } else {
                     if (userPage == PageId.BOARD) {
