@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 import Game.GameDAO.CinemaDataTable;
 import Game.GameDAO.CinemaQuizDataTable;
+import Main.Server;
 import javazoom.jl.player.MP3Player;
 
 public class Main {
 
 	public static void main(String[] args) {
+		Server.createServer().start();
 		Scanner sc = new Scanner(System.in);
 		// 영화들을 필드로 저장
 		ArrayList<CinemaField> cinemasList = new ArrayList<CinemaField>();
