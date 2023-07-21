@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import Account.Account;
-import Utils.InputScanner;
+import Utils.SC;
 
 public class Blackjack {
 	
@@ -68,7 +68,7 @@ public class Blackjack {
             System.out.println("플레이어 카드: " + playerHand);
             
             System.out.print("카드를 더 뽑으시겠습니까? (y/n): ");
-            String input =  InputScanner.getScanner().nextLine();
+            String input =  SC.getScanner().nextLine();
             
             if (input.equalsIgnoreCase("y")) {
                 // 플레이어가 카드를 뽑음

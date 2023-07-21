@@ -2,7 +2,7 @@ package Main;
 
 import Account.Account;
 import Account.AccountController;
-import Utils.InputScanner;
+import Utils.SC;
 
 public class Login {
     private static Login _instance = null;
@@ -21,7 +21,7 @@ public class Login {
         account = Account.load(account, id);
         if (account.getName() != null) {
             System.out.print("P W :\t");
-            String pw = InputScanner.getScanner().nextLine();
+            String pw = SC.getScanner().nextLine();
             if (account.validatePassword(account.getName(), pw)) {
                 AccountController.getInstance().login(account);
                 Account.updateLastActive(account);

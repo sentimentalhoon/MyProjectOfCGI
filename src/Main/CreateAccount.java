@@ -1,7 +1,7 @@
 package Main;
 
 import Account.Account;
-import Utils.InputScanner;
+import Utils.SC;
 
 public class CreateAccount {
     private static CreateAccount _instance = null;
@@ -21,9 +21,9 @@ public class CreateAccount {
         System.out.println("\t\t게스트 계정으로 로그인 하셨습니다. 회원 가입을 진행합니다.");
         System.out.println("=====================================================================================================================\n");
         System.out.print("I D :\t");
-        String name = InputScanner.getScanner().nextLine();
+        String name = SC.getScanner().nextLine();
         System.out.print("P W :\t");
-        String password = InputScanner.getScanner().nextLine();
+        String password = SC.getScanner().nextLine();
         return Account.create(name, password, "127.0.0.1", "127.0.0.1");
     }
 

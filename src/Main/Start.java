@@ -5,7 +5,7 @@ import Board.BoardId;
 import Game.GameId;
 import Pages.PageId;
 import Utils.ConsoleColor;
-import Utils.InputScanner;
+import Utils.SC;
 
 public class Start {
     public static void indexPageStart(Account account) {
@@ -18,7 +18,7 @@ public class Start {
             if (account.getPages() == PageId.NOTHING || account.getPages() == PageId.LOGIN) {
                 String accountName = "";
                 try {
-                    accountName = InputScanner.getScanner().nextLine().trim().toLowerCase();
+                    accountName = SC.getScanner().nextLine().trim().toLowerCase();
                 } catch (Exception e) {
                     System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "잘못된 인자를 입력하였습니다."
                             + ConsoleColor.RESET);
@@ -42,7 +42,7 @@ public class Start {
                     continue;
                 }
                 try {
-                    String[] input = InputScanner.getScanner().nextLine().toLowerCase().split(" ");
+                    String[] input = SC.getScanner().nextLine().toLowerCase().split(" ");
                     userPage = input[0].toCharArray()[0];
                     if (input.length > 1)
                         third = Integer.parseInt(input[1]);
