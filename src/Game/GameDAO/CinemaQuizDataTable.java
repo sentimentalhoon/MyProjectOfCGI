@@ -24,12 +24,12 @@ public class CinemaQuizDataTable {
     }
 
     public boolean insertQuizResult(final String name, final String ox, final int q_no) {
-        String sqlstr = "INSERT INTO accounts (ID, OX, Q_NO) VALUES (?, ?, ?)";
+        String sqlstr = "INSERT INTO cinemaquiz (no, id, ox, q_no, datetime) VALUES (tmp_seq.NEXTVAL, ?, ?, ?, to_date(sysdate, 'yyyy.mm.dd hh24:mi:ss'))";
         try (Connection con = DBFactory.getInstance().getConnection();
                 PreparedStatement pstm = con.prepareStatement(sqlstr)) {
             pstm.setString(1, name);
-            pstm.setString(1, ox);
-            pstm.setInt(1, q_no);
+            pstm.setString(2, ox);
+            pstm.setInt(3, q_no);
             pstm.executeUpdate();
             return true;
         } catch (SQLException e) {
