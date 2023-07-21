@@ -98,9 +98,9 @@ public class Main {
 				System.out.printf("\n%s\n\n\n", "    게임을 시작하시겠습니까?      " + "[1] YES         [2] NO     ");
 				String gameStart = sc.nextLine();
 				if (gameStart.equals("1")) {
-					if (mp3.isPlaying()) {
-						mp3.stop();
-					}
+//					if (mp3.isPlaying()) {
+//						mp3.stop();
+//					}
 					questions(1);
 				} else {
 					Thread.sleep(timeLap);
@@ -632,9 +632,9 @@ public class Main {
 				if (answers(10, sc, cinemasList, mp3, comPath))
 					break;
 			}
-			if (mp3.isPlaying()) {
-				mp3.stop();
-			}
+//			if (mp3.isPlaying()) {
+//				mp3.stop();
+//			}
 			mp3.play(comPath + "closing.mp3");
 			String[] gameEndList = new String[10];
 

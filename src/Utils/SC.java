@@ -2,12 +2,12 @@ package Utils;
 
 import java.util.Scanner;
 
-public class InputScanner {
-    
-    private InputScanner() {
+public class SC {
+
+    private SC() {
     }
 
-    public static Scanner getScanner(){
+    public static Scanner getSC() {
         Scanner sc = new Scanner(System.in);
         return sc;
     }
