@@ -15,23 +15,31 @@ public class Main {
 		String comPath = "data\\song\\";
 		MP3Player mp3 = new MP3Player();
 
-		cinemasList.add(new Cinemas("    스타워즈      ", 1977,  "The Imperial March", "Carmen Twillie", comPath + "01_Starwars.mp3"));
-		cinemasList.add(new Cinemas("     조 커       ", 2019, "Rocken And Roll(Part 2)", "Gary Glitter", comPath + "02_Joker.mp3"));
-		cinemasList.add(new Cinemas("    해리포터      ", 2003, "Hedwig's Theme", "Christoph Eschenbach", comPath + "03_HarryPotter.mp3"));
-		cinemasList.add(new Cinemas("    라이언킹      ", 1994, "Circle of Life", "Carmen Twillie", comPath + "04_LionKing.mp3"));
-		cinemasList.add(new Cinemas("    겨울왕국      ", 2013, "Love is An Open Door", "Kristen Bell", comPath + "05_Frozen.mp3"));
-		cinemasList.add(new Cinemas("   캐리비안의해적   ", 2003, "He's a Pirate", "Klaus Badelt", comPath + "06_PiratesOfTheCarribean.mp3"));
-		cinemasList.add(new Cinemas("     타이타닉     ", 1997, "My Heart Will Go On", "Celine Dion", comPath + "07_Titanic.mp3"));
-		cinemasList.add(new Cinemas("  슈퍼마리오브라더스  ", 2023,"Peaches", "Jack Black", comPath + "08_SuperMarioBrothers.mp3"));
-		cinemasList.add(new Cinemas("     알라딘       ", 1992 , "Friend Like Me", "Ne-Yo", comPath + "09_Aladdin.mp3"));
+		cinemasList.add(new Cinemas("    스타워즈      ", 1977, "The Imperial March", "Carmen Twillie",
+				comPath + "01_Starwars.mp3"));
+		cinemasList.add(new Cinemas("     조 커       ", 2019, "Rocken And Roll(Part 2)", "Gary Glitter",
+				comPath + "02_Joker.mp3"));
+		cinemasList.add(new Cinemas("    해리포터      ", 2003, "Hedwig's Theme", "Christoph Eschenbach",
+				comPath + "03_HarryPotter.mp3"));
+		cinemasList.add(
+				new Cinemas("    라이언킹      ", 1994, "Circle of Life", "Carmen Twillie", comPath + "04_LionKing.mp3"));
+		cinemasList.add(
+				new Cinemas("    겨울왕국      ", 2013, "Love is An Open Door", "Kristen Bell", comPath + "05_Frozen.mp3"));
+		cinemasList.add(new Cinemas("   캐리비안의해적   ", 2003, "He's a Pirate", "Klaus Badelt",
+				comPath + "06_PiratesOfTheCarribean.mp3"));
+		cinemasList.add(
+				new Cinemas("     타이타닉     ", 1997, "My Heart Will Go On", "Celine Dion", comPath + "07_Titanic.mp3"));
+		cinemasList.add(
+				new Cinemas("  슈퍼마리오브라더스  ", 2023, "Peaches", "Jack Black", comPath + "08_SuperMarioBrothers.mp3"));
+		cinemasList.add(new Cinemas("     알라딘       ", 1992, "Friend Like Me", "Ne-Yo", comPath + "09_Aladdin.mp3"));
 		cinemasList.add(new Cinemas("      레옹       ", 1994, "Shape Of My Heart", "Sting", comPath + "10_Leon.mp3"));
 
 		// mp3.play(cinemasList.get(1).getPath());
 
 		try {
-			
-			mp3.play(comPath+"opening.mp3");
-			
+
+			mp3.play(comPath + "opening.mp3");
+
 			System.out.println();
 			System.out.println();
 			System.out.println();
@@ -43,7 +51,7 @@ public class Main {
 			System.out.println();
 			System.out.println();
 			System.out.println();
-		
+
 			System.out.print(
 					"  ====================================================================================\r\n");
 			Thread.sleep(100); // 0.1초 대기
@@ -74,1185 +82,1147 @@ public class Main {
 					"  ====================================================================================\r\n");
 			System.out.print("                                    LOADING....                             \r\n"); // 10
 
-		String line = "  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\r\n";
-		int timeLap = 200; // 시간 간격 (200밀리초)
+			String line = "  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\r\n";
+			int timeLap = 200; // 시간 간격 (200밀리초)
 
-		for (int i = 0; i < line.length(); i++) {
-			System.out.print(line.charAt(i));
+			for (int i = 0; i < line.length(); i++) {
+				System.out.print(line.charAt(i));
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			System.out.println("                                    로딩 완료!!                                          ");
+			System.out.println();
+			System.out.println();
+
 			try {
-				Thread.sleep(10);
+				Thread.sleep(200);
+				System.out.print("    게임 설명을 보시겠습니까?      ");
+				System.out.print("    [1] YES         [2] NO     ");
+				System.out.println();
+				System.out.println();
+				String gameRule = sc.nextLine();
+				if (gameRule.equals("1")) {
+
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println(
+							"                                               |										\r\n"
+									+ "                                    ___________I____________							\r\n"
+									+ "                                    ( _____________________ ()						\r\n"
+									+ "                                 _.-' |                    ||						\r\n"
+									+ "                             _.-'    ||    2초간 재생되는      ||						\r\n"
+									+ "            ______       _.-'        ||                    ||                        \r\n"
+									+ "           |      |_ _.-'            ||      음악을 듣고      ||                        \r\n"
+									+ "           |      |_|_               ||                    ||                        \r\n"
+									+ "           |______|   `-._           ||      영화 제목을      ||                        \r\n"
+									+ "               /\\          `-._      ||                    ||						\r\n"
+									+ "              /  \\             `-._  ||      맞춰주세요~!     ||						\r\n"
+									+ "             /    \\                `-.I____________________||						\r\n"
+									+ "            /      \\                 ------------------------						\r\n"
+									+ "           /________\\___________________/________________\\______					\r\n");
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println();
+
+				} else {
+
+				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}
-		System.out.println("                                    로딩 완료!!                                          ");
-		System.out.println();
-		System.out.println();
 
-		try {
-			Thread.sleep(200);
-			System.out.print("    게임 설명을 보시겠습니까?      ");
-			System.out.print("    [1] YES         [2] NO     ");
-			System.out.println();
-			System.out.println();
-			String gameRule = sc.nextLine();
-			if (gameRule.equals("1")) {
-				
-		
-	
+			try {
+				System.out.println();
+				System.out.print("    게임을 시작하시겠습니까?      ");
+				System.out.print("[1] YES         [2] NO     ");
 				System.out.println();
 				System.out.println();
 				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println("                                               |\r\n"
-						+ "                                    ___________I____________\r\n"
-						+ "                                    ( _____________________ ()\r\n"
-						+ "                                 _.-' |                    ||\r\n"
-						+ "                             _.-'    ||    2초간 재생되는     ||\r\n"
-						+ "            ______       _.-'        ||                    ||\r\n"
-						+ "           |      |_ _.-'            ||      음악을 듣고     ||\r\n"
-						+ "           |      |_|_               ||                    ||\r\n"
-						+ "           |______|   `-._           ||      영화 제목을      ||\r\n"
-						+ "              /\\          `-._      ||                    ||\r\n"
-						+ "             /  \\             `-._  ||      맞춰주세요~!     ||\r\n"
-						+ "            /    \\                `-.I____________________||\r\n"
-						+ "           /      \\                 ------------------------\r\n"
-						+ "          /________\\___________________/________________\\______\r\n" + "");
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				
-				
-				
-			} else {
+				String gameStart = sc.nextLine();
 
-			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+				if (gameStart.equals("1")) {
 
-		try {
-			System.out.println();
-			System.out.print("    게임을 시작하시겠습니까?      ");
-			System.out.print("[1] YES         [2] NO     ");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			String gameStart = sc.nextLine();
+					if (mp3.isPlaying()) {
+						mp3.stop();
+					}
 
-			if (gameStart.equals("1")) {
-				
-				if(mp3.isPlaying()) {
-					mp3.stop();
+					System.out.println();
+					System.out.println();
+					System.out.println(
+							"    =================================================================================");
+					System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 1번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+					System.out.println(
+							"    =================================================================================");
+					System.out.println();
+					System.out.println();
+
+				} else {
+					Thread.sleep(timeLap);
+					System.out.println();
+					System.out.println();
+					System.out.println("    왜왜!! 내 게임이 얼마나 재밌는데... ( 게임강제시작!! ) ");
+					Thread.sleep(timeLap);
+					System.out.println();
+					System.out.println();
+					System.out.println(
+							"    ==================================================ㅅ===============================");
+					System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 1번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+					System.out.println(
+							"    =================================================================================");
+					System.out.println();
+					System.out.println();
 				}
-
-				System.out.println();
-				System.out.println();
-				System.out.println(
-						"    =================================================================================");
-				System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 1번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-				System.out.println(
-						"    =================================================================================");
-				System.out.println();
-				System.out.println();
-
-			} else {
 				Thread.sleep(timeLap);
-				System.out.println();
-				System.out.println();
-				System.out.println("    왜왜!! 내 게임이 얼마나 재밌는데... ( 게임강제시작!! ) ");
-				Thread.sleep(timeLap);
-				System.out.println();
-				System.out.println();
-				System.out.println(
-						"    ==================================================ㅅ===============================");
-				System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 1번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-				System.out.println(
-						"    =================================================================================");
-				System.out.println();
-				System.out.println();
+				while (true) {
+					System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
+
+					int playMusic = inputNum(sc);
+
+					if (playMusic == 1) {
+						mp3.play(cinemasList.get(0).getPath());
+
+					}
+					if (playMusic == 2) {
+
+						try {
+							System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣴⢴⡶⣴⣤⣠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠋⣼⣿⣿⣸⡇⣾⣿⣄⠘⢷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡇⠀⣿⣿⣿⣿⣆⣿⣾⠇⣢⣸⣗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣽⣷⠀⢿⣽⣿⣿⣿⣿⣿⡤⢻⣹⣿⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣥⣾⣿⣿⣿⡯⣿⣿⣷⣷⣿⣿⡷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣽⣿⣷⣿⣿⠃⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣽⣿⣿⣿⣿⣿⣛⡿⢿⣷⡗⣾⣿⣿⣿⣿⣗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⣿⣿⣿⣿⣿⣿⣿⣷⣾⣯⣷⢿⣿⣿⣿⣿⣯⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣟⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣭⣿⣿⣿⣿⣷⣦⣄⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣨⣿⢿⠿⢝⣿⣷⣾⣿⠫⠛⠿⣻⣿⣿⣿⣿⣿⣿⣿⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⡟⡓⡼⢾⣿⣿⡿⢁⠠⣡⣾⠟⠡⠀⣠⣾⣿⣟⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣘⣿⣿⡩⢱⢁⡾⣻⠏⠠⢂⣽⡿⢓⠀⣣⣾⣿⣿⣿⣷⡬⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢂⡿⢢⣼⣿⣣⢢⢃⠋⢽⠏⠀⣠⣿⠟⡐⢢⣡⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠎⣿⡋⣵⢠⢧⡎⡎⠬⣼⣏⣠⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠐⣿⣿⣿⣿⣿⡅⠀⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⢣⣲⣏⣮⣏⣥⣵⣾⣶⣿⣟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⣸⣿⣿⣿⣿⣷⡄⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⠀⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⢸⡿⢷⣿⣿⡟⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡃⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⡧⣿⣿⢿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠈⢹⣿⣿⣿⣷⣗⣿⣸⣵⣿⡧⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⣿⣿⣿⣿⡷⠀⠀⠀\r\n"
+									+ "⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣾⣻⣿⣿⣿⣿⡀⠀⠀\r\n");
+							Thread.sleep(200);
+							System.out.print("     ██ ███    ███     ██    ██  ██████  ██    ██ ██████           \r\n");
+							Thread.sleep(200);
+							System.out.print("     ██ ████  ████      ██  ██  ██    ██ ██    ██ ██   ██          \r\n");
+							Thread.sleep(200);
+							System.out.print("     ██ ██ ████ ██       ████   ██    ██ ██    ██ ██████           \r\n");
+							Thread.sleep(200);
+							System.out.print("     ██ ██  ██  ██        ██    ██    ██ ██    ██ ██   ██          \r\n");
+							Thread.sleep(200);
+							System.out.print("     ██ ██      ██        ██     ██████   ██████  ██   ██ ██ ██ ██ \r\n");
+
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+
+					}
+					if (playMusic == 3) {
+						mp3.play(comPath + "01_other.mp3");
+
+					}
+					if (playMusic == 4) {
+
+						System.out.println("     다음 문제로 넘어갑니다...     ");
+
+						break;
+					}
+
+					System.out.println("     정답을 입력하세요(한국어로) >>");
+					String movieName = sc.next();
+
+					if (movieName.equals(cinemasList.get(0).getMoive().trim())) {
+						System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+						System.out.println();
+						mp3.play(comPath + "Verygood.mp3");
+						System.out.println();
+						System.out.println("     다음 문제로 넘어갑니다...     ");
+						break;
+
+					}
+
+					else {
+						System.out.println("     Fail...!      틀 렸 습 니 다... ");
+						System.out.println();
+						mp3.play(comPath + "Fail.mp3");
+					}
+
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			Thread.sleep(timeLap);
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("    =================================================================================");
+			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 2번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+			System.out.println("    =================================================================================");
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
 			while (true) {
 				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-				int playMusic = sc.nextInt();
-				if (playMusic==1){
-					mp3.play(cinemasList.get(0).getPath());
-
+				int playMusic = inputNum(sc);
+				if (playMusic == 1) {
+					mp3.play(cinemasList.get(1).getPath());
 				}
-				if (playMusic==2) {
+				if (playMusic == 2) {
 
 					try {
-						System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣴⢴⡶⣴⣤⣠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠋⣼⣿⣿⣸⡇⣾⣿⣄⠘⢷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡇⠀⣿⣿⣿⣿⣆⣿⣾⠇⣢⣸⣗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣽⣷⠀⢿⣽⣿⣿⣿⣿⣿⡤⢻⣹⣿⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣥⣾⣿⣿⣿⡯⣿⣿⣷⣷⣿⣿⡷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣽⣿⣷⣿⣿⠃⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣽⣿⣿⣿⣿⣿⣛⡿⢿⣷⡗⣾⣿⣿⣿⣿⣗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⣿⣿⣿⣿⣿⣿⣿⣷⣾⣯⣷⢿⣿⣿⣿⣿⣯⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣟⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣭⣿⣿⣿⣿⣷⣦⣄⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣨⣿⢿⠿⢝⣿⣷⣾⣿⠫⠛⠿⣻⣿⣿⣿⣿⣿⣿⣿⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⡟⡓⡼⢾⣿⣿⡿⢁⠠⣡⣾⠟⠡⠀⣠⣾⣿⣟⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣘⣿⣿⡩⢱⢁⡾⣻⠏⠠⢂⣽⡿⢓⠀⣣⣾⣿⣿⣿⣷⡬⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢂⡿⢢⣼⣿⣣⢢⢃⠋⢽⠏⠀⣠⣿⠟⡐⢢⣡⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠎⣿⡋⣵⢠⢧⡎⡎⠬⣼⣏⣠⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠐⣿⣿⣿⣿⣿⡅⠀⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⢣⣲⣏⣮⣏⣥⣵⣾⣶⣿⣟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⣸⣿⣿⣿⣿⣷⡄⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⠀⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⢸⡿⢷⣿⣿⡟⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡃⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⡧⣿⣿⢿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠈⢹⣿⣿⣿⣷⣗⣿⣸⣵⣿⡧⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⣿⣿⣿⣿⡷⠀⠀⠀\r\n"
-								+ "⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣾⣻⣿⣿⣿⣿⡀⠀⠀\r\n");
+						System.out.print("~!!~~~~^^^^~!7~^??^^::::::::::::::::::::::::::^^^^^^^^^^^^^^\r\n"
+								+ "!~~~~~~?7~!7J77~7YPJ~~:::::::::::::::::::::^^^^^^^^^^^^^^^^^\r\n"
+								+ "!~~~~~5BYY?!7!~!777?5?:::::::::::::::::::::^^^^^^^^^^^::^^^^\r\n"
+								+ "~~~~~5#BBBGPP5?77?JJ?^:::::::::::::::::::::^^^:^^^^^^^::::::\r\n"
+								+ "~~~^?#BB##GJ5J5PG5?7?7~~7~^::::::::::::::::^^^::::^^::::::::\r\n"
+								+ "^^^^7GBB##BBBGGGBGP555PPGG5~::::::::::::::^^^^::::::::::::::\r\n"
+								+ "^^^^^Y#B#BBBGGBGGGGGPPPP5JJ!~!!^::::::::::::::::::::::::::::\r\n"
+								+ "^^^^:JBBGPPPPGGB#BGBGPPPP5J?7?J57:::::::::::::::::::::::::::\r\n"
+								+ "P57!~?GGGPPBBBB##BGGGBGGPPPJ77!?5?!^.:::::::::::::::::::::::\r\n"
+								+ "&##BGGGGGBBB#####BBGGGGGBGG5YJ?77??Y?^.:::::::::::::::::::::\r\n"
+								+ "#####GBBBB#######BBGGGGGGBBB5??7777JP5!::::::::::::::.......\r\n"
+								+ "##########BJ7P###BBBGGGGGGGBBY7??777JP5::::..........:^~!7^.\r\n"
+								+ "?YPB##&##Y~..:!P##BBGGGGGGGGBB?!77???YB!........:^::~J5P5PJ~\r\n"
+								+ ":::^!?J?~:::::.:JBBBBBGGGGGGGB57!!77??55~!!7???J5P5YPY55YPP!\r\n"
+								+ "::::::..::::::::.?BBBBBGGGGGBBGJ??7777?5GGGPPGGGGGGGGJ!!!~^.\r\n"
+								+ "::::::::::::::::::P#BBBBGGBBBGBBBBBGGP5PPGGGGGBBBBBPY~ .....\r\n"
+								+ ":::::::::::::::::.Y#BBGGGBBBBBBGGGGB#&&&#GGGGPPPPPY:........\r\n"
+								+ ":::::::::::::::..:PBGGGGBBBBBBBGGGGGBBB###?:::::::..........\r\n"
+								+ "::::::::...:::...:PBGGGGBBBBBBBGGGGGBBBB##B7................\r\n"
+								+ ":::::::...:....::~GBGGGGGBBBBBBBGGGGBBBBB###7...............\r\n"
+								+ "::^~~~^::::...:::7BBBGGGGBBBBBBGBGGGBBBBBBB##7..............\r\n"
+								+ "^^~7!~^:::::::^^^YBBGGGGBBBBB#BGGGGBB#####BBBP?:....:::....:\r\n"
+								+ "~~!7777!^:::::^^~PBBBB########BGGBBBBB##BB##BGGP?^...:::...^\r\n"
+								+ "!!777??7~^^^:^~~7B###########BGGBBBBB###B###BGGGGP?^::::...!\r\n"
+								+ "!77777?7~~~~~~~~!JPB###&#####BGBBBBBB######BBBBGGGGPJ!::.::!\r\n"
+								+ "!777777!!!!!!!!~~~~!?JY5PG##BBBBBBGBB#############BGGPY!:::7\r\n"
+								+ "!7????~~!!!!!!!!!!!!7777??G#BBGGGGGGB#####BBBBBBBBGGGGGG5!:~\r\n"
+								+ "?JJJ??~~!!!!!!!!!!!!777???G#BBGGGGGBB#BGGB######BBBBGGGGGGY!\r\n"
+								+ "YYYJ??7!!7?77777!!77?????5##BBGGGGBB##G???JYPGBBBBB#BBBBBGBP\r\n"
+								+ "YYJJJJJYJJYJ?7777???????YB#BBGGGGBBB#BY?!!!!!7?YP#BBGGGGGGGG\r\n"
+								+ "JJJJJJJYYYYYJ????JJJ?77?JG#BBBBBB###B5??!!!!!!!!!5BBGGGGGGG5\r\n");
 						Thread.sleep(200);
-						System.out.print("     ██ ███    ███     ██    ██  ██████  ██    ██ ██████           \r\n");
-						Thread.sleep(200);
-						System.out.print("     ██ ████  ████      ██  ██  ██    ██ ██    ██ ██   ██          \r\n");
-						Thread.sleep(200);
-						System.out.print("     ██ ██ ████ ██       ████   ██    ██ ██    ██ ██████           \r\n");
-						Thread.sleep(200);
-						System.out.print("     ██ ██  ██  ██        ██    ██    ██ ██    ██ ██   ██          \r\n");
-						Thread.sleep(200);
-						System.out.print("     ██ ██      ██        ██     ██████   ██████  ██   ██ ██ ██ ██ \r\n");
 
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 
 				}
-				if (playMusic==3) {
-					mp3.play(comPath + "01_other.mp3");
+				if (playMusic == 3) {
+					mp3.play(comPath + "02_other.mp3");
 
 				}
-				if (playMusic==4) {
+				if (playMusic == 4) {
 
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 
 					break;
 				}
 
-		
 				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
 				String movieName = sc.next();
 
-				if (movieName.equals(cinemasList.get(0).getMoive().trim())) {
+				if (movieName.equals(cinemasList.get(1).getMoive())) {
+					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+					System.out.println();
+					mp3.play(comPath + "Verygood.mp3");
+					System.out.println();
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+					break;
+				} else {
+					System.out.println("     Fail...!      틀 렸 습 니 다... ");
+					System.out.println();
+					mp3.play(comPath + "Fail.mp3");
+				}
+			}
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("    =================================================================================");
+			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 3번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+			System.out.println("    =================================================================================");
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
+			while (true) {
+				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
+				int playMusic = inputNum(sc);
+				if (playMusic == 1) {
+					mp3.play(cinemasList.get(2).getPath());
+				}
+				if (playMusic == 2) {
+
+					try {
+						System.out.print("⣿⣿⣿⣿⣿⣿⣿⠟⠛⠛⠋⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⣐⠚⢋⣶⣶⣿⣯⣀⣀⣀⣸⣷⣄⡀⠀⠀⠀⠀⠀⢸⣿⣿⡿⠋⠉⠉⠉⠉⠉⢉⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⢩⣀\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣉⣤⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠉⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⡀⠀⠈⣿⣿⡧⠀⢀⠀⠀⠀⠀⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣸⣿\r\n"
+								+ "⠘⠛⣿⣿⣿⣿⣿⡿⠦⠄⠀⠀⠀⠀⠀⢠⡴⣋⣠⣶⠶⢶⣟⠛⠉⣉⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⣤⡄⠀⢀⣴⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡹⣿⣿⣿\r\n"
+								+ "⠁⠀⢸⡏⣸⣿⣾⣿⡄⠀⠀⠀⠀⠀⠀⣟⣿⣿⣿⣶⣿⣿⣷⣴⣾⣿⢟⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣷⢬⣄⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠸⣿⣿\r\n"
+								+ "⠀⢠⣿⡇⢾⣿⣿⣿⡇⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡿⣯⡙⣆⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⢸⣿\r\n"
+								+ "⠀⣼⣿⡆⢨⣿⣿⣿⣿⡆⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣷⣿⣿⣦⣤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠉⠉⠁⠀⠀⠀\r\n"
+								+ "⣿⣿⣿⠇⠀⣸⣿⣿⣏⣭⣻⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⢟⠻⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣤⡀⠀⠀⠀\r\n"
+								+ "⣿⣿⠏⠀⢠⣿⣿⣿⣿⣿⣿⣿⢑⣵⣿⣿⣿⢋⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣷⣖⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡛⠋⠁⠉⠁⠀⠀⠀⠀⢀⣀\r\n"
+								+ "⠛⣰⣄⠀⣸⣿⣿⣿⣿⣿⣿⣧⣿⣯⣿⣿⢃⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠛⠿⣿⢿⣿⡄⠙⢿⣜⠉⠹⣏⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⠀⠀⠛⣛⣛⣛⣛⣿\r\n"
+								+ "⣾⠋⠙⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡘⠇⠀⠀⢿⣯⠙⣿⣦⠀⠙⠳⣄⡈⢿⡻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣻⡀⠀⣿⣿⣿⣿⣿⣿⣿⣭⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢨⡿⣦⢦⠀⠈⢻⠳⣌⠻⣷⡀⠀⠈⠛⢶⣽⢦⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣧⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣈⣀⡈⠯⢃⠀⠈⠀⢸⠀⠀⢘⣤⣶⣾⣋⣉⡉⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣿⣆⠀⠀⠀⣼⡿⢿⣿⡷⣦⡘⣷⣿⣿⡛⣿⣿⣿⣿⣌⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⢀⣴⣿⢿⣿⣿⣿⣿⣧⣤⠰⣿⠡⣀⣛⡯⠟⠀⣼⣿⡟⢷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣨⣿⣿⣥⡤⠍⠁⠨⣿⣿⣇⠀⠈⢦⡀⠁⠀⣀⠴⠁⣿⢷⡄⠉⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠉⠙⣧⡀⠀⠀⠀⣠⠿⣿⣿⡄⠀⠀⠉⠉⠉⠁⠀⠀⣿⡀⠀⠰⢶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⠿⣿⣿⠣⣄⠀⠀⠀⠉⠓⠋⠉⠁⣴⡿⣿⡅⠀⠀⣀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠟⣿⣿⣿⣿⣷⣯⣿⡄⠙⡄⠀⠀⠀⠀⠀⠀⠀⠿⠿⣿⣿⠷⠆⠁⠀⠀⠀⠀⢀⡇⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⠀⠉⠻⠿⢿⣿⡿⠿⠛⠛⠉⠁⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣷⠀⣿⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣠⡤⠴⠀⠀⣾⠃⠀⠀⠀⠀⣴⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⠀⠀⢠⡴⠏⠁⠀⠀⠀⣀⡤⠤⠒⠂⠀⠀⠀⠈⢻⡿⠟⠻⠿⣷⣻⣿⣿⣧⣶⡄⠀⠀⠛⠛⠛⠉⠉⠉⠀⠀⠀⠀⡼⣿⠀⠀⠀⠀⠀⠈⣩⣍⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⠀⠀⠀⠀⠀⣀⣴⠶⠿⠋⠉⠉⠉⠀⠀⠑⢦⣄⡀⢳⡄⠀⠠⣾⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠇⢻⣦⣄⠀⠀⠀⠀⠉⢻⡄⢹⣿⣏⣽⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⠀⠀⠀⢀⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣉⣠⣷⢀⡄⣿⣟⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⠀⠀⣀⣠⠟⠀⢸⣿⣿⣟⡛⠲⣶⣴⣷⣿⣆⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣖⣦⣠⣾⣧⠀⠀⠀⢀⣀⣀⣤⣤⠶⣒⣛⣋⣉⣩⣤⣤⣴⡇⢸⣿⣿⡟⠁⠛⣯⠻⠮⠟⠻⠶⠶⠒⠛⠉⣼⠏⠀⢀⣾⣿⣿⣿⡇⢀⠁⠀⣅⠀⣹⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⡷⠾⠿⠛⠛⠛⠛⠛⠛⠛⠋⠉⠁⢀⣼⣿⣿⡇⠀⠀⠙⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠃⡀⠀⣼⣿⣿⣿⣿⣿⣿⠂⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⡿⠟⠛⠂⢒⣀⣀⣠⣤⣤⣤⣤⣤⣶⣶⣶⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠙⢦⣀⠀⠀⠀⠀⣤⣾⡿⢁⣾⡿⣼⣿⣿⣿⣿⣿⣿⣿⠀⢀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠴⣴⣦⡀⠀⠈⠙⠶⣴⣶⣿⠟⢁⣼⣿⢱⣿⣿⣿⣿⣿⣿⣿⡇⡸⢡⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣟⣛⣿⣽⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸⣿⣿⣿⣶⣤⣤⣄⣸⠟⠁⣠⣞⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠙⢿⣿⣿⣿⣿⣧⣤⣾⣷⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠉⠻⣿⣿⣿⡻⢭⡏⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢨⡆⠀⠀⠀⣿⣿⣿⣿⣿⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⢸⣿⠀⠀⠀⢹⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⢰⣿⣿⣿⡟⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
+								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⢸⣿⣿⣛⡾⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n\"");
+						Thread.sleep(200);
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+				if (playMusic == 3) {
+					mp3.play(comPath + "03_other.mp3");
+
+				}
+				if (playMusic == 4) {
+
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+
+					break;
+				}
+
+				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
+				String movieName = sc.nextLine();
+
+				if (movieName.equals(cinemasList.get(2).getMoive())) {
 					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
 					mp3.play(comPath + "Verygood.mp3");
 					System.out.println();
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 					break;
+				} else {
+					System.out.println("     Fail...!      틀 렸 습 니 다... ");
+					mp3.play(comPath + "Fail.mp3");
+				}
+			}
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("    =================================================================================");
+			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 4번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+			System.out.println("    =================================================================================");
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
+			while (true) {
+				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
+				int playMusic = inputNum(sc);
+				if (playMusic == 1) {
+					mp3.play(cinemasList.get(3).getPath());
 
 				}
+				if (playMusic == 2) {
 
-				else {
+					try {
+						System.out.print("$$$$$$$$$$$$$$$$$$$$$$$**$$$$$ `$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$$$$$$$We:~`#Rk''$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$$$$$$*****i)!!<%'*$$$$$$$$$$$$$$$$$$*$$$$$$$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$*#)!-- -<:x!!Xt!:!:(#*$$$$$$$$$$$*\".uec(*$$$$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$6UWf. -~~!!!!Xt!!MMXX%!XX\"*$$$$$$*~.X$$TM*X.#$$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$`':d*.!!!Xt!!K9!!&MHt!?!X.\"$*\".x@@$TRE\"  `!.#$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$\\Ld* :!!!!??@t?!K9!X%~   `\\.:<tM@NR*E9`     ~:?$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$\"> !!!%MXX?ME9!UR~       `!M!X*M@tTf         #$ \r\n"
+								+ "$$$$$$$$$$$$$$$# ! '!!M!!?@Kt@TEM~  '    ~ '!!MXt%?K          `$ \r\n"
+								+ "$$$$$$$*******F !!.!!!!!?Xt?T@@!! '         !!!??Kt!           $ \r\n"
+								+ "$$$PXUX@WX:!<: !!!!!!!!!!%?XtT?Kf  ~ .umL '  !?!X?!>           $ \r\n"
+								+ "!$Ft$$$9%RM!~ <!~``!!!!??!X!!KM!> '' @$#*\\   '!!!X!            $ \r\n"
+								+ "X#:*\"#*E9!!!     : `<!!!!!!!X!!!!   '$ .     '!!~`            '$ \r\n"
+								+ "M>K:r `\"!!!! '~     !<!!!!!!!!!!! ~ '%     :!'!!!>            9$ \r\n"
+								+ "!\\@~    `!!! ':<@$%  !!!!!!!!!!!!    %   .dT !!!!!           :$$ \r\n"
+								+ "!         ~`< ~!$    '~`!!!!!!! `> --->!!#\"!!~!!!<.          @$$ \r\n"
+								+ "!.              #    :!!<!!!!!!! ':!!<!!~~. .!!>!!~.       u$$$$ \r\n"
+								+ "!N             :.  .!!!!!!!!!!!! :`!!~`:<~~~` :!!:>~   .xd$$$$$$ \r\n"
+								+ "U$L            `\"  !!!!!!!!!~~~! 9:  ~~  ::`~!!/:!! <9$$$$$$$$$$ \r\n"
+								+ "$$$c          `:! /!!!!!!~`:!!!~:?!>. :  `~~`  \\`>` d$$$$$$$$$$$ \r\n"
+								+ "$$$$k.         !~ ~~~~~`.:!!~`~x$I!=( : ::!.<!!!!! x$$$$$$$$$$$$ \r\n"
+								+ "$$$$$$bu.     ` \\ ~!~!!!M!!~  z$$k4!``) ::.:!!!!!  #$$$$$$$$$$$$ \r\n"
+								+ "$$$$$$$$$NWW@   ` tX. `~!?~ :@R$$!(C ().``~~~!!~ :! $$$$$$$$$$$$ \r\n"
+								+ "$$$$$$$$$/dbW* .- M$$Ibcu x@$$$B$$$~d$$R !!!~  .'.!! #$$$$$$$$$$ \r\n"
+								+ "$$$$$$$/W$$$$Wo#u. `#$$$R>'\"\"\"***\".z$$$$L~~  :!/ !!Xh #$$$$$$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$/@$$$Wc.\"\".sWNWWbeeW$$$$$$& <!!~!~'!X%?K:\"$$$$$$$$ \r\n"
+								+ "$$$$$$$$$$$$Pd$$$$$$$$k N$$$$$$$$$$$$$$E? !<!!~.!!MXt*Mk'$$$$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$$$$$$N $$$$$$$$$$$$$$$  '/!!` !?!t%7@$S!'$$$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$$$$$$$.\"$$$$$$$$$$$$$~ :!!!~.!!X%M@NT*@9!`$$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$$$$$$$$ `~$$T$$R6B$#  <!!!f !!%@UW*@69T!E!?$$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$$$$$$$*::..`  ``` .::!!!!! <!MXUN@$$*!Et!! $$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$$$$$$$ M!!!! !!!!!!!!!!!! <!!!%@UN$$@N?!!M R$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$$$$$$F'!!!!! !!~~~~.u+~.>:!!!t!N$$$W*TKt!!:?$$$ \r\n"
+								+ "$$$$$$$$$$$$$$$$$$$$$$ !?!!!>' xWK:W$&d@$>~!!!!&9@$$$$B!!!!!'$$$ \r\n");
+						Thread.sleep(200);
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+				if (playMusic == 3) {
+					mp3.play(comPath + "04_other.mp3");
+
+				}
+				if (playMusic == 4) {
+
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+
+					break;
+				}
+
+				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
+				String movieName = sc.nextLine();
+
+				if (movieName.equals(cinemasList.get(3).getMoive().trim())) {
+					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+					mp3.play(comPath + "Verygood.mp3");
+					System.out.println();
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+					break;
+				} else {
+					System.out.println("     Fail...!      틀 렸 습 니 다... ");
+					mp3.play(comPath + "Fail.mp3");
+				}
+			}
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("    =================================================================================");
+			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 5번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+			System.out.println("    =================================================================================");
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
+			while (true) {
+				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
+				int playMusic = inputNum(sc);
+				if (playMusic == 1) {
+					mp3.play(cinemasList.get(4).getPath());
+
+				}
+				if (playMusic == 2) {
+
+					try {
+						System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠄⠀⠀⠈⠉⠉⠉⠉⠀⠀⠀⠠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⡠⠊⣠⠖⠁⣠⡤⠖⠂⠀⠀⠀⠒⠦⢤⣀⠑⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⡼⠀⢰⠃⠀⣾⡏⠀⢀⡠⠴⠒⠒⠦⣄⡀⠈⠓⠆⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⢀⠌⠀⠀⠸⡀⠀⣿⠀⠠⠋⠀⠀⠀⠀⠀⠀⠉⠒⢄⠀⠀⠀⠠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⢠⣾⣆⠀⠀⠀⠁⠀⠙⢀⠤⠶⠦⣄⠀⠀⠀⠀⠀⠀⠀⠈⠂⢄⣰⡄⠆⠐⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⢀⣿⣿⣿⣿⣿⣦⣀⠀⢠⣧⠴⠂⠀⠘⣏⠙⠦⣍⠂⢄⣀⠀⠀⠀⠈⠁⠀⢂⡇⠀⠀⣀⣠⣴⣶⣿⣿⣿⣿⠻⣶⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⢸⣿⡿⣫⣷⠞⠀⠈⠁⠈⠁⠀⠀⠀⠀⠹⡄⠀⠈⠳⣦⣌⡉⠓⠶⠶⠶⠶⢻⣠⣴⣿⣿⡯⠋⠉⠙⢛⣿⣯⣤⣼⠟⠛⠋⠓⠂⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠠⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⣿⣿⣍⠀⢀⣾⣿⣿⣿⣿⣾⣿⣦⣄⣈⠉⠻⠿⢿⣄⡀⠀⠀⠀⠀⢡⡀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⢠⣿⣇⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠤⠄⠀⠀⠀⠀⢩⠻⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⡿⠀⠀⠀⠀⠉⠻⢦⡀⠀⠀⠀⢳⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⢸⣿⡏⠀⠉⠛⠓⠀⠀⠀⠰⠚⠛⣩⠄⢀⣠⣤⡤⠀⠀⢸⠀⣿⣿⣿⣿⢋⣾⣿⣿⡿⠋⠁⠈⠀⠀⠀⠀⠀⠀⠀⠀⠑⢄⠱⣼⣦⣧⡀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠈⢿⣇⠺⠀⠀⠀⠀⠀⠀⠀⠀⠈⠠⠈⠉⠶⠒⠁⠀⠀⠀⡆⣿⣿⡿⢡⣿⠿⠋⠉⠉⠙⠂⠀⠀⠀⠐⠶⠒⠛⠉⠁⠀⠀⢷⡜⢿⣿⡇⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠙⢿⣀⣈⣺⡦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⢁⣿⠃⣤⣶⣤⣀⠀⠀⠀⠀⠀⠀⢀⡤⠖⠶⠷⣦⠀⠘⣿⣾⣿⣿⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⡇⣾⣿⠈⠏⠾⠯⠀⠡⠀⠀⠀⠀⠀⡻⢗⠀⠀⡀⠄⠀⠀⡗⠉⢻⣿⡄⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⢀⠀⠀⠀⠀⠀⠀⣸⠉⣿⡇⡏⢹⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠁⢸⢿⡇⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⣈⣀⠠⡄⠂⠀⠀⠀⠀⠀⠀⣼⡿⠀⠸⡇⣇⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⢸⠇⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠠⡀⠙⠓⠈⠀⠀⠀⠀⣠⡴⠂⠀⡟⠁⠀⠀⢳⢿⡄⠀⠀⠀⠀⠀⠀⠈⠓⠒⠂⠀⠀⠠⠄⠀⠀⠀⠀⣰⣤⠞⠈⢸⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣶⡾⠋⠀⠀⠀⡇⠀⠀⠀⠀⢻⣿⣾⣆⠀⠀⠀⠰⢒⠒⢒⠲⠔⠈⠀⠀⠀⠀⠀⣰⣿⡿⠀⢀⡇⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠏⠀⠀⠀⠀⠀⣇⡀⠀⠈⢂⡀⢻⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡎⠀⢻⡇⠀⣼⠃⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠿⠃⠀⠀⠀⠀⠀⠀⡟⠉⠓⢤⡀⢱⣿⠙⠻⣿⣿⡷⣤⣀⡀⠀⠀⢀⣀⣤⣶⡟⠟⠓⠀⡈⢷⢠⠷⡀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡀⠀⠀⠁⠀⣾⡦⣄⢹⣿⣿⣾⣭⣍⣉⣛⠓⠢⢭⣹⢹⡗⣄⠀⠀⠸⠂⠀⢡⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⢀⡠⠴⠶⢶⣾⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠂⠀⠀⣀⣿⡇⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣦⡙⡇⠈⣷⠶⠆⠀⢀⡆⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⡀⠁⠀⠀⠀⠘⠁⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⣿⣷⣤⣴⡿⠈⠛⠛⠛⠛⠛⠛⠛⠛⠛⠿⣮⡀⠻⣄⠀⢠⠛⠳⡀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⣼⣇⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣶⣶⣶⣾⣿⡿⠋⠒⠒⢦⡀⠀⠀⠀⠀⠀⠀⠈⠷⢱⣶⣶⡟⠳⣾⠀⢰⠁⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⢀⣿⣿⣶⣶⣶⡶⠶⠶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠀⠀⠀⠀⢱⠀⠀⠀⠀⠀⠀⠀⠀⠙⢻⣿⣿⡄⠀⠻⠛⢆⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⢀⠄⠉⠀⠹⠛⠉⠀⠀⠀⠀⠀⠉⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⣿⣿⠢⢴⠀⢸⠀⠀⠀⠀⠀\r\n"
+								+ "⢀⠔⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠿⣿⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣝⣿⡡⣀⠀⣸⢷⠀⠀⠀⠀\r\n"
+								+ "⡌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢼⣿⡹⠳⡇⠀⡀⠀⠀⠀\r\n"
+								+ "⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡏⣿⣷⢠⡀⢰⢱⠀⠀⠀\r\n"
+								+ "⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⣶⣿⣿⠎⡟⢦⠈⡄⠀\r\n");
+						Thread.sleep(200);
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+				if (playMusic == 3) {
+					mp3.play(comPath + "05_other.mp3");
+
+				}
+				if (playMusic == 4) {
+
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+
+					break;
+				}
+
+				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
+				String movieName = sc.nextLine();
+
+				if (movieName.equals(cinemasList.get(4).getMoive().trim())) {
+					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+					mp3.play(comPath + "Verygood.mp3");
+					System.out.println();
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+					break;
+				} else {
+					System.out.println("     Fail...!      틀 렸 습 니 다... ");
+					mp3.play(comPath + "Fail.mp3");
+				}
+			}
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("    =================================================================================");
+			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 6번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+			System.out.println("    =================================================================================");
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
+			while (true) {
+				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
+				int playMusic = inputNum(sc);
+				if (playMusic == 1) {
+					mp3.play(cinemasList.get(5).getPath());
+
+				}
+				if (playMusic == 2) {
+
+					try {
+						System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣙⠿⠿⠿⢟⣫⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢹⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸⣿⣿⣿⡏⠉⠙⢿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⡿⡍⠳⣄⡀⢀⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⢿⡄⠸⡿⢄⠛⣘⢠⣼⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡞⣼⡻⡄⠳⡤⠽⠾⠿⠿⠿⢛⣻⣿⣿⣿⣷⡀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣄⠙⢶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠉⢉⣁⣀⣀⣀⣀⣀⣉⡉⠙⠛⠻⢿⣿⣿⣿⣿⣿⣯⣻⣍⡲⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀\r\n"
+								+ "⠀⢀⡀⣶⣤⣌⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⣁⣤⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣈⠛⢿⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⣿⣿⡿⠟⠛⠛⠁⠀⠀\r\n"
+								+ "⣰⣿⣿⣿⣿⣿⣿⣿⣝⢿⣿⣿⣿⣿⣿⣿⣟⣡⣶⠿⢛⣛⣉⣭⣭⣤⣤⡴⠶⠶⠶⠶⢲⣴⣤⠭⠭⡭⣟⠻⠦⣝⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢉⣀⣠⣶⣿⣆⠀⠀\r\n"
+								+ "⠹⣿⣿⣿⣿⣿⣿⣙⠻⣿⣮⣛⠿⣿⣿⣿⣫⣵⡶⠟⣛⣋⣭⣭⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣾⣮⣽⣿⣿⣿⠿⠟⠛⠉⢀⣴⣿⣿⣿⣿⣿⣿⣶⡀\r\n"
+								+ "⠀⠈⠙⠋⠁⠀⠈⠉⠛⠳⣭⣛⢷⣦⣸⣿⣯⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⣿⠀⠀⠀⣀⣴⣾⣿⣿⣿⣿⡟⣿⣿⣿⣿⡇\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⠿⠿⢿⣹⣿⣧⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⡏⣀⣴⣾⣿⣿⠿⠛⠉⠀⠀⠀⠈⠛⠛⠉⠀\r\n"
+								+ "⠀⠀⠀⠀⢀⣴⠿⠛⠋⠁⠀⠀⠀⢀⣯⢿⣿⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⠣⣟⡻⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⢀⣀⣴⣾⣿⠈⡿⣿⠃⠀⠀⠀⠈⠉⠛⠻⠿⣿⣿⣿⣿⣿⠿⠛⠉⠉⠀⠈⠉⠛⣿⣽⡟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⢀⣠⣤⣶⣾⣿⣿⣿⣿⣿⣀⣼⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⣹⡟⣻⣿⡃⠀⠀⠀⠀⠀⠀⠀⠀⢹⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⡿⢹⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⣰⣿⢣⡇⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠟⠋⠙⠛⠻⣿⣿⣿⣿⣿⠏⠀⠈⢿⣿⣿⣿⣦⣄⣀⣀⣀⣠⣴⣿⣏⡞⢻⣸⣿⣷⣄⠀⠀⣀⣤⠴⣾⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⠃⠀⠀⠀⠈⢿⣿⣵⣾⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣶⠾⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣏⠀⠀⠀⠀⠀⣀⣼⣿⡛⢿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠟⣡⣾⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⢠⣶⣿⣿⣯⣿⡇⠀⢹⣿⣿⣿⣿⣷⣤⣤⣦⣶⣿⣿⣿⣿⣿⡇⠀⣿⣿⢸⣿⣶⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⢀⣄⣠⣴⣾⣿⣟⣿⠟⠁⣿⡇⠀⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⡇⢀⣿⣿⠙⢮⣛⠿⣷⣦⣄⣀⣀⣀⣠⣀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⣴⣶⣶⣾⣿⣿⡿⣛⣽⠞⠋⠀⠀⠀⣿⣷⠀⣍⠇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠉⡄⣸⣿⡿⠀⠀⠈⠙⠮⣟⠿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⢀⣹⣿⣿⣿⢵⡿⠋⠀⠀⠀⠀⠀⠀⢿⣿⣦⣿⡷⣄⠙⠿⣿⢹⣿⣿⢼⡿⠋⣡⣶⣳⣿⣿⣿⠃⠀⠀⠀⠀⠀⠈⠿⠬⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠸⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣷⣻⢿⣶⣬⣈⣉⣉⣤⣴⣿⣻⣾⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⡿⠇⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠙⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⡇⣿⣇⣿⢹⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n\"");
+						Thread.sleep(200);
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+				if (playMusic == 3) {
+					mp3.play(comPath + "06_other.mp3");
+
+				}
+				if (playMusic == 4) {
+
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+
+					break;
+				}
+
+				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
+				String movieName = sc.nextLine();
+
+				if (movieName.equals(cinemasList.get(5).getMoive().trim())) {
+					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+					mp3.play(comPath + "Verygood.mp3");
+					System.out.println();
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+					break;
+				} else {
+					System.out.println("     Fail...!      틀 렸 습 니 다... ");
+					mp3.play(comPath + "Fail.mp3");
+				}
+			}
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("    =================================================================================");
+			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 7번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+			System.out.println("    =================================================================================");
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
+			while (true) {
+				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
+				int playMusic = inputNum(sc);
+				if (playMusic == 1) {
+					mp3.play(cinemasList.get(6).getPath());
+
+				}
+				if (playMusic == 2) {
+
+					try {
+						System.out.print(
+								"+++#%@@@%@@%*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\r\n"
+										+ "+++++*#@@@@@@#++++***###*****+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\r\n"
+										+ "+++++++*%@@@@@%##%%%%%%%%%%%%##*+++++++++++++++*+++*####****++++++++++++++++++++++++++++++\r\n"
+										+ "+++++++++#@@%%@%%%@@%%%%%%%%%%%%#++++++++++++*#%%%%%%@%%%%%%%#++++++++++++++++++++++++++++\r\n"
+										+ "+++++++++++*%@@@@@%%@@@@@@%%%%%%%+==+===++++#%@@@@@@@@@@@@%%%%#+++++++++++++++++++++++++++\r\n"
+										+ "+========++*@@%%%%@@@@@@@%%%#**++++=====++#%@@@@@@@@@@%%##**+++++++++++++++=+=============\r\n"
+										+ "==========*%@@@@@@@@@@@@@%#***++=+++===++*%@@@@@@@@@@@%#**+===============================\r\n"
+										+ "==========*@@@@@@@@@@@@@@%###***++++++++*#@@@@@@@@@@@%%#**++==============================\r\n"
+										+ "=========+*@@@@@@@@@@@@@@%%###***#******%@@@@@@@@@@@%########+*+==========================\r\n"
+										+ "==========*%@@@@@@@@@@@@%%%%%%%#*##*+++*#@@@@@%%@@@%###*##*##+#+--------------------------\r\n"
+										+ "============%@@@@@%%@%%%%%%%##**+*###++*%@@@@@%%%%%%####*+=*#*+=--------------------------\r\n"
+										+ "============+#%@@%%%%%%%%%%%%##***##*+#%@@@@@@@@%%%##%%##*####*==============-------------\r\n"
+										+ "%*=============+*%@%%%%%%%%%%%###*##++%@@@@@@@@@%%%##%%#*#@%#*========--------------------\r\n"
+										+ "+#%#+=++++==++*%@@@%%%%%%%%%%%%%##**#%@@@@@@@@@%%%%%####*####+++++++++++++++====+=++++++++\r\n"
+										+ "+*#%#+++++++#%@@@@@%%%%%%%%%@@@@%%%%@@@@@@@%%%@%%%%%%####**+++++++++++++++++++++++++++++++\r\n"
+										+ "%@@@%#+++**###%@@@@@@%%@@@@@@@@@@@@@@@@@@%%%%%%%%%%%%%%###*+++++++++++++++++++++++++++++++\r\n"
+										+ "###%%%+++**+=++++*#%%##+++*#@@@@@@@@@@@@@@##%%%%%%%%#*+*@%%%##***+++++++++++++++++++++++++\r\n"
+										+ "**+****=***+=++*+=+++=+*#@@@@@@@@@@@@@@@@@#*#%%%%*++++++#@%@@@@@%*++++++++++++++++++++++++\r\n"
+										+ "+*+**#**++*++++=++=++%@@@@@@@@@@@@@@@@@@@@###%%%%#====+++#@@%@@%%@%%#*++++++++++++++++++++\r\n"
+										+ "+++#**+++++*+++=+++*@@@@@@@@@@@@@@@@@@@@@@##%%%###*===+===*@@@@@@@@@@@%==**+++++++++++++++\r\n"
+										+ "*+*%#***+++**+==++*@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@+=======+*%@@@@@@@@%++++++++#%#++++++++\r\n"
+										+ "**#%#********++++*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#==========*%@@@@@@%+++++**+###+==+++++\r\n"
+										+ "%%%#########****%@%@@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+-----=---=#@@@@@%*+*++++*@#%%******#%\r\n"
+										+ "%##%%#%%%%%***%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#----------+%@%%%###**###@@@%#********\r\n"
+										+ "%@@@%@@%%#**#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%==--------=%%%%%###%%@@@@@%**********\r\n"
+										+ "%%%%%%####%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@===-------*%####%#%%%%@@@#***********\r\n"
+										+ "%%#####%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+========+@#***********%%************\r\n"
+										+ "#%##%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@========*@#**************************\r\n"
+										+ "#%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@%=-=---=#@%***************************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%@@@@%@@#+====+#@#****************************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#%@@@%%%%%##%%%%@#*****************************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@@@@@%%###%%%@@@%******************************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%###%###****#%%%%@%#*****************************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%%%%%####********#%@@%%@%****************************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+######%%%#**######%@@%#%@%#**************************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*###%%%%%%#*******#@@@@###@@%#************************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*%%%%%%%%%#*##%%%@@@@@@@@##%@@#***********************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@%%%#%@@@@@@@%***#@@%#*********************\r\n"
+										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*****%@@#********************\r\n");
+						Thread.sleep(200);
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+				if (playMusic == 3) {
+					mp3.play(comPath + "07_other.mp3");
+
+				}
+				if (playMusic == 4) {
+
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+
+					break;
+				}
+
+				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
+				String movieName = sc.nextLine();
+
+				if (movieName.equals(cinemasList.get(6).getMoive().trim())) {
+					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+					mp3.play(comPath + "Verygood.mp3");
+					System.out.println();
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+					break;
+				} else {
+					System.out.println("     Fail...!      틀 렸 습 니 다... ");
+					mp3.play(comPath + "Fail.mp3");
+				}
+			}
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("    =================================================================================");
+			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 8번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+			System.out.println("    =================================================================================");
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
+			while (true) {
+				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
+				int playMusic = inputNum(sc);
+				if (playMusic == 1) {
+					mp3.play(cinemasList.get(7).getPath());
+
+				}
+				if (playMusic == 2) {
+
+					try {
+						System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠲⣄⢀⡀⠀⠀⠀⠀⠀⠀⢀⠄⠀⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠈⠳⣕⢄⠀⠀⠀⠀⢠⣏⠀⠀⣹⡆⠀⠀⠀⠀⠀⠀⣀⡀⣀⠀⠀⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⡿⡷⣄⣤⣾⣿⣯⣿⣿⣿⣧⡀⠀⠀⢀⠀⠀⠈⣻⣿⣻⢿⣶⢿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣽⠀⡖⣯⢳⣿⣿⣿⡟⠛⡞⣿⣽⣿⣿⣧⣼⠃⢸⣧⣷⣿⡟⣷⣯⡟⣾⢻⡞⣿⡆⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠠⠤⣀⡀⠀⠀⠀⠀⣀⣼⣧⠽⠒⠋⠉⠉⠉⠉⠉⠙⠓⠿⠿⠛⠋⠉⣄⠀⢻⣿⣿⡿⣽⣳⢯⡿⣽⢯⡿⣽⣷⠀⠀⠀⠀⢸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠱⡀⠀⠈⠉⢓⢾⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣿⡄⠀⠐⢹⣿⡷⣯⢿⡽⣯⢿⡽⣷⣿⠀⢀⣤⣷⣼⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠘⢦⠀⣠⢯⡿⠋⠀⠀⠀⠀⢀⣀⠀⠀⢀⣠⣆⣴⡄⣀⠀⢄⠂⠄⡷⠻⣦⣤⣾⣿⣽⣯⡿⣽⢿⣾⡉⢏⡿⣿⣿⣻⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⢿⣵⠟⠀⢀⡠⠔⠚⠉⣡⡈⠉⠉⠛⠻⣿⣿⣿⣷⣮⣦⣴⣾⣷⣿⠿⠿⠾⣌⣛⡟⠉⣻⣯⣿⣧⠨⣽⣿⣞⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⣼⠏⠀⡔⠁⠀⠀⠀⣀⢴⣹⠶⢳⣀⠀⢻⣿⣛⡹⠿⠿⣿⣭⠝⠀⠀⠀⠀⠈⠹⣷⣤⣿⣈⣽⣻⠵⠿⠿⣭⣿⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⣠⣼⡟⠀⣸⠀⠀⠀⠀⣦⣾⣿⣿⣿⣿⡿⠟⠚⠋⢄⡀⠀⢰⠋⢳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠈⠀⠀⠐⠋⣟⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⢄⡀⠀⠀⠀⠈⡷⡿⠀⠀⡇⠀⠀⢠⣮⣁⣽⣿⣿⠟⠋⠁⠀⠀⢀⠞⠻⣦⢾⣦⡾⠁⠀⢠⢶⣷⡀⠀⠀⠀⠀⠀⠈⣇⠀⠀⠀⣠⡾⣼⡟⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠉⠲⢤⣠⡴⣹⠃⠀⠀⣧⠀⢠⣾⣿⣿⣿⠏⠀⠀⠀⠱⣽⠞⢻⠦⡤⢿⣌⢿⣿⣤⠀⠈⣿⠿⣷⡄⣀⠀⠀⠀⣠⠹⣄⣠⠾⢋⡴⢇⢣⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠘⢷⡟⠀⠀⠀⣿⢤⠘⣿⣿⣿⡏⠀⢠⡀⠀⠀⣸⣷⢪⠝⣰⢃⡞⢮⣿⣿⡄⠀⢹⣶⣿⣿⣶⡴⢶⣿⣲⣯⣿⣿⡏⡙⣬⠼⠋⠀⠀⠀⠀⠀⠀⣠⡄⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⢸⠁⠀⠀⣸⠇⢸⣿⠏⣿⣿⡁⠀⠀⢿⣆⡾⠀⣿⣇⠹⣆⢏⡸⢆⡈⣹⣷⡀⢸⠏⢸⣿⣿⣷⣿⣿⣿⣿⣿⣾⣇⣾⢀⣶⣆⣀⣀⣀⣰⠶⡿⢱⠎⣀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠸⠀⠀⢀⡏⢀⣿⣽⠲⢾⣿⡇⠀⠠⢜⢢⠟⣦⡼⢧⢋⡖⢎⡱⠮⢵⡏⡹⡇⠀⠑⣿⡿⠛⣿⣿⣿⣿⡿⣭⣟⣹⣿⣿⣾⣿⡟⢏⡱⢌⢣⡱⢣⣫⢖⢧⣋⠖⠄\r\n"
+								+ "⠀⠀⠀⠀⢠⠀⠀⠀⡘⠁⣼⡿⠁⠀⠀⠉⠛⠦⣵⣎⣦⠕⢊⣀⣊⣜⠸⣏⡛⡛⠞⡹⠳⣷⠀⠀⠀⠁⠀⠋⠉⠉⠉⠀⠻⣧⣿⣿⣿⣿⢣⡙⣌⠲⣩⢲⡱⣣⠏⣎⣓⡬⠆⠀\r\n"
+								+ "⠀⠀⠀⠀⠎⠀⠀⠠⠁⢠⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⢢⡔⡿⠀⠑⠨⠙⠶⣥⣆⣑⠌⢣⡀⠀⠀⠀⢀⠀⣀⠂⣄⡾⢩⣿⣹⣻⣿⠋⠛⠛⠶⣇⢇⡚⡥⢞⡭⣚⠼⣱⡀\r\n"
+								+ "⠀⠀⠀⠀⣽⠀⠀⠄⢐⡾⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⣌⠳⣼⡅⠈⡲⢦⣉⠒⡰⢈⠉⡉⢉⣽⡷⣶⣟⡛⠻⢤⡃⠊⡤⣞⣿⣿⣿⣿⣆⠀⠀⣠⠞⢾⡴⡙⡮⠆⠉⢚⠀⠃\r\n"
+								+ "⠀⠀⠀⠀⣯⠽⠖⠖⢻⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⢌⠻⣜⢛⢦⡁⢆⡉⡙⠁⠂⠀⣴⡞⢯⡜⢧⡹⣛⣦⡀⠉⠓⠛⠶⠾⣿⣿⣿⣿⣷⣦⣽⣦⣤⠷⠋⠁⠀⠀⠀⠀⠀\r\n"
+								+ "⢀⣠⠴⠚⠁⢠⠠⡀⠼⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢌⢣⡝⡌⠦⡉⢆⡐⠄⠁⣴⣞⠳⣜⢣⠞⣥⠳⣍⠞⣵⡀⠀⠀⠀⠀⠀⠉⠙⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠘⠻⢦⣱⣌⢢⡑⣌⠲⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠌⡜⡲⠜⢨⠓⠈⢄⣠⣴⢛⢧⠪⡝⣌⢧⣋⠶⡹⢌⡻⢼⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠈⠉⠉⠉⢉⡇⠀⠀⠀⠀⠀⠀⠀⠀⡀⢢⠑⡬⢱⢩⠟⠙⠛⠛⠒⣳⢏⠶⣙⠼⣘⠦⣍⢮⡱⣍⣾⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⡎⠀⠀⠀⠀⠀⠀⠀⠄⢢⢅⢣⠚⡔⢣⠏⠀⠀⠀⠀⠀⣟⢎⡳⣉⠮⢥⢫⠴⣢⢓⢾⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⡸⠀⠀⠀⠀⠀⠀⢀⠇⡸⢃⠼⡘⠟⣸⠟⠀⠀⠀⠀⠀⢸⣛⡜⢣⡛⡼⣃⢟⡼⣣⢟⡻⢼⢧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⠠⠨⣐⢪⢑⡋⣎⣱⠽⠃⠀⠀⠀⠀⠀⠀⣿⢄⡏⢧⡙⢶⠩⡞⢴⢣⠎⣽⡷⣿⣻⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⣾⠀⠀⠀⠀⠀⠀⠀⠀⠈⠈⣏⠉⣻⣆⠀⠀⠀⠀⠀⠀⠀⠈⠚⠾⠧⠾⠥⠿⠼⠾⠾⠽⠾⠓⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠘⠦⣀⠀⢀⡤⠒⢦⣠⠖⠚⣟⡎⠙⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠤⠞⠻⠦⢄⡟⠋⠒⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n");
+						Thread.sleep(200);
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+				if (playMusic == 3) {
+					mp3.play(comPath + "08_other.mp3");
+
+				}
+				if (playMusic == 4) {
+
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+
+					break;
+				}
+
+				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
+				String movieName = sc.next();
+
+				if (movieName.equals(cinemasList.get(7).getMoive().trim())) {
+					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+					mp3.play(comPath + "Verygood.mp3");
+					System.out.println();
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+					break;
+				} else {
+					System.out.println("     Fail...!      틀 렸 습 니 다... ");
+					mp3.play(comPath + "Fail.mp3");
+				}
+			}
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("    =================================================================================");
+			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 9번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+			System.out.println("    =================================================================================");
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
+			while (true) {
+				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
+				int playMusic = inputNum(sc);
+				if (playMusic == 1) {
+					mp3.play(cinemasList.get(8).getPath());
+
+				}
+				if (playMusic == 2) {
+
+					try {
+						System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡠⠤⠤⠒⠢⣤⠤⢤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠴⠋⠁⠀⠀⠀⠀⢸⢿⢦⡠⠶⠷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠁⠀⠀⠀⣀⠤⠒⠊⠉⢪⡙⠦⣄⣀⡼⡷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠀⠀⠀⡤⠊⠁⣀⡠⠤⠒⠚⠉⠓⠲⠶⠺⠭⠾⠧⠤⢄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠀⠀⣠⠊⣀⠴⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⠉⠲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⢰⢣⠞⢁⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡏⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⡠⠷⠓⠊⠉⠀⠀⠀⠀⠀⠀⠀⢀⣠⠞⠁⠉⢳⣦⣤⣬⡤⠤⢄⡀⠀⡼⠃⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⢀⣠⠞⠉⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡤⠾⠾⣿⠆⠀⠀⢀⣿⣷⣦⣾⠃⠀⠀⠓⢠⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⢀⡠⠒⡟⢻⣾⣉⣓⣦⠀⠀⠀⠀⢸⣿⣿⣿⡟⠁⠀⠀⢀⡞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⢀⡞⠀⠀⠀⠀⠀⠀⠀⠠⠖⠁⠀⡰⢧⠀⠣⣸⣿⣿⣧⡀⠀⠀⠸⡽⠟⠋⣏⢢⡀⡠⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠀⠈⣣⡀⠀⠉⠉⠀⠀⠀⠀⠀⡇⣰⠟⠉⢳⣯⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠈⣇⠀⠀⠀⠀⠀⠀⠀⣠⡞⠁⠀⢀⣠⢯⢳⠀⠀⠀⢀⠀⠀⣑⣾⣣⡿⣶⡐⠋⠛⡷⠛⠳⠶⣠⣀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠹⡀⠀⠀⠀⠀⠀⠀⠏⠣⢤⣐⣛⣒⣺⣾⡀⠀⠈⠙⢿⣟⣛⣿⣯⡽⠌⢁⠆⠈⠀⠤⣈⠙⢛⣳⣟⣒⣿⡞⠛⡆⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠹⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⡏⠀⠀⠉⠲⣄⡀⠀⠉⠒⣻⠋⢻⣄⠹⠀⠀⠀⠀⢸⠉⠉⠁⠘⡿⢿⠎⠁⢰⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⠨⡷⣄⠀⠀⠀⠀⠀⣀⠼⣇⠱⣄⠀⠀⠀⠀⢨⡟⠒⠒⠋⠀⠀⢉⣷⣤⣾⣷⡴⣋⣿⠯⡳⠤⠇⠀⠀⠀⠈⡇\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⣠⠴⠣⡈⠓⠤⡠⠔⠊⠁⠀⠘⢄⠈⠲⣄⠀⢀⡞⡧⢄⡀⠀⠀⠀⡼⠻⣷⣜⣿⣿⣿⡹⡄⠘⢦⠀⠀⠀⠀⠀⢡\r\n"
+								+ "⠀⠀⠀⠀⢀⡞⠀⠀⠀⠈⢱⠞⠀⠀⠀⠀⠀⠀⠀⠑⢄⡠⣙⣚⣇⡇⠀⠈⠳⡀⠀⡇⠀⠉⠙⠽⢿⡷⢽⡇⠀⠀⠱⡆⠈⠀⠀⡞\r\n"
+								+ "⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠚⠭⠭⠃⠀⠀⠀⠘⡄⡇⠀⠀⠀⣤⣄⡇⠀⠀⠀⠀⢸⠃⠀⠀⢰⠁\r\n"
+								+ "⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⢹⠀⠀⠀⠀⠀⠀⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡴⠛⡇⠀⠀⠀⣿⠴⠃⠀⠀⠀⡴⠃⠀⠀⠀⡎⠀\r\n"
+								+ "⠀⠀⠀⠀⠈⢯⠀⠀⠀⠀⠈⣧⠀⠀⠀⠀⠀⠀⢸⡀⠀⣀⣀⣀⡀⢀⠀⣀⠼⢦⡀⡇⠀⠀⢰⠇⠀⠀⢀⡴⠋⠀⠀⠀⠀⡼⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠳⣄⠀⠀⠀⠈⣆⡠⠤⠤⠤⠤⢄⣷⠋⠀⠀⠀⠉⠺⡶⠁⠀⠀⡽⠁⠀⢴⡁⠀⣠⠞⠁⠀⠀⠀⠀⠀⡼⠁⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⠀⠀⠀⣸⠳⢤⣀⣰⡇⠀⠀⠀⠀⠀⠀⠈⠑⠦⠀⠀⠀⠀⠀⠀⢠⠞⠁⠀⠀⡏⢱⠞⠁⠀⠀⠀⠀⠀⢀⡜⠁⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⠀⢀⡰⠞⠉⠧⣀⠀⠈⠙⡦⠀⠀⠀⠀⣀⡠⠤⢤⠀⠀⠀⠀⠀⡴⠃⠀⠀⠀⣸⠀⠁⠀⠀⠀⠀⠀⠀⢠⠟⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⠀⠀⡰⠋⠀⠀⠀⠀⠀⠉⠉⠉⣇⢀⣤⠒⠉⠀⠀⠀⠀⢣⠀⠀⢠⠎⠀⠀⠀⠀⢀⡏⠀⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⢀⡞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠚⢧⠀⠀⠀⠀⠀⠀⢣⣠⠋⠀⠀⠀⠀⠀⡸⠢⣀⠀⠀⠀⢀⡰⠊⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⠀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⠀⠀⠀⠀⠀⡼⠃⠀⠀⠀⠀⠀⢠⠇⠀⠈⠙⠲⠖⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⢤⣀⣀⣀⣰⣃⣳⣄⣀⣀⣈⠁⠀⠀⠀⠀⠀⢠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+								+ "⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠑⠒⠦⢤⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n");
+						Thread.sleep(200);
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+				if (playMusic == 3) {
+					mp3.play(comPath + "09_other.mp3");
+
+				}
+				if (playMusic == 4) {
+
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+
+					break;
+				}
+
+				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
+				String movieName = sc.nextLine();
+
+				if (movieName.equals(cinemasList.get(8).getMoive().trim())) {
+					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+					mp3.play(comPath + "Verygood.mp3");
+					System.out.println();
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+					break;
+				} else {
+					System.out.println("     Fail...!      틀 렸 습 니 다... ");
+					mp3.play(comPath + "Fail.mp3");
+				}
+			}
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("    =================================================================================");
+			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 10번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
+			System.out.println("    =================================================================================");
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
+			while (true) {
+				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
+				int playMusic = inputNum(sc);
+
+				if (playMusic == 1) {
+					mp3.play(cinemasList.get(9).getPath());
+
+				}
+				if (playMusic == 2) {
+
+					try {
+						System.out.print("\r\n" + "..............................:?5GG#&B5J7!:.......\r\n"
+								+ "...........................:75B&@&#BBB#&&&#P7.....\r\n"
+								+ "..........................:P@&&#?^:::::^7YG#Y?:...\r\n"
+								+ ".........................~B&&&#~ ..........:.^J:..\r\n"
+								+ ".........................5@&&&&~..............!7..\r\n"
+								+ "........................:B&&&#!....:!JJ?~....:!J..\r\n"
+								+ ".......................:7G&&&P~~~~!G&@@&&5^^?#&&G7\r\n"
+								+ "........:^!?JJYJJ?7!~^.J!.~B@P~~~~J@&&&&@#^^G@&&@&\r\n"
+								+ "...:~7YPB&&&&&&&&&&&&#GG~..^BJ.. ..?G##BP~..~G&&#?\r\n"
+								+ ".75B&&&&&&&&&&&&&&&&&&&&B^. Y@BP?:...:^:. ....?J:.\r\n"
+								+ "J&&&&&&&&&&&&&&&&&&&&&&&&#JJ#&&&@J ....:!?!!^.7^..\r\n"
+								+ "&&&B##&&&&&&&&&&&&&&&&&&&&B!G@&&&#Y!^755J!7?P7!...\r\n"
+								+ "5P5^^^Y&&&&&&&&&&&&&&&&&&&&P^Y#@&&&&#@5 ... PP....\r\n"
+								+ " Y7^7~^5&&&&&&&&&&&&&&&&&&&&? ^YB&&&&&B!^:^7&?....\r\n"
+								+ ".7&~...^#&&&&&&&&&&&&&&&&&&&P...:75B&&@&###&G:....\r\n"
+								+ ".~?..::.Y&&&&&&&##&##&&&&&&&B~.^^..:!7?YPJ?7:.....\r\n"
+								+ ":?~:.^~^~#&###&##&#&#####&&#5YJ7~:!7J7^J:^~^:.....\r\n"
+								+ "..^7.:^^!&&##&&&&&&&&&&##GY~^~!?J?!~7~7?~!!!~~~^..\r\n"
+								+ "...7!...?G&&&&#BBGPGGY?~^..^^..:J^..??7~:...::^~7~\r\n"
+								+ "...:?^~!!!?!~^^^~7YGB~!?:..77!.?~...7J..:~!!~~^^^:\r\n"
+								+ "....:~~^^:^JJ5G#&&@#P!:~J.^7.!7?....7:.!J^........\r\n"
+								+ "......:^~?7^PBPYJJ7^....?.7^..J!..:!7~~77~~~^.....\r\n"
+								+ "..~JJ?7!~J~ :7 :!:...:^!?~J^..~~^J?~::..^~J~~:....\r\n"
+								+ "..P?.....~7.7~:7..:~7?Y!~!~!..~?J7^:^~7J~^J?~7~...\r\n"
+								+ "..!P......7J~.?^~7!~:.!~:^~7!:?J777?J!!?~^^^:!~...\r\n"
+								+ "...YY.....?G:^Y7!:.....^!~.~55Y7!~JJ~~7~^~~~7!:...\r\n"
+								+ "....P?...~?7^?7..........!!.5G?^:~!~77~^^^~!7!J:..\r\n"
+								+ "....:Y?.:??^5?........:~~~!7Y7:^~!?J7!~~~~!!G!^:..\r\n"
+								+ "......7Y57^Y5.........~Y7?7!~^~~!??~!?7~7:..P!....\r\n"
+								+ ".......:7?JG~ ........?~::::^^~~^^!~..~!7!.JY.....\r\n"
+								+ ".........:~??7~^:....~!.........:?!~...:^?57......\r\n"
+								+ ".............^!7??7!!?::.....::^7?7~!7?7?!:.......\r\n"
+								+ ".................:^~!!77777???7?Y7J?7!~:..........\r\n"
+								+ "...........:^^^^^^^^^^^^^^~^^~~~~~^^^^............\r\n");
+						Thread.sleep(200);
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+				if (playMusic == 3) {
+					mp3.play(comPath + "10_other.mp3");
+
+				}
+				if (playMusic == 4) {
+
+					System.out.println("     다음 문제로 넘어갑니다...     ");
+
+					break;
+				}
+
+				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
+				String movieName = sc.nextLine();
+
+				if (movieName.equals(cinemasList.get(9).getMoive().trim())) {
+					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+					mp3.play(comPath + "Verygood.mp3");
+					System.out.println();
+					break;
+				} else {
 					System.out.println("     Fail...!      틀 렸 습 니 다... ");
 					mp3.play(comPath + "Fail.mp3");
 				}
 
 			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("    =================================================================================");
-		System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 2번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-		System.out.println("    =================================================================================");
-		System.out.println();
-		System.out.println();
-		System.out.println();
 
-		while (true) {
-			System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-			int playMusic = sc.nextInt();
-			if (playMusic==1) {
-				mp3.play(cinemasList.get(1).getPath());
-
+			if(mp3.isPlaying()) {
+				mp3.stop();
 			}
-			if (playMusic==2) {
+			mp3.play(comPath + "closing.mp3");
+
+			String[] gameEndList = new String[10];
+
+			gameEndList[0] = 
+					"			 ██████╗  █████╗ ███╗   ███╗███████╗    ███████╗███╗   ██╗██████╗ ██╗    \r\n"
+					+ "			██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔════╝████╗  ██║██╔══██╗██║    \r\n"
+					+ "			██║  ███╗███████║██╔████╔██║█████╗      █████╗  ██╔██╗ ██║██║  ██║██║    \r\n"
+					+ "			██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██╔══╝  ██║╚██╗██║██║  ██║╚═╝    \r\n"
+					+ "			╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ███████╗██║ ╚████║██████╔╝██╗    \r\n"
+					+ "			 ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═══╝╚═════╝ ╚═╝    \r\n";
+
+			gameEndList[1] = "			 ██████╗                                                                 \r\n"
+					+ "			██╔════╝                                                                 \r\n"
+					+ "			██║  ███╗                                                                \r\n"
+					+ "			██║   ██║                                                                \r\n"
+					+ "			╚██████╔╝                                                                \r\n"
+					+ "			 ╚═════╝                                                                 \r\n";
+
+			gameEndList[2] = "			          █████╗                                                         \r\n"
+					+ "			         ██╔══██╗                                                        \r\n"
+					+ "			         ███████║                                                        \r\n"
+					+ "			         ██╔══██║                                                        \r\n"
+					+ "			         ██║  ██║                                                        \r\n"
+					+ "			         ╚═╝  ╚═╝                                                        \r\n";
+			;
+
+			gameEndList[3] = "			                 ███╗   ███╗                                             \r\n"
+					+ "			                 ████╗ ████║                                             \r\n"
+					+ "			                 ██╔████╔██║                                             \r\n"
+					+ "			                 ██║╚██╔╝██║                                             \r\n"
+					+ "			                 ██║ ╚═╝ ██║                                             \r\n"
+					+ "			                 ╚═╝     ╚═╝                                             \r\n";
+			;
+
+			gameEndList[4] = "			                            ███████╗                                     \r\n"
+					+ "			                            ██╔════╝                                     \r\n"
+					+ "			                            █████╗                                       \r\n"
+					+ "			                            ██╔══╝                                       \r\n"
+					+ "			                            ███████╗                                     \r\n"
+					+ "			                            ╚══════╝                                     \r\n";
+
+			gameEndList[5] = "			                                        ███████╗                         \r\n"
+					+ "			                                        ██╔════╝                         \r\n"
+					+ "			                                        █████╗                           \r\n"
+					+ "			                                        ██╔══╝                           \r\n"
+					+ "			                                        ███████╗                         \r\n"
+					+ "			                                        ╚══════╝                         \r\n";
+
+			gameEndList[6] = "			                                                ███╗   ██╗               \r\n"
+					+ "			                                                ████╗  ██║               \r\n"
+					+ "			                                                ██╔██╗ ██║               \r\n"
+					+ "			                                                ██║╚██╗██║               \r\n"
+					+ "			                                                ██║ ╚████║               \r\n"
+					+ "			                                                ╚═╝  ╚═══╝               \r\n";
+
+			gameEndList[7] = "			                                                          ██████╗        \r\n"
+					+ "			                                                          ██╔══██╗       \r\n"
+					+ "			                                                          ██║  ██║       \r\n"
+					+ "			                                                          ██║  ██║       \r\n"
+					+ "			                                                          ██████╔╝       \r\n"
+					+ "			                                                          ╚═════╝        \r\n";
+
+			gameEndList[8] =
+
+					  "			                                                                  ██╗    \r\n"
+				    + "			                                                                  ██║    \r\n"
+				    + "			                                                                  ██║    \r\n"
+					+ "			                                                                  ╚═╝    \r\n"
+					+ "			                                                                  ██╗    \r\n"
+					+ "			                                                                  ╚═╝    \r\n";
+
+			gameEndList[9] =
+					"			 ██████╗  █████╗ ███╗   ███╗███████╗    ███████╗███╗   ██╗██████╗ ██╗    \r\n"
+					+ "			██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔════╝████╗  ██║██╔══██╗██║    \r\n"
+					+ "			██║  ███╗███████║██╔████╔██║█████╗      █████╗  ██╔██╗ ██║██║  ██║██║    \r\n"
+					+ "			██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██╔══╝  ██║╚██╗██║██║  ██║╚═╝    \r\n"
+					+ "			╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ███████╗██║ ╚████║██████╔╝██╗    \r\n"
+					+ "			 ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═══╝╚═════╝ ╚═╝    \r\n";
 
-				try {
-					System.out.print("~!!~~~~^^^^~!7~^??^^::::::::::::::::::::::::::^^^^^^^^^^^^^^\r\n"
-							+ "!~~~~~~?7~!7J77~7YPJ~~:::::::::::::::::::::^^^^^^^^^^^^^^^^^\r\n"
-							+ "!~~~~~5BYY?!7!~!777?5?:::::::::::::::::::::^^^^^^^^^^^::^^^^\r\n"
-							+ "~~~~~5#BBBGPP5?77?JJ?^:::::::::::::::::::::^^^:^^^^^^^::::::\r\n"
-							+ "~~~^?#BB##GJ5J5PG5?7?7~~7~^::::::::::::::::^^^::::^^::::::::\r\n"
-							+ "^^^^7GBB##BBBGGGBGP555PPGG5~::::::::::::::^^^^::::::::::::::\r\n"
-							+ "^^^^^Y#B#BBBGGBGGGGGPPPP5JJ!~!!^::::::::::::::::::::::::::::\r\n"
-							+ "^^^^:JBBGPPPPGGB#BGBGPPPP5J?7?J57:::::::::::::::::::::::::::\r\n"
-							+ "P57!~?GGGPPBBBB##BGGGBGGPPPJ77!?5?!^.:::::::::::::::::::::::\r\n"
-							+ "&##BGGGGGBBB#####BBGGGGGBGG5YJ?77??Y?^.:::::::::::::::::::::\r\n"
-							+ "#####GBBBB#######BBGGGGGGBBB5??7777JP5!::::::::::::::.......\r\n"
-							+ "##########BJ7P###BBBGGGGGGGBBY7??777JP5::::..........:^~!7^.\r\n"
-							+ "?YPB##&##Y~..:!P##BBGGGGGGGGBB?!77???YB!........:^::~J5P5PJ~\r\n"
-							+ ":::^!?J?~:::::.:JBBBBBGGGGGGGB57!!77??55~!!7???J5P5YPY55YPP!\r\n"
-							+ "::::::..::::::::.?BBBBBGGGGGBBGJ??7777?5GGGPPGGGGGGGGJ!!!~^.\r\n"
-							+ "::::::::::::::::::P#BBBBGGBBBGBBBBBGGP5PPGGGGGBBBBBPY~ .....\r\n"
-							+ ":::::::::::::::::.Y#BBGGGBBBBBBGGGGB#&&&#GGGGPPPPPY:........\r\n"
-							+ ":::::::::::::::..:PBGGGGBBBBBBBGGGGGBBB###?:::::::..........\r\n"
-							+ "::::::::...:::...:PBGGGGBBBBBBBGGGGGBBBB##B7................\r\n"
-							+ ":::::::...:....::~GBGGGGGBBBBBBBGGGGBBBBB###7...............\r\n"
-							+ "::^~~~^::::...:::7BBBGGGGBBBBBBGBGGGBBBBBBB##7..............\r\n"
-							+ "^^~7!~^:::::::^^^YBBGGGGBBBBB#BGGGGBB#####BBBP?:....:::....:\r\n"
-							+ "~~!7777!^:::::^^~PBBBB########BGGBBBBB##BB##BGGP?^...:::...^\r\n"
-							+ "!!777??7~^^^:^~~7B###########BGGBBBBB###B###BGGGGP?^::::...!\r\n"
-							+ "!77777?7~~~~~~~~!JPB###&#####BGBBBBBB######BBBBGGGGPJ!::.::!\r\n"
-							+ "!777777!!!!!!!!~~~~!?JY5PG##BBBBBBGBB#############BGGPY!:::7\r\n"
-							+ "!7????~~!!!!!!!!!!!!7777??G#BBGGGGGGB#####BBBBBBBBGGGGGG5!:~\r\n"
-							+ "?JJJ??~~!!!!!!!!!!!!777???G#BBGGGGGBB#BGGB######BBBBGGGGGGY!\r\n"
-							+ "YYYJ??7!!7?77777!!77?????5##BBGGGGBB##G???JYPGBBBBB#BBBBBGBP\r\n"
-							+ "YYJJJJJYJJYJ?7777???????YB#BBGGGGBBB#BY?!!!!!7?YP#BBGGGGGGGG\r\n"
-							+ "JJJJJJJYYYYYJ????JJJ?77?JG#BBBBBB###B5??!!!!!!!!!5BBGGGGGGG5\r\n");
-					Thread.sleep(200);
-
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}
-			if (playMusic==3) {
-				mp3.play(comPath + "02_other.mp3");
-
-			}
-			if (playMusic==4) {
-
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-
-				break;
-			}
-
-			System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-			String movieName = sc.next();
-
-			if (movieName.equals(cinemasList.get(1).getMoive())) {
-				System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-				mp3.play(comPath + "Verygood.mp3");
-				System.out.println();
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-				break;
-			}  else {
-				System.out.println("     Fail...!      틀 렸 습 니 다... ");
-				mp3.play(comPath + "Fail.mp3");
-			}
-		}
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("    =================================================================================");
-		System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 3번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-		System.out.println("    =================================================================================");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-
-		while (true) {
-			System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-			int playMusic = sc.nextInt();
-			if (playMusic==1) {
-				mp3.play(cinemasList.get(2).getPath());
-
-			}
-			if (playMusic==2) {
-
-				try {
-					System.out.print("⣿⣿⣿⣿⣿⣿⣿⠟⠛⠛⠋⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⣐⠚⢋⣶⣶⣿⣯⣀⣀⣀⣸⣷⣄⡀⠀⠀⠀⠀⠀⢸⣿⣿⡿⠋⠉⠉⠉⠉⠉⢉⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⢩⣀\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣉⣤⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠉⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⡀⠀⠈⣿⣿⡧⠀⢀⠀⠀⠀⠀⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣸⣿\r\n"
-							+ "⠘⠛⣿⣿⣿⣿⣿⡿⠦⠄⠀⠀⠀⠀⠀⢠⡴⣋⣠⣶⠶⢶⣟⠛⠉⣉⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⣤⡄⠀⢀⣴⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡹⣿⣿⣿\r\n"
-							+ "⠁⠀⢸⡏⣸⣿⣾⣿⡄⠀⠀⠀⠀⠀⠀⣟⣿⣿⣿⣶⣿⣿⣷⣴⣾⣿⢟⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣷⢬⣄⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠸⣿⣿\r\n"
-							+ "⠀⢠⣿⡇⢾⣿⣿⣿⡇⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡿⣯⡙⣆⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⢸⣿\r\n"
-							+ "⠀⣼⣿⡆⢨⣿⣿⣿⣿⡆⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣷⣿⣿⣦⣤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠉⠉⠁⠀⠀⠀\r\n"
-							+ "⣿⣿⣿⠇⠀⣸⣿⣿⣏⣭⣻⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⢟⠻⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣤⡀⠀⠀⠀\r\n"
-							+ "⣿⣿⠏⠀⢠⣿⣿⣿⣿⣿⣿⣿⢑⣵⣿⣿⣿⢋⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣷⣖⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡛⠋⠁⠉⠁⠀⠀⠀⠀⢀⣀\r\n"
-							+ "⠛⣰⣄⠀⣸⣿⣿⣿⣿⣿⣿⣧⣿⣯⣿⣿⢃⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠛⠿⣿⢿⣿⡄⠙⢿⣜⠉⠹⣏⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⠀⠀⠛⣛⣛⣛⣛⣿\r\n"
-							+ "⣾⠋⠙⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡘⠇⠀⠀⢿⣯⠙⣿⣦⠀⠙⠳⣄⡈⢿⡻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣻⡀⠀⣿⣿⣿⣿⣿⣿⣿⣭⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢨⡿⣦⢦⠀⠈⢻⠳⣌⠻⣷⡀⠀⠈⠛⢶⣽⢦⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣧⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣈⣀⡈⠯⢃⠀⠈⠀⢸⠀⠀⢘⣤⣶⣾⣋⣉⡉⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣿⣆⠀⠀⠀⣼⡿⢿⣿⡷⣦⡘⣷⣿⣿⡛⣿⣿⣿⣿⣌⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⢀⣴⣿⢿⣿⣿⣿⣿⣧⣤⠰⣿⠡⣀⣛⡯⠟⠀⣼⣿⡟⢷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣨⣿⣿⣥⡤⠍⠁⠨⣿⣿⣇⠀⠈⢦⡀⠁⠀⣀⠴⠁⣿⢷⡄⠉⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠉⠙⣧⡀⠀⠀⠀⣠⠿⣿⣿⡄⠀⠀⠉⠉⠉⠁⠀⠀⣿⡀⠀⠰⢶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⠿⣿⣿⠣⣄⠀⠀⠀⠉⠓⠋⠉⠁⣴⡿⣿⡅⠀⠀⣀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠟⣿⣿⣿⣿⣷⣯⣿⡄⠙⡄⠀⠀⠀⠀⠀⠀⠀⠿⠿⣿⣿⠷⠆⠁⠀⠀⠀⠀⢀⡇⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⠀⠉⠻⠿⢿⣿⡿⠿⠛⠛⠉⠁⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣷⠀⣿⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣠⡤⠴⠀⠀⣾⠃⠀⠀⠀⠀⣴⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⠀⠀⢠⡴⠏⠁⠀⠀⠀⣀⡤⠤⠒⠂⠀⠀⠀⠈⢻⡿⠟⠻⠿⣷⣻⣿⣿⣧⣶⡄⠀⠀⠛⠛⠛⠉⠉⠉⠀⠀⠀⠀⡼⣿⠀⠀⠀⠀⠀⠈⣩⣍⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⠀⠀⠀⠀⠀⣀⣴⠶⠿⠋⠉⠉⠉⠀⠀⠑⢦⣄⡀⢳⡄⠀⠠⣾⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠇⢻⣦⣄⠀⠀⠀⠀⠉⢻⡄⢹⣿⣏⣽⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⠀⠀⠀⢀⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣉⣠⣷⢀⡄⣿⣟⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⠀⠀⣀⣠⠟⠀⢸⣿⣿⣟⡛⠲⣶⣴⣷⣿⣆⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣖⣦⣠⣾⣧⠀⠀⠀⢀⣀⣀⣤⣤⠶⣒⣛⣋⣉⣩⣤⣤⣴⡇⢸⣿⣿⡟⠁⠛⣯⠻⠮⠟⠻⠶⠶⠒⠛⠉⣼⠏⠀⢀⣾⣿⣿⣿⡇⢀⠁⠀⣅⠀⣹⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⡷⠾⠿⠛⠛⠛⠛⠛⠛⠛⠋⠉⠁⢀⣼⣿⣿⡇⠀⠀⠙⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠃⡀⠀⣼⣿⣿⣿⣿⣿⣿⠂⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⡿⠟⠛⠂⢒⣀⣀⣠⣤⣤⣤⣤⣤⣶⣶⣶⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠙⢦⣀⠀⠀⠀⠀⣤⣾⡿⢁⣾⡿⣼⣿⣿⣿⣿⣿⣿⣿⠀⢀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠴⣴⣦⡀⠀⠈⠙⠶⣴⣶⣿⠟⢁⣼⣿⢱⣿⣿⣿⣿⣿⣿⣿⡇⡸⢡⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣟⣛⣿⣽⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸⣿⣿⣿⣶⣤⣤⣄⣸⠟⠁⣠⣞⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠙⢿⣿⣿⣿⣿⣧⣤⣾⣷⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠉⠻⣿⣿⣿⡻⢭⡏⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢨⡆⠀⠀⠀⣿⣿⣿⣿⣿⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⢸⣿⠀⠀⠀⢹⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⢰⣿⣿⣿⡟⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
-							+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⢸⣿⣿⣛⡾⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n\"");
-					Thread.sleep(200);
-
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}
-			if (playMusic==3) {
-				mp3.play(comPath + "03_other.mp3");
-
-			}
-			if (playMusic==4) {
-
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-
-				break;
-			}
-
-			System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-			String movieName = sc.nextLine();
-
-			if (movieName.equals(cinemasList.get(2).getMoive())) {
-				System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-				mp3.play(comPath + "Verygood.mp3");
-				System.out.println();
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-				break;
-			}  else {
-				System.out.println("     Fail...!      틀 렸 습 니 다... ");
-				mp3.play(comPath + "Fail.mp3");
-			}
-		}
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("    =================================================================================");
-		System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 4번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-		System.out.println("    =================================================================================");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-
-		while (true) {
-			System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-			int playMusic = sc.nextInt();
-			if (playMusic==1) {
-				mp3.play(cinemasList.get(3).getPath());
-
-			}
-			if (playMusic==2) {
-
-				try {
-					System.out.print("$$$$$$$$$$$$$$$$$$$$$$$**$$$$$ `$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$$$$$$$We:~`#Rk''$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$$$$$$*****i)!!<%'*$$$$$$$$$$$$$$$$$$*$$$$$$$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$*#)!-- -<:x!!Xt!:!:(#*$$$$$$$$$$$*\".uec(*$$$$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$6UWf. -~~!!!!Xt!!MMXX%!XX\"*$$$$$$*~.X$$TM*X.#$$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$`':d*.!!!Xt!!K9!!&MHt!?!X.\"$*\".x@@$TRE\"  `!.#$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$\\Ld* :!!!!??@t?!K9!X%~   `\\.:<tM@NR*E9`     ~:?$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$\"> !!!%MXX?ME9!UR~       `!M!X*M@tTf         #$ \r\n"
-							+ "$$$$$$$$$$$$$$$# ! '!!M!!?@Kt@TEM~  '    ~ '!!MXt%?K          `$ \r\n"
-							+ "$$$$$$$*******F !!.!!!!!?Xt?T@@!! '         !!!??Kt!           $ \r\n"
-							+ "$$$PXUX@WX:!<: !!!!!!!!!!%?XtT?Kf  ~ .umL '  !?!X?!>           $ \r\n"
-							+ "!$Ft$$$9%RM!~ <!~``!!!!??!X!!KM!> '' @$#*\\   '!!!X!            $ \r\n"
-							+ "X#:*\"#*E9!!!     : `<!!!!!!!X!!!!   '$ .     '!!~`            '$ \r\n"
-							+ "M>K:r `\"!!!! '~     !<!!!!!!!!!!! ~ '%     :!'!!!>            9$ \r\n"
-							+ "!\\@~    `!!! ':<@$%  !!!!!!!!!!!!    %   .dT !!!!!           :$$ \r\n"
-							+ "!         ~`< ~!$    '~`!!!!!!! `> --->!!#\"!!~!!!<.          @$$ \r\n"
-							+ "!.              #    :!!<!!!!!!! ':!!<!!~~. .!!>!!~.       u$$$$ \r\n"
-							+ "!N             :.  .!!!!!!!!!!!! :`!!~`:<~~~` :!!:>~   .xd$$$$$$ \r\n"
-							+ "U$L            `\"  !!!!!!!!!~~~! 9:  ~~  ::`~!!/:!! <9$$$$$$$$$$ \r\n"
-							+ "$$$c          `:! /!!!!!!~`:!!!~:?!>. :  `~~`  \\`>` d$$$$$$$$$$$ \r\n"
-							+ "$$$$k.         !~ ~~~~~`.:!!~`~x$I!=( : ::!.<!!!!! x$$$$$$$$$$$$ \r\n"
-							+ "$$$$$$bu.     ` \\ ~!~!!!M!!~  z$$k4!``) ::.:!!!!!  #$$$$$$$$$$$$ \r\n"
-							+ "$$$$$$$$$NWW@   ` tX. `~!?~ :@R$$!(C ().``~~~!!~ :! $$$$$$$$$$$$ \r\n"
-							+ "$$$$$$$$$/dbW* .- M$$Ibcu x@$$$B$$$~d$$R !!!~  .'.!! #$$$$$$$$$$ \r\n"
-							+ "$$$$$$$/W$$$$Wo#u. `#$$$R>'\"\"\"***\".z$$$$L~~  :!/ !!Xh #$$$$$$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$/@$$$Wc.\"\".sWNWWbeeW$$$$$$& <!!~!~'!X%?K:\"$$$$$$$$ \r\n"
-							+ "$$$$$$$$$$$$Pd$$$$$$$$k N$$$$$$$$$$$$$$E? !<!!~.!!MXt*Mk'$$$$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$$$$$$N $$$$$$$$$$$$$$$  '/!!` !?!t%7@$S!'$$$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$$$$$$$.\"$$$$$$$$$$$$$~ :!!!~.!!X%M@NT*@9!`$$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$$$$$$$$ `~$$T$$R6B$#  <!!!f !!%@UW*@69T!E!?$$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$$$$$$$*::..`  ``` .::!!!!! <!MXUN@$$*!Et!! $$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$$$$$$$ M!!!! !!!!!!!!!!!! <!!!%@UN$$@N?!!M R$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$$$$$$F'!!!!! !!~~~~.u+~.>:!!!t!N$$$W*TKt!!:?$$$ \r\n"
-							+ "$$$$$$$$$$$$$$$$$$$$$$ !?!!!>' xWK:W$&d@$>~!!!!&9@$$$$B!!!!!'$$$ \r\n");
-					Thread.sleep(200);
-
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}
-			if (playMusic==3) {
-				mp3.play(comPath + "04_other.mp3");
-
-			}
-			if (playMusic==4) {
-
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-
-				break;
-			}
-
-			System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-			String movieName = sc.nextLine();
-
-			if (movieName.equals(cinemasList.get(3).getMoive().trim())) {
-				System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-				mp3.play(comPath + "Verygood.mp3");
-				System.out.println();
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-				break;
-			} else {
-				System.out.println("     Fail...!      틀 렸 습 니 다... ");
-				mp3.play(comPath + "Fail.mp3");
-			}
-		}
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("    =================================================================================");
-		System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 5번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-		System.out.println("    =================================================================================");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-
-		while (true) {
-			System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-			int playMusic = sc.nextInt();
-			if (playMusic==1) {
-				mp3.play(cinemasList.get(4).getPath());
-
-			}
-			if (playMusic==2) {
-
-				try {
-					System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠄⠀⠀⠈⠉⠉⠉⠉⠀⠀⠀⠠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⡠⠊⣠⠖⠁⣠⡤⠖⠂⠀⠀⠀⠒⠦⢤⣀⠑⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⡼⠀⢰⠃⠀⣾⡏⠀⢀⡠⠴⠒⠒⠦⣄⡀⠈⠓⠆⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⢀⠌⠀⠀⠸⡀⠀⣿⠀⠠⠋⠀⠀⠀⠀⠀⠀⠉⠒⢄⠀⠀⠀⠠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⢠⣾⣆⠀⠀⠀⠁⠀⠙⢀⠤⠶⠦⣄⠀⠀⠀⠀⠀⠀⠀⠈⠂⢄⣰⡄⠆⠐⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⢀⣿⣿⣿⣿⣿⣦⣀⠀⢠⣧⠴⠂⠀⠘⣏⠙⠦⣍⠂⢄⣀⠀⠀⠀⠈⠁⠀⢂⡇⠀⠀⣀⣠⣴⣶⣿⣿⣿⣿⠻⣶⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⢸⣿⡿⣫⣷⠞⠀⠈⠁⠈⠁⠀⠀⠀⠀⠹⡄⠀⠈⠳⣦⣌⡉⠓⠶⠶⠶⠶⢻⣠⣴⣿⣿⡯⠋⠉⠙⢛⣿⣯⣤⣼⠟⠛⠋⠓⠂⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠠⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⣿⣿⣍⠀⢀⣾⣿⣿⣿⣿⣾⣿⣦⣄⣈⠉⠻⠿⢿⣄⡀⠀⠀⠀⠀⢡⡀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⢠⣿⣇⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠤⠄⠀⠀⠀⠀⢩⠻⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⡿⠀⠀⠀⠀⠉⠻⢦⡀⠀⠀⠀⢳⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⢸⣿⡏⠀⠉⠛⠓⠀⠀⠀⠰⠚⠛⣩⠄⢀⣠⣤⡤⠀⠀⢸⠀⣿⣿⣿⣿⢋⣾⣿⣿⡿⠋⠁⠈⠀⠀⠀⠀⠀⠀⠀⠀⠑⢄⠱⣼⣦⣧⡀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠈⢿⣇⠺⠀⠀⠀⠀⠀⠀⠀⠀⠈⠠⠈⠉⠶⠒⠁⠀⠀⠀⡆⣿⣿⡿⢡⣿⠿⠋⠉⠉⠙⠂⠀⠀⠀⠐⠶⠒⠛⠉⠁⠀⠀⢷⡜⢿⣿⡇⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠙⢿⣀⣈⣺⡦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⢁⣿⠃⣤⣶⣤⣀⠀⠀⠀⠀⠀⠀⢀⡤⠖⠶⠷⣦⠀⠘⣿⣾⣿⣿⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⡇⣾⣿⠈⠏⠾⠯⠀⠡⠀⠀⠀⠀⠀⡻⢗⠀⠀⡀⠄⠀⠀⡗⠉⢻⣿⡄⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⢀⠀⠀⠀⠀⠀⠀⣸⠉⣿⡇⡏⢹⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠁⢸⢿⡇⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⣈⣀⠠⡄⠂⠀⠀⠀⠀⠀⠀⣼⡿⠀⠸⡇⣇⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⢸⠇⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠠⡀⠙⠓⠈⠀⠀⠀⠀⣠⡴⠂⠀⡟⠁⠀⠀⢳⢿⡄⠀⠀⠀⠀⠀⠀⠈⠓⠒⠂⠀⠀⠠⠄⠀⠀⠀⠀⣰⣤⠞⠈⢸⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣶⡾⠋⠀⠀⠀⡇⠀⠀⠀⠀⢻⣿⣾⣆⠀⠀⠀⠰⢒⠒⢒⠲⠔⠈⠀⠀⠀⠀⠀⣰⣿⡿⠀⢀⡇⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠏⠀⠀⠀⠀⠀⣇⡀⠀⠈⢂⡀⢻⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡎⠀⢻⡇⠀⣼⠃⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠿⠃⠀⠀⠀⠀⠀⠀⡟⠉⠓⢤⡀⢱⣿⠙⠻⣿⣿⡷⣤⣀⡀⠀⠀⢀⣀⣤⣶⡟⠟⠓⠀⡈⢷⢠⠷⡀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡀⠀⠀⠁⠀⣾⡦⣄⢹⣿⣿⣾⣭⣍⣉⣛⠓⠢⢭⣹⢹⡗⣄⠀⠀⠸⠂⠀⢡⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⢀⡠⠴⠶⢶⣾⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠂⠀⠀⣀⣿⡇⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣦⡙⡇⠈⣷⠶⠆⠀⢀⡆⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⡀⠁⠀⠀⠀⠘⠁⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⣿⣷⣤⣴⡿⠈⠛⠛⠛⠛⠛⠛⠛⠛⠛⠿⣮⡀⠻⣄⠀⢠⠛⠳⡀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⣼⣇⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣶⣶⣶⣾⣿⡿⠋⠒⠒⢦⡀⠀⠀⠀⠀⠀⠀⠈⠷⢱⣶⣶⡟⠳⣾⠀⢰⠁⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⢀⣿⣿⣶⣶⣶⡶⠶⠶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠀⠀⠀⠀⢱⠀⠀⠀⠀⠀⠀⠀⠀⠙⢻⣿⣿⡄⠀⠻⠛⢆⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⢀⠄⠉⠀⠹⠛⠉⠀⠀⠀⠀⠀⠉⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⣿⣿⠢⢴⠀⢸⠀⠀⠀⠀⠀\r\n"
-							+ "⢀⠔⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠿⣿⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣝⣿⡡⣀⠀⣸⢷⠀⠀⠀⠀\r\n"
-							+ "⡌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢼⣿⡹⠳⡇⠀⡀⠀⠀⠀\r\n"
-							+ "⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡏⣿⣷⢠⡀⢰⢱⠀⠀⠀\r\n"
-							+ "⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⣶⣿⣿⠎⡟⢦⠈⡄⠀\r\n");
-					Thread.sleep(200);
-
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}
-			if (playMusic==3) {
-				mp3.play(comPath + "05_other.mp3");
-
-			}
-			if (playMusic==4) {
-
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-
-				break;
-			}
-
-			System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-			String movieName = sc.nextLine();
-
-			if (movieName.equals(cinemasList.get(4).getMoive().trim())) {
-				System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-				mp3.play(comPath + "Verygood.mp3");
-				System.out.println();
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-				break;
-			} else {
-				System.out.println("     Fail...!      틀 렸 습 니 다... ");
-				mp3.play(comPath + "Fail.mp3");
-			}
-		}
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("    =================================================================================");
-		System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 6번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-		System.out.println("    =================================================================================");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-
-		while (true) {
-			System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-			int playMusic = sc.nextInt();
-			if (playMusic==1) {
-				mp3.play(cinemasList.get(5).getPath());
-
-			}
-			if (playMusic==2) {
-
-				try {
-					System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣙⠿⠿⠿⢟⣫⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢹⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸⣿⣿⣿⡏⠉⠙⢿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⡿⡍⠳⣄⡀⢀⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⢿⡄⠸⡿⢄⠛⣘⢠⣼⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡞⣼⡻⡄⠳⡤⠽⠾⠿⠿⠿⢛⣻⣿⣿⣿⣷⡀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣄⠙⢶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠉⢉⣁⣀⣀⣀⣀⣀⣉⡉⠙⠛⠻⢿⣿⣿⣿⣿⣿⣯⣻⣍⡲⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀\r\n"
-							+ "⠀⢀⡀⣶⣤⣌⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⣁⣤⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣈⠛⢿⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⣿⣿⡿⠟⠛⠛⠁⠀⠀\r\n"
-							+ "⣰⣿⣿⣿⣿⣿⣿⣿⣝⢿⣿⣿⣿⣿⣿⣿⣟⣡⣶⠿⢛⣛⣉⣭⣭⣤⣤⡴⠶⠶⠶⠶⢲⣴⣤⠭⠭⡭⣟⠻⠦⣝⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢉⣀⣠⣶⣿⣆⠀⠀\r\n"
-							+ "⠹⣿⣿⣿⣿⣿⣿⣙⠻⣿⣮⣛⠿⣿⣿⣿⣫⣵⡶⠟⣛⣋⣭⣭⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣾⣮⣽⣿⣿⣿⠿⠟⠛⠉⢀⣴⣿⣿⣿⣿⣿⣿⣶⡀\r\n"
-							+ "⠀⠈⠙⠋⠁⠀⠈⠉⠛⠳⣭⣛⢷⣦⣸⣿⣯⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⣿⠀⠀⠀⣀⣴⣾⣿⣿⣿⣿⡟⣿⣿⣿⣿⡇\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⠿⠿⢿⣹⣿⣧⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⡏⣀⣴⣾⣿⣿⠿⠛⠉⠀⠀⠀⠈⠛⠛⠉⠀\r\n"
-							+ "⠀⠀⠀⠀⢀⣴⠿⠛⠋⠁⠀⠀⠀⢀⣯⢿⣿⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⠣⣟⡻⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⢀⣀⣴⣾⣿⠈⡿⣿⠃⠀⠀⠀⠈⠉⠛⠻⠿⣿⣿⣿⣿⣿⠿⠛⠉⠉⠀⠈⠉⠛⣿⣽⡟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⢀⣠⣤⣶⣾⣿⣿⣿⣿⣿⣀⣼⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⣹⡟⣻⣿⡃⠀⠀⠀⠀⠀⠀⠀⠀⢹⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⡿⢹⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⣰⣿⢣⡇⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠟⠋⠙⠛⠻⣿⣿⣿⣿⣿⠏⠀⠈⢿⣿⣿⣿⣦⣄⣀⣀⣀⣠⣴⣿⣏⡞⢻⣸⣿⣷⣄⠀⠀⣀⣤⠴⣾⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⠃⠀⠀⠀⠈⢿⣿⣵⣾⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣶⠾⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣏⠀⠀⠀⠀⠀⣀⣼⣿⡛⢿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠟⣡⣾⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⢠⣶⣿⣿⣯⣿⡇⠀⢹⣿⣿⣿⣿⣷⣤⣤⣦⣶⣿⣿⣿⣿⣿⡇⠀⣿⣿⢸⣿⣶⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⢀⣄⣠⣴⣾⣿⣟⣿⠟⠁⣿⡇⠀⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⡇⢀⣿⣿⠙⢮⣛⠿⣷⣦⣄⣀⣀⣀⣠⣀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⣴⣶⣶⣾⣿⣿⡿⣛⣽⠞⠋⠀⠀⠀⣿⣷⠀⣍⠇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠉⡄⣸⣿⡿⠀⠀⠈⠙⠮⣟⠿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⢀⣹⣿⣿⣿⢵⡿⠋⠀⠀⠀⠀⠀⠀⢿⣿⣦⣿⡷⣄⠙⠿⣿⢹⣿⣿⢼⡿⠋⣡⣶⣳⣿⣿⣿⠃⠀⠀⠀⠀⠀⠈⠿⠬⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠸⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣷⣻⢿⣶⣬⣈⣉⣉⣤⣴⣿⣻⣾⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⡿⠇⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠙⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⡇⣿⣇⣿⢹⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n\"");
-					Thread.sleep(200);
-
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}
-			if (playMusic==3) {
-				mp3.play(comPath + "06_other.mp3");
-
-			}
-			if (playMusic==4) {
-
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-
-				break;
-			}
-
-			System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-			String movieName = sc.nextLine();
-
-			if (movieName.equals(cinemasList.get(5).getMoive().trim())) {
-				System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-				mp3.play(comPath + "Verygood.mp3");
-				System.out.println();
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-				break;
-			} else {
-				System.out.println("     Fail...!      틀 렸 습 니 다... ");
-				mp3.play(comPath + "Fail.mp3");
-			}
-		}
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("    =================================================================================");
-		System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 7번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-		System.out.println("    =================================================================================");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-
-		while (true) {
-			System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-			int playMusic = sc.nextInt();
-			if (playMusic==1) {
-				mp3.play(cinemasList.get(6).getPath());
-
-			}
-			if (playMusic==2) {
-
-				try {
-					System.out.print(
-							"+++#%@@@%@@%*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\r\n"
-									+ "+++++*#@@@@@@#++++***###*****+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\r\n"
-									+ "+++++++*%@@@@@%##%%%%%%%%%%%%##*+++++++++++++++*+++*####****++++++++++++++++++++++++++++++\r\n"
-									+ "+++++++++#@@%%@%%%@@%%%%%%%%%%%%#++++++++++++*#%%%%%%@%%%%%%%#++++++++++++++++++++++++++++\r\n"
-									+ "+++++++++++*%@@@@@%%@@@@@@%%%%%%%+==+===++++#%@@@@@@@@@@@@%%%%#+++++++++++++++++++++++++++\r\n"
-									+ "+========++*@@%%%%@@@@@@@%%%#**++++=====++#%@@@@@@@@@@%%##**+++++++++++++++=+=============\r\n"
-									+ "==========*%@@@@@@@@@@@@@%#***++=+++===++*%@@@@@@@@@@@%#**+===============================\r\n"
-									+ "==========*@@@@@@@@@@@@@@%###***++++++++*#@@@@@@@@@@@%%#**++==============================\r\n"
-									+ "=========+*@@@@@@@@@@@@@@%%###***#******%@@@@@@@@@@@%########+*+==========================\r\n"
-									+ "==========*%@@@@@@@@@@@@%%%%%%%#*##*+++*#@@@@@%%@@@%###*##*##+#+--------------------------\r\n"
-									+ "============%@@@@@%%@%%%%%%%##**+*###++*%@@@@@%%%%%%####*+=*#*+=--------------------------\r\n"
-									+ "============+#%@@%%%%%%%%%%%%##***##*+#%@@@@@@@@%%%##%%##*####*==============-------------\r\n"
-									+ "%*=============+*%@%%%%%%%%%%%###*##++%@@@@@@@@@%%%##%%#*#@%#*========--------------------\r\n"
-									+ "+#%#+=++++==++*%@@@%%%%%%%%%%%%%##**#%@@@@@@@@@%%%%%####*####+++++++++++++++====+=++++++++\r\n"
-									+ "+*#%#+++++++#%@@@@@%%%%%%%%%@@@@%%%%@@@@@@@%%%@%%%%%%####**+++++++++++++++++++++++++++++++\r\n"
-									+ "%@@@%#+++**###%@@@@@@%%@@@@@@@@@@@@@@@@@@%%%%%%%%%%%%%%###*+++++++++++++++++++++++++++++++\r\n"
-									+ "###%%%+++**+=++++*#%%##+++*#@@@@@@@@@@@@@@##%%%%%%%%#*+*@%%%##***+++++++++++++++++++++++++\r\n"
-									+ "**+****=***+=++*+=+++=+*#@@@@@@@@@@@@@@@@@#*#%%%%*++++++#@%@@@@@%*++++++++++++++++++++++++\r\n"
-									+ "+*+**#**++*++++=++=++%@@@@@@@@@@@@@@@@@@@@###%%%%#====+++#@@%@@%%@%%#*++++++++++++++++++++\r\n"
-									+ "+++#**+++++*+++=+++*@@@@@@@@@@@@@@@@@@@@@@##%%%###*===+===*@@@@@@@@@@@%==**+++++++++++++++\r\n"
-									+ "*+*%#***+++**+==++*@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@+=======+*%@@@@@@@@%++++++++#%#++++++++\r\n"
-									+ "**#%#********++++*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#==========*%@@@@@@%+++++**+###+==+++++\r\n"
-									+ "%%%#########****%@%@@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+-----=---=#@@@@@%*+*++++*@#%%******#%\r\n"
-									+ "%##%%#%%%%%***%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#----------+%@%%%###**###@@@%#********\r\n"
-									+ "%@@@%@@%%#**#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%==--------=%%%%%###%%@@@@@%**********\r\n"
-									+ "%%%%%%####%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@===-------*%####%#%%%%@@@#***********\r\n"
-									+ "%%#####%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+========+@#***********%%************\r\n"
-									+ "#%##%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@========*@#**************************\r\n"
-									+ "#%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@%=-=---=#@%***************************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%@@@@%@@#+====+#@#****************************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#%@@@%%%%%##%%%%@#*****************************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@@@@@%%###%%%@@@%******************************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%###%###****#%%%%@%#*****************************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%%%%%####********#%@@%%@%****************************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+######%%%#**######%@@%#%@%#**************************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*###%%%%%%#*******#@@@@###@@%#************************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*%%%%%%%%%#*##%%%@@@@@@@@##%@@#***********************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@%%%#%@@@@@@@%***#@@%#*********************\r\n"
-									+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*****%@@#********************\r\n");
-					Thread.sleep(200);
-
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}
-			if (playMusic==3) {
-				mp3.play(comPath + "07_other.mp3");
-
-			}
-			if (playMusic==4) {
-
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-
-				break;
-			}
-
-			System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-			String movieName = sc.nextLine();
-
-			if (movieName.equals(cinemasList.get(6).getMoive().trim())) {
-				System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-				mp3.play(comPath + "Verygood.mp3");
-				System.out.println();
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-				break;
-			} else {
-				System.out.println("     Fail...!      틀 렸 습 니 다... ");
-				mp3.play(comPath + "Fail.mp3");
-			}
-		}
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("    =================================================================================");
-		System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 8번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-		System.out.println("    =================================================================================");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-
-		while (true) {
-			System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-			int playMusic = sc.nextInt();
-			if (playMusic==1) {
-				mp3.play(cinemasList.get(7).getPath());
-
-			}
-			if (playMusic==2) {
-
-				try {
-					System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠲⣄⢀⡀⠀⠀⠀⠀⠀⠀⢀⠄⠀⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠈⠳⣕⢄⠀⠀⠀⠀⢠⣏⠀⠀⣹⡆⠀⠀⠀⠀⠀⠀⣀⡀⣀⠀⠀⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⡿⡷⣄⣤⣾⣿⣯⣿⣿⣿⣧⡀⠀⠀⢀⠀⠀⠈⣻⣿⣻⢿⣶⢿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣽⠀⡖⣯⢳⣿⣿⣿⡟⠛⡞⣿⣽⣿⣿⣧⣼⠃⢸⣧⣷⣿⡟⣷⣯⡟⣾⢻⡞⣿⡆⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠠⠤⣀⡀⠀⠀⠀⠀⣀⣼⣧⠽⠒⠋⠉⠉⠉⠉⠉⠙⠓⠿⠿⠛⠋⠉⣄⠀⢻⣿⣿⡿⣽⣳⢯⡿⣽⢯⡿⣽⣷⠀⠀⠀⠀⢸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠱⡀⠀⠈⠉⢓⢾⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣿⡄⠀⠐⢹⣿⡷⣯⢿⡽⣯⢿⡽⣷⣿⠀⢀⣤⣷⣼⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠘⢦⠀⣠⢯⡿⠋⠀⠀⠀⠀⢀⣀⠀⠀⢀⣠⣆⣴⡄⣀⠀⢄⠂⠄⡷⠻⣦⣤⣾⣿⣽⣯⡿⣽⢿⣾⡉⢏⡿⣿⣿⣻⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⢿⣵⠟⠀⢀⡠⠔⠚⠉⣡⡈⠉⠉⠛⠻⣿⣿⣿⣷⣮⣦⣴⣾⣷⣿⠿⠿⠾⣌⣛⡟⠉⣻⣯⣿⣧⠨⣽⣿⣞⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⣼⠏⠀⡔⠁⠀⠀⠀⣀⢴⣹⠶⢳⣀⠀⢻⣿⣛⡹⠿⠿⣿⣭⠝⠀⠀⠀⠀⠈⠹⣷⣤⣿⣈⣽⣻⠵⠿⠿⣭⣿⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⣠⣼⡟⠀⣸⠀⠀⠀⠀⣦⣾⣿⣿⣿⣿⡿⠟⠚⠋⢄⡀⠀⢰⠋⢳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠈⠀⠀⠐⠋⣟⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⢄⡀⠀⠀⠀⠈⡷⡿⠀⠀⡇⠀⠀⢠⣮⣁⣽⣿⣿⠟⠋⠁⠀⠀⢀⠞⠻⣦⢾⣦⡾⠁⠀⢠⢶⣷⡀⠀⠀⠀⠀⠀⠈⣇⠀⠀⠀⣠⡾⣼⡟⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠉⠲⢤⣠⡴⣹⠃⠀⠀⣧⠀⢠⣾⣿⣿⣿⠏⠀⠀⠀⠱⣽⠞⢻⠦⡤⢿⣌⢿⣿⣤⠀⠈⣿⠿⣷⡄⣀⠀⠀⠀⣠⠹⣄⣠⠾⢋⡴⢇⢣⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠘⢷⡟⠀⠀⠀⣿⢤⠘⣿⣿⣿⡏⠀⢠⡀⠀⠀⣸⣷⢪⠝⣰⢃⡞⢮⣿⣿⡄⠀⢹⣶⣿⣿⣶⡴⢶⣿⣲⣯⣿⣿⡏⡙⣬⠼⠋⠀⠀⠀⠀⠀⠀⣠⡄⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⢸⠁⠀⠀⣸⠇⢸⣿⠏⣿⣿⡁⠀⠀⢿⣆⡾⠀⣿⣇⠹⣆⢏⡸⢆⡈⣹⣷⡀⢸⠏⢸⣿⣿⣷⣿⣿⣿⣿⣿⣾⣇⣾⢀⣶⣆⣀⣀⣀⣰⠶⡿⢱⠎⣀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠸⠀⠀⢀⡏⢀⣿⣽⠲⢾⣿⡇⠀⠠⢜⢢⠟⣦⡼⢧⢋⡖⢎⡱⠮⢵⡏⡹⡇⠀⠑⣿⡿⠛⣿⣿⣿⣿⡿⣭⣟⣹⣿⣿⣾⣿⡟⢏⡱⢌⢣⡱⢣⣫⢖⢧⣋⠖⠄\r\n"
-							+ "⠀⠀⠀⠀⢠⠀⠀⠀⡘⠁⣼⡿⠁⠀⠀⠉⠛⠦⣵⣎⣦⠕⢊⣀⣊⣜⠸⣏⡛⡛⠞⡹⠳⣷⠀⠀⠀⠁⠀⠋⠉⠉⠉⠀⠻⣧⣿⣿⣿⣿⢣⡙⣌⠲⣩⢲⡱⣣⠏⣎⣓⡬⠆⠀\r\n"
-							+ "⠀⠀⠀⠀⠎⠀⠀⠠⠁⢠⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⢢⡔⡿⠀⠑⠨⠙⠶⣥⣆⣑⠌⢣⡀⠀⠀⠀⢀⠀⣀⠂⣄⡾⢩⣿⣹⣻⣿⠋⠛⠛⠶⣇⢇⡚⡥⢞⡭⣚⠼⣱⡀\r\n"
-							+ "⠀⠀⠀⠀⣽⠀⠀⠄⢐⡾⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⣌⠳⣼⡅⠈⡲⢦⣉⠒⡰⢈⠉⡉⢉⣽⡷⣶⣟⡛⠻⢤⡃⠊⡤⣞⣿⣿⣿⣿⣆⠀⠀⣠⠞⢾⡴⡙⡮⠆⠉⢚⠀⠃\r\n"
-							+ "⠀⠀⠀⠀⣯⠽⠖⠖⢻⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⢌⠻⣜⢛⢦⡁⢆⡉⡙⠁⠂⠀⣴⡞⢯⡜⢧⡹⣛⣦⡀⠉⠓⠛⠶⠾⣿⣿⣿⣿⣷⣦⣽⣦⣤⠷⠋⠁⠀⠀⠀⠀⠀\r\n"
-							+ "⢀⣠⠴⠚⠁⢠⠠⡀⠼⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢌⢣⡝⡌⠦⡉⢆⡐⠄⠁⣴⣞⠳⣜⢣⠞⣥⠳⣍⠞⣵⡀⠀⠀⠀⠀⠀⠉⠙⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠘⠻⢦⣱⣌⢢⡑⣌⠲⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠌⡜⡲⠜⢨⠓⠈⢄⣠⣴⢛⢧⠪⡝⣌⢧⣋⠶⡹⢌⡻⢼⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠈⠉⠉⠉⢉⡇⠀⠀⠀⠀⠀⠀⠀⠀⡀⢢⠑⡬⢱⢩⠟⠙⠛⠛⠒⣳⢏⠶⣙⠼⣘⠦⣍⢮⡱⣍⣾⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⡎⠀⠀⠀⠀⠀⠀⠀⠄⢢⢅⢣⠚⡔⢣⠏⠀⠀⠀⠀⠀⣟⢎⡳⣉⠮⢥⢫⠴⣢⢓⢾⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⡸⠀⠀⠀⠀⠀⠀⢀⠇⡸⢃⠼⡘⠟⣸⠟⠀⠀⠀⠀⠀⢸⣛⡜⢣⡛⡼⣃⢟⡼⣣⢟⡻⢼⢧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⠠⠨⣐⢪⢑⡋⣎⣱⠽⠃⠀⠀⠀⠀⠀⠀⣿⢄⡏⢧⡙⢶⠩⡞⢴⢣⠎⣽⡷⣿⣻⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⣾⠀⠀⠀⠀⠀⠀⠀⠀⠈⠈⣏⠉⣻⣆⠀⠀⠀⠀⠀⠀⠀⠈⠚⠾⠧⠾⠥⠿⠼⠾⠾⠽⠾⠓⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠘⠦⣀⠀⢀⡤⠒⢦⣠⠖⠚⣟⡎⠙⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠤⠞⠻⠦⢄⡟⠋⠒⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n");
-					Thread.sleep(200);
-
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}
-			if (playMusic==3) {
-				mp3.play(comPath + "08_other.mp3");
-
-			}
-			if (playMusic==4) {
-
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-
-				break;
-			}
-
-			System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-			String movieName = sc.next();
-
-			if (movieName.equals(cinemasList.get(7).getMoive().trim())) {
-				System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-				mp3.play(comPath + "Verygood.mp3");
-				System.out.println();
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-				break;
-			} else {
-				System.out.println("     Fail...!      틀 렸 습 니 다... ");
-				mp3.play(comPath + "Fail.mp3");
-			}
-		}
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("    =================================================================================");
-		System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 9번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-		System.out.println("    =================================================================================");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-
-		while (true) {
-			System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-			int playMusic = sc.nextInt();
-			if (playMusic==1) {
-				mp3.play(cinemasList.get(8).getPath());
-
-			}
-			if (playMusic==2) {
-
-				try {
-					System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡠⠤⠤⠒⠢⣤⠤⢤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠴⠋⠁⠀⠀⠀⠀⢸⢿⢦⡠⠶⠷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠁⠀⠀⠀⣀⠤⠒⠊⠉⢪⡙⠦⣄⣀⡼⡷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠀⠀⠀⡤⠊⠁⣀⡠⠤⠒⠚⠉⠓⠲⠶⠺⠭⠾⠧⠤⢄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠀⠀⣠⠊⣀⠴⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⠉⠲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⢰⢣⠞⢁⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡏⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⡠⠷⠓⠊⠉⠀⠀⠀⠀⠀⠀⠀⢀⣠⠞⠁⠉⢳⣦⣤⣬⡤⠤⢄⡀⠀⡼⠃⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⢀⣠⠞⠉⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡤⠾⠾⣿⠆⠀⠀⢀⣿⣷⣦⣾⠃⠀⠀⠓⢠⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⢀⡠⠒⡟⢻⣾⣉⣓⣦⠀⠀⠀⠀⢸⣿⣿⣿⡟⠁⠀⠀⢀⡞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⢀⡞⠀⠀⠀⠀⠀⠀⠀⠠⠖⠁⠀⡰⢧⠀⠣⣸⣿⣿⣧⡀⠀⠀⠸⡽⠟⠋⣏⢢⡀⡠⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠀⠈⣣⡀⠀⠉⠉⠀⠀⠀⠀⠀⡇⣰⠟⠉⢳⣯⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠈⣇⠀⠀⠀⠀⠀⠀⠀⣠⡞⠁⠀⢀⣠⢯⢳⠀⠀⠀⢀⠀⠀⣑⣾⣣⡿⣶⡐⠋⠛⡷⠛⠳⠶⣠⣀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠹⡀⠀⠀⠀⠀⠀⠀⠏⠣⢤⣐⣛⣒⣺⣾⡀⠀⠈⠙⢿⣟⣛⣿⣯⡽⠌⢁⠆⠈⠀⠤⣈⠙⢛⣳⣟⣒⣿⡞⠛⡆⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠹⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⡏⠀⠀⠉⠲⣄⡀⠀⠉⠒⣻⠋⢻⣄⠹⠀⠀⠀⠀⢸⠉⠉⠁⠘⡿⢿⠎⠁⢰⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⠨⡷⣄⠀⠀⠀⠀⠀⣀⠼⣇⠱⣄⠀⠀⠀⠀⢨⡟⠒⠒⠋⠀⠀⢉⣷⣤⣾⣷⡴⣋⣿⠯⡳⠤⠇⠀⠀⠀⠈⡇\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⣠⠴⠣⡈⠓⠤⡠⠔⠊⠁⠀⠘⢄⠈⠲⣄⠀⢀⡞⡧⢄⡀⠀⠀⠀⡼⠻⣷⣜⣿⣿⣿⡹⡄⠘⢦⠀⠀⠀⠀⠀⢡\r\n"
-							+ "⠀⠀⠀⠀⢀⡞⠀⠀⠀⠈⢱⠞⠀⠀⠀⠀⠀⠀⠀⠑⢄⡠⣙⣚⣇⡇⠀⠈⠳⡀⠀⡇⠀⠉⠙⠽⢿⡷⢽⡇⠀⠀⠱⡆⠈⠀⠀⡞\r\n"
-							+ "⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠚⠭⠭⠃⠀⠀⠀⠘⡄⡇⠀⠀⠀⣤⣄⡇⠀⠀⠀⠀⢸⠃⠀⠀⢰⠁\r\n"
-							+ "⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⢹⠀⠀⠀⠀⠀⠀⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡴⠛⡇⠀⠀⠀⣿⠴⠃⠀⠀⠀⡴⠃⠀⠀⠀⡎⠀\r\n"
-							+ "⠀⠀⠀⠀⠈⢯⠀⠀⠀⠀⠈⣧⠀⠀⠀⠀⠀⠀⢸⡀⠀⣀⣀⣀⡀⢀⠀⣀⠼⢦⡀⡇⠀⠀⢰⠇⠀⠀⢀⡴⠋⠀⠀⠀⠀⡼⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠳⣄⠀⠀⠀⠈⣆⡠⠤⠤⠤⠤⢄⣷⠋⠀⠀⠀⠉⠺⡶⠁⠀⠀⡽⠁⠀⢴⡁⠀⣠⠞⠁⠀⠀⠀⠀⠀⡼⠁⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⠀⠀⠀⣸⠳⢤⣀⣰⡇⠀⠀⠀⠀⠀⠀⠈⠑⠦⠀⠀⠀⠀⠀⠀⢠⠞⠁⠀⠀⡏⢱⠞⠁⠀⠀⠀⠀⠀⢀⡜⠁⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⠀⢀⡰⠞⠉⠧⣀⠀⠈⠙⡦⠀⠀⠀⠀⣀⡠⠤⢤⠀⠀⠀⠀⠀⡴⠃⠀⠀⠀⣸⠀⠁⠀⠀⠀⠀⠀⠀⢠⠟⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⠀⠀⡰⠋⠀⠀⠀⠀⠀⠉⠉⠉⣇⢀⣤⠒⠉⠀⠀⠀⠀⢣⠀⠀⢠⠎⠀⠀⠀⠀⢀⡏⠀⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⢀⡞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠚⢧⠀⠀⠀⠀⠀⠀⢣⣠⠋⠀⠀⠀⠀⠀⡸⠢⣀⠀⠀⠀⢀⡰⠊⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⠀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⠀⠀⠀⠀⠀⡼⠃⠀⠀⠀⠀⠀⢠⠇⠀⠈⠙⠲⠖⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⢤⣀⣀⣀⣰⣃⣳⣄⣀⣀⣈⠁⠀⠀⠀⠀⠀⢠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-							+ "⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠑⠒⠦⢤⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n");
-					Thread.sleep(200);
-
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}
-			if (playMusic==3) {
-				mp3.play(comPath + "09_other.mp3");
-
-			}
-			if (playMusic==4) {
-
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-
-				break;
-			}
-
-			System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-			String movieName = sc.nextLine();
-
-			if (movieName.equals(cinemasList.get(8).getMoive().trim())) {
-				System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-				mp3.play(comPath + "Verygood.mp3");
-				System.out.println();
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-				break;
-			} else {
-				System.out.println("     Fail...!      틀 렸 습 니 다... ");
-				mp3.play(comPath + "Fail.mp3");
-			}
-		}
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("    =================================================================================");
-		System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 10번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-		System.out.println("    =================================================================================");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-
-		while (true) {
-			System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-			int playMusic = sc.nextInt();
-			
-			if (playMusic==1) {
-				mp3.play(cinemasList.get(9).getPath());
-
-			}
-			if (playMusic==2) {
-
-				try {
-					System.out.print("\r\n" + "..............................:?5GG#&B5J7!:.......\r\n"
-							+ "...........................:75B&@&#BBB#&&&#P7.....\r\n"
-							+ "..........................:P@&&#?^:::::^7YG#Y?:...\r\n"
-							+ ".........................~B&&&#~ ..........:.^J:..\r\n"
-							+ ".........................5@&&&&~..............!7..\r\n"
-							+ "........................:B&&&#!....:!JJ?~....:!J..\r\n"
-							+ ".......................:7G&&&P~~~~!G&@@&&5^^?#&&G7\r\n"
-							+ "........:^!?JJYJJ?7!~^.J!.~B@P~~~~J@&&&&@#^^G@&&@&\r\n"
-							+ "...:~7YPB&&&&&&&&&&&&#GG~..^BJ.. ..?G##BP~..~G&&#?\r\n"
-							+ ".75B&&&&&&&&&&&&&&&&&&&&B^. Y@BP?:...:^:. ....?J:.\r\n"
-							+ "J&&&&&&&&&&&&&&&&&&&&&&&&#JJ#&&&@J ....:!?!!^.7^..\r\n"
-							+ "&&&B##&&&&&&&&&&&&&&&&&&&&B!G@&&&#Y!^755J!7?P7!...\r\n"
-							+ "5P5^^^Y&&&&&&&&&&&&&&&&&&&&P^Y#@&&&&#@5 ... PP....\r\n"
-							+ " Y7^7~^5&&&&&&&&&&&&&&&&&&&&? ^YB&&&&&B!^:^7&?....\r\n"
-							+ ".7&~...^#&&&&&&&&&&&&&&&&&&&P...:75B&&@&###&G:....\r\n"
-							+ ".~?..::.Y&&&&&&&##&##&&&&&&&B~.^^..:!7?YPJ?7:.....\r\n"
-							+ ":?~:.^~^~#&###&##&#&#####&&#5YJ7~:!7J7^J:^~^:.....\r\n"
-							+ "..^7.:^^!&&##&&&&&&&&&&##GY~^~!?J?!~7~7?~!!!~~~^..\r\n"
-							+ "...7!...?G&&&&#BBGPGGY?~^..^^..:J^..??7~:...::^~7~\r\n"
-							+ "...:?^~!!!?!~^^^~7YGB~!?:..77!.?~...7J..:~!!~~^^^:\r\n"
-							+ "....:~~^^:^JJ5G#&&@#P!:~J.^7.!7?....7:.!J^........\r\n"
-							+ "......:^~?7^PBPYJJ7^....?.7^..J!..:!7~~77~~~^.....\r\n"
-							+ "..~JJ?7!~J~ :7 :!:...:^!?~J^..~~^J?~::..^~J~~:....\r\n"
-							+ "..P?.....~7.7~:7..:~7?Y!~!~!..~?J7^:^~7J~^J?~7~...\r\n"
-							+ "..!P......7J~.?^~7!~:.!~:^~7!:?J777?J!!?~^^^:!~...\r\n"
-							+ "...YY.....?G:^Y7!:.....^!~.~55Y7!~JJ~~7~^~~~7!:...\r\n"
-							+ "....P?...~?7^?7..........!!.5G?^:~!~77~^^^~!7!J:..\r\n"
-							+ "....:Y?.:??^5?........:~~~!7Y7:^~!?J7!~~~~!!G!^:..\r\n"
-							+ "......7Y57^Y5.........~Y7?7!~^~~!??~!?7~7:..P!....\r\n"
-							+ ".......:7?JG~ ........?~::::^^~~^^!~..~!7!.JY.....\r\n"
-							+ ".........:~??7~^:....~!.........:?!~...:^?57......\r\n"
-							+ ".............^!7??7!!?::.....::^7?7~!7?7?!:.......\r\n"
-							+ ".................:^~!!77777???7?Y7J?7!~:..........\r\n"
-							+ "...........:^^^^^^^^^^^^^^~^^~~~~~^^^^............\r\n");
-					Thread.sleep(200);
-
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}
-			if (playMusic==3) {
-				mp3.play(comPath + "10_other.mp3");
-
-			}
-			if (playMusic==4) {
-
-				System.out.println("     다음 문제로 넘어갑니다...     ");
-
-				break;
-			}
-
-			System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-			String movieName = sc.nextLine();
-
-			if (movieName.equals(cinemasList.get(9).getMoive().trim())) {
-				System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-				mp3.play(comPath + "Verygood.mp3");
-				System.out.println();
-				break;
-			} else {
-				System.out.println("     Fail...!      틀 렸 습 니 다... ");
-				mp3.play(comPath + "Fail.mp3");
-			}
-		
-		} 
-		
-		String gameend1 = 
-				  "			 ██████╗  █████╗ ███╗   ███╗███████╗    ███████╗███╗   ██╗██████╗ ██╗    \r\n"
-				+ "			██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔════╝████╗  ██║██╔══██╗██║    \r\n"
-				+ "			██║  ███╗███████║██╔████╔██║█████╗      █████╗  ██╔██╗ ██║██║  ██║██║    \r\n"
-				+ "			██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██╔══╝  ██║╚██╗██║██║  ██║╚═╝    \r\n"
-				+ "			╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ███████╗██║ ╚████║██████╔╝██╗    \r\n"
-				+ "			 ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═══╝╚═════╝ ╚═╝    \r\n";
-		
-		
-		String gameend2 = 
-				  "			 ██████╗                                                                 \r\n"
-				+ "			██╔════╝                                                                 \r\n"
-				+ "			██║  ███╗                                                                \r\n"
-				+ "			██║   ██║                                                                \r\n"
-				+ "			╚██████╔╝                                                                \r\n"
-				+ "			 ╚═════╝                                                                 \r\n";
-					
-		
-		String gameend3 =  
-				  "			          █████╗                                                         \r\n"
-				+ "			         ██╔══██╗                                                        \r\n"
-				+ "			         ███████║                                                        \r\n"
-				+ "			         ██╔══██║                                                        \r\n"
-				+ "			         ██║  ██║                                                        \r\n"
-				+ "			         ╚═╝  ╚═╝                                                        \r\n";
-		;
-		
-		String gameend4 =  
-				  "			                 ███╗   ███╗                                             \r\n"
-				+ "			                 ████╗ ████║                                             \r\n"
-				+ "			                 ██╔████╔██║                                             \r\n"
-				+ "			                 ██║╚██╔╝██║                                             \r\n"
-				+ "			                 ██║ ╚═╝ ██║                                             \r\n"
-				+ "			                 ╚═╝     ╚═╝                                             \r\n";
-		;
-		
-		String gameend5 = 
-				  "			                            ███████╗                                     \r\n"
-				+ "			                            ██╔════╝                                     \r\n"
-				+ "			                            █████╗                                       \r\n"
-				+ "			                            ██╔══╝                                       \r\n"
-				+ "			                            ███████╗                                     \r\n"
-				+ "			                            ╚══════╝                                     \r\n";
-		
-		String gameend6 = 
-				  "			                                        ███████╗                         \r\n"
-				+ "			                                        ██╔════╝                         \r\n"
-				+ "			                                        █████╗                           \r\n"
-				+ "			                                        ██╔══╝                           \r\n"
-				+ "			                                        ███████╗                         \r\n"
-				+ "			                                        ╚══════╝                         \r\n";
-				
-				
-		String gameend7 = 
-			   	  "			                                                ███╗   ██╗               \r\n"
-			    + "			                                                ████╗  ██║               \r\n"
-				+ "			                                                ██╔██╗ ██║               \r\n"
-				+ "			                                                ██║╚██╗██║               \r\n"
-				+ "			                                                ██║ ╚████║               \r\n"
-				+ "			                                                ╚═╝  ╚═══╝               \r\n";
-		
-		String gameend8 = 
-				  "			                                                          ██████╗        \r\n"
-				+ "			                                                          ██╔══██╗       \r\n"
-				+ "			                                                          ██║  ██║       \r\n"
-				+ "			                                                          ██║  ██║       \r\n"
-				+ "			                                                          ██████╔╝       \r\n"
-				+ "			                                                          ╚═════╝        \r\n";
-				
-		String gameend9 =
-				
-				  "			                                                                  ██╗    \r\n"
-				+ "			                                                                  ██║    \r\n"
-				+ "			                                                                  ██║    \r\n"
-				+ "			                                                                  ╚═╝    \r\n"
-				+ "			                                                                  ██╗    \r\n"
-				+ "			                                                                  ╚═╝    \r\n";
-				
-		String gameend10 = 
-				  "			 ██████╗  █████╗ ███╗   ███╗███████╗    ███████╗███╗   ██╗██████╗ ██╗    \r\n"
-				+ "			██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔════╝████╗  ██║██╔══██╗██║    \r\n"
-				+ "			██║  ███╗███████║██╔████╔██║█████╗      █████╗  ██╔██╗ ██║██║  ██║██║    \r\n"
-				+ "			██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██╔══╝  ██║╚██╗██║██║  ██║╚═╝    \r\n"
-				+ "			╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ███████╗██║ ╚████║██████╔╝██╗    \r\n"
-				+ "			 ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═══╝╚═════╝ ╚═╝    \r\n";
-					
-		
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		
-		String[] list = new String[10];
-		list[0] = gameend1;
-		list[1] = gameend2;
-		list[2] = gameend3;
-		list[3] = gameend4;
-		list[4] = gameend5;
-		list[5] = gameend6;
-		list[6] = gameend7;
-		list[7] = gameend8;
-		list[8] = gameend9;
-		list[9] = gameend10;
-		
-		
-		Thread.sleep(100);
-		System.out.println();
-		
-		for(int i=0; i<list.length; i++) {
-				
 			System.out.println();
 			System.out.println();
 			System.out.println();
+
+			Thread.sleep(100);
 			System.out.println();
+
+			for (int i = 0; i < gameEndList.length; i++) {
+
+				System.out.printf("\n\n\n\n\n\n\n\n\n\n\n%s\n\n\n\n\n\n\n\n\n\n\n",gameEndList[i]);
+				Thread.sleep(500);
+
+			}
+
+			Thread.sleep(100);
 			System.out.println();
+			Thread.sleep(100);
 			System.out.println();
+			Thread.sleep(100);
 			System.out.println();
+			Thread.sleep(100);
 			System.out.println();
+			Thread.sleep(100);
 			System.out.println();
+			Thread.sleep(100);
 			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println(list[i]);
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			Thread.sleep(500);
-			
-		}
-		
-		
-		
-		
-		
-		Thread.sleep(100);
-		System.out.println();
-		Thread.sleep(100);
-		System.out.println();
-		Thread.sleep(100);
-		System.out.println();
-		Thread.sleep(100);
-		System.out.println();
-		Thread.sleep(100);
-		System.out.println();
-		Thread.sleep(100);
-		System.out.println();
-		Thread.sleep(100);
-		
-	
-		// GAME ENDING
-		// 노튼- 별
-		
-		
-		
-		// 배경음악 영화제목, 영화연도, 노래제목, 아티스트 크레팃처럼 올라가면서 나오는 거 구현할 수 있을 지 (JDBC)
-		System.out.println("       ================================================================================================================\r\n");
-		Thread.sleep(200);
-		System.out.println();
-		Thread.sleep(200);
-		System.out.println("              MOVIE NAME                   YEAR                        TITLE                         ARTIST    ");
-		Thread.sleep(200);
-		System.out.println();
-		Thread.sleep(200);
-		for(int i=0; i<cinemasList.size(); i++ ) {
-			
-			String mname = cinemasList.get(i).getMoive();
-			int year = cinemasList.get(i).getYear();
-			String title = cinemasList.get(i).getName();
-			String artist = cinemasList.get(i).getArtist();
-			
+			Thread.sleep(100);
+
+
+			System.out.println(
+					"       ================================================================================================================\r\n");
 			Thread.sleep(200);
 			System.out.println();
 			Thread.sleep(200);
-			System.out.println();
+			System.out.println(
+					"              MOVIE NAME                   YEAR                        TITLE                         ARTIST    ");
 			Thread.sleep(200);
 			System.out.println();
-			Thread.sleep(200);
-			System.out.println("          " + mname + "               " + year + "                " + title + "             " +artist);
-			Thread.sleep(200);
+			System.out.println();
 			System.out.println();
 			Thread.sleep(200);
-			System.out.println();
-			Thread.sleep(200);
-			System.out.println();
-			Thread.sleep(200);
-			
-			
-		} 		
-		
-		// 그리구 점수 데이터 베이스에 연동하기 (맞은것만)
-		
-		
+			for (int i = 0; i < cinemasList.size(); i++) {
+
+				String mname = cinemasList.get(i).getMoive();
+				int year = cinemasList.get(i).getYear();
+				String title = cinemasList.get(i).getName();
+				String artist = cinemasList.get(i).getArtist();
+
+				Thread.sleep(200);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println("          " + mname + "               " + year + "                " + title
+						+ "             " + artist);
+				Thread.sleep(200);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println();
+				Thread.sleep(200);
+
+			}
+
+			// 그리구 점수 데이터 베이스에 연동하기 (맞은것만)
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
+	}
+
+	private static int inputNum(Scanner sc) {
+		int playMusic = 0;
+		try {
+			playMusic = sc.nextInt();
+		} catch (Exception e) {
+			System.out.println(" 잘못 입력하셨습니다. ");
+		}
+		return playMusic;
 	}
 
 }
