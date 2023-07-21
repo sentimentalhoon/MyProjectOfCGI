@@ -41,7 +41,7 @@ public class BottomPage {
                 strB.append("선택>\t");
                 return strB.toString();
             case PageId.BOARD:
-                strB.append("읽기(R) 쓰기(W) 수정(M) 초기화면(T) 종료(X)\n");
+                strB.append("읽기(R) 쓰기(W) 수정(M) 목록(L) 초기화면(T) 종료(X)\n");
                 strB.append("선택>\t");
                 return strB.toString();
             case PageId.GAME:

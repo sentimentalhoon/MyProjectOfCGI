@@ -22,7 +22,7 @@ public class MiddlePage {
     }
 
     /**
-     * Middle(Main) Page 는 15라인을 사용하게 설정한다.
+     * Middle(Main) Page 는 18라인을 사용하게 설정한다.
      * 페이지마다 다른 선택지를 출력하게 한다.
      * 
      * @param page
@@ -84,43 +84,36 @@ public class MiddlePage {
                         .append("");
                 return strB.toString();
             case PageId.RANKING:
-                strB.append("\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t██████   █████  ███    ██ ██   ██ ██ ███    ██  ██████  \n")
-                        .append("\t██   ██ ██   ██ ████   ██ ██  ██  ██ ████   ██ ██       \n")
-                        .append("\t██████  ███████ ██ ██  ██ █████   ██ ██ ██  ██ ██   ███ \n")
-                        .append("\t██   ██ ██   ██ ██  ██ ██ ██  ██  ██ ██  ██ ██ ██    ██ \n")
-                        .append("\t██   ██ ██   ██ ██   ████ ██   ██ ██ ██   ████  ██████  \n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("");
-                return strB.toString();
+                switch (secondPage) {
+                    default:
+                        strB.append("\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t██████   █████  ███    ██ ██   ██ ██ ███    ██  ██████  \n")
+                                .append("\t██   ██ ██   ██ ████   ██ ██  ██  ██ ████   ██ ██       \n")
+                                .append("\t██████  ███████ ██ ██  ██ █████   ██ ██ ██  ██ ██   ███ \n")
+                                .append("\t██   ██ ██   ██ ██  ██ ██ ██  ██  ██ ██  ██ ██ ██    ██ \n")
+                                .append("\t██   ██ ██   ██ ██   ████ ██   ██ ██ ██   ████  ██████  \n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("");
+                        return strB.toString();
+                }
+
             case PageId.BOARD:
                 Map<Integer, Board> boardList = new LinkedHashMap<Integer, Board>();
                 boardList = BoardDao.load();
                 switch (secondPage) {
-                    case BoardId.BOARDLIST:
-                    case BoardId.BOARDBACK:
-                        strB.append(String.format("\n\t%-5s %-14s  %-8s  %-8s %-30s\n", "번 호",
-                                "작 성 자", "날 짜", "조회수", "제           목"));
-                        strB.append(
-                                "\t--------------------------------------------------------------------------------------------------\n");
-                        for (Board list : boardList.values()) {
-                            strB.append(String.format("\t%-8d %-14.8s %-15.10s %-6.6s %-30.28s\n", list.getUid(),
-                                    list.getWriter(), list.getRegdate(), list.getHits(), list.getTitle()));
-                        }
-                        return strB.toString();
                     case BoardId.BOARDREAD:
                         strB.append(String.format("\n\t제  목 | %-50.50s\n\t작성자 | %-10.10s\n",
                                 boardList.get(third).getTitle(), boardList.get(third).getWriter()));
@@ -138,6 +131,16 @@ public class MiddlePage {
                         return strB.toString();
                     case BoardId.BOARDMODIFY:
                         return strB.toString();
+                    case BoardId.BOARDLIST:
+                    case BoardId.BOARDBACK:
+                        strB.append(String.format("\n\t%-5s %-14s  %-8s  %-8s %-30s\n",
+                                "번 호", "작 성 자", "날 짜", "조회수", "제           목"));
+                        strB.append(
+                                "\t--------------------------------------------------------------------------------------------------\n");
+                        for (Board list : boardList.values()) {
+                            strB.append(String.format("\t%-8d %-14.8s %-15.10s %-6.6s %-30.28s\n", list.getUid(),
+                                    list.getWriter(), list.getRegdate(), list.getHits(), list.getTitle()));
+                        }
                     default:
                         return strB.toString();
                 }
@@ -145,22 +148,23 @@ public class MiddlePage {
                 switch (secondPage) {
                     case GameId.BACCARAT:
                     case GameId.BLACKJACK:
+                    case GameId.CINEMAQUIZ:
                         return "";
                     default:
                         strB.append("\n")
                                 .append("\tGame List\n")
-                                .append("\tGiwon Presents : BlackJack\n")
-                                .append("\t단축키 : J\n")
-                                .append("\tHero Presents : Baccarat\n")
-                                .append("\t단축키 : B\n")
-                                .append("\tDain Presents : Cinema Music Quiz\n")
-                                .append("\t단축키 : C\n")
                                 .append("\t\n")
-                                .append("\t██████    █████  ███    ███ ███████ \n")
-                                .append("\t██       ██   ██ ████  ████ ██      \n")
-                                .append("\t██   ███ ███████ ██ ████ ██ █████   \n")
-                                .append("\t██    ██ ██   ██ ██  ██  ██ ██      \n")
-                                .append("\t ██████  ██   ██ ██      ██ ███████ \n")
+                                .append("\tGiwon Presents : BlackJack | 단축키 : J\n")
+                                .append("\t\n")
+                                .append("\tHero Presents : Baccarat | 단축키 : B\n")
+                                .append("\t\n")
+                                .append("\tDain Presents : Cinema Music Quiz | 단축키 : C\n")
+                                .append("\t\n")
+                                .append("\tGitHub Presents : Tetris | 단축키 : T\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
                                 .append("\t\n")
                                 .append("\t\n")
                                 .append("\t\n")
@@ -172,28 +176,31 @@ public class MiddlePage {
                         return strB.toString();
                 }
             case PageId.ADMIN:
-                strB.append("\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t  ___  ______ ___  ___ _____  _   _  _____  _____  _____ ______   ___   _____  _____ ______ \n")
-                        .append("\t / _ \\ |  _  \\|  \\/  ||_   _|| \\ | ||_   _|/  ___||_   _|| ___ \\ / _ \\ |_   _||  _  || ___ \\\n")
-                        .append("\t/ /_\\ \\| | | || .  . |  | |  |  \\| |  | |  \\ `--.   | |  | |_/ // /_\\ \\  | |  | | | || |_/ /\n")
-                        .append("\t|  _  || | | || |\\/| |  | |  | . ` |  | |   `--. \\  | |  |    / |  _  |  | |  | | | ||    / \n")
-                        .append("\t| | | || |/ / | |  | | _| |_ | |\\  | _| |_ /\\__/ /  | |  | |\\ \\ | | | |  | |  \\ \\_/ /| |\\ \\ \n")
-                        .append("\t\\_| |_/|___/  \\_|  |_/ \\___/ \\_| \\_/ \\___/ \\____/   \\_/  \\_| \\_|\\_| |_/  \\_/   \\___/ \\_| \\_|\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("\t\n")
-                        .append("");
-                return strB.toString();
+                switch (secondPage) {
+                    default:
+                        strB.append("\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t  ___  ______ ___  ___ _____  _   _  _____  _____  _____ ______   ___   _____  _____ ______ \n")
+                                .append("\t / _ \\ |  _  \\|  \\/  ||_   _|| \\ | ||_   _|/  ___||_   _|| ___ \\ / _ \\ |_   _||  _  || ___ \\\n")
+                                .append("\t/ /_\\ \\| | | || .  . |  | |  |  \\| |  | |  \\ `--.   | |  | |_/ // /_\\ \\  | |  | | | || |_/ /\n")
+                                .append("\t|  _  || | | || |\\/| |  | |  | . ` |  | |   `--. \\  | |  |    / |  _  |  | |  | | | ||    / \n")
+                                .append("\t| | | || |/ / | |  | | _| |_ | |\\  | _| |_ /\\__/ /  | |  | |\\ \\ | | | |  | |  \\ \\_/ /| |\\ \\ \n")
+                                .append("\t\\_| |_/|___/  \\_|  |_/ \\___/ \\_| \\_/ \\___/ \\____/   \\_/  \\_| \\_|\\_| |_/  \\_/   \\___/ \\_| \\_|\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("\t\n")
+                                .append("");
+                        return strB.toString();
+                }
             case PageId.EXIT:
                 return strB.toString();
             default:

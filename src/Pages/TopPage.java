@@ -1,5 +1,7 @@
 package Pages;
 
+import Utils.SystemUtil;
+
 public class TopPage {
 
     private static TopPage _instance = null;
@@ -28,33 +30,33 @@ public class TopPage {
                 "\n=====================================================================================================================\n");
         switch (page) {
             case PageId.LOGIN:
-                strB.append(String.format("%-20s %s", "TOP", "'스마트미디어 인재개발원' 에 오신 것을 환영합니다.\t"));
+                strB.append(String.format("%-20s %-60s | %d MB", "TOP", "'스마트미디어 인재개발원' 에 오신 것을 환영합니다.\t", SystemUtil.getUsedMemoryMB()));
                 return strB.toString();
             case PageId.CREATEACCOUNT:
                 strB.append(
-                        String.format("%-20s %s", "TOP > 계정생성", "[스마트 인재개발원] 회원 가입 진행 중입니다.\t"));
+                        String.format("%-20s %-60s | %d MB", "TOP > 계정생성", "[스마트 인재개발원] 회원 가입 진행 중입니다.\t", SystemUtil.getUsedMemoryMB()));
                 return strB.toString();
             case PageId.TOPPAGE:
             case PageId.MAIN:
                 strB.append(
-                        String.format("%-20s %s", "TOP > 메인", "[스마트 인재개발원] 메인 페이지. 명령어를 입력하세요.\t"));
+                        String.format("%-20s %-60s | %d MB", "TOP > 메인", "[스마트 인재개발원] 메인 페이지. 명령어를 입력하세요.\t",SystemUtil.getUsedMemoryMB()));
                 return strB.toString();
             case PageId.RANKING:
-                strB.append(String.format("%-20s %s", "TOP > 랭킹", "[스마트 인재개발원] 전체 게임의 랭킹을 조회할 수 있습니다.\t"));
+                strB.append(String.format("%-20s %-60s | %d MB", "TOP > 랭킹", "[스마트 인재개발원] 전체 게임의 랭킹을 조회할 수 있습니다.\t", SystemUtil.getUsedMemoryMB()));
                 return strB.toString();
             case PageId.BOARD:
-                strB.append(String.format("%-20s %s", "TOP > 게시판", "[스마트 인재개발원] 자 유 게 시 판\t"));
+                strB.append(String.format("%-20s %-60s | %d MB", "TOP > 게시판", "[스마트 인재개발원] 자 유 게 시 판\t",SystemUtil.getUsedMemoryMB()));
                 return strB.toString();
             case PageId.GAME:
-                strB.append(String.format("%-20s %s", "TOP > 게임", "[스마트 인재개발원] 실행할 게임을 선택하세요!\t"));
+                strB.append(String.format("%-20s %-60s | %d MB", "TOP > 게임", "[스마트 인재개발원] 실행할 게임을 선택하세요!\t", SystemUtil.getUsedMemoryMB()));
                 return strB.toString();
             case PageId.ADMIN:
-                strB.append(String.format("%-20s %s", "TOP > 관리자", "[스마트 인재개발원] 관리자 모드입니다.\t"));
+                strB.append(String.format("%-20s %-60s | %d MB", "TOP > 관리자", "[스마트 인재개발원] 관리자 모드입니다.\t", SystemUtil.getUsedMemoryMB()));
                 return strB.toString();
             case PageId.EXIT:
                 return strB.toString();
             default:
-                strB.append(String.format("%-20s %s", "TOP", "'스마트미디어 인재개발원' 에 오신 것을 환영합니다.\t"));
+                strB.append(String.format("%-20s %-65s | %d MB", "TOP", "'스마트미디어 인재개발원' 에 오신 것을 환영합니다.\t", SystemUtil.getUsedMemoryMB()));
                 return strB.toString();
         }
     }

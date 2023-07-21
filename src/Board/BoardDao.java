@@ -26,16 +26,15 @@ public class BoardDao {
         HashMap<Integer, Board> boardList = new LinkedHashMap<Integer, Board>();
         try {
             con = DBFactory.getInstance().getConnection();
-            String sqlstr = "SELECT * FROM board Order by UID DESC LIMIT 16";
+            String sqlstr = "SELECT * FROM (SELECT * FROM BOARD ORDER BY NO DESC) WHERE ROWNUM <= 15";
             pstm = con.prepareStatement(sqlstr);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 Board board = new Board();
-                board.setUid(rs.getInt("uid"));
+                board.setUid(rs.getInt("no"));
                 board.setWriter(rs.getString("writer"));
                 board.setTitle(rs.getString("title"));
                 board.setContent(rs.getString("content").split("\n"));
-                board.setWriter(rs.getString("writer"));
                 board.setRegdate(rs.getString("regdate"));
                 board.setHits(rs.getInt("hits"));
                 boardList.put(board.getUid(), board);

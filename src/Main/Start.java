@@ -7,8 +7,8 @@ import Pages.PageId;
 import Utils.ConsoleColor;
 import Utils.InputScanner;
 
-public class Start {    
-    public static void indexPageStart(Account account){
+public class Start {
+    public static void indexPageStart(Account account) {
         char userPage = 0;
         int third = 0;
         while (true) {
@@ -55,10 +55,14 @@ public class Start {
                     account.setSubPage(userPage);
                 } else if (account.getPages() == PageId.GAME) {
                     account.setSubPage(userPage);
-                    if (account.getSubPage() == GameId.BLACKJACK){
+                    if (account.getSubPage() == GameId.BLACKJACK) {
                         // Blackjack.Blackjack1(account);
-                    } else if (account.getSubPage() == GameId.BACCARAT){
-                        
+                    } else if (account.getSubPage() == GameId.BACCARAT) {
+
+                    } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
+
+                    } else {
+                        account.setSubPage(GameId.NOTHING);
                     }
                 } else {
                     if (userPage == PageId.BOARD) {
