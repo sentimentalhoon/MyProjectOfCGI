@@ -105,15 +105,7 @@ public class Main {
 				System.out.println();
 				String gameRule = sc.nextLine();
 				if (gameRule.equals("1")) {
-
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
+					System.out.printf("\n\n\n\n\n\n\n\n");
 					System.out.println(
 							"                                               |										\r\n"
 									+ "                                    ___________I____________							\r\n"
@@ -129,78 +121,34 @@ public class Main {
 									+ "             /    \\                `-.I____________________||						\r\n"
 									+ "            /      \\                 ------------------------						\r\n"
 									+ "           /________\\___________________/________________\\______					\r\n");
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					System.out.println();
-
-				} else {
-
+					System.out.printf("\n\n\n\n\n\n\n\n\n\n\n");
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
 			try {
-				System.out.println();
-				System.out.print("    게임을 시작하시겠습니까?      ");
-				System.out.print("[1] YES         [2] NO     ");
-				System.out.println();
-				System.out.println();
-				System.out.println();
+				System.out.printf("\n%s\n\n\n", "    게임을 시작하시겠습니까?      " + "[1] YES         [2] NO     ");
 				String gameStart = sc.nextLine();
-
 				if (gameStart.equals("1")) {
-
 					if (mp3.isPlaying()) {
 						mp3.stop();
 					}
-
-					System.out.println();
-					System.out.println();
-					System.out.println(
-							"    =================================================================================");
-					System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 1번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-					System.out.println(
-							"    =================================================================================");
-					System.out.println();
-					System.out.println();
-
+					questions(1);
 				} else {
 					Thread.sleep(timeLap);
 					System.out.println();
 					System.out.println();
 					System.out.println("    왜왜!! 내 게임이 얼마나 재밌는데... ( 게임강제시작!! ) ");
 					Thread.sleep(timeLap);
-					System.out.println();
-					System.out.println();
-					System.out.println(
-							"    ==================================================ㅅ===============================");
-					System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 1번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-					System.out.println(
-							"    =================================================================================");
-					System.out.println();
-					System.out.println();
+					questions(1);
 				}
 				Thread.sleep(timeLap);
 				while (true) {
-					System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
-
 					int playMusic = inputNum(sc);
-
 					if (playMusic == 1) {
 						mp3.play(cinemasList.get(0).getPath());
-
 					}
 					if (playMusic == 2) {
-
 						try {
 							System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣴⢴⡶⣴⣤⣠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 									+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠋⣼⣿⣿⣸⡇⣾⣿⣄⠘⢷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
@@ -240,62 +188,27 @@ public class Main {
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-
 					}
 					if (playMusic == 3) {
 						mp3.play(comPath + "01_other.mp3");
-
 					}
 					if (playMusic == 4) {
-
-						System.out.println("     다음 문제로 넘어갑니다...     ");
-
-						break;
-					}
-
-					System.out.println("     정답을 입력하세요(한국어로) >>");
-					String movieName = sc.next();
-
-					if (movieName.equals(cinemasList.get(0).getMoive().trim())) {
-						System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-						System.out.println();
-						mp3.play(comPath + "Verygood.mp3");
-						System.out.println();
 						System.out.println("     다음 문제로 넘어갑니다...     ");
 						break;
-
 					}
-
-					else {
-						System.out.println("     Fail...!      틀 렸 습 니 다... ");
-						System.out.println();
-						mp3.play(comPath + "Fail.mp3");
-					}
-
+					if (answers(1, sc, cinemasList, mp3, comPath))
+						break;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("    =================================================================================");
-			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 2번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-			System.out.println("    =================================================================================");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-
+			questions(2);
 			while (true) {
-				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 				int playMusic = inputNum(sc);
 				if (playMusic == 1) {
 					mp3.play(cinemasList.get(1).getPath());
 				}
 				if (playMusic == 2) {
-
 					try {
 						System.out.print("~!!~~~~^^^^~!7~^??^^::::::::::::::::::::::::::^^^^^^^^^^^^^^\r\n"
 								+ "!~~~~~~?7~!7J77~7YPJ~~:::::::::::::::::::::^^^^^^^^^^^^^^^^^\r\n"
@@ -329,60 +242,27 @@ public class Main {
 								+ "YYJJJJJYJJYJ?7777???????YB#BBGGGGBBB#BY?!!!!!7?YP#BBGGGGGGGG\r\n"
 								+ "JJJJJJJYYYYYJ????JJJ?77?JG#BBBBBB###B5??!!!!!!!!!5BBGGGGGGG5\r\n");
 						Thread.sleep(200);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 				if (playMusic == 3) {
 					mp3.play(comPath + "02_other.mp3");
-
 				}
 				if (playMusic == 4) {
-
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-
-					break;
-				}
-
-				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-				String movieName = sc.next();
-
-				if (movieName.equals(cinemasList.get(1).getMoive())) {
-					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-					System.out.println();
-					mp3.play(comPath + "Verygood.mp3");
-					System.out.println();
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 					break;
-				} else {
-					System.out.println("     Fail...!      틀 렸 습 니 다... ");
-					System.out.println();
-					mp3.play(comPath + "Fail.mp3");
 				}
+				if (answers(2, sc, cinemasList, mp3, comPath))
+					break;
 			}
-
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("    =================================================================================");
-			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 3번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-			System.out.println("    =================================================================================");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-
+			questions(3);
 			while (true) {
-				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 				int playMusic = inputNum(sc);
 				if (playMusic == 1) {
 					mp3.play(cinemasList.get(2).getPath());
 				}
 				if (playMusic == 2) {
-
 					try {
 						System.out.print("⣿⣿⣿⣿⣿⣿⣿⠟⠛⠛⠋⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⣐⠚⢋⣶⣶⣿⣯⣀⣀⣀⣸⣷⣄⡀⠀⠀⠀⠀⠀⢸⣿⣿⡿⠋⠉⠉⠉⠉⠉⢉⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⢩⣀\r\n"
 								+ "⣿⣿⣿⣿⣿⣿⣉⣤⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠉⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⡀⠀⠈⣿⣿⡧⠀⢀⠀⠀⠀⠀⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣸⣿\r\n"
@@ -418,59 +298,27 @@ public class Main {
 								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⢰⣿⣿⣿⡟⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n"
 								+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⢸⣿⣿⣛⡾⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\r\n\"");
 						Thread.sleep(200);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 				if (playMusic == 3) {
 					mp3.play(comPath + "03_other.mp3");
-
 				}
 				if (playMusic == 4) {
-
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-
-					break;
-				}
-
-				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-				String movieName = sc.nextLine();
-
-				if (movieName.equals(cinemasList.get(2).getMoive())) {
-					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-					mp3.play(comPath + "Verygood.mp3");
-					System.out.println();
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 					break;
-				} else {
-					System.out.println("     Fail...!      틀 렸 습 니 다... ");
-					mp3.play(comPath + "Fail.mp3");
 				}
+				if (answers(3, sc, cinemasList, mp3, comPath))
+					break;
 			}
-
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("    =================================================================================");
-			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 4번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-			System.out.println("    =================================================================================");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-
+			questions(4);
 			while (true) {
-				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 				int playMusic = inputNum(sc);
 				if (playMusic == 1) {
 					mp3.play(cinemasList.get(3).getPath());
-
 				}
 				if (playMusic == 2) {
-
 					try {
 						System.out.print("$$$$$$$$$$$$$$$$$$$$$$$**$$$$$ `$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ \r\n"
 								+ "$$$$$$$$$$$$$$$$$$$$$$$We:~`#Rk''$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ \r\n"
@@ -507,59 +355,27 @@ public class Main {
 								+ "$$$$$$$$$$$$$$$$$$$$$$F'!!!!! !!~~~~.u+~.>:!!!t!N$$$W*TKt!!:?$$$ \r\n"
 								+ "$$$$$$$$$$$$$$$$$$$$$$ !?!!!>' xWK:W$&d@$>~!!!!&9@$$$$B!!!!!'$$$ \r\n");
 						Thread.sleep(200);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 				if (playMusic == 3) {
 					mp3.play(comPath + "04_other.mp3");
-
 				}
 				if (playMusic == 4) {
-
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-
-					break;
-				}
-
-				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-				String movieName = sc.nextLine();
-
-				if (movieName.equals(cinemasList.get(3).getMoive().trim())) {
-					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-					mp3.play(comPath + "Verygood.mp3");
-					System.out.println();
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 					break;
-				} else {
-					System.out.println("     Fail...!      틀 렸 습 니 다... ");
-					mp3.play(comPath + "Fail.mp3");
 				}
+				if (answers(4, sc, cinemasList, mp3, comPath))
+					break;
 			}
-
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("    =================================================================================");
-			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 5번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-			System.out.println("    =================================================================================");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-
+			questions(5);
 			while (true) {
-				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 				int playMusic = inputNum(sc);
 				if (playMusic == 1) {
 					mp3.play(cinemasList.get(4).getPath());
-
 				}
 				if (playMusic == 2) {
-
 					try {
 						System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠄⠀⠀⠈⠉⠉⠉⠉⠀⠀⠀⠠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 								+ "⠀⠀⠀⠀⠀⠀⠀⡠⠊⣠⠖⠁⣠⡤⠖⠂⠀⠀⠀⠒⠦⢤⣀⠑⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
@@ -591,59 +407,27 @@ public class Main {
 								+ "⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡏⣿⣷⢠⡀⢰⢱⠀⠀⠀\r\n"
 								+ "⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⣶⣿⣿⠎⡟⢦⠈⡄⠀\r\n");
 						Thread.sleep(200);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 				if (playMusic == 3) {
 					mp3.play(comPath + "05_other.mp3");
-
 				}
 				if (playMusic == 4) {
-
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-
-					break;
-				}
-
-				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-				String movieName = sc.nextLine();
-
-				if (movieName.equals(cinemasList.get(4).getMoive().trim())) {
-					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-					mp3.play(comPath + "Verygood.mp3");
-					System.out.println();
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 					break;
-				} else {
-					System.out.println("     Fail...!      틀 렸 습 니 다... ");
-					mp3.play(comPath + "Fail.mp3");
 				}
+				if (answers(5, sc, cinemasList, mp3, comPath))
+					break;
 			}
-
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("    =================================================================================");
-			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 6번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-			System.out.println("    =================================================================================");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-
+			questions(6);
 			while (true) {
-				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 				int playMusic = inputNum(sc);
 				if (playMusic == 1) {
 					mp3.play(cinemasList.get(5).getPath());
-
 				}
 				if (playMusic == 2) {
-
 					try {
 						System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣙⠿⠿⠿⢟⣫⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢹⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 								+ "⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸⣿⣿⣿⡏⠉⠙⢿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀\r\n"
@@ -673,59 +457,27 @@ public class Main {
 								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n\"");
 						Thread.sleep(200);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 				if (playMusic == 3) {
 					mp3.play(comPath + "06_other.mp3");
-
 				}
 				if (playMusic == 4) {
-
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-
-					break;
-				}
-
-				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-				String movieName = sc.nextLine();
-
-				if (movieName.equals(cinemasList.get(5).getMoive().trim())) {
-					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-					mp3.play(comPath + "Verygood.mp3");
-					System.out.println();
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 					break;
-				} else {
-					System.out.println("     Fail...!      틀 렸 습 니 다... ");
-					mp3.play(comPath + "Fail.mp3");
 				}
+				if (answers(6, sc, cinemasList, mp3, comPath))
+					break;
 			}
-
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("    =================================================================================");
-			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 7번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-			System.out.println("    =================================================================================");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-
+			questions(7);
 			while (true) {
-				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 				int playMusic = inputNum(sc);
 				if (playMusic == 1) {
 					mp3.play(cinemasList.get(6).getPath());
-
 				}
 				if (playMusic == 2) {
-
 					try {
 						System.out.print(
 								"+++#%@@@%@@%*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\r\n"
@@ -768,59 +520,27 @@ public class Main {
 										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@%%%#%@@@@@@@%***#@@%#*********************\r\n"
 										+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*****%@@#********************\r\n");
 						Thread.sleep(200);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 				if (playMusic == 3) {
 					mp3.play(comPath + "07_other.mp3");
-
 				}
 				if (playMusic == 4) {
-
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-
-					break;
-				}
-
-				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-				String movieName = sc.nextLine();
-
-				if (movieName.equals(cinemasList.get(6).getMoive().trim())) {
-					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-					mp3.play(comPath + "Verygood.mp3");
-					System.out.println();
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 					break;
-				} else {
-					System.out.println("     Fail...!      틀 렸 습 니 다... ");
-					mp3.play(comPath + "Fail.mp3");
 				}
+				if (answers(7, sc, cinemasList, mp3, comPath))
+					break;
 			}
-
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("    =================================================================================");
-			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 8번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-			System.out.println("    =================================================================================");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-
+			questions(8);
 			while (true) {
-				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 				int playMusic = inputNum(sc);
 				if (playMusic == 1) {
 					mp3.play(cinemasList.get(7).getPath());
-
 				}
 				if (playMusic == 2) {
-
 					try {
 						System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠲⣄⢀⡀⠀⠀⠀⠀⠀⠀⢀⠄⠀⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
@@ -852,59 +572,27 @@ public class Main {
 								+ "⠀⠀⠀⠀⠀⠀⠘⠦⣀⠀⢀⡤⠒⢦⣠⠖⠚⣟⡎⠙⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠤⠞⠻⠦⢄⡟⠋⠒⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n");
 						Thread.sleep(200);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 				if (playMusic == 3) {
 					mp3.play(comPath + "08_other.mp3");
-
 				}
 				if (playMusic == 4) {
-
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-
-					break;
-				}
-
-				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-				String movieName = sc.next();
-
-				if (movieName.equals(cinemasList.get(7).getMoive().trim())) {
-					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-					mp3.play(comPath + "Verygood.mp3");
-					System.out.println();
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 					break;
-				} else {
-					System.out.println("     Fail...!      틀 렸 습 니 다... ");
-					mp3.play(comPath + "Fail.mp3");
 				}
+				if (answers(8, sc, cinemasList, mp3, comPath))
+					break;
 			}
-
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("    =================================================================================");
-			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 9번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-			System.out.println("    =================================================================================");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-
+			questions(9);
 			while (true) {
-				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 				int playMusic = inputNum(sc);
 				if (playMusic == 1) {
 					mp3.play(cinemasList.get(8).getPath());
-
 				}
 				if (playMusic == 2) {
-
 					try {
 						System.out.print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡠⠤⠤⠒⠢⣤⠤⢤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 								+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠴⠋⠁⠀⠀⠀⠀⢸⢿⢦⡠⠶⠷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
@@ -935,60 +623,27 @@ public class Main {
 								+ "⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⢤⣀⣀⣀⣰⣃⣳⣄⣀⣀⣈⠁⠀⠀⠀⠀⠀⢠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 								+ "⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠑⠒⠦⢤⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n");
 						Thread.sleep(200);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 				if (playMusic == 3) {
 					mp3.play(comPath + "09_other.mp3");
-
 				}
 				if (playMusic == 4) {
-
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-
-					break;
-				}
-
-				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-				String movieName = sc.nextLine();
-
-				if (movieName.equals(cinemasList.get(8).getMoive().trim())) {
-					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-					mp3.play(comPath + "Verygood.mp3");
-					System.out.println();
 					System.out.println("     다음 문제로 넘어갑니다...     ");
 					break;
-				} else {
-					System.out.println("     Fail...!      틀 렸 습 니 다... ");
-					mp3.play(comPath + "Fail.mp3");
 				}
+				if (answers(9, sc, cinemasList, mp3, comPath))
+					break;
 			}
-
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("    =================================================================================");
-			System.out.println("          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ 10번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ     ");
-			System.out.println("    =================================================================================");
-			System.out.println();
-			System.out.println();
-			System.out.println();
-
+			questions(10);
 			while (true) {
-				System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 				int playMusic = inputNum(sc);
-
 				if (playMusic == 1) {
 					mp3.play(cinemasList.get(9).getPath());
-
 				}
 				if (playMusic == 2) {
-
 					try {
 						System.out.print("\r\n" + "..............................:?5GG#&B5J7!:.......\r\n"
 								+ "...........................:75B&@&#BBB#&&&#P7.....\r\n"
@@ -1025,47 +680,27 @@ public class Main {
 								+ ".................:^~!!77777???7?Y7J?7!~:..........\r\n"
 								+ "...........:^^^^^^^^^^^^^^~^^~~~~~^^^^............\r\n");
 						Thread.sleep(200);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 				if (playMusic == 3) {
 					mp3.play(comPath + "10_other.mp3");
-
 				}
 				if (playMusic == 4) {
-
 					System.out.println("     다음 문제로 넘어갑니다...     ");
-
 					break;
 				}
-
-				System.out.println("     정답을 입력하세요(한국판 제목을 한국어로) >>");
-				String movieName = sc.nextLine();
-
-				if (movieName.equals(cinemasList.get(9).getMoive().trim())) {
-					System.out.println("     SUCCESS!      정 답 입 니 다!! ");
-					mp3.play(comPath + "Verygood.mp3");
-					System.out.println();
+				if (answers(10, sc, cinemasList, mp3, comPath))
 					break;
-				} else {
-					System.out.println("     Fail...!      틀 렸 습 니 다... ");
-					mp3.play(comPath + "Fail.mp3");
-				}
-
 			}
-
-			if(mp3.isPlaying()) {
+			if (mp3.isPlaying()) {
 				mp3.stop();
 			}
 			mp3.play(comPath + "closing.mp3");
-
 			String[] gameEndList = new String[10];
 
-			gameEndList[0] = 
-					"			 ██████╗  █████╗ ███╗   ███╗███████╗    ███████╗███╗   ██╗██████╗ ██╗    \r\n"
+			gameEndList[0] = "			 ██████╗  █████╗ ███╗   ███╗███████╗    ███████╗███╗   ██╗██████╗ ██╗    \r\n"
 					+ "			██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔════╝████╗  ██║██╔══██╗██║    \r\n"
 					+ "			██║  ███╗███████║██╔████╔██║█████╗      █████╗  ██╔██╗ ██║██║  ██║██║    \r\n"
 					+ "			██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██╔══╝  ██║╚██╗██║██║  ██║╚═╝    \r\n"
@@ -1125,15 +760,14 @@ public class Main {
 
 			gameEndList[8] =
 
-					  "			                                                                  ██╗    \r\n"
-				    + "			                                                                  ██║    \r\n"
-				    + "			                                                                  ██║    \r\n"
-					+ "			                                                                  ╚═╝    \r\n"
-					+ "			                                                                  ██╗    \r\n"
-					+ "			                                                                  ╚═╝    \r\n";
+					"			                                                                  ██╗    \r\n"
+							+ "			                                                                  ██║    \r\n"
+							+ "			                                                                  ██║    \r\n"
+							+ "			                                                                  ╚═╝    \r\n"
+							+ "			                                                                  ██╗    \r\n"
+							+ "			                                                                  ╚═╝    \r\n";
 
-			gameEndList[9] =
-					"			 ██████╗  █████╗ ███╗   ███╗███████╗    ███████╗███╗   ██╗██████╗ ██╗    \r\n"
+			gameEndList[9] = "			 ██████╗  █████╗ ███╗   ███╗███████╗    ███████╗███╗   ██╗██████╗ ██╗    \r\n"
 					+ "			██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔════╝████╗  ██║██╔══██╗██║    \r\n"
 					+ "			██║  ███╗███████║██╔████╔██║█████╗      █████╗  ██╔██╗ ██║██║  ██║██║    \r\n"
 					+ "			██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██╔══╝  ██║╚██╗██║██║  ██║╚═╝    \r\n"
@@ -1149,7 +783,7 @@ public class Main {
 
 			for (int i = 0; i < gameEndList.length; i++) {
 
-				System.out.printf("\n\n\n\n\n\n\n\n\n\n\n%s\n\n\n\n\n\n\n\n\n\n\n",gameEndList[i]);
+				System.out.printf("\n\n\n\n\n\n\n\n\n\n\n%s\n\n\n\n\n\n\n\n\n\n\n", gameEndList[i]);
 				Thread.sleep(500);
 
 			}
@@ -1167,7 +801,6 @@ public class Main {
 			Thread.sleep(100);
 			System.out.println();
 			Thread.sleep(100);
-
 
 			System.out.println(
 					"       ================================================================================================================\r\n");
@@ -1216,6 +849,7 @@ public class Main {
 	}
 
 	private static int inputNum(Scanner sc) {
+		System.out.println("      [1] 음악 재생     [2] 그림 힌트!     [3] 다른 구간 듣기      [4] 포기하고 다음문제  ");
 		int playMusic = 0;
 		try {
 			playMusic = sc.nextInt();
@@ -1223,6 +857,37 @@ public class Main {
 			System.out.println(" 잘못 입력하셨습니다. ");
 		}
 		return playMusic;
+	}
+
+	private static void questions(int n) {
+		System.out.printf("\n\n\n\n\n%s\n\n\n",
+				"    ================================================================================= \n"
+						+ "          ♪(^∇^*) ♩  ♪  ♬   ❁´◡`❁   [ " + n
+						+ "번 문제!! ]      ♩  ♪     ♬ ヽ(✿ﾟ▽ﾟ)ノ              \n"
+						+ "    ================================================================================= ");
+	}
+
+	private static boolean answers(int n, Scanner sc, ArrayList<Cinemas> cinemasList, MP3Player mp3, String comPath) {
+		System.out.println("     정답을 입력하세요(한국어로) >>");
+		String movieName = sc.next();
+
+		if (movieName.equals(cinemasList.get(n - 1).getMoive().trim())) {
+			System.out.println("     SUCCESS!      정 답 입 니 다!! ");
+			System.out.println();
+			mp3.play(comPath + "Verygood.mp3");
+			System.out.println();
+			System.out.println("     다음 문제로 넘어갑니다...     ");
+//			break;
+			return true;
+
+		}
+
+		else {
+			System.out.println("     Fail...!      틀 렸 습 니 다... ");
+			System.out.println();
+			mp3.play(comPath + "Fail.mp3");
+		}
+		return false;
 	}
 
 }
