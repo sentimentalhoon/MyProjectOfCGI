@@ -27,6 +27,7 @@ public class Login {
                 Account.updateLastActive(account);
                 System.out.printf("[ %s ] 로그인에 성공하였습니다.", id);
             } else {
+                account.setName(null);
                 System.err.println("PASSWORD 가 틀렸습니다. 확인 후 다시 로그인 부탁드립니다.");
             }
         } else {
