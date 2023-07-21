@@ -807,14 +807,14 @@ public class Main {
 			mp3.play(comPath + "Verygood.mp3");
 			System.out.println();
 			System.out.println("     다음 문제로 넘어갑니다...     ");
-			insertQuizResult("호구", "o", n);
+			// insertQuizResult("호구", "o", n);
 			// break;
 			return true;
 		} else {
 			System.out.println("     Fail...!      틀 렸 습 니 다... ");
 			System.out.println();
 			mp3.play(comPath + "Fail.mp3");
-			insertQuizResult("호구", "x", n);
+			// insertQuizResult("호구", "x", n);
 		}
 		return false;
 	}
