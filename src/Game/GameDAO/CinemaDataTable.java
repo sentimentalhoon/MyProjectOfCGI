@@ -1,5 +1,6 @@
 package Game.GameDAO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ public class CinemaDataTable {
     private static Logger _log = Logger.getLogger(CinemaDataTable.class.getName());
 
     private String path;
+
     private CinemaDataTable(String path) {
         this.path = path;
     }
@@ -28,15 +30,12 @@ public class CinemaDataTable {
     }
 
     public ArrayList<CinemaField> getCinemaList() {
-        java.sql.Connection con = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+
         ArrayList<CinemaField> cinemasList = null;
-        try {            
+        try (Connection con = DBFactory.getInstance().getConnection();
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM cinema");
+                ResultSet rs = pstm.executeQuery()) {
             cinemasList = new ArrayList<CinemaField>();
-            con = DBFactory.getInstance().getConnection();
-            pstm = con.prepareStatement("SELECT * FROM cinema");
-            rs = pstm.executeQuery();
             while (rs.next()) {
                 CinemaField cinemaField = new CinemaField();
                 cinemaField.setMovieNameKR(rs.getString("name_kr"));
@@ -44,15 +43,12 @@ public class CinemaDataTable {
                 cinemaField.setYear(rs.getInt("year"));
                 cinemaField.setMovieSongName(rs.getString("song_name"));
                 cinemaField.setMovieSongArtist(rs.getString("song_artist"));
-                cinemaField.setMovieSongFileName(path + rs.getString("file_name"));                
+                cinemaField.setMovieSongFileName(path + rs.getString("file_name"));
                 cinemasList.add(cinemaField);
             }
             return cinemasList;
         } catch (SQLException e) {
             e.printStackTrace();
-            _log.warning("could not check existing charname:" + e.getMessage());
-        } finally {
-            SQLUtil.close(rs, pstm, con);
         }
         return cinemasList;
     }
