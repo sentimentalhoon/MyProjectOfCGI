@@ -7,7 +7,7 @@ public class SC {
     private SC() {
     }
 
-    public static Scanner getSC() {
+    public static Scanner getScanner() {
         Scanner sc = new Scanner(System.in);
         return sc;
     }
