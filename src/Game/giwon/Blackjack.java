@@ -1,29 +1,38 @@
 package Game.giwon;
-
 import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Random;
 import Utils.SC;
+import javazoom.jl.player.MP3Player;
 
 /*
 *목적 :Blackjack 본체.
 *개정이력 :박기원,  2023.07.23, 
-*최신 수정한 것 : getCardArt-블랙잭 카드 이미지 출력 및 가로로 출력 완료!
-*문제점 : getCardArt 카드 이미지 ◆ 출력하면 한칸씩 밀림
+*최신 수정한 것 : 
+*1) getCardArt-블랙잭 카드 이미지 출력 및 가로로 출력 완료 !
+*2) 음악 배경음악(신세계 ost) + 카드 뽑는 소리 +실패(전에 있는) // bj_Card_Sound_Effects.mp3 ,bj_Big Sleep.mp3 추가
+
+*문제점 : getCardArt 카드 이미지 ◆,10 출력하면 한칸씩 밀림
+
 */
-
-
 
 public class Blackjack {
 
+	// 음악 넣기
+	static MP3Player mp3 = new MP3Player();
+	static String comPath = "data\\song\\"; // 블랙잭 음악 파일 경로
+
 	public void gameStart() {
 
-		
+		// 음악 재생
+		playMusic("bj_Big Sleep.mp3"); // 배경음악
+
 		// 카드 덱 생성
 		List<String> deck = createDeck();
 //        account.getName() + "님 반갑습니다."
 		// 딜러와 플레이어 카드 리스트 생성
+
 		List<String> dealerHand = new ArrayList<>(); // 딜러
 		List<String> playerHand = new ArrayList<>(); // 플레이어
 
@@ -33,6 +42,7 @@ public class Blackjack {
 
 		// 게임 결과 출력
 		determineWinner(dealerHand, playerHand);
+		
 	}
 
 	// 카드 덱 생성
@@ -52,6 +62,7 @@ public class Blackjack {
 
 	// 카드 덱에서 카드를 한 장 뽑는 메서드
 	public static String drawCard(List<String> deck) {
+		playMusic("bj_Card_Sound_Effects.mp3"); // 카드 드로우 효과음
 		Random random = new Random();
 		int index = random.nextInt(deck.size());
 		return deck.remove(index);
@@ -65,39 +76,37 @@ public class Blackjack {
 		}
 	}
 
-	// 카드에 대한 ASCII 아트 추가	
+	// 카드에 대한 ASCII 아트 추가
 	// 가로로 출력
 	public static void getCardArt(List<String> cards) {
-		
-	    String[] art = new String[7]; 
 
-	    // null 방지 코드
-	    for (int i = 0; i < art.length; i++) {
-	        art[i] = "";
-	    }
+		String[] art = new String[7];
 
-	    for (String card : cards) {
-	        String[] cardParts = card.split(" ");
-	        String rank = cardParts[0];
-	        String suit = cardParts[1];
+		// null 방지 코드
+		for (int i = 0; i < art.length; i++) {
+			art[i] = "";
+		}
 
-	        // 각 줄 배열 저장
-	        art[0] += " ┌─────────┐ ";
-	        art[1] += String.format(" │ %s       │ ", rank);
-	        art[2] += " │         │ ";
-	        art[3] += String.format(" │   %s     │ ", suit);
-	        art[4] += " │         │ ";
-	        art[5] += String.format(" │      %s  │ ", rank);
-	        art[6] += " └─────────┘ ";
-	    }
+		for (String card : cards) {
+			String[] cardParts = card.split(" ");
+			String rank = cardParts[0];
+			String suit = cardParts[1];
 
-	    // 카드 그림 출력
-	    for (int i = 0; i < art.length; i++) {
-	        System.out.println(art[i]);
-	    }
+			// 각 줄 배열 저장
+			art[0] += " ┌─────────┐ ";
+			art[1] += String.format(" │ %s       │ ", rank);
+			art[2] += " │         │ ";
+			art[3] += String.format(" │   %s     │ ", suit);
+			art[4] += " │         │ ";
+			art[5] += String.format(" │      %s  │ ", rank);
+			art[6] += " └─────────┘ ";
+		}
+
+		// 카드 그림 출력
+		for (int i = 0; i < art.length; i++) {
+			System.out.println(art[i]);
+		}
 	}
-	
-
 
 	// 게임 플레이
 	public static void playGame(List<String> deck, List<String> dealerHand, List<String> playerHand) {
@@ -107,7 +116,7 @@ public class Blackjack {
 			// 현재 상태 출력
 			System.out.println("Banker's Card: " + dealerHand.get(0) + ", [숨김 카드]");
 			System.out.println("Player Card: ");
-			getCardArt(playerHand);  //플레이어 이미지 카드 출력
+			getCardArt(playerHand); // 플레이어 이미지 카드 출력
 
 			System.out.print("카드를 더 뽑으시겠습니까? (y/n): ");
 			String input = SC.getScanner().nextLine();
@@ -165,6 +174,16 @@ public class Blackjack {
 		return sum;
 	}
 
+	// 음악을 재생하는 메소드
+	public static void playMusic(String songName) {
+		try {
+			mp3 = new MP3Player();
+			mp3.play(comPath + songName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	// 승자 결정
 	public static void determineWinner(List<String> dealerHand, List<String> playerHand) {
 		int dealerSum = calculateHandSum(dealerHand);
@@ -176,12 +195,14 @@ public class Blackjack {
 		System.out.println("플레이어 카드 합: " + playerSum);
 
 		if (playerSum > 21) {
+			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 21을 초과하여 게임에서 패배했습니다.");
 		} else if (dealerSum > 21) {
 			System.out.println("딜러가 21을 초과하여 게임에서 승리했습니다.");
 		} else if (playerSum > dealerSum) {
 			System.out.println("플레이어가 딜러를 이겨 게임에서 승리했습니다.");
 		} else if (playerSum < dealerSum) {
+			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 딜러에게 패배하여 게임에서 패배했습니다.");
 		} else {
 			System.out.println("게임이 비겼습니다.");
@@ -190,7 +211,8 @@ public class Blackjack {
 	}
 
 	public void stop() {
+		mp3.stop(); // 음악 중지
 		System.out.println("Blackjack 게임을 종료합니다");
-		
+
 	}
 }
