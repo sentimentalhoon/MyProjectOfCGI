@@ -6,30 +6,46 @@ import java.util.Scanner;
 
 
 public class FuckBaccarat {
-
+	
+	// 계산할 정수형 카드, 출력할 문자형 숫자카드, 출력할 카드 문양
 	private int[] cardNum = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10 };
 	private String[] cardNumString = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 	private String[] cardShape = { "H", "D", "C", "S" };
-	
-	private ArrayList<String> drowCardNumString = new ArrayList<String>();
-	private ArrayList<Integer> drowCardNum = new ArrayList<Integer>(); 
-	
+	boolean bl = true;
+	// 점수
+	private int totalPoint = 100;
+	private int battingPoint;
+	// 랜덤으로 돌린 카드 입력받을 ArrayList 배열
 	private ArrayList<FuckCard> playerCards = new ArrayList<FuckCard>();
 	private ArrayList<FuckCard> bankerCards = new ArrayList<FuckCard>();
-
+	
 	private int winnerSelect;
 	Random rd = new Random();
 	Scanner sc = new Scanner(System.in);
+	
+	public void scoreBattingMachine() {
+		while(true) {
+			System.out.println("배팅할 포인트를 입력해주세요.");
+			System.out.println("현재 포인트 : "+totalPoint);
+			System.out.print("배팅할 포인트 : ");
+			battingPoint = sc.nextInt();
+			totalPoint -= battingPoint;
+			if(battingPoint <= totalPoint) {
+				break;
+			}
+		}
+		
+	}
 	
 	//카드를 섞는 메서드. 리턴값은 없음
 	public void shuffle() {
 		for (int i = 0; i < cardNum.length; i++) {
 			int randum = rd.nextInt(cardNum.length - i) + i;
-
+			
 			int num = cardNum[i];
 			cardNum[i] = cardNum[randum];
 			cardNum[randum] = num;
-
+			
 			String numString = cardNumString[i];
 			cardNumString[i] = cardNumString[randum];
 			cardNumString[randum] = numString;
@@ -37,7 +53,7 @@ public class FuckBaccarat {
 		
 		for (int i = 0; i < cardShape.length; i++) {
 			int randum = rd.nextInt(cardShape.length - i) + i;
-
+			
 			String temp = cardShape[i];
 			cardShape[i] = cardShape[randum];
 			cardShape[randum] = temp;
@@ -51,18 +67,7 @@ public class FuckBaccarat {
 		return topCard;
 	}
 
-	public void name() {
-		System.out.println();
-		for (int i = 0; i < 13; i++) {
-			System.out.print(cardNum[i] + "\t");
-		}
-		System.out.println();
-		for (int i = 0; i < 13; i++) {
-			System.out.print(cardNumString[i] + "\t");
-		}
-		System.out.println();
-	}
-
+	
 
 	// 첫번째 드로우한 카드 출력 메소드
 	public void cardOutput1() {
@@ -106,28 +111,36 @@ public class FuckBaccarat {
 
 		if (totalPlayer == totalBanker) {
 			System.out.println("비겼습니다.");
+			totalPoint += battingPoint;
 		} else if (totalPlayer > totalBanker) {
 			System.out.println(totalPlayer + "Player 우승!");
+			if(winnerSelect == 1) {
+				totalPoint += battingPoint*2;
+				System.out.println("현재 포인트 : " + totalPoint);
+			}else {
+				System.out.println("현재 포인트 : " + totalPoint);
+			}
+			
 		} else if (totalPlayer < totalBanker) {
 			System.out.println(totalBanker + "Banker 우승!");
+			if(winnerSelect == 2) {
+				totalPoint += battingPoint*2;
+				System.out.println("현재 포인트 : " + totalPoint);
+			}else {
+				System.out.println("현재 포인트 : " + totalPoint);
+			}
 		}
 
 	}
-
-	public void name1() {
-		System.out.println();
-		for (int i = 0; i < drowCardNum.size(); i++) {
-			System.out.print(drowCardNum.get(i)+"\t");
-		}
-		System.out.println();
-	}
+	
+	
 
 	// ArrayList 초기화 메서드
 	public void listClear() {
 		playerCards.clear();
 		bankerCards.clear();
 	}
-	
+	// 게임 재게 메서드
 	public Boolean choiceEnd() {
 		while (true) {
 			String select1 = "Yes";
@@ -146,20 +159,28 @@ public class FuckBaccarat {
 			}
 		}
 	}
-
+	public boolean ssd() {
+		if(totalPoint <= 0) {
+			System.out.println("남은 포인트가 없습니다.");
+			return false;
+		}else {
+			return true;
+			
+		}
+		}
+	
+	// 게임진행 메인 메서드
 	public void gameStart() {
-		boolean bl = true;
+		
 		while (bl) {
-			name();
+			if(!ssd()) break;
 			listClear();
 			System.out.println("Baccarat 게임을 시작합니다!");
-			
+			scoreBattingMachine();
 			//첫번째 카드 뽑기
 			shuffle();
-			name();
 			playerCards.add(cardDraw());
 			shuffle();
-			name();
 			bankerCards.add(cardDraw());
 			
 			//뽑은 카드 출력
@@ -176,7 +197,9 @@ public class FuckBaccarat {
 			cardOutput2();
 			
 			winner();
+			
 			bl = choiceEnd();
+			
 		}
 
 	}
@@ -185,5 +208,26 @@ public class FuckBaccarat {
 		System.out.println("Baccarat 게임을 종료합니다");
 
 	}
+	
+	public void test2() {
+		System.out.println();
+		for (int i = 0; i < 13; i++) {
+			System.out.print(cardNum[i] + "\t");
+		}
+		System.out.println();
+		for (int i = 0; i < 13; i++) {
+			System.out.print(cardNumString[i] + "\t");
+		}
+		System.out.println();
+	}
+
+
+//	public void tset1() {
+//		System.out.println();
+//		for (int i = 0; i < drowCardNum.size(); i++) {
+//			System.out.print(drowCardNum.get(i)+"\t");
+//		}
+//		System.out.println();
+//	}
 
 }
