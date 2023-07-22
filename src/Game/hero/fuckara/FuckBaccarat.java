@@ -10,7 +10,7 @@ public class FuckBaccarat {
 	// 계산할 정수형 카드, 출력할 문자형 숫자카드, 출력할 카드 문양
 	private int[] cardNum = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10 };
 	private String[] cardNumString = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-	private String[] cardShape = { "H", "D", "C", "S" };
+	private String[] cardShape = { "♥", "◆", "♣", "♠" };
 	boolean bl = true;
 	// 점수
 	private int totalPoint = 100;
@@ -29,8 +29,8 @@ public class FuckBaccarat {
 			System.out.println("현재 포인트 : "+totalPoint);
 			System.out.print("배팅할 포인트 : ");
 			battingPoint = sc.nextInt();
-			totalPoint -= battingPoint;
 			if(battingPoint <= totalPoint) {
+				totalPoint -= battingPoint;
 				break;
 			}
 		}
@@ -183,8 +183,12 @@ public class FuckBaccarat {
 			shuffle();
 			bankerCards.add(cardDraw());
 			
+			//첫번째 뽑은 카드 텍스트 출력
+			CardImage( playerCards.get(0),"Player" );
+			CardImage( bankerCards.get(0),"Banker" );
+			
 			//뽑은 카드 출력
-			cardOutput1();
+//			cardOutput1();
 			
 			//두번째 카드 뽑기
 			shuffle();
@@ -192,9 +196,12 @@ public class FuckBaccarat {
 			shuffle();
 			bankerCards.add(cardDraw());
 			
-			winnerSelect();
 			
-			cardOutput2();
+			winnerSelect();
+			//두번째 뽑은 카드 텍스트 출력
+			CardImage(playerCards.get(0), playerCards.get(1), "Player");
+			CardImage(bankerCards.get(0), bankerCards.get(1), "Banker");
+//			cardOutput2();
 			
 			winner();
 			
@@ -219,6 +226,28 @@ public class FuckBaccarat {
 			System.out.print(cardNumString[i] + "\t");
 		}
 		System.out.println();
+	}
+	
+	public void CardImage(FuckCard card, String name) {
+		System.out.println();
+		System.out.println(" _______");
+		System.out.println("|"+" ".repeat(7-card.getCardNumString().length())+card.getCardNumString()+"|");
+		System.out.println("|       |");
+		System.out.println("|   "+card.getCardShape()+"   |");
+		System.out.println("|       |");
+		System.out.println("|"+card.getCardNumString()+"_".repeat(7-card.getCardNumString().length())+"|");
+		System.out.println(name + "'s Card");
+	}
+	
+	public void CardImage(FuckCard card1, FuckCard card2, String name) {
+		System.out.println();
+		System.out.println(" _______      _______ ");
+		System.out.println("|"+" ".repeat(7-card1.getCardNumString().length())+card1.getCardNumString()+"|    |"+" ".repeat(7-card2.getCardNumString().length())+card2.getCardNumString()+"|");
+		System.out.println("|       |    |       |");
+		System.out.println("|   "+card1.getCardShape()+"   |    |   "+card2.getCardShape()+"   |");
+		System.out.println("|       |    |       |");
+		System.out.println("|"+card1.getCardNumString()+"_".repeat(7-card1.getCardNumString().length())+"|    |"+card2.getCardNumString()+"_".repeat(7-card2.getCardNumString().length())+"|");
+		System.out.println(name + "'s Card");
 	}
 
 

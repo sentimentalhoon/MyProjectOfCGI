@@ -11,7 +11,14 @@ public class FuckCard {
 		this.cardShape = cardShape;
 	}
 	
-	
+	public String getCardNumString() {
+		return cardNumString;
+	}
+
+	public String getCardShape() {
+		return cardShape;
+	}
+
 	public int getCardNum() {
 		return this.cardNum;
 	}
