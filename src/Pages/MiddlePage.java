@@ -3,12 +3,15 @@ package Pages;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import API.TodayWeather.TodayWeatherInfomation;
+import API.TodayWeather.TodayWeatherItem;
 import Board.Board;
 import Board.BoardDao;
 import Board.BoardId;
 import Game.GameId;
+import Utils.Print;
 
-public class MiddlePage {
+public class MiddlePage extends Print{
     private static MiddlePage _instance = null;
 
     public static MiddlePage getInstance() {
@@ -204,8 +207,7 @@ public class MiddlePage {
             case PageId.EXIT:
                 return strB.toString();
             default:
-                strB.append("\n")
-                        .append("\t\n")
+                strB.append("\t\n" + TodayWeatherInfomation.getInstance().getTodayWeatherItem().getT1h())
                         .append("\t\n")
                         .append("\t\n")
                         .append("\t\n")
