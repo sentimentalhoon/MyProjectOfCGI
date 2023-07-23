@@ -15,12 +15,11 @@ import javazoom.jl.player.MP3Player;
 *1) getCardArt-블랙잭 카드 이미지 출력 및 가로로 출력 완료 !
 *2) 음악 배경음악(신세계 ost) + 카드 뽑는 소리 +실패(전에 있는) // bj_Card_Sound_Effects.mp3 ,bj_Big Sleep.mp3 추가
 *3) 배팅 추가 scoreBattingMachine() 바카라 있는 메소드 그대로 씀
+*4) 카드 이미지 삐둘어진거 해결  -> ♦ 이미지 바꿈 %2s 
 
 *문제점 : 
-*1)getCardArt 카드 이미지 ◆,10 출력하면 한칸씩 밀림
-*2)배경 음악 종료 안됨
+*1)배경 음악 종료 안됨
 *
-
 */
 
 public class Blackjack {
@@ -80,7 +79,7 @@ public class Blackjack {
 	// 카드 덱 생성
 	public static List<String> createDeck() {
 		List<String> deck = new ArrayList<>();
-		String[] suits = { "♥", "◆", "♣", "♠" };
+		String[] suits = { "♥", "♦", "♣", "♠" };
 		String[] ranks = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 
 		for (String suit : suits) {
@@ -126,11 +125,11 @@ public class Blackjack {
 
 			// 각 줄 배열 저장
 			art[0] += " ┌─────────┐ ";
-			art[1] += String.format(" │ %s       │ ", rank);
+			art[1] += String.format(" │%2s       │ ", rank);
 			art[2] += " │         │ ";
-			art[3] += String.format(" │   %s     │ ", suit);
+			art[3] += String.format(" │    %s    │ ", suit);
 			art[4] += " │         │ ";
-			art[5] += String.format(" │      %s  │ ", rank);
+			art[5] += String.format(" │       %2s│ ", rank);
 			art[6] += " └─────────┘ ";
 		}
 
@@ -229,7 +228,8 @@ public class Blackjack {
 		if (playerSum > 21) {
 			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 21을 초과하여 게임에서 패배했습니다.");
-			totalPoint += battingPoint*2;
+			
+			totalPoint += battingPoint*2; //배팅
 			System.out.println("현재 포인트 : " + totalPoint);
 		} else if (dealerSum > 21) {
 			System.out.println("딜러가 21을 초과하여 게임에서 승리했습니다.");
