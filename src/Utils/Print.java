@@ -1,6 +1,6 @@
 package Utils;
 
-public class Print {
+public interface Print {
     public static void println(String str) {
         System.out.println(str);
     }

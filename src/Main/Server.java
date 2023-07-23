@@ -12,7 +12,7 @@ import Utils.PerformanceTimer;
 import Utils.Print;
 import Utils.SystemUtil;
 
-public class Server extends Print {
+public class Server implements Print {
 	private volatile static Server uniqueInstance;
 
 	private Server() {
@@ -52,31 +52,51 @@ public class Server extends Print {
 
 	public TodayWeatherItem initWeather() {
 		TodayWeatherItem todayWeatherItem = new TodayWeatherItem();
-		String result = TodayWeatherAPI.TodayWeather();
-		if (result != null) {
-			Gson gson = new Gson();
-			WeatherDTO weatherDTO = gson.fromJson(result, WeatherDTO.class);
-			WeatherController weatherController = WeatherController.getInstance();
-			for (Item item : weatherDTO.getResponse().getBody().getItems().getItem()) {
-				if (item.getCategory().equals("T1H")) {
-					todayWeatherItem.setT1h(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
-				} else if (item.getCategory().equals("RN1")) {
-					todayWeatherItem.setRn1(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
-				} else if (item.getCategory().equals("UUU")) {
-					todayWeatherItem.setUuu(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
-				} else if (item.getCategory().equals("VVV")) {
-					todayWeatherItem.setVvv(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
-				} else if (item.getCategory().equals("REH")) {
-					todayWeatherItem.setReh(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
-				} else if (item.getCategory().equals("PTY")) {
-					todayWeatherItem.setPty(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
-				} else if (item.getCategory().equals("VEC")) {
-					todayWeatherItem.setVec(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
-				} else if (item.getCategory().equals("WSD")) {
-					todayWeatherItem.setWsd(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
+		try {
+			String result = TodayWeatherAPI.TodayWeather();
+			if (result != null) {
+				Gson gson = new Gson();
+				WeatherDTO weatherDTO = gson.fromJson(result, WeatherDTO.class);
+				WeatherController weatherController = WeatherController.getInstance();
+				for (Item item : weatherDTO.getResponse().getBody().getItems().getItem()) {
+					if (item.getCategory().equals("T1H")) {
+						todayWeatherItem
+								.setT1h(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
+					} else if (item.getCategory().equals("RN1")) {
+						todayWeatherItem
+								.setRn1(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
+					} else if (item.getCategory().equals("UUU")) {
+						todayWeatherItem
+								.setUuu(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
+					} else if (item.getCategory().equals("VVV")) {
+						todayWeatherItem
+								.setVvv(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
+					} else if (item.getCategory().equals("REH")) {
+						todayWeatherItem
+								.setReh(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
+					} else if (item.getCategory().equals("PTY")) {
+						todayWeatherItem
+								.setPty(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
+					} else if (item.getCategory().equals("VEC")) {
+						todayWeatherItem
+								.setVec(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
+					} else if (item.getCategory().equals("WSD")) {
+						todayWeatherItem
+								.setWsd(weatherController.getCategoryKR(item.getCategory(), item.getObsrValue()));
+					}
 				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return todayWeatherItem;
 	}
+
+	public static void println(String str) {
+        System.out.println(str);
+    }
+
+    public static void print(String str) {
+        System.out.print(str);
+    }
 }

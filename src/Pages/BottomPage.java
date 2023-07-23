@@ -1,6 +1,8 @@
 package Pages;
 
-public class BottomPage {
+import Utils.CountKorean;
+
+public class BottomPage extends CountKorean {
     private static BottomPage _instance = null;
 
     public static BottomPage getInstance() {
@@ -9,7 +11,7 @@ public class BottomPage {
         }
         return _instance;
     }
-    
+
     public BottomPage() {
     }
 
@@ -23,7 +25,7 @@ public class BottomPage {
     public String getPages(int page) {
         StringBuilder strB = new StringBuilder();
         strB.append(
-                "\n+-------------------------------------------------------------------------------------------------------------------+\n");
+                "\n└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
         switch (page) {
             case PageId.LOGIN:
                 strB.append("스마트미디어 인재개발원 ID 가 없는 분은 '손님' 또는 'GUEST' 를 입력하십시오.\n");

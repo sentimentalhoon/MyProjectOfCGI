@@ -3,6 +3,7 @@ package Main;
 import Account.Account;
 import Board.BoardId;
 import Game.GameId;
+import Game.Tetris.D4mnAsciiTetris;
 import Pages.PageId;
 import Utils.ConsoleColor;
 import Utils.SC;
@@ -67,6 +68,8 @@ public class Start {
 
                         } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
 
+                        }else if (account.getSubPage() == GameId.TETRIS) {
+                            D4mnAsciiTetris.gameStart();
                         }
                     } else {
                         account.setSubPage(BoardId.BOARDNOTHING);
