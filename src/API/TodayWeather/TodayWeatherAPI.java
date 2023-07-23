@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -58,13 +59,16 @@ public class TodayWeatherAPI {
                 sb.append(line);
             }
             return sb.toString();
+        } catch (ConnectException e){
+            e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
-                rd.close();
+                if (rd != null)
+                    rd.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
