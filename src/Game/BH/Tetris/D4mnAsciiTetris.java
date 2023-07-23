@@ -1,4 +1,4 @@
-package Game.Tetris;
+package Game.BH.Tetris;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

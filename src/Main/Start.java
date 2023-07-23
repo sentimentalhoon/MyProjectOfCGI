@@ -3,7 +3,7 @@ package Main;
 import Account.Account;
 import Board.BoardId;
 import Game.GameId;
-import Game.Tetris.D4mnAsciiTetris;
+import Game.BH.Tetris.D4mnAsciiTetris;
 import Pages.PageId;
 import Utils.ConsoleColor;
 import Utils.SC;
