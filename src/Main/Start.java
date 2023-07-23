@@ -38,55 +38,52 @@ public class Start {
                             account.setPages(PageId.MAIN);
                     }
                 } else {
-                    account = PageHandler.handlePage(account, PageId.LOGIN, accountName);
-                    if (account.isValid())
-                        account.setPages(PageId.MAIN);
-                }
-            } else {
-                if (!account.isValid()) {
-                    account.setPages(PageId.LOGIN);
-                    account.setSubPage(BoardId.BOARDNOTHING);
-                    continue;
-                }
-                try {
-                    String[] input = SC.getScanner().nextLine().toLowerCase().split(" ");
-                    userPage = input[0].toCharArray()[0];
-                    if (input.length > 1)
-                        third = Integer.parseInt(input[1]);
-                } catch (Exception e) {
-                    System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "없는 명령어입니다!"
-                            + ConsoleColor.RESET);
-                    continue;
-                }
-                if (userPage == PageId.MAIN || userPage == PageId.TOPPAGE) {
-                    account.setPages(userPage);
-                } else if (userPage == PageId.BOARD) {
-                    account.setSubPage(BoardId.BOARDLIST);
-                    account.setPages(userPage);
-                } else {
-                    if (account.getPages() == PageId.BOARD) {
-                        account.setSubPage(userPage);
-                    } else if (account.getPages() == PageId.GAME) {
-                        account.setSubPage(userPage);
-                        if (account.getSubPage() == GameId.BLACKJACK) {
-                            // Blackjack.Blackjack1(account);
-                        } else if (account.getSubPage() == GameId.BACCARAT) {
-
-                        } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
-                          
-                        }else if (account.getSubPage() == GameId.TETRIS) {
-                            D4mnAsciiTetris.gameStart();
-                        }
-                    } else {
+                    if (!account.isValid()) {
+                        account.setPages(PageId.LOGIN);
                         account.setSubPage(BoardId.BOARDNOTHING);
-                        account.setPages(userPage);
+                        continue;
                     }
-                }
+                    try {
+                        String[] input = SC.getScanner().nextLine().toLowerCase().split(" ");
+                        userPage = input[0].toCharArray()[0];
+                        if (input.length > 1)
+                            third = Integer.parseInt(input[1]);
+                    } catch (Exception e) {
+                        System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "없는 명령어입니다!"
+                                + ConsoleColor.RESET);
+                        continue;
+                    }
+                    if (userPage == PageId.MAIN || userPage == PageId.TOPPAGE) {
+                        account.setPages(userPage);
+                    } else if (userPage == PageId.BOARD) {
+                        account.setSubPage(BoardId.BOARDLIST);
+                        account.setPages(userPage);
+                    } else {
+                        if (account.getPages() == PageId.BOARD) {
+                            account.setSubPage(userPage);
+                        } else if (account.getPages() == PageId.GAME) {
+                            account.setSubPage(userPage);
+                            if (account.getSubPage() == GameId.BLACKJACK) {
+                                // Blackjack.Blackjack1(account);
+                            } else if (account.getSubPage() == GameId.BACCARAT) {
 
-                if (account.isExit()) {
-                    System.err.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "종료 되었습니다."
-                            + ConsoleColor.RESET);
-                    break;
+                            } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
+
+                            } else if (account.getSubPage() == GameId.TETRIS) {
+                                D4mnAsciiTetris.gameStart();
+                            }
+                        } else {
+                            account.setSubPage(BoardId.BOARDNOTHING);
+                            account.setPages(userPage);
+                        }
+                    }
+
+                    if (account.isExit()) {
+                        System.err.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "종료 되었습니다."
+                                + ConsoleColor.RESET);
+                        break;
+                    }
+                    account = PageHandler.handlePage(account, account.getPages(), null);
                 }
             } catch (Exception e) {
                 account = new Account();
