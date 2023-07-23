@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+
 import DAO.DBFactory;
 
 /*
@@ -15,7 +17,20 @@ import DAO.DBFactory;
 
 public class BlackjackDataTable {
 	
-
+	
+	 public boolean insertBlack(String ID, int totalPoint) {
+	        String sqlstr = "INSERT INTO BLACKJACK (ID,TOTALPOINT ) VALUES (?, ?)";
+	        try (Connection con = DBFactory.getInstance().getConnection();
+	                PreparedStatement pstm = con.prepareStatement(sqlstr)) {
+	            pstm.setString(1, ID);
+	            pstm.setInt(2, totalPoint);
+	            pstm.executeUpdate();
+	            return true;
+	        } catch (SQLException e) {
+	        	e.printStackTrace();
+	        }
+	        return false;
+	    }
 
 	// 총점 UPDATE
 	public void saveTotalPoint(String ID, int totalPoint) {
@@ -31,12 +46,15 @@ public class BlackjackDataTable {
 
 //총점 불러오기
 	public int getTotalPoint(String ID) {
-		int totalPoint = 0;
+		int totalPoint=0;
 		try (Connection con = DBFactory.getInstance().getConnection();
-				PreparedStatement pstm = con.prepareStatement("SELECT TOTALPOINT FROM BLACKJACK WHERE ID = ?");) {
+				PreparedStatement pstm = con.prepareStatement("SELECT TOTALPOINT FROM BLACKJACK WHERE ID = ?");) 
+		{
 			pstm.setString(1, ID); // SHOW 값을 조회
 			ResultSet rs = pstm.executeQuery();
-			if (rs.next()) {
+
+			while (rs.next())
+			{	
 				totalPoint = rs.getInt("TOTALPOINT");
 			}
 		} catch (SQLException e) {

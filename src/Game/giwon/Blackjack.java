@@ -22,7 +22,7 @@ import javazoom.jl.player.MP3Player;
 *4) 카드 이미지 삐둘어진거 해결  -> ♦ 이미지 바꿈 %2s 
 
 
-*5) BlackjackDataTable(SELECT / UPDATE) 작성 DB 하고 있음 안불러와짐?
+*5) BlackjackDataTable(SELECT / UPDATE) DB 완료
 
 *문제점 : 
 *1)배경 음악 종료 안됨
@@ -35,7 +35,6 @@ public class Blackjack {
 	static MP3Player mp3 = new MP3Player();
 	static String comPath = "data\\song\\"; // 블랙잭 음악 파일 경로
 	// 점수
-//	private static int totalPoint = 100;
 	private static int totalPoint;
 	private static int battingPoint;
 	private BlackjackDataTable blackjackDataTable = new BlackjackDataTable();
@@ -86,23 +85,6 @@ public class Blackjack {
 	    }
 	}
 	
-	
-	//기존 DB연결 하기 전
-//	public void scoreBattingMachine() {
-//		while(true) {
-//			System.out.println("배팅할 포인트를 입력해주세요.");
-//			System.out.println("현재 포인트 : "+totalPoint);
-//			System.out.print("배팅할 포인트 : ");
-//			battingPoint = SC.getScanner().nextInt();
-//			if(battingPoint <= totalPoint) {
-//				totalPoint -= battingPoint;
-//				break;
-//			}
-//		}
-//		
-//	}
-	
-
 	// 카드 덱 생성
 	public static List<String> createDeck() {
 		List<String> deck = new ArrayList<>();
@@ -256,7 +238,7 @@ public class Blackjack {
 			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 21을 초과하여 게임에서 패배했습니다.");
 
-			totalPoint += battingPoint * 2; // 배팅
+			totalPoint -= battingPoint; // 배팅
 			System.out.println("현재 포인트 : " + totalPoint);
 		} else if (dealerSum > 21) {
 			System.out.println("딜러가 21을 초과하여 게임에서 승리했습니다.");
@@ -269,6 +251,8 @@ public class Blackjack {
 		} else if (playerSum < dealerSum) {
 			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 딜러에게 패배하여 게임에서 패배했습니다.");
+			totalPoint -= battingPoint; // 배팅
+			System.out.println("현재 포인트 : " + totalPoint);
 		} else {
 			System.out.println("게임이 비겼습니다.");
 			totalPoint += battingPoint;
