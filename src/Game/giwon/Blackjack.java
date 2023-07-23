@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Random;
+
+
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
@@ -12,22 +14,35 @@ import javazoom.jl.player.MP3Player;
 *최신 수정한 것 : 
 *1) getCardArt-블랙잭 카드 이미지 출력 및 가로로 출력 완료 !
 *2) 음악 배경음악(신세계 ost) + 카드 뽑는 소리 +실패(전에 있는) // bj_Card_Sound_Effects.mp3 ,bj_Big Sleep.mp3 추가
+*3) 배팅 추가 scoreBattingMachine() 바카라 있는 메소드 그대로 씀
 
-*문제점 : getCardArt 카드 이미지 ◆,10 출력하면 한칸씩 밀림
+*문제점 : 
+*1)getCardArt 카드 이미지 ◆,10 출력하면 한칸씩 밀림
+*2)배경 음악 종료 안됨
+*
 
 */
 
 public class Blackjack {
+	
 
 	// 음악 넣기
 	static MP3Player mp3 = new MP3Player();
 	static String comPath = "data\\song\\"; // 블랙잭 음악 파일 경로
-
+	// 점수
+	private static int totalPoint = 100;
+	private static int battingPoint;
+	
+	
+	
 	public void gameStart() {
 
 		// 음악 재생
 		playMusic("bj_Big Sleep.mp3"); // 배경음악
 
+		// 배팅
+		scoreBattingMachine();
+		
 		// 카드 덱 생성
 		List<String> deck = createDeck();
 //        account.getName() + "님 반갑습니다."
@@ -44,6 +59,23 @@ public class Blackjack {
 		determineWinner(dealerHand, playerHand);
 		
 	}
+	
+	
+	//바카라 점수 배팅
+	public void scoreBattingMachine() {
+		while(true) {
+			System.out.println("배팅할 포인트를 입력해주세요.");
+			System.out.println("현재 포인트 : "+totalPoint);
+			System.out.print("배팅할 포인트 : ");
+			battingPoint = SC.getScanner().nextInt();
+			if(battingPoint <= totalPoint) {
+				totalPoint -= battingPoint;
+				break;
+			}
+		}
+		
+	}
+	
 
 	// 카드 덱 생성
 	public static List<String> createDeck() {
@@ -197,15 +229,22 @@ public class Blackjack {
 		if (playerSum > 21) {
 			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 21을 초과하여 게임에서 패배했습니다.");
+			totalPoint += battingPoint*2;
+			System.out.println("현재 포인트 : " + totalPoint);
 		} else if (dealerSum > 21) {
 			System.out.println("딜러가 21을 초과하여 게임에서 승리했습니다.");
+			totalPoint += battingPoint*2;
+			System.out.println("현재 포인트 : " + totalPoint);
 		} else if (playerSum > dealerSum) {
 			System.out.println("플레이어가 딜러를 이겨 게임에서 승리했습니다.");
+			totalPoint += battingPoint*2;
+			System.out.println("현재 포인트 : " + totalPoint);
 		} else if (playerSum < dealerSum) {
 			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 딜러에게 패배하여 게임에서 패배했습니다.");
 		} else {
 			System.out.println("게임이 비겼습니다.");
+			totalPoint += battingPoint;
 		}
 
 	}
