@@ -13,24 +13,30 @@ public class Start {
         char userPage = 0;
         int third = 0;
         while (true) {
-            System.out.print(
-                    MainPage.getInstance().getPage(account.getPages(), account.getSubPage(), third));
-            third = 0;
-            if (account.getPages() == PageId.NOTHING || account.getPages() == PageId.LOGIN) {
-                String accountName = "";
-                try {
-                    accountName = SC.getScanner().nextLine().trim().toLowerCase();
-                } catch (Exception e) {
-                    System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "잘못된 인자를 입력하였습니다."
-                            + ConsoleColor.RESET);
-                    continue;
-                }
+            try {
+                System.out.print(
+                        MainPage.getInstance().getPage(account.getPages(), account.getSubPage(), third));
+                third = 0;
+                if (account.getPages() == PageId.NOTHING || account.getPages() == PageId.LOGIN) {
+                    String accountName = "";
+                    try {
+                        accountName = SC.getScanner().nextLine().trim().toLowerCase();
+                    } catch (Exception e) {
+                        System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "잘못된 인자를 입력하였습니다."
+                                + ConsoleColor.RESET);
+                        continue;
+                    }
 
-                if (accountName.equals("손님") || accountName.equals("guest")) {
-                    account.setName(accountName);
-                    account.setPages(PageId.CREATEACCOUNT);
-                    PageHandler.handlePage(account, PageId.CREATEACCOUNT, account.getName());
-                    account.setPages(PageId.LOGIN);
+                    if (accountName.equals("손님") || accountName.equals("guest")) {
+                        account.setName(accountName);
+                        account.setPages(PageId.CREATEACCOUNT);
+                        PageHandler.handlePage(account, PageId.CREATEACCOUNT, account.getName());
+                        account.setPages(PageId.LOGIN);
+                    } else {
+                        account = PageHandler.handlePage(account, PageId.LOGIN, accountName);
+                        if (account.isValid())
+                            account.setPages(PageId.MAIN);
+                    }
                 } else {
                     account = PageHandler.handlePage(account, PageId.LOGIN, accountName);
                     if (account.isValid())
@@ -67,7 +73,7 @@ public class Start {
                         } else if (account.getSubPage() == GameId.BACCARAT) {
 
                         } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
-
+                          
                         }else if (account.getSubPage() == GameId.TETRIS) {
                             D4mnAsciiTetris.gameStart();
                         }
@@ -82,7 +88,13 @@ public class Start {
                             + ConsoleColor.RESET);
                     break;
                 }
-                account = PageHandler.handlePage(account, account.getPages(), null);
+            } catch (Exception e) {
+                account = new Account();
+                account.setPages(PageId.LOGIN);
+                account.setSubPage(BoardId.BOARDNOTHING);
+                System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "오류가 발생하여 로그아웃 되었습니다. 다시 로그인하여 주시기 바랍니다."
+                        + ConsoleColor.RESET);
+                continue;
             }
         }
     }
