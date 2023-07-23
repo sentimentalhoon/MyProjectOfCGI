@@ -1,8 +1,9 @@
 package Pages;
 
+import Utils.CountKorean;
 import Utils.SystemUtil;
 
-public class TopPage {
+public class TopPage extends CountKorean{
 
     private static TopPage _instance = null;
 
@@ -16,6 +17,7 @@ public class TopPage {
     public TopPage() {
     }
 
+
     /**
      * Top Page 는 15라인을 사용하게 설정한다.
      * 페이지마다 다른 선택지를 출력하게 한다.
@@ -24,40 +26,66 @@ public class TopPage {
      * @return
      */
     public String getPages(int page) {
+        int countSpace = 90;
         StringBuilder strB = new StringBuilder();
         strB.append("\n\n\n\n\n");
         strB.append(
-                "\n=====================================================================================================================\n");
+                "\n┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
         switch (page) {
-            case PageId.LOGIN:
-                strB.append(String.format("%-20s %-60s | %d MB", "TOP", "'스마트미디어 인재개발원' 에 오신 것을 환영합니다.\t", SystemUtil.getUsedMemoryMB()));
-                return strB.toString();
-            case PageId.CREATEACCOUNT:
+            case PageId.CREATEACCOUNT: {
+                String str = "[스마트 인재개발원] 회원 가입 진행 중입니다.";
                 strB.append(
-                        String.format("%-20s %-60s | %d MB", "TOP > 계정생성", "[스마트 인재개발원] 회원 가입 진행 중입니다.\t", SystemUtil.getUsedMemoryMB()));
+                        String.format("│%-15.15s %s │ %2s MB │", " TOP > CreateAccount",
+                                countKorean(countSpace, str),
+                                String.valueOf(SystemUtil.getUsedMemoryMB())));
                 return strB.toString();
+            }
             case PageId.TOPPAGE:
-            case PageId.MAIN:
+            case PageId.MAIN: {
+                String str = "[스마트 인재개발원] 메인 페이지. 명령어를 입력하세요.";
+                strB.append(String.format("│%-15.15s %s │ %2s MB │", " TOP > Main",
+                        countKorean(countSpace, str),
+                        String.valueOf(SystemUtil.getUsedMemoryMB())));
+                return strB.toString();
+            }
+            case PageId.RANKING: {
+                String str = "[스마트 인재개발원] 전체 게임의 랭킹을 조회할 수 있습니다.";
+                strB.append(String.format("│%-15.15s %s │ %2s MB │", " TOP > Ranking",
+                        countKorean(countSpace, str),
+                        String.valueOf(SystemUtil.getUsedMemoryMB())));
+                return strB.toString();
+            }
+            case PageId.BOARD: {
+                String str = "[스마트 인재개발원] 자 유 게 시 판";
+                strB.append(String.format("│%-15.15s %s │ %2s MB │", " TOP > Booard",
+                        countKorean(countSpace, str),
+                        String.valueOf(SystemUtil.getUsedMemoryMB())));
+                return strB.toString();
+            }
+            case PageId.GAME: {
+                String str = "[스마트 인재개발원] 실행할 게임을 선택하세요!";
                 strB.append(
-                        String.format("%-20s %-60s | %d MB", "TOP > 메인", "[스마트 인재개발원] 메인 페이지. 명령어를 입력하세요.\t",SystemUtil.getUsedMemoryMB()));
+                        String.format("│%-15.15s %s │ %2s MB │", " TOP > Game", countKorean(countSpace, str),
+                                String.valueOf(SystemUtil.getUsedMemoryMB())));
                 return strB.toString();
-            case PageId.RANKING:
-                strB.append(String.format("%-20s %-60s | %d MB", "TOP > 랭킹", "[스마트 인재개발원] 전체 게임의 랭킹을 조회할 수 있습니다.\t", SystemUtil.getUsedMemoryMB()));
+            }
+            case PageId.ADMIN: {
+                String str = "[스마트 인재개발원] 관리자 모드입니다.";
+                strB.append(String.format("│%-15.15s %s │ %2s MB │", " TOP > Admin",
+                        countKorean(countSpace, str),
+                        String.valueOf(SystemUtil.getUsedMemoryMB())));
                 return strB.toString();
-            case PageId.BOARD:
-                strB.append(String.format("%-20s %-60s | %d MB", "TOP > 게시판", "[스마트 인재개발원] 자 유 게 시 판\t",SystemUtil.getUsedMemoryMB()));
+            }
+            case PageId.EXIT: {
                 return strB.toString();
-            case PageId.GAME:
-                strB.append(String.format("%-20s %-60s | %d MB", "TOP > 게임", "[스마트 인재개발원] 실행할 게임을 선택하세요!\t", SystemUtil.getUsedMemoryMB()));
+            }
+            case PageId.LOGIN:
+            default: {
+                String str = "'스마트미디어 인재개발원' 에 오신 것을 환영합니다.";
+                strB.append(String.format("│%-15.15s %s │ %2s MB │", " TOP", countKorean(countSpace, str),
+                        String.valueOf(SystemUtil.getUsedMemoryMB())));
                 return strB.toString();
-            case PageId.ADMIN:
-                strB.append(String.format("%-20s %-60s | %d MB", "TOP > 관리자", "[스마트 인재개발원] 관리자 모드입니다.\t", SystemUtil.getUsedMemoryMB()));
-                return strB.toString();
-            case PageId.EXIT:
-                return strB.toString();
-            default:
-                strB.append(String.format("%-20s %-65s | %d MB", "TOP", "'스마트미디어 인재개발원' 에 오신 것을 환영합니다.\t", SystemUtil.getUsedMemoryMB()));
-                return strB.toString();
+            }
         }
     }
 }

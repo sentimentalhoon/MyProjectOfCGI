@@ -11,7 +11,7 @@ import javazoom.jl.player.MP3Player;
 public class Main {
 
 	public static void main(String[] args) {
-		Server.createServer().start();
+		Server.getInstance().isStart();
 		Scanner sc = new Scanner(System.in);
 		// 영화들을 필드로 저장
 		ArrayList<CinemaField> cinemasList = new ArrayList<CinemaField>();
