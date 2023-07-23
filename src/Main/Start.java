@@ -51,27 +51,29 @@ public class Start {
                             + ConsoleColor.RESET);
                     continue;
                 }
-                if (account.getPages() == PageId.BOARD) {
-                    account.setSubPage(userPage);
-                } else if (account.getPages() == PageId.GAME) {
-                    account.setSubPage(userPage);
-                    if (account.getSubPage() == GameId.BLACKJACK) {
-                        // Blackjack.Blackjack1(account);
-                    } else if (account.getSubPage() == GameId.BACCARAT) {
-
-                    } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
-
-                    } else {
-                        account.setSubPage(GameId.NOTHING);
-                    }
+                if (userPage == PageId.MAIN || userPage == PageId.TOPPAGE) {
+                    account.setPages(userPage);
+                } else if (userPage == PageId.BOARD) {
+                    account.setSubPage(BoardId.BOARDLIST);
+                    account.setPages(userPage);
                 } else {
-                    if (userPage == PageId.BOARD) {
-                        account.setSubPage(BoardId.BOARDLIST);
+                    if (account.getPages() == PageId.BOARD) {
+                        account.setSubPage(userPage);
+                    } else if (account.getPages() == PageId.GAME) {
+                        account.setSubPage(userPage);
+                        if (account.getSubPage() == GameId.BLACKJACK) {
+                            // Blackjack.Blackjack1(account);
+                        } else if (account.getSubPage() == GameId.BACCARAT) {
+
+                        } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
+
+                        }
                     } else {
                         account.setSubPage(BoardId.BOARDNOTHING);
+                        account.setPages(userPage);
                     }
-                    account.setPages(userPage);
                 }
+
                 if (account.isExit()) {
                     System.err.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "종료 되었습니다."
                             + ConsoleColor.RESET);

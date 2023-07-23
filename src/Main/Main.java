@@ -6,8 +6,8 @@ import Account.Account;
 public class Main {
 
     public static void main(String[] args) {        
-        Server.createServer().start();
-        TodayWeatherInfomation.getInstance().setTodayWeatherItem(Server.createServer().initWeather());
+        Server.getInstance().isStart();
+        TodayWeatherInfomation.getInstance().setTodayWeatherItem(Server.getInstance().initWeather());
         Account account = new Account();
         Start.indexPageStart(account);
     }
