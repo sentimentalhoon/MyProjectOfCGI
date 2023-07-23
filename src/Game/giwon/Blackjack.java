@@ -1,10 +1,14 @@
 package Game.giwon;
+
 import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Random;
 
-
+import Account.Account;
+import DAO.DBFactory;
+import Game.GameDAO.BlackjackDataTable;
+import Main.Server;
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
@@ -17,31 +21,36 @@ import javazoom.jl.player.MP3Player;
 *3) 배팅 추가 scoreBattingMachine() 바카라 있는 메소드 그대로 씀
 *4) 카드 이미지 삐둘어진거 해결  -> ♦ 이미지 바꿈 %2s 
 
+
+*5) BlackjackDataTable(SELECT / UPDATE) 작성 DB 하고 있음 안불러와짐?
+
 *문제점 : 
 *1)배경 음악 종료 안됨
 *
 */
 
 public class Blackjack {
-	
 
 	// 음악 넣기
 	static MP3Player mp3 = new MP3Player();
 	static String comPath = "data\\song\\"; // 블랙잭 음악 파일 경로
 	// 점수
-	private static int totalPoint = 100;
+//	private static int totalPoint = 100;
+	private static int totalPoint;
 	private static int battingPoint;
-	
-	
-	
+	private BlackjackDataTable blackjackDataTable = new BlackjackDataTable();
+
 	public void gameStart() {
+
+//	    // 데이터베이스 연결
+		Server.createServer().start();
 
 		// 음악 재생
 		playMusic("bj_Big Sleep.mp3"); // 배경음악
 
 		// 배팅
 		scoreBattingMachine();
-		
+
 		// 카드 덱 생성
 		List<String> deck = createDeck();
 //        account.getName() + "님 반갑습니다."
@@ -56,24 +65,42 @@ public class Blackjack {
 
 		// 게임 결과 출력
 		determineWinner(dealerHand, playerHand);
-		
+
+
 	}
-	
-	
-	//바카라 점수 배팅
+
+	// 바카라 점수 배팅
 	public void scoreBattingMachine() {
-		while(true) {
-			System.out.println("배팅할 포인트를 입력해주세요.");
-			System.out.println("현재 포인트 : "+totalPoint);
-			System.out.print("배팅할 포인트 : ");
-			battingPoint = SC.getScanner().nextInt();
-			if(battingPoint <= totalPoint) {
-				totalPoint -= battingPoint;
-				break;
-			}
-		}
-		
+	    while (true) {
+	    	
+	        totalPoint = blackjackDataTable.getTotalPoint("SHOW");//TotalPoint가져오기
+	        System.out.println("현재 포인트 : " + totalPoint);
+	        System.out.println("배팅할 포인트를 입력해주세요.");
+	        System.out.print("배팅할 포인트 : ");
+	        battingPoint = SC.getScanner().nextInt();
+	        if (battingPoint <= totalPoint) {
+	            totalPoint -= battingPoint;
+	            blackjackDataTable.saveTotalPoint("SHOW", totalPoint);
+	            break;
+	        }
+	    }
 	}
+	
+	
+	//기존 DB연결 하기 전
+//	public void scoreBattingMachine() {
+//		while(true) {
+//			System.out.println("배팅할 포인트를 입력해주세요.");
+//			System.out.println("현재 포인트 : "+totalPoint);
+//			System.out.print("배팅할 포인트 : ");
+//			battingPoint = SC.getScanner().nextInt();
+//			if(battingPoint <= totalPoint) {
+//				totalPoint -= battingPoint;
+//				break;
+//			}
+//		}
+//		
+//	}
 	
 
 	// 카드 덱 생성
@@ -228,16 +255,16 @@ public class Blackjack {
 		if (playerSum > 21) {
 			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 21을 초과하여 게임에서 패배했습니다.");
-			
-			totalPoint += battingPoint*2; //배팅
+
+			totalPoint += battingPoint * 2; // 배팅
 			System.out.println("현재 포인트 : " + totalPoint);
 		} else if (dealerSum > 21) {
 			System.out.println("딜러가 21을 초과하여 게임에서 승리했습니다.");
-			totalPoint += battingPoint*2;
+			totalPoint += battingPoint * 2;
 			System.out.println("현재 포인트 : " + totalPoint);
 		} else if (playerSum > dealerSum) {
 			System.out.println("플레이어가 딜러를 이겨 게임에서 승리했습니다.");
-			totalPoint += battingPoint*2;
+			totalPoint += battingPoint * 2;
 			System.out.println("현재 포인트 : " + totalPoint);
 		} else if (playerSum < dealerSum) {
 			playMusic("Fail.mp3"); // 실패 효과음

@@ -1,7 +1,5 @@
 package Game.giwon;
 
-import java.util.Scanner;
-
 import Utils.SC;
 
 public class BlackjackMain {
