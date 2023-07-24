@@ -80,7 +80,7 @@ public class Start {
                             } else if (account.getSubPage() == GameId.BACCARAT) {
                                 fuckMain.FuckarratGameStart(account);
                             } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
-                                CinemaQuizMain.getInstance().isGameStart();
+                                CinemaQuizMain.getInstance().isGameStart(account);
                             } else if (account.getSubPage() == GameId.TETRIS) {
                                 D4mnAsciiTetris.gameStart();
                             } else if (account.getSubPage() == GameId.MOMSTOUCH){

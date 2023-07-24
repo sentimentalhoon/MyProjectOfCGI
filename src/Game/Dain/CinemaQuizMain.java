@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 import Account.Account;
 import Game.GameDAO.CinemaDataTable;
-import Game.GameDAO.CinemaQuizDataTable;
-import Main.Server;
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
@@ -24,12 +22,8 @@ public class CinemaQuizMain {
 	public CinemaQuizMain() {
 	}
 
-	public CinemaQuizMain(Account account) {
-		this.account = account;
-	}
-
-	public void isGameStart() {
-		Server.getInstance().isStart();
+	public void isGameStart(Account _account) {
+		account = _account;
 		Scanner sc = SC.getScanner();
 		// 영화들을 필드로 저장
 		ArrayList<CinemaField> cinemasList = new ArrayList<CinemaField>();
