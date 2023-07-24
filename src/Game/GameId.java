@@ -7,4 +7,5 @@ public class GameId {
     public static final int CINEMAQUIZ  = 'c'; // 99
     public static final int TETRIS = 'e';
     public static final int MOMSTOUCH = 's';
+    public static final int MATCHTHESONG = 'y';
 }

@@ -9,6 +9,6 @@ public class Main {
         Server.getInstance().isStart();
         TodayWeatherInfomation.getInstance().setTodayWeatherItem(Server.getInstance().initWeather());
         Account account = new Account();
-        Start.indexPageStart(account);
+        Start.indexPageStart(account);        
     }
 }

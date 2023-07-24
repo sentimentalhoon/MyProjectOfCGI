@@ -10,6 +10,7 @@ package Main;
 import Account.Account;
 import Board.BoardId;
 import Game.GameId;
+import Game.BH.MatchTheSong.MatchTheSong;
 import Game.BH.Tetris.D4mnAsciiTetris;
 import Game.Dain.CinemaQuizMain;
 import Game.giwon.Blackjack;
@@ -87,6 +88,8 @@ public class Start {
                                 D4mnAsciiTetris.gameStart();
                             } else if (account.getSubPage() == GameId.MOMSTOUCH){
                                 MomMain.getInstance().isStart(account);
+                            } else if (account.getSubPage() == GameId.MATCHTHESONG){
+                                MatchTheSong.getInstance().gameStart(account);
                             }
                         } else {
                             account.setSubPage(BoardId.BOARDNOTHING);
@@ -107,6 +110,7 @@ public class Start {
                 account.setSubPage(BoardId.BOARDNOTHING);
                 System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "오류가 발생하여 로그아웃 되었습니다. 다시 로그인하여 주시기 바랍니다."
                         + ConsoleColor.RESET);
+                        e.printStackTrace();
                 continue;
             }
         }

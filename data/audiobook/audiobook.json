@@ -1,0 +1,136 @@
+{
+ "songs" :[   {
+     "singer": "방탄소년단|BTS|비티에스",
+     "title": "다이너마이트|DYNAMITE",
+     "song1": "data\\audiobook\\BTS_Dynamite\\audio_0_So_what_me_bring_the_fire_and_set_the_night_alight.mp3",
+     "song2": "data\\audiobook\\BTS_Dynamite\\audio_3_so_i_mma_light_it_up_like_dynamite.mp3",
+     "song3": "data\\audiobook\\BTS_Dynamite\\audio_2_king_kong_kick_the_drum_rolling_on_like_a_rolling_stone.mp3",
+     "song4": "data\\audiobook\\BTS_Dynamite\\audio_3_so_i_mma_light_it_up_like_dynamite.mp3"
+    },
+    {
+     "singer": "방탄소년단|BTS|비티에스",
+     "title": "봄날",
+     "song1": "data\\audiobook\\BTS_봄날\\audio_0_이제_얼굴_한_번_보는_것_조차.mp3",
+     "song2": "data\\audiobook\\BTS_봄날\\audio_1_마음은_시간을_달려가네.mp3",
+     "song3": "data\\audiobook\\BTS_봄날\\audio_2_홀로_남은_설국열차.mp3",
+     "song4": "data\\audiobook\\BTS_봄날\\audio_3_얼마나_눈처럼_내려야_그_봄날이_올까.mp3"
+    },
+    {
+     "singer": "뉴진스",
+     "title": "디또|DITTO",
+     "song1": "data\\audiobook\\뉴진스_Ditto\\audio_0_I_got_no_time_to_lose.mp3",
+     "song2": "data\\audiobook\\뉴진스_Ditto\\audio_1_아침은_너무_멀어.mp3",
+     "song3": "data\\audiobook\\뉴진스_Ditto\\audio_2_do_you_want_somebody.mp3",
+     "song4": "data\\audiobook\\뉴진스_Ditto\\audio_3_don_t_want_no_riddle.mp3"
+    },
+    {
+     "singer": "StayC|스테이씨",
+     "title": "테디베어|TEDDYBEAR",
+     "song1": "data\\audiobook\\스테이씨_teddybear\\audio_0_상상은_자윤데__no_way.mp3",
+     "song2": "data\\audiobook\\스테이씨_teddybear\\audio_1_서두르지_마_no_hurries.mp3",
+     "song3": "data\\audiobook\\스테이씨_teddybear\\audio_2_anyway_anyway_우린_다_이번_생은_처음이잖아.mp3",
+     "song4": "data\\audiobook\\스테이씨_teddybear\\audio_3_pump_pump_pump_pump_it_up_teddy_bear.mp3"
+    },
+    {
+     "singer": "싸이|PSY",
+     "title": "아버지",
+     "song1": "data\\audiobook\\싸이-아버지\\audio_0_너무_앞만_보며_살아오셨네.mp3",
+     "song2": "data\\audiobook\\싸이-아버지\\audio_1_눈물_먹고_목숨_걸고_힘들어도_털고_일어나.mp3",
+     "song3": "data\\audiobook\\싸이-아버지\\audio_2_무섭네_세상_도망가고_싶네.mp3",
+     "song4": "data\\audiobook\\싸이-아버지\\audio_3_아버지_이제야_깨달아요_어찌_그렇게_사셨나요.mp3"
+    },
+    {
+     "singer": "I-DLE|IDLE|아이들",
+     "title": "톰보이|TOMBOY",
+     "song1": "data\\audiobook\\아이들_tomboy\\audio_0_look_at_you_넌_못_감당해_날.mp3",
+     "song2": "data\\audiobook\\아이들_tomboy\\audio_1_why_are_you_cranky__boy_.mp3",
+     "song3": "data\\audiobook\\아이들_tomboy\\audio_2_사랑_그깟_거_따위_내_몸에_상처_하나도_어림없지.mp3",
+     "song4": "data\\audiobook\\아이들_tomboy\\audio_3_너의_썩은_내_나는_향수나_뿌릴_바엔.mp3"
+    },
+    {
+     "singer": "IVE|아이브",
+     "title": "러브다이브|LOVEDIVE",
+     "song1": "data\\audiobook\\아이브_LoveDive\\audio_0_묘한_너와_나_두고_보면_알겠지.mp3",
+     "song2": "data\\audiobook\\아이브_LoveDive\\audio_1_아름다운_까만_눈빛_더_빠져_깊이.mp3",
+     "song3": "data\\audiobook\\아이브_LoveDive\\audio_2_마음은_이렇게_알다가도_모르지.mp3",
+     "song4": "data\\audiobook\\아이브_LoveDive\\audio_3_사랑이라는_건_한순간에_필테니.mp3"
+    },
+    {
+     "singer": "아이유|IU",
+     "title": "금요일에만나요",
+     "song1": "data\\audiobook\\아이유_금요일에만나요\\audio_0_주말까지_기다리긴_힘들어.mp3",
+     "song2": "data\\audiobook\\아이유_금요일에만나요\\audio_1_이_남자_도대체_뭐야.mp3",
+     "song3": "data\\audiobook\\아이유_금요일에만나요\\audio_2_그날_내_맘을_더_가져가줘요.mp3",
+     "song4": "data\\audiobook\\아이유_금요일에만나요\\audio_3_더_보채고_싶지만.mp3"
+    },
+    {
+     "singer": "윤하",
+     "title": "사건의지평선",
+     "song1": "data\\audiobook\\윤하_사건의지평선\\audio_0_바람을_가둬_둔_것_같지만.mp3",
+     "song2": "data\\audiobook\\윤하_사건의지평선\\audio_1_난_함박웃음을_지었지만.mp3",
+     "song3": "data\\audiobook\\윤하_사건의지평선\\audio_2_한동안은_꺼내_볼_수_있을거야.mp3",
+     "song4": "data\\audiobook\\윤하_사건의지평선\\audio_3_저기__사라진_별의_자리.mp3"
+    },
+    {
+     "singer": "임영웅",
+     "title": "사랑은늘도망가",
+     "song1": "data\\audiobook\\임영웅_사랑은늘도망가\\audio_0_눈물이_난다_이_길을_걸으면.mp3",
+     "song2": "data\\audiobook\\임영웅_사랑은늘도망가\\audio_1_그_사람_손길이_자꾸_생각이_난다.mp3",
+     "song3": "data\\audiobook\\임영웅_사랑은늘도망가\\audio_2_잠시_쉬어가면_좋을_텐데.mp3",
+     "song4": "data\\audiobook\\임영웅_사랑은늘도망가\\audio_3_그리움을_쫓아_사랑은_늘_도망가.mp3"
+    },
+    {
+     "singer": "지수",
+     "title": "꽃",
+     "song1": "data\\audiobook\\지수_꽃\\audio_0_그_눈빛이_싹_변했지_어쩌면_이_또한_나니까.mp3",
+     "song2": "data\\audiobook\\지수_꽃\\audio_1_잡지_못한_건_다_네_몫이니까.mp3",
+     "song3": "data\\audiobook\\지수_꽃\\audio_2_붉게_타버려진_너와_나.mp3",
+     "song4": "data\\audiobook\\지수_꽃\\audio_3_꽃향기만_남기고_갔단다.mp3"
+    },
+    {
+     "singer": "하이키|H1KEY",
+     "title": "건물사이에피어난장미|건사피장",
+     "song1": "data\\audiobook\\하이키_건물사이에피어난장미\\audio_0_견뎌내줘서_고마워.mp3",
+     "song2": "data\\audiobook\\하이키_건물사이에피어난장미\\audio_1_그냥_가던_길_좀_가.mp3",
+     "song3": "data\\audiobook\\하이키_건물사이에피어난장미\\audio_2_어렵게_나왔잖아.mp3",
+     "song4": "data\\audiobook\\하이키_건물사이에피어난장미\\audio_3_삭막한_이_도시가_아름답게_물들_때까지.mp3"
+    }
+],
+"etcaudio" :[   {
+    "filename": "audio_0_첫번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_1_두번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_2_세번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_3_네번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_4_다섯번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_5_여섯번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_6_일곱번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_7_여덟번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_8_아홉번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_9_열번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_11_열두번째_문제입니다_.mp3"
+   },
+   {
+    "filename": "audio_11_열두번째_문제입니다_.mp3"
+   }
+]
+}
