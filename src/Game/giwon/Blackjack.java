@@ -11,14 +11,13 @@ import javazoom.jl.player.MP3Player;
 
 /*
 *목적 :Blackjack 본체.
-*개정이력 :박기원,  2023.07.24, 
+*개정이력 :박기원,  2023.07.25, 
 *최신 수정한 것 : 
-*1)  배경음악 소리 줄임 bj_Big_Sleep_sound_down
-*2) 페이지 디자인 (딜러 이김, 플레이어 이김, 비김) 
-*3) 플레이어 최종 카드 및 딜러 최종 카드 카드 출력
+*1)  null 값 오류  -> 객체가 null 확인 stop()코드 변경 수정!!
 */
 
 public class Blackjack {
+	
 
 	// 음악 넣기
 	static MP3Player mp3 = new MP3Player();
@@ -42,6 +41,7 @@ public class Blackjack {
 	public Blackjack(Account account) {
 		this.account = account;
 	}
+
 
 	public void gameStart() {
 
@@ -289,9 +289,16 @@ public class Blackjack {
 	}
 
 	public void stop() {
-		mp3_1.stop(); // 음악 중지
-		mp3_2.stop(); // 음악 중지
-		mp3_3.stop(); // 음악 중지
+        // 음악이 null이 아닌 경우에만 stop() 메서드 호출
+        if (mp3_1 != null) {
+            mp3_1.stop();
+        }
+        if (mp3_2 != null) {
+            mp3_2.stop();
+        }
+        if (mp3_3 != null) {
+            mp3_3.stop();
+        }
 
 	}
 
@@ -381,6 +388,10 @@ public class Blackjack {
 			}
 		}
 	}
+	
+    
+        
+    
 
 	public void println(String syso) {
 
