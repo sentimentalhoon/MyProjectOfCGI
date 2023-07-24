@@ -19,9 +19,6 @@ public class fuckMain {
 				card.gameStart();
 				
 			} else if (select == 2) {
-				
-				card.stop();
-				card.musicStop();
 				break;
 				
 			} else {
