@@ -3,33 +3,28 @@ package Game.miniproject_mom;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Game.Dain.CinemaAscii;
+import javazoom.jl.player.MP3Player;
 
-public class main {
-	
+
+public class MomMain {
 
 	public static void main(String[] args) {
-	
+		
 		Scanner sc = new Scanner(System.in);
+		String comPath = "data\\song\\Mom\\";
+		MP3Player mp3 = new MP3Player();
+		mp3.play(comPath+"closing.mp3");
+		
 		int pickWeapon = 0;
 		int pickClass = 0;
-		people p = new people();
-		
+		people p = new people(); 
 		people Drakaina = new people("Drakaina", 3500, "fireRage", "thunderLightening");
 		people Druid = new people("Druid", 2500, "야생의영혼");
 		people Warlock = new people("Warlock", 2500, "거부할수없는유혹");
 		people Paladin = new people("Paladin", 2500, "빛의심판");
 		people Human = new people("Human", 1500, "용감무쌍");
-		
-//		ArrayList<people> list = new ArrayList<people>();
-//		list.add(0, Drakaina);
-//		list.add(1, Druid);
-//		list.add(2, Warlock);
-//		list.add(3, Paladin);
-//		list.add(4, Human);
-		
-		
-//		System.out.println(Arrays.deepToString(list.toArray()));
-		
+
 		String gtitle = 
 				
 				  "		        ███████╗██╗███╗   ███╗██████╗ ██╗   ██╗██████╗ ███╗   ███╗           \r\n"
@@ -110,7 +105,7 @@ public class main {
 				+ "			  ()))(()()())|_|_|_|_|_|_|_|_|_|)(()(()\r\n"
 				+ "			  (()((())(()-------------------|(())(())\r\n"
 				+ "			  ~^~ ^\" ^\"  ^~^   ^\"   ~^~    ^~^~(()(()\r\n"
-				+ "			  ^\"     ^~^   ~^~   ^\"    ^~^   ~~^~\"\"^";
+				+ "			  ^\"     ^~^   ~^~   ^\"    ^~^   ~~^~\"\"^\r\n";
 				
 		System.out.println("\n\n\n\n");
 		System.out.println(home);
@@ -762,8 +757,8 @@ public class main {
 		Thread.sleep(200);
 		System.out.println();
 		System.out.println("			다른 것도 살까?");
-		System.out.println("			[1] 콘푸로스트					[2] 친구가 갖고싶어 하는 꽃머리핀				");
-		System.out.println("			[3] 범상치않은 에그몽 초콜릿        [4] 음료수 ");
+		System.out.println("			[1] 콘푸로스트				[2] 친구가 갖고싶어 하는 꽃머리핀				");
+		System.out.println("			[3] 범상치않은 에그몽 초콜릿        		[4] 음료수 ");
 
 		String cereal = 
 				  "			              _______________\r\n"
@@ -1412,7 +1407,7 @@ public class main {
 					
 					System.out.println();
 					Thread.sleep(500);
-					System.out.println("			[드라카이나] HP >>" +drahp);
+					System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
 					Thread.sleep(500);
 					System.out.println();
 				} else if(pickattack==2) {
@@ -1421,22 +1416,22 @@ public class main {
 					Drakaina.setHp(hp);
 					System.out.println();
 					Thread.sleep(500);
-					System.out.println("			[드라카이나] HP >>" + drahp);
+					System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
 					Thread.sleep(500);
 					System.out.println();
 					
-				} if (drahp <= 0) {
+				} if (Drakaina.getHp() <= 0) {
 					System.out.println("			[영웅이]님의 승리! ");
 				}
-				if (myhp <= 0) {
+				if (Druid.getHp() <= 0) {
 					System.out.println("			[드라카이나]의 승리!");
+					System.out.println("			당신은 패배했습니다.....!");
 				}
 				
 				
 				
 				
 			}
-			// 드루이드 vs 용 배틀
 		}
 		
 		if(pickClass==2) { //careless whisper
@@ -1520,7 +1515,122 @@ public class main {
 		int c7e9 = sc.nextInt();
 		if(c7e9==0) {	
 		}
-		}
+		
+		System.out.println("			전투가 시작되었습니다.");
+		System.out.println();
+		Thread.sleep(1000);
+		System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+		System.out.println();
+		Thread.sleep(1000);
+		System.out.println("			[나] HP>> " + Warlock.getHp());
+		System.out.println();
+		Thread.sleep(1000);
+		
+		while(Drakaina.getHp()>0&&Warlock.getHp()>0) {
+			
+			if(pickWeapon==1) {
+				Warlock.setAttack("			우산공격~!");
+			} else if(pickWeapon==2) {
+				Warlock.setAttack("			건틀렛주먹~!");
+			} else if(pickWeapon==3) {
+				Warlock.setAttack("			광선검어택~!");
+			} else if(pickWeapon==4) {
+				Warlock.setAttack("			해골검어택~!");
+			}
+			
+			int myhp = Warlock.getHp();
+			int drahp = Drakaina.getHp();
+			System.out.println("			==========[드라카이나]의 공격==========");
+			System.out.println();
+			System.out.println("			[1] 일반공격                   [2] 크리티컬 ");
+			int pickdra = sc.nextInt();
+			Thread.sleep(200);
+			if(pickdra == 1) {
+				System.out.println(p.fireRage());
+				myhp-=300;
+				Warlock.setHp(myhp);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println("			[나] HP>> " + Warlock.getHp());
+				Thread.sleep(200);
+//				System.out.println("포션을 먹었습니다.");
+//				myhp = list.get(1).getHp()+200;
+//				System.out.println("[나] HP>> " + list.get(1).getHp());
+//				Thread.sleep(200);
+				
+			} else if(pickdra ==2 ) {
+				System.out.println(p.thunderLightening());
+				myhp-=500;
+				Warlock.setHp(myhp);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println("			[나] HP>> " + Warlock.getHp());
+				Thread.sleep(200);
+//				System.out.println("포션을 먹었습니다.");
+//				myhp = list.get(1).getHp()+200;
+//				System.out.println("[나] HP>> " + list.get(1).getHp());
+//				Thread.sleep(200);
+				
+			}
+			
+			System.out.println();
+			System.out.println("			==========[영웅이]의 공격==========");
+			System.out.println();
+			System.out.println("			[1] 무기공격                   [2] 마법공격");
+			int pickattack = sc.nextInt();
+			Thread.sleep(200);
+			
+			if(pickattack==1) { //무기공격
+				
+				if(pickWeapon==1) {
+					System.out.println(p.umbAttack());
+					drahp-=100;
+					Drakaina.setHp(drahp);
+					Thread.sleep(200);
+				} else if(pickWeapon==2) {
+					System.out.println(p.gaunAttack());
+					drahp-=200;
+					Drakaina.setHp(drahp);
+					Thread.sleep(200);
+				} else if(pickWeapon==3) {
+					System.out.println(p.lightAttack());
+					drahp-=300;
+					Drakaina.setHp(drahp);
+					Thread.sleep(200);
+				} else if(pickWeapon==4) {
+					System.out.println(p.swordAttack());
+					drahp-=250;
+					Drakaina.setHp(drahp);
+					Thread.sleep(200);
+				}
+				
+				
+				System.out.println();
+				Thread.sleep(500);
+				System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+				Thread.sleep(500);
+				System.out.println();
+			} else if(pickattack==2) {
+				System.out.println(p.warlockAttack());
+				int hp = Drakaina.getHp()-1000;
+				Drakaina.setHp(hp);
+				System.out.println();
+				Thread.sleep(500);
+				System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+				Thread.sleep(500);
+				System.out.println();
+				
+			} if (Drakaina.getHp() <= 0) {
+				System.out.println("			[영웅이]님의 승리! ");
+			}
+			if (Warlock.getHp() <= 0) {
+				System.out.println("			[드라카이나]의 승리!");
+				System.out.println("			당신은 패배했습니다.....!");
+			}
+		
+		
+		
+		} }
 		
 		if(pickClass==3) {
 			
@@ -1775,9 +1885,9 @@ public class main {
 		
 		
 		for(int a = 0; a<eggmongs.length; a++) {
-			System.out.println("\n\n\n\n\n\n");
+			System.out.println("\n\n\n\n\n\n\n\n");
 			System.out.println(eggmongs[a]);
-			System.out.println("\n\n\n\n\n\n");
+			System.out.println("\n\n\n\n\n\n\n\n");
 			Thread.sleep(200);
 		}
 		
@@ -1832,7 +1942,120 @@ public class main {
 		int c7e11 = sc.nextInt();
 		if(c7e11==0) {	
 		}
-		}
+		
+		System.out.println("			전투가 시작되었습니다.");
+		System.out.println();
+		Thread.sleep(1000);
+		System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+		System.out.println();
+		Thread.sleep(1000);
+		System.out.println("			[나] HP>> " + Paladin.getHp());
+		System.out.println();
+		Thread.sleep(1000);
+		
+		while(Drakaina.getHp()>0&&Paladin.getHp()>0) {
+			
+			if(pickWeapon==1) {
+				Paladin.setAttack("			우산공격~!");
+			} else if(pickWeapon==2) {
+				Paladin.setAttack("			건틀렛주먹~!");
+			} else if(pickWeapon==3) {
+				Paladin.setAttack("			광선검어택~!");
+			} else if(pickWeapon==4) {
+				Paladin.setAttack("			해골검어택~!");
+			}
+			
+			int myhp = Paladin.getHp();
+			int drahp = Drakaina.getHp();
+			System.out.println("			==========[드라카이나]의 공격==========");
+			System.out.println();
+			System.out.println("			[1] 일반공격                   [2] 크리티컬 ");
+			int pickdra = sc.nextInt();
+			Thread.sleep(200);
+			if(pickdra == 1) {
+				System.out.println(p.fireRage());
+				myhp-=300;
+				Paladin.setHp(myhp);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println("			[나] HP>> " + Paladin.getHp());
+				Thread.sleep(200);
+//				System.out.println("포션을 먹었습니다.");
+//				myhp = list.get(1).getHp()+200;
+//				System.out.println("[나] HP>> " + list.get(1).getHp());
+//				Thread.sleep(200);
+				
+			} else if(pickdra ==2 ) {
+				System.out.println(p.thunderLightening());
+				myhp-=500;
+				Paladin.setHp(myhp);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println("			[나] HP>> " + Paladin.getHp());
+				Thread.sleep(200);
+//				System.out.println("포션을 먹었습니다.");
+//				myhp = list.get(1).getHp()+200;
+//				System.out.println("[나] HP>> " + list.get(1).getHp());
+//				Thread.sleep(200);
+				
+			}
+			
+			System.out.println();
+			System.out.println("			==========[영웅이]의 공격==========");
+			System.out.println();
+			System.out.println("			[1] 무기공격                   [2] 마법공격");
+			int pickattack = sc.nextInt();
+			Thread.sleep(200);
+			
+			if(pickattack==1) { //무기공격
+				
+				if(pickWeapon==1) {
+					System.out.println(p.umbAttack());
+					drahp-=100;
+					Drakaina.setHp(drahp);
+					Thread.sleep(200);
+				} else if(pickWeapon==2) {
+					System.out.println(p.gaunAttack());
+					drahp-=200;
+					Drakaina.setHp(drahp);
+					Thread.sleep(200);
+				} else if(pickWeapon==3) {
+					System.out.println(p.lightAttack());
+					drahp-=300;
+					Drakaina.setHp(drahp);
+					Thread.sleep(200);
+				} else if(pickWeapon==4) {
+					System.out.println(p.swordAttack());
+					drahp-=250;
+					Drakaina.setHp(drahp);
+					Thread.sleep(200);
+				}
+				
+				
+				System.out.println();
+				Thread.sleep(500);
+				System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+				Thread.sleep(500);
+				System.out.println();
+			} else if(pickattack==2) {
+				System.out.println(p.paladinAttack());
+				int hp = Drakaina.getHp()-1000;
+				Drakaina.setHp(hp);
+				System.out.println();
+				Thread.sleep(500);
+				System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+				Thread.sleep(500);
+				System.out.println();
+				
+			} if (Drakaina.getHp() <= 0) {
+				System.out.println("			[영웅이]님의 승리! ");
+			}
+			if (Paladin.getHp() <= 0) {
+				System.out.println("			[드라카이나]의 승리!");
+				System.out.println("			당신은 패배했습니다.....!");
+			}
+		
+		} }
 		
 		if(pickClass==4) {
 		String human =
@@ -1872,11 +2095,166 @@ public class main {
 	int c7e12 = sc.nextInt();
 	if(c7e12==0) {	
 	}
+	
+	System.out.println("			전투가 시작되었습니다.");
+	System.out.println();
+	Thread.sleep(1000);
+	System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+	System.out.println();
+	Thread.sleep(1000);
+	System.out.println("			[나] HP>> " + Human.getHp());
+	System.out.println();
+	Thread.sleep(1000);
+	
+	while(Drakaina.getHp()>0&&Human.getHp()>0) {
+		
+		if(pickWeapon==1) {
+			Paladin.setAttack("			우산공격~!");
+		} else if(pickWeapon==2) {
+			Paladin.setAttack("			건틀렛주먹~!");
+		} else if(pickWeapon==3) {
+			Paladin.setAttack("			광선검어택~!");
+		} else if(pickWeapon==4) {
+			Paladin.setAttack("			해골검어택~!");
+		}
+		
+		int myhp = Human.getHp();
+		int drahp = Drakaina.getHp();
+		System.out.println("			==========[드라카이나]의 공격==========");
+		System.out.println();
+		System.out.println("			[1] 일반공격                   [2] 크리티컬 ");
+		int pickdra = sc.nextInt();
+		Thread.sleep(200);
+		if(pickdra == 1) {
+			System.out.println(p.fireRage());
+			myhp-=300;
+			Human.setHp(myhp);
+			System.out.println();
+			Thread.sleep(200);
+			System.out.println("			[나] HP>> " + Human.getHp());
+			Thread.sleep(200);
+//			System.out.println("포션을 먹었습니다.");
+//			myhp = list.get(1).getHp()+200;
+//			System.out.println("[나] HP>> " + list.get(1).getHp());
+//			Thread.sleep(200);
+			
+		} else if(pickdra ==2 ) {
+			System.out.println(p.thunderLightening());
+			myhp-=500;
+			Human.setHp(myhp);
+			System.out.println();
+			Thread.sleep(200);
+			System.out.println("			[나] HP>> " + Human.getHp());
+			Thread.sleep(200);
+//			System.out.println("포션을 먹었습니다.");
+//			myhp = list.get(1).getHp()+200;
+//			System.out.println("[나] HP>> " + list.get(1).getHp());
+//			Thread.sleep(200);
+			
+		}
+		
+		System.out.println();
+		System.out.println("			==========[영웅이]의 공격==========");
+		System.out.println();
+		System.out.println("			[1] 무기공격                   [2] 마법공격");
+		int pickattack = sc.nextInt();
+		Thread.sleep(200);
+		
+		if(pickattack==1) { //무기공격
+			
+			if(pickWeapon==1) {
+				System.out.println(p.umbAttack());
+				drahp-=100;
+				Drakaina.setHp(drahp);
+				Thread.sleep(200);
+			} else if(pickWeapon==2) {
+				System.out.println(p.gaunAttack());
+				drahp-=200;
+				Drakaina.setHp(drahp);
+				Thread.sleep(200);
+			} else if(pickWeapon==3) {
+				System.out.println(p.lightAttack());
+				drahp-=300;
+				Drakaina.setHp(drahp);
+				Thread.sleep(200);
+			} else if(pickWeapon==4) {
+				System.out.println(p.swordAttack());
+				drahp-=250;
+				Drakaina.setHp(drahp);
+				Thread.sleep(200);
+			}
+			
+			
+			System.out.println();
+			Thread.sleep(500);
+			System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+			Thread.sleep(500);
+			System.out.println();
+		} else if(pickattack==2) {
+			System.out.println(p.HumanAttack());
+			int hp = Drakaina.getHp()-1000;
+			Drakaina.setHp(hp);
+			System.out.println();
+			Thread.sleep(500);
+			System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+			Thread.sleep(500);
+			System.out.println();
+			
+		} if (Drakaina.getHp() <= 0) {
+			System.out.println("			[영웅이]님의 승리! ");
+		}
+		if (Human.getHp() <= 0) {
+			System.out.println("			[드라카이나]의 승리!");
+			System.out.println("			당신은 패배했습니다.....!");
+		}
+	
 	}
+		}
+	
 		
 		
 		
 		///////////////////////////////////// Final chapter.8 Home sweet home. 
+		
+		String victory=
+				  "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⠞⠋⠁⠀⠀⠀⠀⣀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣫⡞⠁⠀⠀⢀⣠⣶⡛⠩⢹⡿⠖⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⠟⡞⠀⠀⣀⣴⣿⠟⢁⣤⣞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⠛⣿⠀⣿⣋⣉⣵⣻⣯⠴⠒⠶⣚⠓⠲⣖⠿⣿⢵⣶⣤⣤⣴⣾⠋⠀⢀⣀⣀⡤⠔⣺⠏\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡽⣏⡤⠟⠋⠉⠀⠀⠀⠀⠀⠉⠑⠢⡀⠑⢆⠈⢧⠈⣦⠘⠆⠙⠉⡏⠫⠙⠉⠃⢸⣠⠞⠁⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠟⠁⠀⣠⣾⣉⣉⠶⠀⠀⠀⠀⠀⠀⠘⡄⢸⠀⡜⠀⠇⢠⠀⡄⢀⣃⣀⣰⠴⠟⠋⠁⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⢠⡖⠀⠀⠀⢀⣾⠃⠀⢠⣞⡡⢋⡾⠀⠀⠀⠀⠀⠀⠀⠀⣠⡧⣾⣒⠓⢾⣒⠛⠚⢛⣩⣉⣙⣦⣄⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⡰⢻⣡⣾⣴⠧⠟⣀⠄⠒⠛⠒⠚⣛⠅⠀⠀⢀⡖⠉⠁⡠⠌⠁⠀⠐⠚⠿⢶⣽⣦⡀⠀⢀⡭⠑⣢⣍⣳⣦⡀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⣴⣷⣾⠿⠙⠡⠒⠉⠀⠀⢀⠀⠀⠀⢁⡤⣀⣠⠊⠀⢠⢜⡢⣄⡀⠀⠠⢄⣙⣦⠽⠮⣿⣦⡀⢹⢯⠁⠀⠀⠙⠻⢄⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⢀⡟⢹⠃⠀⠀⠀⠀⠀⣀⡴⣿⣿⣶⡖⢿⣠⠞⠁⠠⡀⣿⠀⠉⠪⡻⣄⡀⡎⠁⠈⢣⡀⠀⠉⠛⢦⣌⣦⡀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠘⣧⠀⣀⣀⣀⣀⣴⣾⣙⣾⣿⣿⣿⡿⠊⠀⠀⠀⠀⣷⢃⣄⢀⠀⠙⢌⢿⢧⢡⠀⠀⠱⡄⠀⠀⠀⠹⣿⢽⣦⣄⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠈⠹⣿⣮⣾⣯⣷⣿⡟⣿⣿⣿⠋⠀⠀⠀⠀⠀⢰⣷⣿⢿⢿⡀⠀⡎⢎⢧⣯⡇⠀⠀⠹⡀⠀⠀⢤⠘⢷⢻⠻⣦⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⢀⣠⣤⣤⣌⣙⣿⣿⢛⣻⣿⣿⠟⠁⠀⠀⠀⢀⡤⠚⠉⠀⠈⢣⡀⡿⠿⢿⡈⢿⣿⠀⠀⠀⠀⢳⡀⠀⠈⠁⠈⣯⣇⠈⠂⠀⠀\r\n"
+				+ "			⠀⠀⡴⢋⠔⠋⠉⠙⢿⣃⣉⣽⣿⡾⠋⠀⠀⠀⣠⢞⣁⠤⠤⢴⣶⡶⣀⠹⠃⠀⠀⠑⢾⣿⠀⠀⠀⠀⠀⢧⠀⠀⠀⠀⠸⣿⠀⠀⠀⠀\r\n"
+				+ "			⠀⣞⣡⠃⠀⠀⠀⠀⠀⠀⠹⡟⠉⠀⣤⠴⣤⣿⠛⠉⠀⠀⠀⠈⢯⣿⣦⡀⠑⠦⣀⠀⠘⡇⢠⠀⠀⠀⠀⠘⡄⠀⠀⠀⠀⢻⡄⠀⠀⠀\r\n"
+				+ "			⡸⢸⣱⣀⣀⠀⠀⠀⠀⠀⠀⠈⠓⠦⠼⠷⠞⠛⠁⠀⠀⠀⠀⠀⠸⠇⠀⠻⣄⠀⠀⠷⡈⠀⢰⠀⠀⠀⠀⠀⢳⠀⠀⠀⠀⠘⡇⠀⠀⠀\r\n"
+				+ "			⡇⠸⣌⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣦⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠈⡆⠀⠀⠀⠀⣧⠀⠀⠀\r\n"
+				+ "			⠘⠒⠘⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣯⣇⠳⡀⠀⠀⠠⠀⠀⠀⠀⠀⠀⢇⠀⠀⠀⠀⢸⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠚⠋⠙⢳⡖⣿⠀⠘⢆⠀⠀⢇⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⢸⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⣾⡾⢹⡀⠀⠈⢆⠀⠘⢆⠀⠀⠀⠀⢸⠀⠀⠀⠀⡼⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢉⣿⡴⠋⠀⢸⠁⠀⠀⠈⣆⠀⠘⡆⠀⠀⠀⠸⠀⠀⠀⢀⡇⠀⠀⠀\r\n";
+		
+		System.out.println("\n\n\n\n");
+		System.out.println(victory);
+		System.out.println("\n\n\n\n");
+		Thread.sleep(1000);
+		System.out.println("			[드라카이나]가 피를 토하며 쓰러졌습니다...! "); 
+		Thread.sleep(1000);
+		System.out.println("			[영웅이]의 승리!!!!!!!!! "); // 괄호 안에 ""넣는법
+		System.out.println();
+		Thread.sleep(1000);
+		System.out.println("			[영웅이] 드디어 집에 갈 수 있겠다 ㅠㅠ!! "); // 괄호 안에 ""넣는법
+		System.out.println();
+		Thread.sleep(1000);
+		System.out.println("			넘어가기 [0] ");
+		int c8e1 = sc.nextInt();
+		if(c8e1==0) {	
+		}
 		
 		System.out.println("\n\n\n\n");
 		System.out.println(mother);
@@ -1888,8 +2266,8 @@ public class main {
 		System.out.println();
 		Thread.sleep(1000);
 		System.out.println("			넘어가기 [0] ");
-		int c8e1 = sc.nextInt();
-		if(c8e1==0) {	
+		int c8e2 = sc.nextInt();
+		if(c8e2==0) {	
 		}
 		
 		String dinner =
@@ -1918,8 +2296,8 @@ public class main {
 		System.out.println();
 		Thread.sleep(1000);
 		System.out.println("			넘어가기 [0] ");
-		int c8e2 = sc.nextInt();
-		if(c8e2==0) {	
+		int c8e3= sc.nextInt();
+		if(c8e3==0) {	
 		}
 		
 		String tea1 ="			            .------.____\r\n"
@@ -1952,8 +2330,8 @@ public class main {
 		System.out.println();
 		Thread.sleep(1000);
 		System.out.println("			넘어가기 [0] ");
-		int c8e3 = sc.nextInt();
-		if(c8e3==0) {	
+		int c8e4 = sc.nextInt();
+		if(c8e4==0) {	
 		}
 		
 		String tea2 =
@@ -1989,11 +2367,24 @@ public class main {
 		System.out.println();
 		Thread.sleep(1000);
 		System.out.println("			넘어가기 [0] ");
-		int c8e4 = sc.nextInt();
-		if(c8e4==0) {	
+		int c8e5 = sc.nextInt();
+		if(c8e5==0) {	
 		}
 
 
+		mp3.play(comPath + "closing.mp3");
+		System.out.println();
+		System.out.println();
+		System.out.println();
+
+		Thread.sleep(100);
+		System.out.println();
+
+		for (int i = 0; i < MomAscii.getInstance().getGameEndAsciiArt().length; i++) {
+			System.out.printf("\n\n\n\n\n\n\n\n\n\n\n%s\n\n\n\n\n\n\n\n\n\n\n",
+					MomAscii.getInstance().getGameEndAsciiArt()[i]);
+			Thread.sleep(500);
+		}
 		
 		
 		

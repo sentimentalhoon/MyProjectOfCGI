@@ -246,22 +246,11 @@ public class Main {
 				if (answers(10, sc, cinemasList, mp3, comPath))
 					break;
 			}
-			// if (mp3.isPlaying()) {
-			// mp3.stop();
-			// }
-			mp3.play(comPath + "closing.mp3");
-			System.out.println();
-			System.out.println();
-			System.out.println();
+			
+			 if (mp3.isPlaying()) {
+			 mp3.stop();
+			 }
 
-			Thread.sleep(100);
-			System.out.println();
-
-			for (int i = 0; i < CinemaAscii.getInstance().getGameEndAsciiArt().length; i++) {
-				System.out.printf("\n\n\n\n\n\n\n\n\n\n\n%s\n\n\n\n\n\n\n\n\n\n\n",
-						CinemaAscii.getInstance().getGameEndAsciiArt()[i]);
-				Thread.sleep(500);
-			}
 
 			Thread.sleep(100);
 			System.out.println();
