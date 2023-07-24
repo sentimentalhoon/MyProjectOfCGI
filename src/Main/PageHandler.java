@@ -1,3 +1,7 @@
+/**
+ * 페이지마다 수행할 기능을 설정하는 페이지이다.
+ * 계정 생성과 로그인 기능을 먼저 연결해두었다.
+ */
 package Main;
 
 import Account.Account;

@@ -1,3 +1,8 @@
+/**
+ * HikariCP를 이용해 connection pool 을 설정하였다.
+ * config는 properties 에서 읽어온다.
+ * getConnection() 을 통해 pool 을 읽어온다.
+ */
 package DAO;
 
 import java.sql.Connection;

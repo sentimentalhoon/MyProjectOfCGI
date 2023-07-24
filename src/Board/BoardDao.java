@@ -1,3 +1,7 @@
+/**
+ * board 테이블의 crud를 담당하는 부분이다.
+ * 
+ */
 package Board;
 
 import java.sql.Connection;
@@ -19,6 +23,12 @@ public class BoardDao {
 
     }
 
+    /**
+     * board 의 정보를 읽어온다.
+     * 15개의 게시글을 읽어오게 설정하였으며
+     * 내림차순으로 읽어온다.
+     * @return
+     */
     public static HashMap<Integer, Board> load() {
         Connection con = null;
         PreparedStatement pstm = null;
@@ -49,6 +59,11 @@ public class BoardDao {
         return boardList;
     }
     
+    /**
+     * board 의 글을 uid 에 해당하는 글을 읽어온다.
+     * @param uid
+     * @return
+     */
     public static String readUidString(int uid) {
         Connection con = null;
         PreparedStatement pstm = null;

@@ -1,3 +1,9 @@
+/**
+ * login 을 처리한다.
+ * Account.load 로 보내 id 가 존재하는지 확인한 후
+ * 존재한다면 pw를 받아 db 에 저장된 pw 와 비교 후
+ * 같다면 로그인 성공
+ */
 package Main;
 
 import Account.Account;
@@ -17,6 +23,15 @@ public class Login {
     public Login() {
     }
 
+    /**
+     * id가 존재하는지 확인
+     * pw가 맞는지 확인
+     * return 해준다.
+     * 
+     * @param account
+     * @param id
+     * @return
+     */
     public Account isLogin(Account account, String id) {
         account = Account.load(account, id);
         if (account.getName() != null) {

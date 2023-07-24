@@ -1,3 +1,6 @@
+/**
+ * account 의 name을 받아 해당 id 가 정상적인지 확인한다.
+ */
 package Account;
 
 import java.io.UnsupportedEncodingException;
@@ -20,6 +23,12 @@ public class AccountNameFilter {
 	private AccountNameFilter() {
 	}
 
+	/**
+	 * name 을 검사한다.
+	 * length 가 0 일 경우 false 를 반환한다.
+	 * @param name
+	 * @return
+	 */
 	public Boolean nameFilter(String name) {
 		if (name.length() == 0) {
 			return false;
@@ -28,9 +37,14 @@ public class AccountNameFilter {
 		return isInvalidName(name);
 	}
 
-	private static boolean isAlphaNumeric(String s) {
+	/**
+	 * name 값을 받아 문자인지 확인힌다.
+	 * @param name
+	 * @return
+	 */
+	private static boolean isAlphaNumeric(String name) {
 		boolean flag = true;
-		char ac[] = s.toCharArray();
+		char ac[] = name.toCharArray();
 		int i = 0;
 		do {
 			if (i >= ac.length) {
@@ -45,6 +59,14 @@ public class AccountNameFilter {
 		return flag;
 	}
 
+	/**
+	 * name 값을 받아 정규표현식에 맞는 형식인지 확인한다.
+	 * a-z 로 시작하는지 확인
+	 * 0-9 숫자로 시작한다면 false를 리턴
+	 * 문자열에 a-z, 0-9 를 제외한 문자가 포함되어있으면 false 를 리턴한다.
+	 * @param name
+	 * @return
+	 */
 	private static boolean isInvalidName(String name) {
 		int numOfNameBytes = 0;
 		try {
