@@ -1,8 +1,10 @@
 package Game.miniproject_mom;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Account.Account;
+import Game.Dain.CinemaField;
 import Game.giwon.BlackjackMain;
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
@@ -27,8 +29,8 @@ public class MomMain {
 		String comPath = "data\\song\\Mom\\";
 		MP3Player mp3 = new MP3Player();
 		MomAscii m = new MomAscii();
-
-		mp3.play(comPath + "gameOpening.mp3");
+		ArrayList<CinemaField> cinemasList = new ArrayList<CinemaField>();
+		
 
 		int pickWeapon = 0;
 		int pickClass = 0;
@@ -264,6 +266,7 @@ public class MomMain {
 			int c2e1 = sc.nextInt();
 			if (c2e1 == 1) {
 				System.out.println("			쯧쯧... 고얀놈... 요즘 것들은....");
+
 			} else if (c2e1 == 2) {
 				if(mp3.isPlaying()) {
 					mp3.stop();
@@ -348,7 +351,12 @@ public class MomMain {
 			}
 			mp3.play(comPath+"gogogame.mp3");
 			System.out.println("			[미니게임2] 도둑잡기 챌린지 - 행운의 블랙잭!");
-
+			Thread.sleep(200);
+			System.out.println();
+			System.out.println("			넘어가기 [0] ");
+			int nextc3c0 = sc.nextInt();
+			if (nextc3c0 == 0) {
+			}
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
@@ -411,7 +419,7 @@ public class MomMain {
 			Thread.sleep(1000);
 			System.out.println("			[영웅이] 요기서 모해~ 잘됐다~ 나랑 놀자! 마트 같이 가자 ");
 			Thread.sleep(1000);
-			System.out.println("			[인프제] 아... (슈발) 엔프피 김영웅때문에 기빨린다.... 빨리 집에 가고 싶은데(흑흑)");
+			System.out.println("			[인프제] 아... (슈발) 엔프피 영웅이 때문에 기빨린다.... 빨리 집에 가고 싶은데(흑흑)");
 			Thread.sleep(1000);
 			if(mp3.isPlaying()) {
 				mp3.stop();
@@ -425,14 +433,15 @@ public class MomMain {
 			if (c4e3 == 0) {
 			}
 
-			// 친구한테 마트 가자고 조른다~~~! 설득하기!!
 			// 미니게임3. 영친구가 좋아하는 영화맞추기5문제만.
-
-			// 이겼으면 [인프제] "(헐~ 감동이야...) 역시 우리는 최고의 친구!!" (마트 같이 감)
 			// 졌으면 [친구] "헐.. 나에 대해 하나도 모르다닝 실망이얌!!!"(친구 삐져서 집에 감)
-
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"gameOpening.mp3");
 			System.out.println("\n\n");
-			System.out.println(m.firework());
+			System.out.println("\n\n");
+			System.out.println(m.withfriend());
 			System.out.println("\n\n");
 			Thread.sleep(200);
 			System.out.println("			친구가 좋아하는 영화 맞추기 퀴즈 대성공!");
@@ -556,6 +565,7 @@ public class MomMain {
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
+			mp3.play("gogogame.mp3");
 			System.out.println("			[미니게임4] 바카라 - 이겨서 할머니께 용돈을 받아라!! ");
 
 			// 아까 할머니 도와드렸으면 할머니가 용돈 준다
@@ -571,7 +581,11 @@ public class MomMain {
 			int c5e4 = sc.nextInt();
 			if (c5e4 == 0) {
 			}
-
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"gameOpening.mp3");
+			System.out.println("\n\n");
 			///////////////////////////////////// chapter.6 집에 가는 길
 
 			System.out.println(m.goingHome());
@@ -598,6 +612,7 @@ public class MomMain {
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
+			mp3.play("gogogame.mp3");
 			System.out.println("			[미니게임5] 불량배와 진검승부 - 가위바위보게임 !! ");
 			System.out.println();
 			Thread.sleep(500);
@@ -632,6 +647,10 @@ public class MomMain {
 			System.out.println(m.weather());
 			System.out.println("\n");
 			Thread.sleep(200);
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"thunder.mp3");
 			System.out.println("			근데 날씨가 심상치 않다.... !!!!");
 			Thread.sleep(200);
 			System.out.println("			비가 오고 천둥번개가 친다!! ");
@@ -642,6 +661,10 @@ public class MomMain {
 			if (c7e2 == 0) {
 			}
 
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"dragonEmerge.mp3");
 			System.out.println(m.dragon());
 			Thread.sleep(1000);
 			System.out.println("			!!!!!!!! ");
@@ -653,6 +676,10 @@ public class MomMain {
 			if (c7e3 == 0) {
 			}
 
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"readyforWar.mp3");
 			System.out.println("\n\n\n\n\n");
 			Thread.sleep(200);
 			System.out.println(
@@ -735,7 +762,10 @@ public class MomMain {
 				int c7e6 = sc.nextInt();
 				if (c7e6 == 0) {
 				}
-
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"Druid and Human.mp3");
 				System.out.println(m.tiger());
 
 				Thread.sleep(1000);
@@ -749,7 +779,11 @@ public class MomMain {
 				int c7e7 = sc.nextInt();
 				if (c7e7 == 0) {
 				}
-
+				
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"battleBGM.mp3");
 				//////////////////////////////// 드루이드 VS 드라카이나
 				System.out.println("			전투가 시작되었습니다.");
 				System.out.println();
@@ -1351,6 +1385,29 @@ public class MomMain {
 				System.out.printf("\n\n\n\n\n\n\n\n\n\n\n%s\n\n\n\n\n\n\n\n\n\n\n",
 						MomAscii.getInstance().getGameEndAsciiArt()[i]);
 				Thread.sleep(500);
+			}
+			
+			System.out.println(
+					"       ================================================================================================================\n");
+			Thread.sleep(200);
+			System.out.println();
+			Thread.sleep(200);
+			System.out.println(
+					"              MOVIE NAME                   YEAR                        TITLE                         ARTIST    ");
+			Thread.sleep(200);
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			Thread.sleep(200);
+			for (int i = 0; i < cinemasList.size(); i++) {
+				String mname = cinemasList.get(i).getMovieNameKR();
+				int year = cinemasList.get(i).getYear();
+				String title = cinemasList.get(i).getMovieSongName();
+				String artist = cinemasList.get(i).getMovieSongArtist();
+				System.out.println("          " + mname + "               " + year + "                " + title
+						+ "             " + artist);
+				System.out.println("\n\n");
+				Thread.sleep(1000);
 			}
 
 		} catch (Exception e) {
