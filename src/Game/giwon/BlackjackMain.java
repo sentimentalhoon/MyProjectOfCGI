@@ -1,13 +1,14 @@
 package Game.giwon;
 
+import Account.Account;
 import Utils.SC;
 
 public class BlackjackMain {
 
-	public static void main(String[] args) {
+	public static void BlackGameStart(Account account) {
 
-		Blackjack card = new Blackjack();
-
+		Blackjack card = new Blackjack(account);
+		account.getName();
 		while (true) {
 
 			System.out.println("===== Welcome to Blackjack Game ======");

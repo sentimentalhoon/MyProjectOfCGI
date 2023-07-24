@@ -4,6 +4,8 @@ import Account.Account;
 import Board.BoardId;
 import Game.GameId;
 import Game.BH.Tetris.D4mnAsciiTetris;
+import Game.giwon.Blackjack;
+import Game.giwon.BlackjackMain;
 import Pages.PageId;
 import Utils.ConsoleColor;
 import Utils.SC;
@@ -64,7 +66,8 @@ public class Start {
                         } else if (account.getPages() == PageId.GAME) {
                             account.setSubPage(userPage);
                             if (account.getSubPage() == GameId.BLACKJACK) {
-                                // Blackjack.Blackjack1(account);
+                                BlackjackMain.BlackGameStart(account);
+                            	
                             } else if (account.getSubPage() == GameId.BACCARAT) {
 
                             } else if (account.getSubPage() == GameId.CINEMAQUIZ) {

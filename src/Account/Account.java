@@ -16,7 +16,16 @@ import Pages.PageId;
 import Utils.Base64;
 import Utils.SQLUtil;
 
+/*
+*목적 : 추가
+*개정이력 : 박기원, 2023.07.24, 
+*최신 수정한 것 : 
+*1) _totalpoint 값 추가 (get,set)
+*/
+
 public class Account {
+	/** 배팅금액 */
+	private int _totalpoint;
 	/** 계정명 */
 	private String _name;
 	/** 패스워드(암호화 됨) */
@@ -42,6 +51,14 @@ public class Account {
 	public boolean isValid() {
 		return _isValid;
 	}
+	
+	public int get_totalpoint() {
+		return _totalpoint;
+	}
+
+	public void set_totalpoint(int _totalpoint) {
+		this._totalpoint = _totalpoint;
+	}
 
 	public String getName() {
 		return _name;
@@ -51,6 +68,7 @@ public class Account {
 		this._name = name;
 		;
 	}
+	
 
 	public Timestamp getLastActive() {
 		return _lastActive;
@@ -190,6 +208,8 @@ public class Account {
 			account._name = rs.getString("id");
 			account._password = rs.getString("password");
 			account._lastActive = rs.getTimestamp("lastactive");
+			account._totalpoint = rs.getInt("totalpoint");
+			
 			_log.fine("account exists");
 		} catch (SQLException e) {
 			_log.log(Level.SEVERE, e.getLocalizedMessage(), e);
@@ -226,6 +246,27 @@ public class Account {
 			SQLUtil.close(pstm, con);
 		}
 	}
+	
+	public static void updateTotalPoint(final Account account) {
+		Connection con = null;
+		PreparedStatement pstm = null;
+
+		try {
+			con = DBFactory.getInstance().getConnection();
+			String sqlstr = "UPDATE accounts SET TOTALPOINT=? WHERE id = ?";
+			pstm = con.prepareStatement(sqlstr);
+			pstm.setInt(1,account.get_totalpoint());
+			pstm.setString(2, account.getName());
+			pstm.execute();
+		} catch (Exception e) {
+			_log.log(Level.SEVERE, e.getLocalizedMessage(), e);
+		} finally {
+			SQLUtil.close(pstm, con);
+		}
+	}
+	
+	
+	
 
 	/**
 	 * 입력된 비밀번호와 DB에 저장된 패스워드를 비교

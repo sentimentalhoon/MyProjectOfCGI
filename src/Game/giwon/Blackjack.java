@@ -14,15 +14,10 @@ import javazoom.jl.player.MP3Player;
 
 /*
 *목적 :Blackjack 본체.
-*개정이력 :박기원,  2023.07.23, 
+*개정이력 :박기원,  2023.07.24, 
 *최신 수정한 것 : 
-*1) getCardArt-블랙잭 카드 이미지 출력 및 가로로 출력 완료 !
-*2) 음악 배경음악(신세계 ost) + 카드 뽑는 소리 +실패(전에 있는) // bj_Card_Sound_Effects.mp3 ,bj_Big Sleep.mp3 추가
-*3) 배팅 추가 scoreBattingMachine() 바카라 있는 메소드 그대로 씀
-*4) 카드 이미지 삐둘어진거 해결  -> ♦ 이미지 바꿈 %2s 
+*1)  배경음악 소리 줄임 bj_Big_Sleep_sound_down
 
-
-*5) BlackjackDataTable(SELECT / UPDATE) DB 완료
 
 *문제점 : 
 *1)배경 음악 종료 안됨
@@ -33,11 +28,17 @@ public class Blackjack {
 
 	// 음악 넣기
 	static MP3Player mp3 = new MP3Player();
-	static String comPath = "data\\song\\"; // 블랙잭 음악 파일 경로
+	static String comPath = "data\\song\\BlackjackSong\\"; // 블랙잭 음악 파일 경로
 	// 점수
-	private static int totalPoint;
 	private static int battingPoint;
 	private BlackjackDataTable blackjackDataTable = new BlackjackDataTable();
+	
+	
+	Account account = new Account();
+
+	public Blackjack(Account account) {
+		this.account = account;
+	}
 
 	public void gameStart() {
 
@@ -45,7 +46,7 @@ public class Blackjack {
 		Server.getInstance();
 
 		// 음악 재생
-		playMusic("bj_Big Sleep.mp3"); // 배경음악
+		playMusic("bj_Big_Sleep_sound_down.mp3"); // 배경음악
 
 		// 배팅
 		scoreBattingMachine();
@@ -65,21 +66,19 @@ public class Blackjack {
 		// 게임 결과 출력
 		determineWinner(dealerHand, playerHand);
 
-
+		
 	}
 
 	// 바카라 점수 배팅
 	public void scoreBattingMachine() {
 	    while (true) {
-	    	
-	        totalPoint = blackjackDataTable.getTotalPoint("SHOW");//TotalPoint가져오기
-	        System.out.println("현재 포인트 : " + totalPoint);
+	        System.out.println("현재 포인트 : " + account.get_totalpoint());
 	        System.out.println("배팅할 포인트를 입력해주세요.");
 	        System.out.print("배팅할 포인트 : ");
 	        battingPoint = SC.getScanner().nextInt();
-	        if (battingPoint <= totalPoint) {
-	            totalPoint -= battingPoint;
-	            blackjackDataTable.saveTotalPoint("SHOW", totalPoint);
+	        if (battingPoint <=  account.get_totalpoint()) {
+	            account.set_totalpoint(account.get_totalpoint() -battingPoint);
+	            blackjackDataTable.saveTotalPoint("SHOW",  account.get_totalpoint());
 	            break;
 	        }
 	    }
@@ -225,7 +224,7 @@ public class Blackjack {
 	}
 
 	// 승자 결정
-	public static void determineWinner(List<String> dealerHand, List<String> playerHand) {
+	public void determineWinner(List<String> dealerHand, List<String> playerHand) {
 		int dealerSum = calculateHandSum(dealerHand);
 		int playerSum = calculateHandSum(playerHand);
 
@@ -238,26 +237,26 @@ public class Blackjack {
 			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 21을 초과하여 게임에서 패배했습니다.");
 
-			totalPoint -= battingPoint; // 배팅
-			System.out.println("현재 포인트 : " + totalPoint);
+			account.set_totalpoint(account.get_totalpoint()-battingPoint); // 배팅
+			System.out.println("현재 포인트 : " + account.get_totalpoint());
 		} else if (dealerSum > 21) {
 			System.out.println("딜러가 21을 초과하여 게임에서 승리했습니다.");
-			totalPoint += battingPoint * 2;
-			System.out.println("현재 포인트 : " + totalPoint);
+			account.set_totalpoint(account.get_totalpoint()+ battingPoint * 2); 
+			System.out.println("현재 포인트 : " + account.get_totalpoint());
 		} else if (playerSum > dealerSum) {
 			System.out.println("플레이어가 딜러를 이겨 게임에서 승리했습니다.");
-			totalPoint += battingPoint * 2;
-			System.out.println("현재 포인트 : " + totalPoint);
+			account.set_totalpoint(account.get_totalpoint()+ battingPoint * 2); 
+			System.out.println("현재 포인트 : " + account.get_totalpoint());
 		} else if (playerSum < dealerSum) {
 			playMusic("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 딜러에게 패배하여 게임에서 패배했습니다.");
-			totalPoint -= battingPoint; // 배팅
-			System.out.println("현재 포인트 : " + totalPoint);
+			account.set_totalpoint(account.get_totalpoint()-battingPoint); // 배팅
+			System.out.println("현재 포인트 : " + account.get_totalpoint());
 		} else {
 			System.out.println("게임이 비겼습니다.");
-			totalPoint += battingPoint;
+			account.set_totalpoint(account.get_totalpoint()+battingPoint);
 		}
-
+		Account.updateTotalPoint(account);
 	}
 
 	public void stop() {
@@ -265,4 +264,6 @@ public class Blackjack {
 		System.out.println("Blackjack 게임을 종료합니다");
 
 	}
+
+
 }
