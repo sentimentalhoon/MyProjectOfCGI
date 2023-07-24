@@ -3,6 +3,7 @@ package Game.miniproject_mom;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class main {
 	
 
@@ -12,12 +13,20 @@ public class main {
 		int pickWeapon = 0;
 		int pickClass = 0;
 		people p = new people();
-		ArrayList<people> list = new ArrayList<people>();
-		list.add(new people("Drakaina", 3500, "fireRage", "thunderLightening"));
-		list.add(new people("Druid", 2500, "야생의영혼"));
-		list.add(new people("Warlock", 2500, "거부할수없는유혹"));
-		list.add(new people("Paladin", 2500, "빛의심판"));
-		list.add(new people("Human", 1500, "용감무쌍"));
+		
+		people Drakaina = new people("Drakaina", 3500, "fireRage", "thunderLightening");
+		people Druid = new people("Druid", 2500, "야생의영혼");
+		people Warlock = new people("Warlock", 2500, "거부할수없는유혹");
+		people Paladin = new people("Paladin", 2500, "빛의심판");
+		people Human = new people("Human", 1500, "용감무쌍");
+		
+//		ArrayList<people> list = new ArrayList<people>();
+//		list.add(0, Drakaina);
+//		list.add(1, Druid);
+//		list.add(2, Warlock);
+//		list.add(3, Paladin);
+//		list.add(4, Human);
+		
 		
 //		System.out.println(Arrays.deepToString(list.toArray()));
 		
@@ -164,7 +173,7 @@ public class main {
 		// 나갈 준비
 		Thread.sleep(1000);
 		System.out.println("			(주섬 주섬) 나갈 준비를 한다. 뭘 가지고 갈까? ");
-		System.out.println("			[1] 우산 [2] 건틀렛 [3] ? [4] 해골검 [5] 진정한 사나이는 아무것도 안들고 간다." );
+		System.out.println("			[1] 우산 [2] 건틀렛 [3] ? [4] 해골검" );
 		
 		int c1e4 = sc.nextInt();
 		if(c1e4==1) {
@@ -257,10 +266,6 @@ public class main {
 		System.out.println();
 		System.out.println("			[해골검]을 챙겼다. "); // 드래곤 마주치면 크리티컬
 			
-		}
-		else {
-		System.out.println("			아무것도 안들고 간다.");	
-		System.out.println("			진정한 사나이! ");	
 		}
 		
 		Thread.sleep(200);
@@ -758,44 +763,44 @@ public class main {
 		System.out.println();
 		System.out.println("			다른 것도 살까?");
 		System.out.println("			[1] 콘푸로스트					[2] 친구가 갖고싶어 하는 꽃머리핀				");
-		System.out.println("			[3] 범상치않은 에그몽 초콜릿     [4] 소주");
+		System.out.println("			[3] 범상치않은 에그몽 초콜릿        [4] 음료수 ");
 
 		String cereal = 
-				  "              _______________\r\n"
-				+ "             / /   콘      / /'.\r\n"
-				+ "            | |     푸   | |  |\r\n"
-				+ "            | |     로   | |  |\r\n"
-				+ "            | |     스   | | @|\r\n"
-				+ "            | |     트   | |@%@\r\n"
-				+ "            | |    __)   | |@%@%@.-.-.-.-.\r\n"
-				+ "             \\_\\_________\\_\\@%@%@%_ _ _ _.' ";
+				  "			              _______________\r\n"
+				+ "			             / /   콘      / /'.\r\n"
+				+ "			            | |     푸   | |  |\r\n"
+				+ "			            | |     로   | |  |\r\n"
+				+ "			            | |     스   | | @|\r\n"
+				+ "			            | |     트   | |@%@\r\n"
+				+ "			            | |    __)   | |@%@%@.-.-.-.-.\r\n"
+				+ "			             \\_\\_________\\_\\@%@%@%_ _ _ _.' ";
 		
 		String soju = 
-				  "             [=]\r\n"
-				+ "             | |\r\n"
-				+ "             }@{\r\n"
-				+ "            /   \\\r\n"
-				+ "            :___;\r\n"
-				+ "            |&&&|\r\n"
-				+ "            |&&&|\r\n"
-				+ "            |---|\r\n"
-				+ "            '---'\r\n";		
+				  "			             [=]\r\n"
+				+ "			             | |\r\n"
+				+ "			             }@{\r\n"
+				+ "			            /   \\\r\n"
+				+ "			            :___;\r\n"
+				+ "			            |&&&|\r\n"
+				+ "			            |&&&|\r\n"
+				+ "			            |---|\r\n"
+				+ "			            '---'\r\n";		
 		
 		String hairpin = 
-				  "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠉⠊⢱⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠏⠑⢷⠀⠀⡸⠋⠀⠸⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢅⡀⠀⠀⡷⠒⢧⣀⣀⡤⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠛⠉⢇⣀⣸⠁⠀⠉⠳⡄⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠓⡄⠀⣠⡎⠀⠈⢧⣄⣠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠊⠁⣇⣀⡀⡸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢟⠲⢄⡀⠉⠲⡄⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠣⡀⠈⠓⢤⡈⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠓⠢⠤⠬⢿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
-				+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢘⠄⠀⠀\r\n";
+				  "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠉⠊⢱⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠏⠑⢷⠀⠀⡸⠋⠀⠸⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢅⡀⠀⠀⡷⠒⢧⣀⣀⡤⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠛⠉⢇⣀⣸⠁⠀⠉⠳⡄⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠓⡄⠀⣠⡎⠀⠈⢧⣄⣠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠊⠁⣇⣀⡀⡸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⢟⠲⢄⡀⠉⠲⡄⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠣⡀⠈⠓⢤⡈⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠓⠢⠤⠬⢿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+				+ "			⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢘⠄⠀⠀\r\n";
 		
 		String eggmong = 
 				  "                                ████████                                  \r\n"
@@ -848,7 +853,7 @@ public class main {
 			System.out.println(soju);
 			System.out.println("\n\n\n");
 			Thread.sleep(200);
-			System.out.println("			참이슬을 카트에 담았다.");
+			System.out.println("			음료수를 카트에 담았다.");
 			System.out.println("			계산대로 가자");
 			pickClass = 4;
 		}
@@ -1008,7 +1013,7 @@ public class main {
 				+ "			  \\ : |       |_____._____|       | : /\r\n"
 				+ "			  /   (       |----|------|       )   \\\r\n"
 				+ "			 /... .|      |    |      |      |. ...\\\r\n"
-				+ "			|::::/'' jgs /     |       \\     ''\\::::|\r\n"
+				+ "			|::::/''     /     |       \\     ''\\::::|\r\n"
 				+ "			'\"\"\"\"       /'    .L_      `\\       \"\"\"\"'\r\n"
 				+ "			           /'-.,__/` `\\__..-'\\\r\n";
 		System.out.println(gangster);
@@ -1229,17 +1234,17 @@ public class main {
 		// 집에서 들고 나온 것은 용 출몰(hp3000) 시 무기 결정.
 		// [1] 우산 : 우산으로 공격~ - 100 [슉슉] // 휘두르는 사운드
 		// [2] 건틀렛 : 가시주먹 공격~ - 200 [퍽퍽] // 때리는 사운드
-		// [3] 광선검 : 광선검 어택~ - 500 [주황주황] // 롤 바드 지잉 사운드
-		// [4] 전설의검 : 전설의검 어택~ - 300 [쨍그랑] // 검 사운드
+		// [3] 광선검 : 광선검 어택~ - 300 [주황주황] // 롤 바드 지잉 사운드
+		// [4] 전설의검 : 전설의검 어택~ - 250 [쨍그랑] // 검 사운드
 		
-		// hp회복하는 기법
-		// [1] 콘푸로스트 hp 300 회복
+		// hp회복하는 기법(안함)
+		// [1] 콘푸로스트 hp 300 회복 
 		// [2] 에그몽 hp 300 회복
 		// [3] 거울보기 hp 300 회복
 		// [4] 소주마시면 hp 500 회복
 		
 		// 와일문 트루인동안 내가 한 번 공격하면, 드라카이나도 나를 한 번 공격한다.(내hp 1500)
-		// 드라카이나 [분노의화염] 시전하면 (내hp-300씩 감소)
+		// 드라카이나 [분노의화염] 시전하면 (내hp-300씩 감소) 
 		// 드라카이나 [썬더라이트닝] 시전하면 (내hp-500씩 감소-크리티컬)
 		
 		if(pickClass==1) { // 직업선택
@@ -1314,26 +1319,127 @@ public class main {
 			int c7e7 = sc.nextInt();
 			if(c7e7==0) {	
 			}
+						
+			//////////////////////////////// 드루이드 VS 드라카이나 
+			System.out.println("			전투가 시작되었습니다.");
+			System.out.println();
+			Thread.sleep(1000);
+			System.out.println("			[드라카이나] HP >>" + Drakaina.getHp());
+			System.out.println();
+			Thread.sleep(1000);
+			System.out.println("			[나] HP>> " + Druid.getHp());
+			System.out.println();
+			Thread.sleep(1000);
 			
-			///////////////////////////////////////////////// 무기 선택
-			
-			while(list.get(0).getHp()>0&&list.get(1).getHp()>0) {
+			while(Drakaina.getHp()>0&&Druid.getHp()>0) {
+				
+				if(pickWeapon==1) {
+					Druid.setAttack("			우산공격~!");
+				} else if(pickWeapon==2) {
+					Druid.setAttack("			건틀렛주먹~!");
+				} else if(pickWeapon==3) {
+					Druid.setAttack("			광선검어택~!");
+				} else if(pickWeapon==4) {
+					Druid.setAttack("			해골검어택~!");
+				}
+				
+				int myhp = Druid.getHp();
+				int drahp = Drakaina.getHp();
+				System.out.println("			==========[드라카이나]의 공격==========");
+				System.out.println();
+				System.out.println("			[1] 일반공격                   [2] 크리티컬 ");
+				int pickdra = sc.nextInt();
+				Thread.sleep(200);
+				if(pickdra == 1) {
+					System.out.println(p.fireRage());
+					myhp-=300;
+					Druid.setHp(myhp);
+					System.out.println();
+					Thread.sleep(200);
+					System.out.println("			[나] HP>> " + Druid.getHp());
+					Thread.sleep(200);
+//					System.out.println("포션을 먹었습니다.");
+//					myhp = list.get(1).getHp()+200;
+//					System.out.println("[나] HP>> " + list.get(1).getHp());
+//					Thread.sleep(200);
+					
+				} else if(pickdra ==2 ) {
+					System.out.println(p.thunderLightening());
+					myhp-=500;
+					Druid.setHp(myhp);
+					System.out.println();
+					Thread.sleep(200);
+					System.out.println("			[나] HP>> " + Druid.getHp());
+					Thread.sleep(200);
+//					System.out.println("포션을 먹었습니다.");
+//					myhp = list.get(1).getHp()+200;
+//					System.out.println("[나] HP>> " + list.get(1).getHp());
+//					Thread.sleep(200);
+					
+				}
+				
+				System.out.println();
+				System.out.println("			==========[영웅이]의 공격==========");
+				System.out.println();
+				System.out.println("			[1] 무기공격                   [2] 마법공격");
+				int pickattack = sc.nextInt();
+				Thread.sleep(200);
+				
+				if(pickattack==1) { //무기공격
+					
+					if(pickWeapon==1) {
+						System.out.println(p.umbAttack());
+						drahp-=100;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if(pickWeapon==2) {
+						System.out.println(p.gaunAttack());
+						drahp-=200;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if(pickWeapon==3) {
+						System.out.println(p.lightAttack());
+						drahp-=300;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if(pickWeapon==4) {
+						System.out.println(p.swordAttack());
+						drahp-=250;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					}
+					
+					
+					System.out.println();
+					Thread.sleep(500);
+					System.out.println("			[드라카이나] HP >>" +drahp);
+					Thread.sleep(500);
+					System.out.println();
+				} else if(pickattack==2) {
+					System.out.println(p.druidAttack());
+					int hp = Drakaina.getHp()-1000;
+					Drakaina.setHp(hp);
+					System.out.println();
+					Thread.sleep(500);
+					System.out.println("			[드라카이나] HP >>" + drahp);
+					Thread.sleep(500);
+					System.out.println();
+					
+				} if (drahp <= 0) {
+					System.out.println("			[영웅이]님의 승리! ");
+				}
+				if (myhp <= 0) {
+					System.out.println("			[드라카이나]의 승리!");
+				}
 				
 				
-			}
-			if(pickWeapon==1) {
-				p.umbAttack();
-			} else if(pickWeapon==2) {
-				p.gaunAttack();
-			} else if(pickWeapon==3) {
-				p.lightAttack();
-			} else if(pickWeapon==4) {
-				p.swordAttack();
+				
+				
 			}
 			// 드루이드 vs 용 배틀
 		}
 		
-		if(pickClass==2) {
+		if(pickClass==2) { //careless whisper
 		
 		String mirror = 
 				  "			         ⠀⠀⠀⠀⠀⡞⠉⠊⢱⠀⣀⣀⠀⠀⠀         .::::.                        \r\n"
@@ -1669,9 +1775,9 @@ public class main {
 		
 		
 		for(int a = 0; a<eggmongs.length; a++) {
-			System.out.println("\n\n\n");
+			System.out.println("\n\n\n\n\n\n");
 			System.out.println(eggmongs[a]);
-			System.out.println("\n\n\n");
+			System.out.println("\n\n\n\n\n\n");
 			Thread.sleep(200);
 		}
 		
@@ -1877,7 +1983,7 @@ public class main {
 		System.out.println(tea1);
 		System.out.println("\n\n");
 		Thread.sleep(1000);
-		System.out.println("			[영웅이] 내가 생각해도 난 역시 너무 대단해~ (자아도취!!) "); 
+		System.out.println("			[영웅이] 내가 생각해도 난 역시 너무 대단해~ 나 진짜 이름값 한다~~!!! (자아도취!!) "); 
 		Thread.sleep(1000);
 		System.out.println("			[영웅이] 용까지 무찌르고 세상을 구한 나.... 나는 최고의 HERO!!! "); 
 		System.out.println();
