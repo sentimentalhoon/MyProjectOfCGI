@@ -25,8 +25,6 @@ import javazoom.jl.player.MP3Player;
 
 public class Blackjack {
 
-	
-
 	// 음악 넣기
 	static MP3Player mp3 = new MP3Player();
 	static String comPath = "data\\song\\BlackjackSong\\"; // 블랙잭 음악 파일 경로
@@ -42,7 +40,7 @@ public class Blackjack {
 	MP3Player mp3_3 = new MP3Player();
 	// 선언
 	Account account = new Account();
-	
+
 	Blackjack_text_image black_mainpage = new Blackjack_text_image();
 
 	public Blackjack(Account account) {
@@ -78,6 +76,7 @@ public class Blackjack {
 			determineWinner(dealerHand, playerHand);
 
 			bl = choiceEnd();
+			stop();
 
 		}
 	}
@@ -157,9 +156,6 @@ public class Blackjack {
 			String rank = cardParts[0];
 			String suit = cardParts[1];
 
-			
-			
-			
 			// 각 줄 배열 저장
 			art[0] += " ┌─────────┐ ";
 			art[1] += String.format(" │%2s       │ ", rank);
@@ -175,6 +171,7 @@ public class Blackjack {
 			System.out.println(art[i]);
 		}
 	}
+
 	// 게임 플레이
 	public void playGame(List<String> deck, List<String> dealerHand, List<String> playerHand) {
 
@@ -276,7 +273,7 @@ public class Blackjack {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void stop() {
 		mp3_1.stop(); // 음악 중지
 		mp3_2.stop(); // 음악 중지
@@ -296,7 +293,7 @@ public class Blackjack {
 		System.out.println("플레이어 카드 합: " + playerSum);
 
 		if (playerSum > 21) {
-			
+
 			playMusic3("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 21을 초과하여 게임에서 패배했습니다.");
 
@@ -304,40 +301,39 @@ public class Blackjack {
 			black_mainpage.delarwinimage(); // 딜러 이긴 이미지
 
 			System.out.println("현재 포인트 : " + account.get_totalpoint());
-			
+
 		} else if (dealerSum > 21) {
 
 			System.out.println("딜러가 21을 초과하여 게임에서 승리했습니다.");
 			account.set_totalpoint(account.get_totalpoint() + battingPoint * 2);
 			System.out.println("현재 포인트 : " + account.get_totalpoint());
-			
+
 			black_mainpage.playwinimage(); // 플레이어 win 이미지
-			
+
 		} else if (playerSum > dealerSum) {
 
 			System.out.println("플레이어가 딜러를 이겨 게임에서 승리했습니다.");
 			account.set_totalpoint(account.get_totalpoint() + battingPoint * 2);
 			System.out.println("현재 포인트 : " + account.get_totalpoint());
-			
+
 			black_mainpage.playwinimage(); // 플레이어 win 이미지
 		} else if (playerSum < dealerSum) {
-			
 
 			playMusic3("Fail.mp3"); // 실패 효과음
 			println("플레이어가 딜러에게 패배하여 게임에서 패배했습니다.");
 			account.set_totalpoint(account.get_totalpoint() - battingPoint); // 배팅
 			println("현재 포인트 : " + account.get_totalpoint());
-			
+
 			black_mainpage.delarwinimage(); // 딜러 이긴 이미지
-			
+
 		} else {
-			
+
 			System.out.println(battingPoint);
 			println("게임이 비겼습니다.");
-			account.set_totalpoint(account.get_totalpoint() + battingPoint);
-			
+			totalPoint += battingPoint;
+
 			black_mainpage.drawimage(); // 비겼을 때 이미지
-			
+
 		}
 		Account.updateTotalPoint(account);
 	}
@@ -362,12 +358,10 @@ public class Blackjack {
 		}
 	}
 
-	
 	public void println(String syso) {
-		
-		System.out.println(syso);
-		
-	}
 
+		System.out.println(syso);
+
+	}
 
 }

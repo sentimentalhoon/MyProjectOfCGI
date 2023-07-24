@@ -17,6 +17,7 @@ public class FuckBaccarat {
 	// 점수
 	private int totalPoint = 0;
 	private int battingPoint;
+	
 	MP3Player mp3_1 = new MP3Player();
 	MP3Player mp3_2 = new MP3Player();
 	MP3Player mp3_3 = new MP3Player();
