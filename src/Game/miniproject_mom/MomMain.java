@@ -1,16 +1,28 @@
 package Game.miniproject_mom;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-import Game.Dain.CinemaAscii;
+import Account.Account;
+import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
 public class MomMain {
+	Account account = new Account();
+	private static  MomMain _instance = null;
 
-	public static void main(String[] args) {
+	public static  MomMain getInstance() {
+		if (_instance == null) {
+			_instance = new MomMain();
+		}
+		return _instance;
+	}
 
-		Scanner sc = new Scanner(System.in);
+	public MomMain() {
+	}
+
+	public void isStart(Account _account) {
+		account = _account;
+		Scanner sc = SC.getScanner();
 		String comPath = "data\\song\\Mom\\";
 		MP3Player mp3 = new MP3Player();
 		MomAscii m = new MomAscii();

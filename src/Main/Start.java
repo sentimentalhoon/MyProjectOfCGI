@@ -15,6 +15,7 @@ import Game.Dain.CinemaQuizMain;
 import Game.giwon.Blackjack;
 import Game.giwon.BlackjackMain;
 import Game.hero.fuckara.fuckMain;
+import Game.miniproject_mom.MomMain;
 import Pages.PageId;
 import Utils.ConsoleColor;
 import Utils.SC;
@@ -76,14 +77,14 @@ public class Start {
                             account.setSubPage(userPage);
                             if (account.getSubPage() == GameId.BLACKJACK) {
                                 BlackjackMain.BlackGameStart(account);
-
                             } else if (account.getSubPage() == GameId.BACCARAT) {
                                 fuckMain.FuckarratGameStart(account);
-
                             } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
                                 CinemaQuizMain.getInstance().isGameStart();
                             } else if (account.getSubPage() == GameId.TETRIS) {
                                 D4mnAsciiTetris.gameStart();
+                            } else if (account.getSubPage() == GameId.MOMSTOUCH){
+                                MomMain.getInstance().isStart(account);
                             }
                         } else {
                             account.setSubPage(BoardId.BOARDNOTHING);
