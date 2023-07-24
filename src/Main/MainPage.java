@@ -1,3 +1,8 @@
+/**
+ * page 를 상, 중, 하로 나누어 처리하게 한다.
+ * 각각의 페이지를 pageid마다 다르게 처리하게 하였다.
+ * subpage, thirdpage 처리가 존재한다.
+ */
 package Main;
 
 import Pages.BottomPage;

@@ -1,3 +1,10 @@
+/**
+ * while 을 통해 exit 할 때까지 명령어를 입력받아 처리한다.
+ * first, second, third 값을 문자로 입력받으면 char 방식으로 처리한다.
+ * 
+ * 구조를 더 단순하게 하고 싶으나 귀찮아서 아래와 같이 한다.
+ * 
+ */
 package Main;
 
 import Account.Account;

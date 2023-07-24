@@ -1,3 +1,8 @@
+/**
+ * main start 와 같이 시작되는 부분이다.
+ * iniDBFactory : db 처리와 정리를 하고 있으며
+ * initweather : 공공데이터 포털에서 날씨 정보를 가져온다.
+ */
 package Main;
 
 import com.google.gson.Gson;
@@ -29,6 +34,14 @@ public class Server implements Print {
 		return uniqueInstance;
 	}
 
+	/**
+	 * 서버 시작을 한다.
+	 * initDBFactory 를 통해 db 에 접속한다.
+	 * hikaricp를 통해 connection pool을 만든다.
+	 * 
+	 * 현재는 디비를 정리하지 않는다.
+	 * 후에 필요없는 data 를 정리하는 부분을 추가한다.
+	 */
 	public void isStart() {
 		initDBFactory();
 		PerformanceTimer timer = new PerformanceTimer();
@@ -50,6 +63,12 @@ public class Server implements Print {
 		}
 	}
 
+	/**
+	 * 공공데이터 포털 (data.go.kr) 에서 api 를 통해 json 으로 데이터를 받나느다.
+	 * 해당 정보를 배열에 넣어둔다.
+	 * 단 공공데이터 포털에서 connection time out 을 자주 일으킨다.
+	 * @return
+	 */
 	public TodayWeatherItem initWeather() {
 		TodayWeatherItem todayWeatherItem = new TodayWeatherItem();
 		try {
@@ -93,10 +112,10 @@ public class Server implements Print {
 	}
 
 	public static void println(String str) {
-        System.out.println(str);
-    }
+		System.out.println(str);
+	}
 
-    public static void print(String str) {
-        System.out.print(str);
-    }
+	public static void print(String str) {
+		System.out.print(str);
+	}
 }

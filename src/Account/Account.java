@@ -36,6 +36,7 @@ public class Account {
 	private boolean _isValid = false;
 	/** 현재 상태, 페이지 번호 */
 	private int _page;
+	/** 서브 페이지 번호 */
 	private int _subPage;
 	/** 메세지 로그용 */
 	private static Logger _log = Logger.getLogger(Account.class.getName());
@@ -60,36 +61,76 @@ public class Account {
 		this._totalpoint = _totalpoint;
 	}
 
+	/**
+	 * 계정의 이름을 구해온다.
+	 * 
+	 * @return _name 값을 돌려준다.
+	 */
 	public String getName() {
 		return _name;
 	}
 
+	/**
+	 * 계정의 이름을 설정한다.
+	 * 
+	 * @param name
+	 */
 	public void setName(String name) {
 		this._name = name;
 		;
 	}
 	
 
+	/**
+	 * 마지막 접속시간을 구해온다.
+	 * 
+	 * @return _lastActive
+	 */
 	public Timestamp getLastActive() {
 		return _lastActive;
 	}
 
+	/**
+	 * 현재 접속한 페이지를 구해온다.
+	 * 
+	 * @return _page
+	 */
 	public int getPages() {
 		return _page;
 	}
 
+	/**
+	 * 페이지를 설정한다.
+	 * 
+	 * @param _page
+	 */
 	public void setPages(int _page) {
 		this._page = _page;
 	}
 
+	/**
+	 * 서브페이지를 구해온다.
+	 * 
+	 * @return _subpage
+	 */
 	public int getSubPage() {
 		return _subPage;
 	}
 
+	/**
+	 * 서브 페이지를 설정한다.
+	 * 
+	 * @param _subPage
+	 */
 	public void setSubPage(int _subPage) {
 		this._subPage = _subPage;
 	}
 
+	/**
+	 * 종료 페이지인지 확인한다.
+	 * 
+	 * @return
+	 */
 	public boolean isExit() {
 		return (this._page == PageId.EXIT);
 	}
@@ -163,6 +204,13 @@ public class Account {
 		return false;
 	}
 
+	/**
+	 * name 을 값을 받아 이미 존재하는 name 인지 확인한다.
+	 * 있으면 true 을, 없으면 false 값을 반환한다.
+	 * 
+	 * @param name
+	 * @return
+	 */
 	public static boolean doesCharNameExist(String name) {
 		boolean result = true;
 		java.sql.Connection con = null;
