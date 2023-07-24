@@ -43,6 +43,7 @@ public class FuckBaccarat {
 	public void scoreBattingMachine() {
 
 		while (true) {
+			System.out.println();
 			System.out.println("배팅할 포인트를 입력해주세요.");
 			System.out.println("현재 포인트 : " + totalPoint);
 			System.out.print("배팅할 포인트 : ");
@@ -122,30 +123,36 @@ public class FuckBaccarat {
 		if (totalBanker >= 10) {
 			totalBanker %= 10;
 		}
-		System.out.println(totalPlayer);
-		System.out.println(totalBanker);
+		System.out.println();
+		System.out.println("Player's Card total score : "+totalPlayer);
+		System.out.println("Banker's Card total score : "+totalBanker);
+		System.out.println();
 
 		if (totalPlayer == totalBanker) {
 			System.out.println("비겼습니다.");
 			totalPoint += battingPoint;
 		} else if (totalPlayer > totalBanker) {
-			System.out.println(totalPlayer + "Player 우승!");
+			text.playerWinner();
 			if (winnerSelect == 1) {
+				text.winnerText();
 				totalPoint += battingPoint * 2;
 				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			} else {
+				text.loserText();
 				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			}
 
 		} else if (totalPlayer < totalBanker) {
-			System.out.println(totalBanker + "Banker 우승!");
+			text.bankerWinner();
 			if (winnerSelect == 2) {
+				text.winnerText();
 				totalPoint += battingPoint * 2;
 				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			} else {
+				text.loserText();
 				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			}
@@ -165,6 +172,7 @@ public class FuckBaccarat {
 			String select1 = "Yes";
 			String select2 = "no";
 			String choice;
+			System.out.println();
 			System.out.println("게임을 계속 하시겠습니까? [Yes] or [no] 중 하나를 입력해주세요");
 			choice = SC.getScanner().next();
 			if (choice.equalsIgnoreCase(select1)) {
@@ -243,7 +251,8 @@ public class FuckBaccarat {
 	}
 
 	public void stop() {
-		System.out.println("Baccarat 게임을 종료합니다");
+		System.out.println();
+		System.out.println(" Baccarat 게임을 종료합니다 ");
 		System.out.println();
 
 	}
