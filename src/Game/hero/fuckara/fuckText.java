@@ -3,8 +3,7 @@ package Game.hero.fuckara;
 public class fuckText {
 	
 	public void mainPage() {
-		int i = 1;
-		while(true) {
+		
 		System.out.println(":::       ::: :::::::::: :::         ::::::::   ::::::::  ::::    ::::  ::::::::::  :::::::::::  ::::::::  ");
 		System.out.println(":+:       :+: :+:        :+:        :+:    :+: :+:    :+: +:+:+: :+:+:+ :+:             :+:     :+:    :+: ");
 		System.out.println("+:+       +:+ +:+        +:+        +:+        +:+    +:+ +:+ +:+:+ +:+ +:+             +:+     +:+    +:+ ");
@@ -27,8 +26,6 @@ public class fuckText {
 		System.out.println("                            #+#    #+# #+#     #+# #+#       #+# #+#        ");
 		System.out.println("                             ########  ###     ### ###       ### ########## ");
 		}
-		System.out.println("");
 		
-	}
 	
 }
