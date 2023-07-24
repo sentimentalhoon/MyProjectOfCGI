@@ -18,8 +18,8 @@ public class BlackjackMain {
 			
 			
 			black_mainpage.b_mainpage();
-
-			System.out.println("===== Welcome to Blackjack Game ======");
+			
+			black_mainpage.walcom();
 			System.out.println("[1] 게임 시작 [2] 게임 종료");
 			int select = SC.getScanner().nextInt();
 

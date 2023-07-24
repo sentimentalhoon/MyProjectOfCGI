@@ -14,13 +14,8 @@ import javazoom.jl.player.MP3Player;
 *개정이력 :박기원,  2023.07.24, 
 *최신 수정한 것 : 
 *1)  배경음악 소리 줄임 bj_Big_Sleep_sound_down
-*2) 페이지 디자인 (딜러 이김, 플레이어 이김, 비김) 추
-
-
-
-*문제점 : 
-*1)배경 음악 종료 안됨
-*
+*2) 페이지 디자인 (딜러 이김, 플레이어 이김, 비김) 
+*3) 플레이어 최종 카드 및 딜러 최종 카드 카드 출력
 */
 
 public class Blackjack {
@@ -95,8 +90,8 @@ public class Blackjack {
 	// 바카라 점수 배팅
 	public void scoreBattingMachine() {
 		while (true) {
-			System.out.println("현재 포인트 : " + account.get_totalpoint());
-			System.out.println("배팅할 포인트를 입력해주세요.");
+			println("현재 포인트 : " + account.get_totalpoint());
+			println("배팅할 포인트를 입력해주세요.");
 			System.out.print("배팅할 포인트 : ");
 			battingPoint = SC.getScanner().nextInt();
 			if (battingPoint <= totalPoint) {
@@ -142,7 +137,7 @@ public class Blackjack {
 
 	// 카드에 대한 ASCII 아트 추가
 	// 가로로 출력
-	public static void getCardArt(List<String> cards) {
+	public static void getCardArt(List<String> cards, int hide) {
 
 		String[] art = new String[7];
 
@@ -166,6 +161,17 @@ public class Blackjack {
 			art[6] += " └─────────┘ ";
 		}
 
+		// 물음표 카드 추가
+		if (hide == 1) {
+			art[0] += " ┌─────────┐   ";
+			art[1] += " │ ?    ?  │   ";
+			art[2] += " │         │   ";
+			art[3] += " │    ?    │   ";
+			art[4] += " │         │   ";
+			art[5] += " │ ?    ?  │   ";
+			art[6] += " └─────────┘   ";
+		}
+
 		// 카드 그림 출력
 		for (int i = 0; i < art.length; i++) {
 			System.out.println(art[i]);
@@ -179,22 +185,25 @@ public class Blackjack {
 		while (true) {
 			// 현재 상태 출력
 			System.out.println("=========Dealer Card========= ");
-			System.out.println(dealerHand.get(0) + ", [숨김 카드]");
+			List<String> dealerFirstCard = new ArrayList<>();
+			dealerFirstCard.add(dealerHand.get(0));
+			getCardArt(dealerFirstCard, 1); // 숨김카드 1로 표현
 
 			System.out.println("=========Player Card========= ");
-			getCardArt(playerHand); // 플레이어 이미지 카드 출력
+			getCardArt(playerHand, 0); // 플레이어 이미지 카드 출력
 
 			System.out.print("카드를 더 뽑으시겠습니까? (y/n): ");
 			String input = SC.getScanner().nextLine();
 
 			if (input.equalsIgnoreCase("y")) {
+
 				// 플레이어가 카드를 뽑음
 				playerHand.add(drawCard(deck));
 
 				// 플레이어의 카드 합 계산
 				int playerSum = calculateHandSum(playerHand);
+
 				if (playerSum > 21) {
-					System.out.println("플레이어가 21을 초과하여 게임에서 패배했습니다.");
 					break;
 				}
 			} else {
@@ -278,7 +287,6 @@ public class Blackjack {
 		mp3_1.stop(); // 음악 중지
 		mp3_2.stop(); // 음악 중지
 		mp3_3.stop(); // 음악 중지
-		System.out.println("Blackjack 게임을 종료합니다");
 
 	}
 
@@ -287,10 +295,21 @@ public class Blackjack {
 		int dealerSum = calculateHandSum(dealerHand);
 		int playerSum = calculateHandSum(playerHand);
 
-//		System.out.println("딜러 카드: " + dealerHand);
+		println("\n\n\n\n\n");
+
+		println("==============Dealer Card==================");
+		getCardArt(dealerHand, 0); // 숨김 카드 없이 출력
+		println("===========================================");
 		System.out.println("딜러 카드 합: " + dealerSum);
-//		System.out.println("플레이어 카드: " + playerHand);
+		println("===========================================");
+
+		println("");
+
+		println("==============Player Card==================");
+		getCardArt(playerHand, 0); // 숨김 카드 없이 출력
+		println("===========================================");
 		System.out.println("플레이어 카드 합: " + playerSum);
+		println("===========================================");
 
 		if (playerSum > 21) {
 
@@ -300,21 +319,21 @@ public class Blackjack {
 			account.set_totalpoint(account.get_totalpoint() - battingPoint); // 배팅
 			black_mainpage.delarwinimage(); // 딜러 이긴 이미지
 
-			System.out.println("현재 포인트 : " + account.get_totalpoint());
+			println("현재 포인트 : " + account.get_totalpoint());
 
 		} else if (dealerSum > 21) {
 
-			System.out.println("딜러가 21을 초과하여 게임에서 승리했습니다.");
+			println("딜러가 21을 초과하여 게임에서 승리했습니다.");
 			account.set_totalpoint(account.get_totalpoint() + battingPoint * 2);
-			System.out.println("현재 포인트 : " + account.get_totalpoint());
+			println("현재 포인트 : " + account.get_totalpoint());
 
 			black_mainpage.playwinimage(); // 플레이어 win 이미지
 
 		} else if (playerSum > dealerSum) {
 
-			System.out.println("플레이어가 딜러를 이겨 게임에서 승리했습니다.");
+			println("플레이어가 딜러를 이겨 게임에서 승리했습니다.");
 			account.set_totalpoint(account.get_totalpoint() + battingPoint * 2);
-			System.out.println("현재 포인트 : " + account.get_totalpoint());
+			println("현재 포인트 : " + account.get_totalpoint());
 
 			black_mainpage.playwinimage(); // 플레이어 win 이미지
 		} else if (playerSum < dealerSum) {
@@ -341,19 +360,19 @@ public class Blackjack {
 	// 게임 재게 메서드
 	public Boolean choiceEnd() {
 		while (true) {
-			String select1 = "Yes";
-			String select2 = "no";
+			String select1 = "y";
+			String select2 = "n";
 			String choice;
-			System.out.println("게임을 계속 하시겠습니까? [Yes] or [no] 중 하나를 입력해주세요");
+			println("게임을 계속 하시겠습니까? [y] or [n] 중 하나를 입력해주세요");
 			choice = SC.getScanner().next();
 			if (choice.equalsIgnoreCase(select1)) {
-				System.out.println("게임을 계속 진행합니다.");
+				println("게임을 계속 진행합니다.");
 				return true;
 			} else if (choice.equalsIgnoreCase(select2)) {
-				System.out.println("게임을 종료합니다.");
+				println("게임을 종료합니다.");
 				return false;
 			} else {
-				System.out.println("다시 입력 해주세요");
+				println("다시 입력 해주세요");
 			}
 		}
 	}
@@ -361,6 +380,12 @@ public class Blackjack {
 	public void println(String syso) {
 
 		System.out.println(syso);
+
+	}
+
+	public void print(String syso) {
+
+		System.out.print(syso);
 
 	}
 
