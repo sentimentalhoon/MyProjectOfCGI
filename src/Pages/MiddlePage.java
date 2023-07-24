@@ -70,7 +70,7 @@ public class MiddlePage extends CountKorean {
                                 countKorean(countSpace, "  Giwon Presents : BlackJack | 단축키 : J")))
                         .append(String.format("│%s│\n", countKorean(countSpace, "")))
                         .append(String.format("│%s│\n",
-                                countKorean(countSpace, "  Hero Presents : Baccarat | 단축키 : B")))
+                                countKorean(countSpace, "  Hero Presents : Baccarat | 단축키 : T")))
                         .append(String.format("│%s│\n", countKorean(countSpace, "")))
                         .append(String.format("│%s│\n",
                                 countKorean(countSpace, "  Dain Presents : Cinema Music Quiz | 단축키 : C")))
