@@ -52,7 +52,8 @@ public class CinemaQuizMain {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("                                    로딩 완료!!                                          \n\n");
+			System.out.println(
+					"                                    로딩 완료!!                                          \n\n");
 
 			try {
 				Thread.sleep(200);
@@ -61,7 +62,8 @@ public class CinemaQuizMain {
 				System.out.println();
 				System.out.println();
 				String gameRule = sc.nextLine();
-				if (gameRule.equals("1") || gameRule.toLowerCase().equals("y")|| gameRule.toLowerCase().equals("yes")) {
+				if (gameRule.equals("1") || gameRule.toLowerCase().equals("y")
+						|| gameRule.toLowerCase().equals("yes")) {
 					CinemaAscii.getInstance().getExplanation();
 				}
 			} catch (InterruptedException e) {
@@ -80,6 +82,10 @@ public class CinemaQuizMain {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			if (mp3.isPlaying()) {
+				mp3.stop();
+			}
+
 			getQuiz(1, sc, cinemasList, mp3, comPath, "01_other.mp3");
 			getQuiz(2, sc, cinemasList, mp3, comPath, "02_other.mp3");
 			getQuiz(3, sc, cinemasList, mp3, comPath, "03_other.mp3");
@@ -91,9 +97,6 @@ public class CinemaQuizMain {
 			getQuiz(9, sc, cinemasList, mp3, comPath, "09_other.mp3");
 			getQuiz(10, sc, cinemasList, mp3, comPath, "10_other.mp3");
 
-			if (mp3.isPlaying()) {
-				mp3.stop();
-			}
 			System.out.println(
 					"       ================================================================================================================\n");
 			Thread.sleep(200);
@@ -111,22 +114,10 @@ public class CinemaQuizMain {
 				int year = cinemasList.get(i).getYear();
 				String title = cinemasList.get(i).getMovieSongName();
 				String artist = cinemasList.get(i).getMovieSongArtist();
-				Thread.sleep(200);
-				System.out.println();
-				Thread.sleep(200);
-				System.out.println();
-				Thread.sleep(200);
-				System.out.println();
-				Thread.sleep(200);
 				System.out.println("          " + mname + "               " + year + "                " + title
 						+ "             " + artist);
-				Thread.sleep(200);
-				System.out.println();
-				Thread.sleep(200);
-				System.out.println();
-				Thread.sleep(200);
-				System.out.println();
-				Thread.sleep(200);
+				System.out.println("\n\n");
+				Thread.sleep(1000);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,20 +149,24 @@ public class CinemaQuizMain {
 		String movieName = sc.next();
 
 		if (movieName.equals(cinemasList.get(n - 1).getMovieNameKR().trim())) {
+			if (mp3.isPlaying()) {
+				mp3.stop();
+			}
 			System.out.println("     SUCCESS!      정 답 입 니 다!! ");
 			System.out.println();
 			mp3.play(comPath + "Verygood.mp3");
 			System.out.println();
 			System.out.println("     다음 문제로 넘어갑니다...     ");
-			// insertQuizResult("호구", "o", n);
-			// break;
 			return true;
 		} else {
+			if (mp3.isPlaying()) {
+				mp3.stop();
+			}
 			System.out.println("     Fail...!      틀 렸 습 니 다... ");
 			System.out.println();
 			mp3.play(comPath + "Fail.mp3");
-			// insertQuizResult("호구", "x", n);
 		}
+
 		return false;
 	}
 
@@ -180,6 +175,10 @@ public class CinemaQuizMain {
 		questions(number);
 		while (true) {
 			int playMusic = inputNum(sc);
+			if (playMusic == 0) {
+				System.out.println("     다시 선택하여 주시기 바랍니다....     ");
+				continue;
+			}
 			if (playMusic == 1) {
 				mp3.play(cinemasList.get(number - 1).getMovieSongFileName());
 			} else if (playMusic == 2) {
@@ -188,10 +187,16 @@ public class CinemaQuizMain {
 				mp3.play(fileNameString);
 			} else if (playMusic == 4) {
 				System.out.println("     다음 문제로 넘어갑니다...     ");
+				if (mp3.isPlaying()) {
+					mp3.stop();
+				}
 				break;
 			}
 			if (answers(number, sc, cinemasList, mp3, comPath))
 				break;
+		}
+		if (mp3.isPlaying()) {
+			mp3.stop();
 		}
 	}
 }
