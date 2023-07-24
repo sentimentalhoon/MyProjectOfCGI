@@ -909,7 +909,8 @@ public class MomMain {
 				}
 
 				System.out.println(m.warlock());
-
+				
+				mp3.play("beauty.mp3");
 				Thread.sleep(1000);
 				System.out.println("			친구의 직업은 이제부터 [흑마법사]입니다.");
 				Thread.sleep(1000);
@@ -921,7 +922,10 @@ public class MomMain {
 				int c7e9 = sc.nextInt();
 				if (c7e9 == 0) {
 				}
-
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"battleBGM.mp3");
 				System.out.println("			전투가 시작되었습니다.");
 				System.out.println();
 				Thread.sleep(1000);
@@ -1038,6 +1042,7 @@ public class MomMain {
 					Thread.sleep(200);
 				}
 
+				mp3.play("eggcracking.mp3");
 				Thread.sleep(1000);
 				System.out.println("			어랏...? [에그몽 초콜릿]의 상태가 이상하다....  ");
 				Thread.sleep(1000);
@@ -1052,6 +1057,7 @@ public class MomMain {
 
 				System.out.println(m.paladin());
 
+				mp3.play("Paladin.mp3");
 				Thread.sleep(1000);
 				System.out.println("			유니콘에 올라탔습니다..  ");
 				Thread.sleep(1000);
@@ -1063,7 +1069,10 @@ public class MomMain {
 				int c7e11 = sc.nextInt();
 				if (c7e11 == 0) {
 				}
-
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"battleBGM.mp3");
 				System.out.println("			전투가 시작되었습니다.");
 				System.out.println();
 				Thread.sleep(1000);
@@ -1173,7 +1182,7 @@ public class MomMain {
 			if (pickClass == 4) {
 
 				System.out.println(m.human());
-
+				mp3.play(comPath+"Druid or Human.mp3");
 				Thread.sleep(1000);
 				System.out.println("			[영웅이] 참이슬을 마신다. ");
 				Thread.sleep(1000);
@@ -1189,7 +1198,10 @@ public class MomMain {
 				int c7e12 = sc.nextInt();
 				if (c7e12 == 0) {
 				}
-
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"battleBGM.mp3");
 				System.out.println("			전투가 시작되었습니다.");
 				System.out.println();
 				Thread.sleep(1000);
@@ -1363,9 +1375,9 @@ public class MomMain {
 			System.out.println(m.tea2());
 			System.out.println("\n\n");
 			Thread.sleep(1000);
-			System.out.println("			[영웅이] 내가 생각해도 난 역시 너무 대단해~ 나 진짜 이름값 한다~~!!! (자아도취!!) ");
+			System.out.println("			[영웅이] 내가 생각해도 난 역시 너무 대단... 나 진짜 이름값 한다~~!! ");
 			Thread.sleep(1000);
-			System.out.println("			[영웅이] 용까지 무찌르고 세상을 구한 나.... 나는 최고의 HERO!!! ");
+			System.out.println("			[영웅이] 나는 최고의 HERO!!! ");
 			System.out.println();
 			Thread.sleep(1000);
 			System.out.println("			넘어가기 [0] ");
