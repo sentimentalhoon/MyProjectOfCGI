@@ -2,8 +2,8 @@ package Game.hero.fuckara;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
+import Account.Account;
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
@@ -16,10 +16,14 @@ public class FuckBaccarat {
 	private String[] cardShape = { "♥", "♦", "♣", "♠" };
 	boolean bl = true;
 	// 점수
-	private int totalPoint = 100;
+	private int totalPoint = 0;
 	private int battingPoint;
 	static MP3Player mp3 = new MP3Player();
-	static String comPath = "data\\song\\"; // 블랙잭 음악 파일 경로
+	
+	static String comPath = "data\\song\\BlackjackSong\\"; // 블랙잭 음악 파일 경로
+	
+	Account account = new Account();
+	
 	// 랜덤으로 돌린 카드 입력받을 ArrayList 배열
 	private ArrayList<FuckCard> playerCards = new ArrayList<FuckCard>();
 	private ArrayList<FuckCard> bankerCards = new ArrayList<FuckCard>();
@@ -28,9 +32,10 @@ public class FuckBaccarat {
 	Random rd = new Random();
 	
 	public void scoreBattingMachine() {
+		
 		while(true) {
 			System.out.println("배팅할 포인트를 입력해주세요.");
-			System.out.println("현재 포인트 : "+totalPoint);
+			System.out.println("현재 포인트 : "+ totalPoint);
 			System.out.print("배팅할 포인트 : ");
 			battingPoint = SC.getScanner().nextInt();
 			if(battingPoint <= totalPoint) {
@@ -180,6 +185,7 @@ public class FuckBaccarat {
 	// 게임진행 메인 메서드
 	public void gameStart() {
 		playMusic("minifi.mp3");
+		totalPoint = account.get_totalpoint();
 		
 		while (bl) {
 			if(!ssd()) break;
@@ -218,12 +224,15 @@ public class FuckBaccarat {
 			bl = choiceEnd();
 			
 		}
-
+		
+		account.set_totalpoint(totalPoint);
+		Account.updateTotalPoint(account);
+		
 	}
-
+	
 	public void stop() {
 		System.out.println("Baccarat 게임을 종료합니다");
-
+		
 	}
 	
 	public void test2() {

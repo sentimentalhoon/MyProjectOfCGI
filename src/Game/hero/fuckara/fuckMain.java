@@ -2,11 +2,12 @@ package Game.hero.fuckara;
 
 import java.util.Scanner;
 
+import Account.Account;
 import Utils.SC;
 
 public class fuckMain {
 
-	public static void main(String[] args) {
+	public static void FuckarratGameStart(Account account) {
 
 		FuckBaccarat card = new FuckBaccarat();
 		while (true) {
@@ -14,7 +15,7 @@ public class fuckMain {
 			System.out.println("===== Welcome to Baccarat Game ======");
 			System.out.println("[1] 게임 시작 [2] 게임 종료");
 			int select = SC.getScanner().nextInt();
-
+			
 			if (select == 1) {
 				
 				card.gameStart();
@@ -24,7 +25,7 @@ public class fuckMain {
 				card.stop();
 				card.musicStop();
 				break;
-
+				
 			} else {
 				
 				System.out.println("지원하지 않는 버튼입니다. 다시 입력해주세요");

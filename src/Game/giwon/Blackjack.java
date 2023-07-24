@@ -78,7 +78,7 @@ public class Blackjack {
 	        battingPoint = SC.getScanner().nextInt();
 	        if (battingPoint <=  account.get_totalpoint()) {
 	            account.set_totalpoint(account.get_totalpoint() -battingPoint);
-	            blackjackDataTable.saveTotalPoint(account.getName(),  account.get_totalpoint());
+	            blackjackDataTable.saveTotalPoint("SHOW",  account.get_totalpoint());
 	            break;
 	        }
 	    }
