@@ -14,7 +14,6 @@ public class MomMain {
 		Scanner sc = new Scanner(System.in);
 		String comPath = "data\\song\\Mom\\";
 		MP3Player mp3 = new MP3Player();
-		mp3.play(comPath+"closing.mp3");
 		
 		int pickWeapon = 0;
 		int pickClass = 0;

@@ -15,13 +15,11 @@ public class BlackjackMain {
 			System.out.println("[1] 게임 시작 [2] 게임 종료");
 			int select = SC.getScanner().nextInt();
 
-			if (select == 1) {
+			if(select == 1) {
 
 				card.gameStart();
 
 			} else if (select == 2) {
-
-				card.stop();
 				break;
 
 			} else {
@@ -31,7 +29,6 @@ public class BlackjackMain {
 			}
 
 		}
-		SC.getScanner().close();
 	}
 
 }
