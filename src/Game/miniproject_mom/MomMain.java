@@ -5,7 +5,9 @@ import java.util.Scanner;
 
 import Account.Account;
 import Game.Dain.CinemaField;
+import Game.Dain.CinemaQuizMain;
 import Game.giwon.BlackjackMain;
+import Game.hero.fuckara.fuckMain;
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
@@ -349,7 +351,6 @@ public class MomMain {
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
-			mp3.play(comPath+"gogogame.mp3");
 			System.out.println("			[미니게임2] 도둑잡기 챌린지 - 행운의 블랙잭!");
 			Thread.sleep(200);
 			System.out.println();
@@ -360,16 +361,28 @@ public class MomMain {
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
+			int beforeScore = account.get_totalpoint();
 			BlackjackMain.BlackGameStart(_account);
-			// 이겼으면 [경찰] "아니 이걸 해내다니..... ?"
-			// 졌으면 [경찰] "오늘도 허탕이군.. "
+			if(account.get_totalpoint()>beforeScore) {
+				
+				System.out.println("[경찰] 아니.... 이걸 해내다니....? ");
+				Thread.sleep(200);
+				System.out.println();
+				System.out.println("			넘어가기 [0] ");
+				int nextc3c1 = sc.nextInt();
+				if (nextc3c1 == 0) {
+				}
 
-			Thread.sleep(200);
-			System.out.println();
-			System.out.println("			넘어가기 [0] ");
-			int nextc3c1 = sc.nextInt();
-			if (nextc3c1 == 0) {
+			} else {
+				System.out.println("[경찰] 오늘도 허탕이군....");
+				Thread.sleep(200);
+				System.out.println();
+				System.out.println("			넘어가기 [0] ");
+				int nextc3c1 = sc.nextInt();
+				if (nextc3c1 == 0) {
+				}
 			}
+
 
 			///////////////////////////////////// chapter.4 아름다운 강변에서
 			if(mp3.isPlaying()) {
@@ -429,34 +442,46 @@ public class MomMain {
 			Thread.sleep(1000);
 			System.out.println();
 			System.out.println("			넘어가기 [0] ");
-			int c4e3 = sc.nextInt();
-			if (c4e3 == 0) {
+			sc.nextInt();
+			
+			int beforeScore1 = account.get_totalpoint();
+			CinemaQuizMain.getInstance().isGameStart(account);
+			if(account.get_totalpoint()>beforeScore1) {
+				System.out.println("\n\n");
+				System.out.println("\n\n");
+				System.out.println(m.withfriend());
+				System.out.println("\n\n");
+				Thread.sleep(200);
+				System.out.println("			친구가 좋아하는 영화 맞추기 퀴즈 대성공!");
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println("			[인프제] (헐~ 감동이야...) 평소에 날 이렇게 생각해주고 있었다니....");
+				Thread.sleep(200);
+				System.out.println("			친구와 함께 마트에 간다.");
+				Thread.sleep(200);
+				System.out.println();
+				Thread.sleep(200);
+				System.out.println("			넘어가기 [0] ");
+				int c4e4 = sc.nextInt();
+				if (c4e4 == 0) {
+				}
+			} else {
+				System.out.println("[친구]헐.. 나에 대해 하나도 모르다닝 실망이얌!!! 흥 마상... 집에갈꼬얌!!");
+				System.out.println("			넘어가기 [0] ");
+				int c4e4 = sc.nextInt();
+				if (c4e4 == 0) {
+				}
 			}
-
+			
+			System.out.println();
+			System.out.println("			넘어가기 [0] ");
+			sc.nextInt();
 			// 미니게임3. 영친구가 좋아하는 영화맞추기5문제만.
 			// 졌으면 [친구] "헐.. 나에 대해 하나도 모르다닝 실망이얌!!!"(친구 삐져서 집에 감)
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
 			mp3.play(comPath+"gameOpening.mp3");
-			System.out.println("\n\n");
-			System.out.println("\n\n");
-			System.out.println(m.withfriend());
-			System.out.println("\n\n");
-			Thread.sleep(200);
-			System.out.println("			친구가 좋아하는 영화 맞추기 퀴즈 대성공!");
-			System.out.println();
-			Thread.sleep(200);
-			System.out.println("			[인프제] (헐~ 감동이야...) 평소에 날 이렇게 생각해주고 있었다니....");
-			Thread.sleep(200);
-			System.out.println("			친구와 함께 마트에 간다.");
-			Thread.sleep(200);
-			System.out.println();
-			Thread.sleep(200);
-			System.out.println("			넘어가기 [0] ");
-			int c4e4 = sc.nextInt();
-			if (c4e4 == 0) {
-			}
 
 			///////////////////////////////////// chapter.5 마트에서
 
@@ -565,7 +590,7 @@ public class MomMain {
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
-			mp3.play("gogogame.mp3");
+			mp3.play(comPath + "gogogame.mp3");
 			System.out.println("			[미니게임4] 바카라 - 이겨서 할머니께 용돈을 받아라!! ");
 
 			// 아까 할머니 도와드렸으면 할머니가 용돈 준다
@@ -577,10 +602,21 @@ public class MomMain {
 			System.out.println();
 			Thread.sleep(200);
 			System.out.println("			넘어가기 [0] ");
-
-			int c5e4 = sc.nextInt();
-			if (c5e4 == 0) {
+			sc.nextInt();
+			beforeScore = account.get_totalpoint();
+			
+			fuckMain.FuckarratGameStart(account);
+			
+			if (account.get_totalpoint() > beforeScore) {
+				System.out.println("옛다!! 기분이다!! 5만원 쾌척");				
+			} else {
+				System.out.println("쯧쯧쯧....");
 			}
+			
+			System.out.println("			넘어가기 [0] ");
+			sc.nextInt();
+			
+			
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
@@ -612,18 +648,21 @@ public class MomMain {
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
-			mp3.play("gogogame.mp3");
+			mp3.play(comPath+"gogogame.mp3");
 			System.out.println("			[미니게임5] 불량배와 진검승부 - 가위바위보게임 !! ");
 			System.out.println();
 			Thread.sleep(500);
 
 			// 아까 도둑 잡았으면(블랙잭 이겼으면) 경찰이 나타나서 도와준다
-			// 아까 도둑 못잡았으면
-			// 미니게임5. 바카랏 다시 플레이.
+			// 아까 도둑 못잡았으면 
+			// 미니게임5. 가위바위보 추가하기
+			
+			
 			System.out.println("			넘어가기 [0] ");
-			int c6e2 = sc.nextInt();
-			if (c6e2 == 0) {
-			}
+			sc.nextInt();
+
+			
+
 
 			///////////////////////////////////// Final chapter.7 집 앞에서
 
@@ -728,6 +767,9 @@ public class MomMain {
 			if (c7e4 == 0) {
 			}
 
+			
+			// 스킬별로 효과음! (마법공격,일반공격 효과음)
+			
 			System.out.println("\n\n\n\n\n");
 			System.out.println(m.dragon2());
 			System.out.println("\n\n\n\n\n");
@@ -1042,7 +1084,7 @@ public class MomMain {
 					Thread.sleep(200);
 				}
 
-				mp3.play("eggcracking.mp3");
+				mp3.play(comPath+ "eggcracking.mp3");
 				Thread.sleep(1000);
 				System.out.println("			어랏...? [에그몽 초콜릿]의 상태가 이상하다....  ");
 				Thread.sleep(1000);
@@ -1057,7 +1099,7 @@ public class MomMain {
 
 				System.out.println(m.paladin());
 
-				mp3.play("Paladin.mp3");
+				mp3.play(comPath+"Paladin.mp3");
 				Thread.sleep(1000);
 				System.out.println("			유니콘에 올라탔습니다..  ");
 				Thread.sleep(1000);
@@ -1309,31 +1351,40 @@ public class MomMain {
 			}
 
 			///////////////////////////////////// Final chapter.8 Home sweet home.
-
+			
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"dragondie.mp3");
 			System.out.println("\n\n\n\n");
 			System.out.println(m.victory());
 			System.out.println("\n\n\n\n");
 			Thread.sleep(1000);
 			System.out.println("			[드라카이나]가 피를 토하며 쓰러졌습니다...! ");
 			Thread.sleep(1000);
-			System.out.println("			[영웅이]의 승리!!!!!!!!! "); // 괄호 안에 ""넣는법
-			System.out.println();
-			Thread.sleep(1000);
-			System.out.println("			[영웅이] 드디어 집에 갈 수 있겠다 ㅠㅠ!! "); // 괄호 안에 ""넣는법
+			System.out.println("			[영웅이]의 승리!!!!!!!!! "); 
 			System.out.println();
 			Thread.sleep(1000);
 			System.out.println("			넘어가기 [0] ");
 			int c8e1 = sc.nextInt();
 			if (c8e1 == 0) {
 			}
+			
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"win.mp3");
+			// 승리하는 장면 
+			
 
+			
 			System.out.println("\n\n\n\n");
 			System.out.println(m.mother());
 			System.out.println("\n\n\n\n");
 			Thread.sleep(1000);
 			System.out.println("			[엄마] 영웅이 왔니~? 많이 늦었네 ~");
 			Thread.sleep(1000);
-			System.out.println("			[영웅이] 그게.... 친구를 좀 만나서... "); // 괄호 안에 ""넣는법
+			System.out.println("			[영웅이] 그게.... 친구를 좀 만나서... "); 
 			System.out.println();
 			Thread.sleep(1000);
 			System.out.println("			넘어가기 [0] ");
@@ -1356,7 +1407,10 @@ public class MomMain {
 			int c8e3 = sc.nextInt();
 			if (c8e3 == 0) {
 			}
-
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath + "closing.mp3");
 			System.out.println("\n\n");
 			System.out.println(m.tea1());
 			System.out.println("\n\n");
@@ -1385,7 +1439,7 @@ public class MomMain {
 			if (c8e5 == 0) {
 			}
 
-			mp3.play(comPath + "closing.mp3");
+
 			System.out.println();
 			System.out.println();
 			System.out.println();
@@ -1407,6 +1461,8 @@ public class MomMain {
 			System.out.println(
 					"              MOVIE NAME                   YEAR                        TITLE                         ARTIST    ");
 			Thread.sleep(200);
+			
+			//내용물이 안올라오고 있는 문제 해결 
 			System.out.println();
 			System.out.println();
 			System.out.println();
