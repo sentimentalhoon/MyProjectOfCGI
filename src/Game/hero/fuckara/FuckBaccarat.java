@@ -2,8 +2,8 @@ package Game.hero.fuckara;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 import Account.Account;
+import Main.Server;
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
@@ -31,6 +31,12 @@ public class FuckBaccarat {
 	private int winnerSelect;
 	Random rd = new Random();
 	
+	public FuckBaccarat(Account account) {
+	
+		this.account = account;
+	
+	}
+
 	public void scoreBattingMachine() {
 		
 		while(true) {
@@ -166,6 +172,7 @@ public class FuckBaccarat {
 				return true;
 			} else if (choice.equalsIgnoreCase(select2)) {
 				System.out.println("게임을 종료합니다.");
+				musicStop();
 				return false;
 			} else {
 				System.out.println("다시 입력 해주세요");
@@ -184,6 +191,7 @@ public class FuckBaccarat {
 	
 	// 게임진행 메인 메서드
 	public void gameStart() {
+		Server.getInstance();
 		playMusic("minifi.mp3");
 		totalPoint = account.get_totalpoint();
 		

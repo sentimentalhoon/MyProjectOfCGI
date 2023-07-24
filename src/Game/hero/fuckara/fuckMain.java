@@ -1,7 +1,5 @@
 package Game.hero.fuckara;
 
-import java.util.Scanner;
-
 import Account.Account;
 import Utils.SC;
 
@@ -9,7 +7,7 @@ public class fuckMain {
 
 	public static void FuckarratGameStart(Account account) {
 
-		FuckBaccarat card = new FuckBaccarat();
+		FuckBaccarat card = new FuckBaccarat(account);
 		while (true) {
 			
 			System.out.println("===== Welcome to Baccarat Game ======");
