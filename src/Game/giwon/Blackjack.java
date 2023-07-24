@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Random;
 
 import Account.Account;
-import DAO.DBFactory;
-import Game.GameDAO.BlackjackDataTable;
-import Main.Server;
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
@@ -17,7 +14,7 @@ import javazoom.jl.player.MP3Player;
 *개정이력 :박기원,  2023.07.24, 
 *최신 수정한 것 : 
 *1)  배경음악 소리 줄임 bj_Big_Sleep_sound_down
-*2) 페이지 디자인 (딜러 이김, 플레이어 이김, 비김) 추가
+*2) 페이지 디자인 (딜러 이김, 플레이어 이김, 비김) 추
 
 
 
@@ -29,14 +26,11 @@ import javazoom.jl.player.MP3Player;
 public class Blackjack {
 
 	
-	Blackjack_text_image black_mainpage = new Blackjack_text_image();
-	
+
 	// 음악 넣기
 	static MP3Player mp3 = new MP3Player();
 	static String comPath = "data\\song\\BlackjackSong\\"; // 블랙잭 음악 파일 경로
-	
-	
-	
+
 	// 점수
 	private int totalPoint = 0;
 	private int battingPoint;
@@ -48,6 +42,8 @@ public class Blackjack {
 	MP3Player mp3_3 = new MP3Player();
 	// 선언
 	Account account = new Account();
+	
+	Blackjack_text_image black_mainpage = new Blackjack_text_image();
 
 	public Blackjack(Account account) {
 		this.account = account;
@@ -105,7 +101,7 @@ public class Blackjack {
 			System.out.print("배팅할 포인트 : ");
 			battingPoint = SC.getScanner().nextInt();
 			if (battingPoint <= totalPoint) {
-				account.set_totalpoint(account.get_totalpoint() - battingPoint);
+				totalPoint -= battingPoint;
 				break;
 			} else {
 				System.out.println("배팅 금액이 넘었습니다.");
@@ -161,6 +157,9 @@ public class Blackjack {
 			String rank = cardParts[0];
 			String suit = cardParts[1];
 
+			
+			
+			
 			// 각 줄 배열 저장
 			art[0] += " ┌─────────┐ ";
 			art[1] += String.format(" │%2s       │ ", rank);
@@ -277,28 +276,37 @@ public class Blackjack {
 			e.printStackTrace();
 		}
 	}
+	
+	public void stop() {
+		mp3_1.stop(); // 음악 중지
+		mp3_2.stop(); // 음악 중지
+		mp3_3.stop(); // 음악 중지
+		System.out.println("Blackjack 게임을 종료합니다");
+
+	}
 
 	// 승자 결정
 	public void determineWinner(List<String> dealerHand, List<String> playerHand) {
 		int dealerSum = calculateHandSum(dealerHand);
 		int playerSum = calculateHandSum(playerHand);
 
-		System.out.println("딜러 카드: " + dealerHand);
+//		System.out.println("딜러 카드: " + dealerHand);
 		System.out.println("딜러 카드 합: " + dealerSum);
-		System.out.println("플레이어 카드: " + playerHand);
+//		System.out.println("플레이어 카드: " + playerHand);
 		System.out.println("플레이어 카드 합: " + playerSum);
 
 		if (playerSum > 21) {
+			
 			playMusic3("Fail.mp3"); // 실패 효과음
 			System.out.println("플레이어가 21을 초과하여 게임에서 패배했습니다.");
 
 			account.set_totalpoint(account.get_totalpoint() - battingPoint); // 배팅
 			black_mainpage.delarwinimage(); // 딜러 이긴 이미지
-			
-			
-			
+
 			System.out.println("현재 포인트 : " + account.get_totalpoint());
+			
 		} else if (dealerSum > 21) {
+
 			System.out.println("딜러가 21을 초과하여 게임에서 승리했습니다.");
 			account.set_totalpoint(account.get_totalpoint() + battingPoint * 2);
 			System.out.println("현재 포인트 : " + account.get_totalpoint());
@@ -306,21 +314,26 @@ public class Blackjack {
 			black_mainpage.playwinimage(); // 플레이어 win 이미지
 			
 		} else if (playerSum > dealerSum) {
+
 			System.out.println("플레이어가 딜러를 이겨 게임에서 승리했습니다.");
 			account.set_totalpoint(account.get_totalpoint() + battingPoint * 2);
 			System.out.println("현재 포인트 : " + account.get_totalpoint());
 			
 			black_mainpage.playwinimage(); // 플레이어 win 이미지
 		} else if (playerSum < dealerSum) {
+			
+
 			playMusic3("Fail.mp3"); // 실패 효과음
-			System.out.println("플레이어가 딜러에게 패배하여 게임에서 패배했습니다.");
+			println("플레이어가 딜러에게 패배하여 게임에서 패배했습니다.");
 			account.set_totalpoint(account.get_totalpoint() - battingPoint); // 배팅
-			System.out.println("현재 포인트 : " + account.get_totalpoint());
+			println("현재 포인트 : " + account.get_totalpoint());
 			
 			black_mainpage.delarwinimage(); // 딜러 이긴 이미지
 			
 		} else {
-			System.out.println("게임이 비겼습니다.");
+			
+			System.out.println(battingPoint);
+			println("게임이 비겼습니다.");
 			account.set_totalpoint(account.get_totalpoint() + battingPoint);
 			
 			black_mainpage.drawimage(); // 비겼을 때 이미지
@@ -349,12 +362,12 @@ public class Blackjack {
 		}
 	}
 
-	public void stop() {
-		mp3_1.stop(); // 음악 중지
-		mp3_2.stop(); // 음악 중지
-		mp3_3.stop(); // 음악 중지
-		System.out.println("Blackjack 게임을 종료합니다");
-
+	
+	public void println(String syso) {
+		
+		System.out.println(syso);
+		
 	}
+
 
 }
