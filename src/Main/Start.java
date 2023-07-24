@@ -81,7 +81,7 @@ public class Start {
                                 fuckMain.FuckarratGameStart(account);
 
                             } else if (account.getSubPage() == GameId.CINEMAQUIZ) {
-                                CinemaQuizMain.isGameStart();
+                                CinemaQuizMain.getInstance().isGameStart();
                             } else if (account.getSubPage() == GameId.TETRIS) {
                                 D4mnAsciiTetris.gameStart();
                             }

@@ -432,7 +432,25 @@ public class CinemaAscii {
         }
     }
 
-
+    public void getExplanation() {
+        System.out.printf("\n\n\n\n\n\n\n\n");
+        System.out.println(
+                "                                               |										\n"
+                        + "                                    ___________I____________							\n"
+                        + "                                    ( _____________________ ()						\n"
+                        + "                                 _.-' |                    ||						\n"
+                        + "                             _.-'    ||    2초간 재생되는      ||						\n"
+                        + "            ______       _.-'        ||                    ||                        \n"
+                        + "           |      |_ _.-'            ||      음악을 듣고      ||                        \n"
+                        + "           |      |_|_               ||                    ||                        \n"
+                        + "           |______|   `-._           ||      영화 제목을      ||                        \n"
+                        + "               /\\          `-._      ||                    ||						\n"
+                        + "              /  \\             `-._  ||      맞춰주세요~!     ||						\n"
+                        + "             /    \\                `-.I____________________||						\n"
+                        + "            /      \\                 ------------------------						\n"
+                        + "           /________\\___________________/________________\\______					\n");
+        System.out.printf("\n\n\n\n\n\n\n\n\n\n\n");
+    }
 
     private static void println(String str) {
         System.out.println(str);
