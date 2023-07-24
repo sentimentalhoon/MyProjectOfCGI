@@ -3,21 +3,16 @@ package Game.Dain;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Account.Account;
 import Game.GameDAO.CinemaDataTable;
 import Game.GameDAO.CinemaQuizDataTable;
-import Utils.SC;
+import Main.Server;
 import javazoom.jl.player.MP3Player;
 
 public class CinemaQuizMain {
-	Account account = new Account();
 
-	public void CinamaQuizMain(Account account) {		
-		this.account = account;
-	}
-
-	public static void isGameStart() {
-		Scanner sc = SC.getScanner();
+	public static void main(String[] args) {
+		Server.getInstance().isStart();
+		Scanner sc = new Scanner(System.in);
 		// 영화들을 필드로 저장
 		ArrayList<CinemaField> cinemasList = new ArrayList<CinemaField>();
 		String comPath = "data\\song\\";
@@ -251,22 +246,11 @@ public class CinemaQuizMain {
 				if (answers(10, sc, cinemasList, mp3, comPath))
 					break;
 			}
-			// if (mp3.isPlaying()) {
-			// mp3.stop();
-			// }
-			mp3.play(comPath + "closing.mp3");
-			System.out.println();
-			System.out.println();
-			System.out.println();
+			
+			 if (mp3.isPlaying()) {
+			 mp3.stop();
+			 }
 
-			Thread.sleep(100);
-			System.out.println();
-
-			for (int i = 0; i < CinemaAscii.getInstance().getGameEndAsciiArt().length; i++) {
-				System.out.printf("\n\n\n\n\n\n\n\n\n\n\n%s\n\n\n\n\n\n\n\n\n\n\n",
-						CinemaAscii.getInstance().getGameEndAsciiArt()[i]);
-				Thread.sleep(500);
-			}
 
 			Thread.sleep(100);
 			System.out.println();
