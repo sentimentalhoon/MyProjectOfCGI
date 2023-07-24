@@ -33,6 +33,7 @@ public class Blackjack {
 	MP3Player mp3_1 = new MP3Player();
 	MP3Player mp3_2 = new MP3Player();
 	MP3Player mp3_3 = new MP3Player();
+
 	// 선언
 	Account account = new Account();
 
@@ -44,6 +45,11 @@ public class Blackjack {
 
 	public void gameStart() {
 
+		playMusic1("bj_Big_Sleep_sound_down.mp3"); // 배경음악
+		mp3_1 = null;
+		mp3_2 = null;
+		mp3_3 = null;
+
 		totalPoint = account.get_totalpoint();
 		bl = true;
 		while (bl) {
@@ -51,7 +57,6 @@ public class Blackjack {
 				break;
 
 			// 음악 재생
-			playMusic1("bj_Big_Sleep_sound_down.mp3"); // 배경음악
 
 			// 배팅
 			scoreBattingMachine();
