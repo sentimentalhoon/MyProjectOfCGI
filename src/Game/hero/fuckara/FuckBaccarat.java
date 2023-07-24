@@ -24,7 +24,9 @@ public class FuckBaccarat {
 	static String comPath = "data\\song\\BlackjackSong\\"; // 블랙잭 음악 파일 경로
 
 	Account account = new Account();
-
+	
+	fuckText text = new fuckText();
+	
 	// 랜덤으로 돌린 카드 입력받을 ArrayList 배열
 	private ArrayList<FuckCard> playerCards = new ArrayList<FuckCard>();
 	private ArrayList<FuckCard> bankerCards = new ArrayList<FuckCard>();
@@ -193,6 +195,7 @@ public class FuckBaccarat {
 		playMusic1("minifi.mp3");
 		totalPoint = account.get_totalpoint();
 		bl = true;
+		
 		while (bl) {
 			if (!ssd())
 				break;
@@ -234,8 +237,6 @@ public class FuckBaccarat {
 
 		stop();
 		musicStop();
-		musicStop();
-		musicStop();
 		account.set_totalpoint(totalPoint);
 		Account.updateTotalPoint(account);
 
@@ -243,20 +244,22 @@ public class FuckBaccarat {
 
 	public void stop() {
 		System.out.println("Baccarat 게임을 종료합니다");
+		System.out.println();
 
 	}
 
-	public void test2() {
-		System.out.println();
-		for (int i = 0; i < 13; i++) {
-			System.out.print(cardNum[i] + "\t");
-		}
-		System.out.println();
-		for (int i = 0; i < 13; i++) {
-			System.out.print(cardNumString[i] + "\t");
-		}
-		System.out.println();
-	}
+	// 테스트용 메서드
+//	public void test2() {
+//		System.out.println();
+//		for (int i = 0; i < 13; i++) {
+//			System.out.print(cardNum[i] + "\t");
+//		}
+//		System.out.println();
+//		for (int i = 0; i < 13; i++) {
+//			System.out.print(cardNumString[i] + "\t");
+//		}
+//		System.out.println();
+//	}
 
 	// 음악을 재생하는 메소드
 	public void playMusic1(String songName) {

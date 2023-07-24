@@ -3,10 +3,10 @@ package Game.Dain;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Account.Account;
 import Game.GameDAO.CinemaDataTable;
 import Game.GameDAO.CinemaQuizDataTable;
 import Main.Server;
-<<<<<<< HEAD
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
@@ -31,15 +31,6 @@ public class CinemaQuizMain {
 	public void isGameStart() {
 		Server.getInstance().isStart();
 		Scanner sc = SC.getScanner();
-=======
-import javazoom.jl.player.MP3Player;
-
-public class CinemaQuizMain {
-
-	public static void main(String[] args) {
-		Server.getInstance().isStart();
-		Scanner sc = new Scanner(System.in);
->>>>>>> refs/remotes/origin/main
 		// 영화들을 필드로 저장
 		ArrayList<CinemaField> cinemasList = new ArrayList<CinemaField>();
 		String comPath = "data\\song\\cinema\\";
@@ -103,141 +94,6 @@ public class CinemaQuizMain {
 			if (mp3.isPlaying()) {
 				mp3.stop();
 			}
-<<<<<<< HEAD
-=======
-			questions(4);
-			while (true) {
-				int playMusic = inputNum(sc);
-				if (playMusic == 1) {
-					mp3.play(cinemasList.get(3).getMovieSongFileName());
-				} else if (playMusic == 2) {
-					CinemaAscii.getInstance().getCinemaPosterAsciiArt(4);
-				} else if (playMusic == 3) {
-					mp3.play(comPath + "04_other.mp3");
-				} else if (playMusic == 4) {
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-					break;
-				}
-				if (answers(4, sc, cinemasList, mp3, comPath))
-					break;
-			}
-			questions(5);
-			while (true) {
-				int playMusic = inputNum(sc);
-				if (playMusic == 1) {
-					mp3.play(cinemasList.get(4).getMovieSongFileName());
-				} else if (playMusic == 2) {
-					CinemaAscii.getInstance().getCinemaPosterAsciiArt(5);
-				} else if (playMusic == 3) {
-					mp3.play(comPath + "05_other.mp3");
-				} else if (playMusic == 4) {
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-					break;
-				}
-				if (answers(5, sc, cinemasList, mp3, comPath))
-					break;
-			}
-			questions(6);
-			while (true) {
-				int playMusic = inputNum(sc);
-				if (playMusic == 1) {
-					mp3.play(cinemasList.get(5).getMovieSongFileName());
-				} else if (playMusic == 2) {
-					CinemaAscii.getInstance().getCinemaPosterAsciiArt(6);
-				} else if (playMusic == 3) {
-					mp3.play(comPath + "06_other.mp3");
-				} else if (playMusic == 4) {
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-					break;
-				}
-				if (answers(6, sc, cinemasList, mp3, comPath))
-					break;
-			}
-			questions(7);
-			while (true) {
-				int playMusic = inputNum(sc);
-				if (playMusic == 1) {
-					mp3.play(cinemasList.get(6).getMovieSongFileName());
-				} else if (playMusic == 2) {
-					CinemaAscii.getInstance().getCinemaPosterAsciiArt(7);
-				} else if (playMusic == 3) {
-					mp3.play(comPath + "07_other.mp3");
-				} else if (playMusic == 4) {
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-					break;
-				}
-				if (answers(7, sc, cinemasList, mp3, comPath))
-					break;
-			}
-			questions(8);
-			while (true) {
-				int playMusic = inputNum(sc);
-				if (playMusic == 1) {
-					mp3.play(cinemasList.get(7).getMovieSongFileName());
-				} else if (playMusic == 2) {
-					CinemaAscii.getInstance().getCinemaPosterAsciiArt(8);
-				} else if (playMusic == 3) {
-					mp3.play(comPath + "08_other.mp3");
-				} else if (playMusic == 4) {
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-					break;
-				}
-				if (answers(8, sc, cinemasList, mp3, comPath))
-					break;
-			}
-			questions(9);
-			while (true) {
-				int playMusic = inputNum(sc);
-				if (playMusic == 1) {
-					mp3.play(cinemasList.get(8).getMovieSongFileName());
-				} else if (playMusic == 2) {
-					CinemaAscii.getInstance().getCinemaPosterAsciiArt(9);
-				} else if (playMusic == 3) {
-					mp3.play(comPath + "09_other.mp3");
-				} else if (playMusic == 4) {
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-					break;
-				}
-				if (answers(9, sc, cinemasList, mp3, comPath))
-					break;
-			}
-			questions(10);
-			while (true) {
-				int playMusic = inputNum(sc);
-				if (playMusic == 1) {
-					mp3.play(cinemasList.get(9).getMovieSongFileName());
-				} else if (playMusic == 2) {
-					CinemaAscii.getInstance().getCinemaPosterAsciiArt(10);
-				} else if (playMusic == 3) {
-					mp3.play(comPath + "10_other.mp3");
-				} else if (playMusic == 4) {
-					System.out.println("     다음 문제로 넘어갑니다...     ");
-					break;
-				}
-				if (answers(10, sc, cinemasList, mp3, comPath))
-					break;
-			}
-			
-			 if (mp3.isPlaying()) {
-			 mp3.stop();
-			 }
-
-
-			Thread.sleep(100);
-			System.out.println();
-			Thread.sleep(100);
-			System.out.println();
-			Thread.sleep(100);
-			System.out.println();
-			Thread.sleep(100);
-			System.out.println();
-			Thread.sleep(100);
-			System.out.println();
-			Thread.sleep(100);
-			System.out.println();
-			Thread.sleep(100);
->>>>>>> refs/remotes/origin/main
-
 			System.out.println(
 					"       ================================================================================================================\n");
 			Thread.sleep(200);

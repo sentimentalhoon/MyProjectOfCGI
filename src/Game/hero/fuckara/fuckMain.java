@@ -7,9 +7,11 @@ public class fuckMain {
 
 	public static void FuckarratGameStart(Account account) {
 
+		fuckText text = new fuckText();
+		
 		FuckBaccarat card = new FuckBaccarat(account);
 		while (true) {
-			
+			text.mainPage();
 			System.out.println("===== Welcome to Baccarat Game ======");
 			System.out.println("[1] 게임 시작 [2] 게임 종료");
 			int select = SC.getScanner().nextInt();
