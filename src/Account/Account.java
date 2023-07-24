@@ -52,7 +52,9 @@ public class Account {
 	public boolean isValid() {
 		return _isValid;
 	}
-	
+	public void setValid(Boolean b){
+		_isValid = b;
+	}
 	public int get_totalpoint() {
 		return _totalpoint;
 	}

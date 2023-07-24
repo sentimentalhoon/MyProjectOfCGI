@@ -45,7 +45,9 @@ public class Start {
                         PageHandler.handlePage(account, PageId.CREATEACCOUNT, account.getName());
                         account.setPages(PageId.LOGIN);
                     } else {
-                        account = PageHandler.handlePage(account, PageId.LOGIN, accountName);
+                        //account = PageHandler.handlePage(account, PageId.LOGIN, accountName);
+                        account.set_totalpoint(1000);
+                        account.setValid(true);
                         if (account.isValid())
                             account.setPages(PageId.MAIN);
                     }
