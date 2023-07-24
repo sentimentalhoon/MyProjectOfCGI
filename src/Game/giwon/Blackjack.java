@@ -42,7 +42,7 @@ public class Blackjack {
 	public void gameStart() {
 
 //	    // 데이터베이스 연결
-		Server.createServer().start();
+		Server.getInstance();
 
 		// 음악 재생
 		playMusic("bj_Big Sleep.mp3"); // 배경음악
