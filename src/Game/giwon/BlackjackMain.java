@@ -6,10 +6,18 @@ import Utils.SC;
 public class BlackjackMain {
 
 	public static void BlackGameStart(Account account) {
+		
+		
+		
+		
+		Blackjack_text_image black_mainpage = new Blackjack_text_image();
 
 		Blackjack card = new Blackjack(account);
 		account.getName();
 		while (true) {
+			
+			
+			black_mainpage.b_mainpage();
 
 			System.out.println("===== Welcome to Blackjack Game ======");
 			System.out.println("[1] 게임 시작 [2] 게임 종료");
