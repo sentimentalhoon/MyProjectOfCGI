@@ -4,31 +4,35 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import Utils.SC;
+import javazoom.jl.player.MP3Player;
+
 
 public class FuckBaccarat {
 	
 	// 계산할 정수형 카드, 출력할 문자형 숫자카드, 출력할 카드 문양
 	private int[] cardNum = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10 };
 	private String[] cardNumString = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-	private String[] cardShape = { "♥", "◆", "♣", "♠" };
+	private String[] cardShape = { "♥", "♦", "♣", "♠" };
 	boolean bl = true;
 	// 점수
 	private int totalPoint = 100;
 	private int battingPoint;
+	static MP3Player mp3 = new MP3Player();
+	static String comPath = "data\\song\\"; // 블랙잭 음악 파일 경로
 	// 랜덤으로 돌린 카드 입력받을 ArrayList 배열
 	private ArrayList<FuckCard> playerCards = new ArrayList<FuckCard>();
 	private ArrayList<FuckCard> bankerCards = new ArrayList<FuckCard>();
 	
 	private int winnerSelect;
 	Random rd = new Random();
-	Scanner sc = new Scanner(System.in);
 	
 	public void scoreBattingMachine() {
 		while(true) {
 			System.out.println("배팅할 포인트를 입력해주세요.");
 			System.out.println("현재 포인트 : "+totalPoint);
 			System.out.print("배팅할 포인트 : ");
-			battingPoint = sc.nextInt();
+			battingPoint = SC.getScanner().nextInt();
 			if(battingPoint <= totalPoint) {
 				totalPoint -= battingPoint;
 				break;
@@ -79,7 +83,7 @@ public class FuckBaccarat {
 	public void winnerSelect() {
 		System.out.println("배팅을 진행합니다.");
 		System.out.println("[1] Player" + "\t" + "[2] Banker");
-		winnerSelect = sc.nextInt();
+		winnerSelect = SC.getScanner().nextInt();
 		if (winnerSelect == 1) {
 			System.out.println(" 'Player' 를 선택하셨습니다!");
 		} else if (winnerSelect == 2) {
@@ -116,8 +120,10 @@ public class FuckBaccarat {
 			System.out.println(totalPlayer + "Player 우승!");
 			if(winnerSelect == 1) {
 				totalPoint += battingPoint*2;
+				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			}else {
+				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			}
 			
@@ -125,8 +131,10 @@ public class FuckBaccarat {
 			System.out.println(totalBanker + "Banker 우승!");
 			if(winnerSelect == 2) {
 				totalPoint += battingPoint*2;
+				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			}else {
+				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			}
 		}
@@ -147,7 +155,7 @@ public class FuckBaccarat {
 			String select2 = "no";
 			String choice;
 			System.out.println("게임을 계속 하시겠습니까? [Yes] or [no] 중 하나를 입력해주세요");
-			choice = sc.next();
+			choice = SC.getScanner().next();
 			if (choice.equalsIgnoreCase(select1)) {
 				System.out.println("게임을 계속 진행합니다.");
 				return true;
@@ -171,9 +179,11 @@ public class FuckBaccarat {
 	
 	// 게임진행 메인 메서드
 	public void gameStart() {
+		playMusic("minifi.mp3");
 		
 		while (bl) {
 			if(!ssd()) break;
+			
 			listClear();
 			System.out.println("Baccarat 게임을 시작합니다!");
 			scoreBattingMachine();
@@ -184,25 +194,25 @@ public class FuckBaccarat {
 			bankerCards.add(cardDraw());
 			
 			//첫번째 뽑은 카드 텍스트 출력
+			playMusic("bj_Card_Sound_Effects.mp3");
 			CardImage( playerCards.get(0),"Player" );
 			CardImage( bankerCards.get(0),"Banker" );
 			
 			//뽑은 카드 출력
 //			cardOutput1();
-			
 			//두번째 카드 뽑기
 			shuffle();
 			playerCards.add(cardDraw());
 			shuffle();
 			bankerCards.add(cardDraw());
 			
-			
+			System.out.println();
 			winnerSelect();
 			//두번째 뽑은 카드 텍스트 출력
+			playMusic("bj_Card_Sound_Effects.mp3");
 			CardImage(playerCards.get(0), playerCards.get(1), "Player");
 			CardImage(bankerCards.get(0), bankerCards.get(1), "Banker");
 //			cardOutput2();
-			
 			winner();
 			
 			bl = choiceEnd();
@@ -227,6 +237,24 @@ public class FuckBaccarat {
 		}
 		System.out.println();
 	}
+	
+	// 음악을 재생하는 메소드
+		public static void playMusic(String songName) {
+			try {
+				mp3 = new MP3Player();
+				mp3.play(comPath + songName);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public void musicStop() {
+			mp3.stop(); // 음악 중지
+
+		}
+		
+	
 	
 	public void CardImage(FuckCard card, String name) {
 		System.out.println();
