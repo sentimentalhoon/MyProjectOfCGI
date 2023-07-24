@@ -3,6 +3,7 @@ package Game.miniproject_mom;
 import java.util.Scanner;
 
 import Account.Account;
+import Game.giwon.BlackjackMain;
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
 
@@ -27,7 +28,7 @@ public class MomMain {
 		MP3Player mp3 = new MP3Player();
 		MomAscii m = new MomAscii();
 
-		mp3.play(comPath + "closing.mp3");
+		mp3.play(comPath + "gameOpening.mp3");
 
 		int pickWeapon = 0;
 		int pickClass = 0;
@@ -38,13 +39,14 @@ public class MomMain {
 		people Paladin = new people("Paladin", 2500, "빛의심판");
 		people Human = new people("Human", 1500, "용감무쌍");
 
+		mp3.play(comPath+"gogogame.mp3");
 		try {
 
 			System.out.printf("\n\n");
 			System.out.print(
 					" 		==============================================================================\r\n");
 			Thread.sleep(200);
-			System.out.printf("\n\n\n\n"); // 슈카월드 배경음악 뜨뜨른뜨르~!
+			System.out.printf("\n\n\n\n");
 			System.out.println(m.gameTitle());
 			System.out.printf("\n\n");
 			Thread.sleep(200);
@@ -77,6 +79,10 @@ public class MomMain {
 			// 로그인
 
 			// 게임 시작
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"gameOpening.mp3");
 			System.out.println("		게임을 시작하시겠습니까?");
 			System.out.println("		[1] 네				[2] 아니오");
 			int gameStart = sc.nextInt();
@@ -92,7 +98,7 @@ public class MomMain {
 			Thread.sleep(200);
 			System.out.println("			평화로운 일요일 오후");
 			Thread.sleep(200);
-			System.out.println("			[나] 오늘은 비도 온다는데 집에서 겜이나 한판 해야 겠다"); // 괄호 안에 ""넣는법
+			System.out.println("			[나] 오늘은 비도 온다는데 집에서 겜이나 한판 해야 겠다"); 
 			System.out.println();
 			Thread.sleep(200);
 			System.out.println("			넘어가기 [0] ");
@@ -125,7 +131,7 @@ public class MomMain {
 			} else if (c1e2 == 2) {
 			}
 
-			// 나갈 준비
+			// 무기선택
 			Thread.sleep(1000);
 			System.out.println("			(주섬 주섬) 나갈 준비를 한다. 뭘 가지고 갈까? ");
 			System.out.println("			[1] 우산 [2] 건틀렛 [3] ? [4] 해골검");
@@ -138,7 +144,7 @@ public class MomMain {
 				System.out.println(m.umbrella());
 				System.out.println("\n\n");
 				System.out.println();
-				System.out.println("			[비닐우산]을 챙겼다. "); // 비오면
+				System.out.println("			[비닐우산]을 챙겼다. "); 
 			} else if (c1e4 == 2) {
 				pickWeapon = 2;
 
@@ -146,7 +152,7 @@ public class MomMain {
 				System.out.println(m.gauntlet());
 				System.out.println("\n\n");
 				System.out.println();
-				System.out.println("			[건틀렛]을 챙겼다."); // 깡패 만나면 크리티컬
+				System.out.println("			[건틀렛]을 챙겼다."); 
 			} else if (c1e4 == 3) {
 				pickWeapon = 3;
 				System.out.println("			[?]를 골랐다. 뭐가 나올까....");
@@ -159,7 +165,7 @@ public class MomMain {
 				System.out.println("\n\n");
 				System.out.println();
 				System.out.println("			[광선검]이 나왔다! ");
-				System.out.println("			[광선검]을 챙겼다. "); // 드래곤 마주치면 크리티컬
+				System.out.println("			[광선검]을 챙겼다. "); 
 			} else if (c1e4 == 4) {
 				pickWeapon = 4;
 
@@ -167,7 +173,7 @@ public class MomMain {
 				System.out.println(m.sword());
 				System.out.println("\n\n");
 				System.out.println();
-				System.out.println("			[해골검]을 챙겼다. "); // 드래곤 마주치면 크리티컬
+				System.out.println("			[해골검]을 챙겼다. "); 
 
 			}
 
@@ -177,8 +183,7 @@ public class MomMain {
 			int c1e5 = sc.nextInt();
 			if (c1e5 == 0) {
 			}
-			// 노래 선택
-
+			
 			System.out.println("\n\n");
 			System.out.println(m.headphone());
 			System.out.println("\n\n");
@@ -186,22 +191,37 @@ public class MomMain {
 			System.out.println("			헤드폰을 착용한다. 무슨 노래를 들을까? ");
 			System.out.println("			[1] 헤비메탈     [2] 케이팝     [3] 아이유     [4] 힙합 ");
 			int c1e6 = sc.nextInt();
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
 			if (c1e6 == 1) {
-				// play. 헤비메탈 : Blihne Channel - Over My Deadbody 12초부터 재생
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"heavymetal.mp3");
 				System.out.println("			♩	♪	♬ 둠 칫 둠 칫 ~ ♩	♪	♬ ");
 				System.out.println("			음악은 역시 헤비메탈이지~ 기운 솟아난다!! ");
 			} else if (c1e6 == 2) {
-				// play. 케이팝 : 오마이걸 - Dun Dun Dance 시작부분부터 재생
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"kpop.mp3");
 				System.out.println("			♩	♪	♬ 둠 칫 둠 칫 ~ ♩	♪	♬ ");
 				System.out.println("			국뽕 케이팝이 최고야~ 너무 좋아서 춤이 절로 나오네");
 			} else if (c1e6 == 3) {
-				// play. 아이유 : 아이유 - 라일락 후렴구부터 재생
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"iu.mp3");
 				System.out.println("			♩	♪	♬ 둠 칫 둠 칫 ~ ♩	♪	♬ ");
 				System.out.println("			역시 음악은 아이유지~ 킹정~?");
 			} else if (c1e6 == 4) {
-				// play. 힙합 : 창모 - 메테오 시작부분부터 재생
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"hiphop.mp3");
 				System.out.println("			♩	♪	♬ 둠 칫 둠 칫 ~ ♩	♪	♬ ");
-				System.out.println("			역시 국힙원탑.. 요즘 활동 안하남...  ");
+				System.out.println("			역시 힙합원탑.. 요즘 활동 안하남...  ");
 			} else {
 
 			}
@@ -245,6 +265,10 @@ public class MomMain {
 			if (c2e1 == 1) {
 				System.out.println("			쯧쯧... 고얀놈... 요즘 것들은....");
 			} else if (c2e1 == 2) {
+				if(mp3.isPlaying()) {
+					mp3.stop();
+				}
+				mp3.play(comPath+"gogogame.mp3");
 				System.out.println("			[미니게임1] 할머니 도와드리기 - 10초에 가깝게 엔터치기! ");
 
 				// 미니게임1. 10초에 가깝게 엔터치기 (할머니 도와드리기)
@@ -319,8 +343,16 @@ public class MomMain {
 			System.out.println();
 			System.out.println("			[영웅이] 아.... 말투 진짜 킹받네.... 내가 꼭 잡아 주마!");
 			Thread.sleep(200);
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"gogogame.mp3");
 			System.out.println("			[미니게임2] 도둑잡기 챌린지 - 행운의 블랙잭!");
 
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			BlackjackMain.BlackGameStart(_account);
 			// 이겼으면 [경찰] "아니 이걸 해내다니..... ?"
 			// 졌으면 [경찰] "오늘도 허탕이군.. "
 
@@ -332,7 +364,10 @@ public class MomMain {
 			}
 
 			///////////////////////////////////// chapter.4 아름다운 강변에서
-
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"gameOpening.mp3");
 			System.out.println("\n\n");
 			System.out.println(m.firework());
 			System.out.println("\n\n");
@@ -378,6 +413,10 @@ public class MomMain {
 			Thread.sleep(1000);
 			System.out.println("			[인프제] 아... (슈발) 엔프피 김영웅때문에 기빨린다.... 빨리 집에 가고 싶은데(흑흑)");
 			Thread.sleep(1000);
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"gogogame.mp3");
 			System.out.println("			[미니게임3] 친구랑 설득해서 같이 마트 가기~! - 친구가 좋아하는 영화맞추기 !!");
 			Thread.sleep(1000);
 			System.out.println();
@@ -514,7 +553,10 @@ public class MomMain {
 			System.out.println("			[할머니] 돈 없어? 특별히 기회를 주지... ");
 			Thread.sleep(500);
 			System.out.println();
-			System.out.println("			[미니게임4] 가위바위보 or 바카라 - 이겨서 할머니께 용돈을 받아라!! ");
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			System.out.println("			[미니게임4] 바카라 - 이겨서 할머니께 용돈을 받아라!! ");
 
 			// 아까 할머니 도와드렸으면 할머니가 용돈 준다
 			// [할머니] 아까는 고마웠네. 옛다 용돈 5만원 FLEX~"
@@ -553,6 +595,9 @@ public class MomMain {
 			Thread.sleep(500);
 			System.out.println("			[불량배] 뒤져서 나오면 100원에 한대씩이다 ");
 			Thread.sleep(500);
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
 			System.out.println("			[미니게임5] 불량배와 진검승부 - 가위바위보게임 !! ");
 			System.out.println();
 			Thread.sleep(500);
