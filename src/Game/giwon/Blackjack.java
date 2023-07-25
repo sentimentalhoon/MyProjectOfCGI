@@ -17,7 +17,6 @@ import javazoom.jl.player.MP3Player;
 */
 
 public class Blackjack {
-	
 
 	// 음악 넣기
 	static MP3Player mp3 = new MP3Player();
@@ -41,7 +40,6 @@ public class Blackjack {
 	public Blackjack(Account account) {
 		this.account = account;
 	}
-
 
 	public void gameStart() {
 
@@ -78,7 +76,9 @@ public class Blackjack {
 			bl = choiceEnd();
 			stop();
 
+
 		}
+
 	}
 
 //남은 포인트 없을 때
@@ -100,7 +100,7 @@ public class Blackjack {
 			System.out.print("배팅할 포인트 : ");
 			battingPoint = SC.getScanner().nextInt();
 			if (battingPoint <= totalPoint) {
-				totalPoint -= battingPoint;
+				account.set_totalpoint(account.get_totalpoint() - battingPoint);
 				break;
 			} else {
 				System.out.println("배팅 금액이 넘었습니다.");
@@ -289,16 +289,16 @@ public class Blackjack {
 	}
 
 	public void stop() {
-        // 음악이 null이 아닌 경우에만 stop() 메서드 호출
-        if (mp3_1 != null) {
-            mp3_1.stop();
-        }
-        if (mp3_2 != null) {
-            mp3_2.stop();
-        }
-        if (mp3_3 != null) {
-            mp3_3.stop();
-        }
+		// 음악이 null이 아닌 경우에만 stop() 메서드 호출
+		if (mp3_1 != null) {
+			mp3_1.stop();
+		}
+		if (mp3_2 != null) {
+			mp3_2.stop();
+		}
+		if (mp3_3 != null) {
+			mp3_3.stop();
+		}
 
 	}
 
@@ -388,10 +388,6 @@ public class Blackjack {
 			}
 		}
 	}
-	
-    
-        
-    
 
 	public void println(String syso) {
 
