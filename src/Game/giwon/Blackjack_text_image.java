@@ -8,8 +8,7 @@ public class Blackjack_text_image {
 
 		ArrayList<String> arr_image = new ArrayList<String>();
 
-		String blackgame =
-				"⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿b"
+		String blackgame = "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿b"
 				+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿b"
 				+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠉⢉⡉⠙⢿⣿⡀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⡀⢰⣿⣿⣿⣿⡏⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⡀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿b"
 				+ "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⢸⣿⡄⢸⣿⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸⣿⣿⣿⣿⣷⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿b"
@@ -58,7 +57,6 @@ public class Blackjack_text_image {
 
 	}
 
-	
 	// playwin 이미지
 	public void playwinimage() {
 		System.out.println("\r\n" + "██████╗ ██╗      █████╗ ██╗   ██╗███████╗██████╗     ██╗    ██╗██╗███╗   ██╗\r\n"
@@ -71,7 +69,6 @@ public class Blackjack_text_image {
 
 	}
 
-	
 	// delarwin 이미지
 	public void delarwinimage() {
 
@@ -86,9 +83,6 @@ public class Blackjack_text_image {
 
 	}
 
-	
-	
-	
 	// draw 이미지
 	public void drawimage() {
 		System.out.println("██████╗ ██████╗  █████╗ ██╗    ██╗\r\n" + "██╔══██╗██╔══██╗██╔══██╗██║    ██║\r\n"
@@ -97,30 +91,130 @@ public class Blackjack_text_image {
 				+ "                                  ");
 
 	}
-	
-	
-	//welcome game 이미지
-	public void walcom() {
-		System.out.println("                      ___                                                                                               \r\n"
-				+ "                     /\\_ \\                                                                                              \r\n"
-				+ " __  __  __     __   \\//\\ \\      ___     ___     ___ ___       __                 __        __       ___ ___       __   \r\n"
-				+ "/\\ \\/\\ \\/\\ \\  /'__`\\   \\ \\ \\    /'___\\  / __`\\ /' __` __`\\   /'__`\\             /'_ `\\    /'__`\\   /' __` __`\\   /'__`\\ \r\n"
-				+ "\\ \\ \\_/ \\_/ \\/\\  __/    \\_\\ \\_ /\\ \\__/ /\\ \\L\\ \\/\\ \\/\\ \\/\\ \\ /\\  __/            /\\ \\L\\ \\  /\\ \\L\\.\\_ /\\ \\/\\ \\/\\ \\ /\\  __/ \r\n"
-				+ " \\ \\___x___/'\\ \\____\\   /\\____\\\\ \\____\\\\ \\____/\\ \\_\\ \\_\\ \\_\\\\ \\____\\           \\ \\____ \\ \\ \\__/.\\_\\\\ \\_\\ \\_\\ \\_\\\\ \\____\\\r\n"
-				+ "  \\/__//__/   \\/____/   \\/____/ \\/____/ \\/___/  \\/_/\\/_/\\/_/ \\/____/            \\/___L\\ \\ \\/__/\\/_/ \\/_/\\/_/\\/_/ \\/____/\r\n"
-				+ "                                                                                  /\\____/                               \r\n"
-				+ "                                                                                  \\_/__/                                ");
 
-		
+	// welcome game 이미지
+	public void walcom() {
+		System.out.println(
+				"                      ___                                                                                               \r\n"
+						+ "                     /\\_ \\                                                                                              \r\n"
+						+ " __  __  __     __   \\//\\ \\      ___     ___     ___ ___       __                 __        __       ___ ___       __   \r\n"
+						+ "/\\ \\/\\ \\/\\ \\  /'__`\\   \\ \\ \\    /'___\\  / __`\\ /' __` __`\\   /'__`\\             /'_ `\\    /'__`\\   /' __` __`\\   /'__`\\ \r\n"
+						+ "\\ \\ \\_/ \\_/ \\/\\  __/    \\_\\ \\_ /\\ \\__/ /\\ \\L\\ \\/\\ \\/\\ \\/\\ \\ /\\  __/            /\\ \\L\\ \\  /\\ \\L\\.\\_ /\\ \\/\\ \\/\\ \\ /\\  __/ \r\n"
+						+ " \\ \\___x___/'\\ \\____\\   /\\____\\\\ \\____\\\\ \\____/\\ \\_\\ \\_\\ \\_\\\\ \\____\\           \\ \\____ \\ \\ \\__/.\\_\\\\ \\_\\ \\_\\ \\_\\\\ \\____\\\r\n"
+						+ "  \\/__//__/   \\/____/   \\/____/ \\/____/ \\/___/  \\/_/\\/_/\\/_/ \\/____/            \\/___L\\ \\ \\/__/\\/_/ \\/_/\\/_/\\/_/ \\/____/\r\n"
+						+ "                                                                                  /\\____/                               \r\n"
+						+ "                                                                                  \\_/__/                                ");
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//블랙잭 설명
+	public void explanation() {
+
+		System.out.println("     _____ _____ _____ _____ _____ ");
+		System.out.println("    |   | |   __|  |  |   __| __  |");
+		System.out.println("    | | | |   __|  |  |   __|    -|");
+		System.out.println("    |_|___|_____|\\___/|_____|__|__|");
+		System.out.println("    ┌────────────────────────────────────────────┐");
+		System.out.println("    │⌕ 블 랙 잭  ⌫                                │");
+		System.out.println("    └────────────────────────────────────────────┘");
+		System.out.println();
+		System.out.println("     ▶Tree 위키");
+		System.out.println("     ┌────────────────────────────────────────────────────┐");
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("      ● 승리 조건은 카드 숫자 총합이 '21'에 가까운 유저가 승리하는 게임이다.");
+		System.out.println();
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("      ● 카드조건은 J, Q, K 는 '10'의 값을 가진다.");
+		System.out.println();
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("      ● 'A(에이스)'는 카드 숫자 총합 21을 초과하면 '1'의 숫자를 가진다.");
+		System.out.println();
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("      ● 21 이하라면 '11'의 숫자를 가진다. ");
+		System.out.println("     └────────────────────────────────────────────────────┘");
+		System.out.println();
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("     _____ _____ _____ _____ _____ ");
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("    |   | |   __|  |  |   __| __  |");
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("    | | | |   __|  |  |   __|    -|");
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("    |_|___|_____|\\___/|_____|__|__|");
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("    ┌────────────────────────────────────────────┐");
+		System.out.println("    │⌕ 블 랙 잭   진 행   방 법  ⌫                  │");
+		System.out.println("    └────────────────────────────────────────────┘");
+		System.out.println("    ▶Tree 위키");
+		System.out.println("    ┌────────────────────────────────────────────────────┐");
+
+		System.out.println("     ● 처음 ID에 저장되어있는 TOTAL POINT (배팅값) 을 보여주고 ");
+		System.out.println("       배팅 값을 입력한다.");
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println();
+		System.out.println("     ● 딜러 카드는 한장만 보여주고 플레이어 카드는 먼저 2장 뽑고");
+		System.out.println("       21 초과가 될때까지 카드를 뽑을 수 있다.");
+		System.out.println();
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("     ● 플레이어 카드는 먼저 2장 뽑고 21 초과가 될때까지 카드를 뽑을 수 있다.");
+		System.out.println();
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("     ● 아니면 N을 입력해 더이상 카드를 뽑지 않는다.");
+		System.out.println("    └────────────────────────────────────────────────────┘");
+		System.out.println();
+		System.out.println();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
