@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Account.Account;
+import Game.BH.MatchTheSong.MatchTheSong;
 import Game.Dain.CinemaField;
 import Game.Dain.CinemaQuizMain;
 import Game.giwon.BlackjackMain;
@@ -32,8 +33,8 @@ public class MomMain {
 		MP3Player mp3 = new MP3Player();
 		MomAscii m = new MomAscii();
 		ArrayList<CinemaField> cinemasList = new ArrayList<CinemaField>();
-		
 
+		
 		int pickWeapon = 0;
 		int pickClass = 0;
 		people p = new people();
@@ -138,7 +139,7 @@ public class MomMain {
 			// 무기선택
 			Thread.sleep(1000);
 			System.out.println("			(주섬 주섬) 나갈 준비를 한다. 뭘 가지고 갈까? ");
-			System.out.println("			[1] 우산 [2] 건틀렛 [3] ? [4] 해골검");
+			System.out.println("			[1] 우산 		[2] 건틀렛 	[3] ? 	[4] 해골검");
 
 			int c1e4 = sc.nextInt();
 			if (c1e4 == 1) {
@@ -274,7 +275,7 @@ public class MomMain {
 					mp3.stop();
 				}
 				mp3.play(comPath+"gogogame.mp3");
-				System.out.println("			[미니게임1] 할머니 도와드리기 - 5초에 가깝게 엔터치기! ");
+				System.out.println("			[미니게임1] 할머니 도와드리기 - 3초에 가깝게 엔터치기! ");
 
 				// 미니게임1. 10초에 가깝게 엔터치기 (할머니 도와드리기)
 
@@ -289,7 +290,7 @@ public class MomMain {
 				sc.nextLine();
 				a = System.currentTimeMillis();
 
-				System.out.println("			5초가 된 것 같으면 <Enter>를 누르세요.");
+				System.out.println("			3초가 된 것 같으면 <Enter>를 누르세요.");
 				sc.nextLine();
 				b = System.currentTimeMillis();
 
@@ -362,7 +363,10 @@ public class MomMain {
 				mp3.stop();
 			}
 			int beforeScore = account.get_totalpoint();
-			BlackjackMain.BlackGameStart(_account);
+			try {
+				BlackjackMain.BlackGameStart(_account);				
+			} catch (Exception e) {				
+			}
 			if(account.get_totalpoint()>beforeScore) {
 				
 				System.out.println("[도둑] 을 잡았다! ");
@@ -447,7 +451,11 @@ public class MomMain {
 			}
 			
 			int beforeScore1 = account.get_totalpoint();
-			CinemaQuizMain.getInstance().isGameStart(account);
+			try {
+				CinemaQuizMain.getInstance().isGameStart(account);				
+			} catch (Exception e) {
+				
+			}
 			if(account.get_totalpoint()>beforeScore1) {
 				System.out.println("\n\n");
 				System.out.println("\n\n");
@@ -602,7 +610,10 @@ public class MomMain {
 			sc.nextInt();
 			beforeScore = account.get_totalpoint();
 			
-			fuckMain.FuckarratGameStart(account);
+			try {
+				fuckMain.FuckarratGameStart(account);				
+			} catch(Exception e) {				
+			}
 			
 			if (account.get_totalpoint() > beforeScore) {
 				System.out.println("[할머니] 옛다!! 기분이다!! 5만원 쾌척");				
@@ -653,7 +664,10 @@ public class MomMain {
 			// 아까 도둑 잡았으면(블랙잭 이겼으면) 경찰이 나타나서 도와준다
 			// 아까 도둑 못잡았으면 
 			// 미니게임5. 노래맞추기
-			
+			try {
+				MatchTheSong.getInstance().gameStart(account);				
+			} catch (Exception e) {				
+			}
 			
 			System.out.println("			넘어가기 [0] ");
 			sc.nextInt();
@@ -848,6 +862,7 @@ public class MomMain {
 
 					int myhp = Druid.getHp();
 					int drahp = Drakaina.getHp();
+
 					System.out.println("			==========[드라카이나]의 공격==========");
 					System.out.println();
 					System.out.println("			[1] 일반공격                   [2] 크리티컬 ");
@@ -855,6 +870,7 @@ public class MomMain {
 					Thread.sleep(200);
 					if (pickdra == 1) {
 						System.out.println(p.fireRage());
+						mp3.play(comPath+"dragon.mp3");
 						myhp -= 300;
 						Druid.setHp(myhp);
 						System.out.println();
@@ -864,6 +880,7 @@ public class MomMain {
 
 					} else if (pickdra == 2) {
 						System.out.println(p.thunderLightening());
+						mp3.play(comPath+"thunder.mp3");
 						myhp -= 500;
 						Druid.setHp(myhp);
 						System.out.println();
@@ -883,21 +900,25 @@ public class MomMain {
 
 						if (pickWeapon == 1) {
 							System.out.println(p.umbAttack());
+							mp3.play(comPath+"umbrella.mp3");
 							drahp -= 100;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 2) {
 							System.out.println(p.gaunAttack());
+							mp3.play(comPath+"fistpunch.mp3");
 							drahp -= 200;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 3) {
 							System.out.println(p.lightAttack());
+							mp3.play(comPath+"lightsaver.mp3");
 							drahp -= 300;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 4) {
 							System.out.println(p.swordAttack());
+							mp3.play(comPath+"swordAttack.mp3");
 							drahp -= 250;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
@@ -910,6 +931,7 @@ public class MomMain {
 						System.out.println();
 					} else if (pickattack == 2) {
 						System.out.println(p.druidAttack());
+						mp3.play(comPath+"druid.mp3");
 						int hp = Drakaina.getHp() - 1000;
 						Drakaina.setHp(hp);
 						System.out.println();
@@ -953,7 +975,7 @@ public class MomMain {
 
 				System.out.println(m.warlock());
 				
-				mp3.play("beauty.mp3");
+				mp3.play(comPath+"beauty.mp3");
 				Thread.sleep(1000);
 				System.out.println("			친구의 직업은 이제부터 [흑마법사]입니다.");
 				Thread.sleep(1000);
@@ -969,6 +991,7 @@ public class MomMain {
 					mp3.stop();
 				}
 				mp3.play(comPath+"battleBGM.mp3");
+				
 				System.out.println("			전투가 시작되었습니다.");
 				System.out.println();
 				Thread.sleep(1000);
@@ -980,7 +1003,7 @@ public class MomMain {
 				Thread.sleep(1000);
 
 				while (Drakaina.getHp() > 0 && Warlock.getHp() > 0) {
-
+					
 					if (pickWeapon == 1) {
 						Warlock.setAttack("			우산공격~!");
 					} else if (pickWeapon == 2) {
@@ -990,9 +1013,35 @@ public class MomMain {
 					} else if (pickWeapon == 4) {
 						Warlock.setAttack("			해골검어택~!");
 					}
-
+					
 					int myhp = Warlock.getHp();
 					int drahp = Drakaina.getHp();
+					if (pickWeapon == 1) {
+						System.out.println(p.umbAttack());
+						mp3.play(comPath+"umbrella.mp3");
+						drahp -= 100;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if (pickWeapon == 2) {
+						System.out.println(p.gaunAttack());
+						mp3.play(comPath+"fistpunch.mp3");
+						drahp -= 200;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if (pickWeapon == 3) {
+						System.out.println(p.lightAttack());
+						mp3.play(comPath+"lightsaver.mp3");
+						drahp -= 300;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if (pickWeapon == 4) {
+						System.out.println(p.swordAttack());
+						mp3.play(comPath+"swordAttack.mp3");
+						drahp -= 250;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					}
+
 					System.out.println("			==========[드라카이나]의 공격==========");
 					System.out.println();
 					System.out.println("			[1] 일반공격                   [2] 크리티컬 ");
@@ -1000,6 +1049,7 @@ public class MomMain {
 					Thread.sleep(200);
 					if (pickdra == 1) {
 						System.out.println(p.fireRage());
+						mp3.play(comPath+"dragon.mp3");
 						myhp -= 300;
 						Warlock.setHp(myhp);
 						System.out.println();
@@ -1009,6 +1059,7 @@ public class MomMain {
 
 					} else if (pickdra == 2) {
 						System.out.println(p.thunderLightening());
+						mp3.play(comPath+"thunder.mp3");
 						myhp -= 500;
 						Warlock.setHp(myhp);
 						System.out.println();
@@ -1029,21 +1080,25 @@ public class MomMain {
 
 						if (pickWeapon == 1) {
 							System.out.println(p.umbAttack());
+							mp3.play(comPath+"umbrella.mp3");
 							drahp -= 100;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 2) {
 							System.out.println(p.gaunAttack());
+							mp3.play(comPath+"fistpunch.mp3");
 							drahp -= 200;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 3) {
 							System.out.println(p.lightAttack());
+							mp3.play(comPath+"lightsaver.mp3");
 							drahp -= 300;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 4) {
 							System.out.println(p.swordAttack());
+							mp3.play(comPath+"swordAttack.mp3");
 							drahp -= 250;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
@@ -1056,6 +1111,7 @@ public class MomMain {
 						System.out.println();
 					} else if (pickattack == 2) {
 						System.out.println(p.warlockAttack());
+						mp3.play(comPath+"warlockAttack.mp3");
 						int hp = Drakaina.getHp() - 1000;
 						Drakaina.setHp(hp);
 						System.out.println();
@@ -1131,7 +1187,7 @@ public class MomMain {
 				Thread.sleep(1000);
 
 				while (Drakaina.getHp() > 0 && Paladin.getHp() > 0) {
-
+					
 					if (pickWeapon == 1) {
 						Paladin.setAttack("			우산공격~!");
 					} else if (pickWeapon == 2) {
@@ -1141,9 +1197,35 @@ public class MomMain {
 					} else if (pickWeapon == 4) {
 						Paladin.setAttack("			해골검어택~!");
 					}
-
+					
 					int myhp = Paladin.getHp();
 					int drahp = Drakaina.getHp();
+					if (pickWeapon == 1) {
+						System.out.println(p.umbAttack());
+						mp3.play(comPath+"umbrella.mp3");
+						drahp -= 100;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if (pickWeapon == 2) {
+						System.out.println(p.gaunAttack());
+						mp3.play(comPath+"fistpunch.mp3");
+						drahp -= 200;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if (pickWeapon == 3) {
+						System.out.println(p.lightAttack());
+						mp3.play(comPath+"lightsaver.mp3");
+						drahp -= 300;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if (pickWeapon == 4) {
+						System.out.println(p.swordAttack());
+						mp3.play(comPath+"swordAttack.mp3");
+						drahp -= 250;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					}
+
 					System.out.println("			==========[드라카이나]의 공격==========");
 					System.out.println();
 					System.out.println("			[1] 일반공격                   [2] 크리티컬 ");
@@ -1151,6 +1233,7 @@ public class MomMain {
 					Thread.sleep(200);
 					if (pickdra == 1) {
 						System.out.println(p.fireRage());
+						mp3.play(comPath+"dragon.mp3");
 						myhp -= 300;
 						Paladin.setHp(myhp);
 						System.out.println();
@@ -1160,6 +1243,7 @@ public class MomMain {
 
 					} else if (pickdra == 2) {
 						System.out.println(p.thunderLightening());
+						mp3.play(comPath+"thunder.mp3");
 						myhp -= 500;
 						Paladin.setHp(myhp);
 						System.out.println();
@@ -1179,21 +1263,25 @@ public class MomMain {
 
 						if (pickWeapon == 1) {
 							System.out.println(p.umbAttack());
+							mp3.play(comPath+"umbrella.mp3");
 							drahp -= 100;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 2) {
 							System.out.println(p.gaunAttack());
+							mp3.play(comPath+"fistpunch.mp3");
 							drahp -= 200;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 3) {
 							System.out.println(p.lightAttack());
+							mp3.play(comPath+"lightsaver.mp3");
 							drahp -= 300;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 4) {
 							System.out.println(p.swordAttack());
+							mp3.play(comPath+"swordAttack.mp3");
 							drahp -= 250;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
@@ -1264,19 +1352,45 @@ public class MomMain {
 				Thread.sleep(1000);
 
 				while (Drakaina.getHp() > 0 && Human.getHp() > 0) {
-
+					
 					if (pickWeapon == 1) {
-						Paladin.setAttack("			우산공격~!");
+						Human.setAttack("			우산공격~!");
 					} else if (pickWeapon == 2) {
-						Paladin.setAttack("			건틀렛주먹~!");
+						Human.setAttack("			건틀렛주먹~!");
 					} else if (pickWeapon == 3) {
-						Paladin.setAttack("			광선검어택~!");
+						Human.setAttack("			광선검어택~!");
 					} else if (pickWeapon == 4) {
-						Paladin.setAttack("			해골검어택~!");
+						Human.setAttack("			해골검어택~!");
 					}
-
 					int myhp = Human.getHp();
 					int drahp = Drakaina.getHp();
+					if (pickWeapon == 1) {
+						System.out.println(p.umbAttack());
+						mp3.play(comPath+"umbrella.mp3");
+						drahp -= 100;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if (pickWeapon == 2) {
+						System.out.println(p.gaunAttack());
+						mp3.play(comPath+"fistpunch.mp3");
+						drahp -= 200;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if (pickWeapon == 3) {
+						System.out.println(p.lightAttack());
+						mp3.play(comPath+"lightsaver.mp3");
+						drahp -= 300;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					} else if (pickWeapon == 4) {
+						System.out.println(p.swordAttack());
+						mp3.play(comPath+"swordAttack.mp3");
+						drahp -= 250;
+						Drakaina.setHp(drahp);
+						Thread.sleep(200);
+					}
+
+
 					System.out.println("			==========[드라카이나]의 공격==========");
 					System.out.println();
 					System.out.println("			[1] 일반공격                   [2] 크리티컬 ");
@@ -1284,6 +1398,7 @@ public class MomMain {
 					Thread.sleep(200);
 					if (pickdra == 1) {
 						System.out.println(p.fireRage());
+						mp3.play(comPath+"dragon.mp3");
 						myhp -= 300;
 						Human.setHp(myhp);
 						System.out.println();
@@ -1293,6 +1408,7 @@ public class MomMain {
 
 					} else if (pickdra == 2) {
 						System.out.println(p.thunderLightening());
+						mp3.play(comPath+"thunder.mp3");
 						myhp -= 500;
 						Human.setHp(myhp);
 						System.out.println();
@@ -1312,21 +1428,25 @@ public class MomMain {
 
 						if (pickWeapon == 1) {
 							System.out.println(p.umbAttack());
+							mp3.play(comPath+"umbrella.mp3");
 							drahp -= 100;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 2) {
 							System.out.println(p.gaunAttack());
+							mp3.play(comPath+"fistpunch.mp3");
 							drahp -= 200;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 3) {
 							System.out.println(p.lightAttack());
+							mp3.play(comPath+"lightsaver.mp3");
 							drahp -= 300;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
 						} else if (pickWeapon == 4) {
 							System.out.println(p.swordAttack());
+							mp3.play(comPath+"swordAttack.mp3");
 							drahp -= 250;
 							Drakaina.setHp(drahp);
 							Thread.sleep(200);
@@ -1339,6 +1459,7 @@ public class MomMain {
 						System.out.println();
 					} else if (pickattack == 2) {
 						System.out.println(p.HumanAttack());
+						mp3.play(comPath+"ohfck.mp3");
 						int hp = Drakaina.getHp() - 1000;
 						Drakaina.setHp(hp);
 						System.out.println();

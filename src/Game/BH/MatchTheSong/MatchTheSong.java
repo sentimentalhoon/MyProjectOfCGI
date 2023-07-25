@@ -92,6 +92,7 @@ public class MatchTheSong extends CountKorean {
                     countSpace(3);
                     print(String.format("│%s│\n", countKorean(countSpace, "    다음에 또 뵈요!!")));
                     countSpace(5);
+                    print("└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
                     Thread.sleep(6000);
                     isMp3PlayerStop(mp3Player);
                     break;
@@ -138,8 +139,6 @@ public class MatchTheSong extends CountKorean {
                         "네번째 가사 힌트입니다.", "네번째_가사_힌트입니다_.mp3", "audio_3_정답입니다.mp3", "audio_3_오답입니다.mp3",
                         songs.get(r).getSong4())) {
                     continue;
-                } else {
-                    playAscciO(r);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -189,10 +188,11 @@ public class MatchTheSong extends CountKorean {
                         && singer.contains(inputStringSinger)) {
                     playMusic(mp3Player, etcFilePath + oFileString);
                     countSpace(3);
-                    playAscciO(r);
+                    // playAscciO(r); 
                     print(String.format("│%s│\n", countKorean(countSpace, "    정답입니다.")));
                     countSpace(3);
                     isMp3PlayerStop(mp3Player);
+                    Thread.sleep(1500);
                     return true;
                 } else {
                     playMusic(mp3Player, etcFilePath + xFileString);
@@ -218,16 +218,16 @@ public class MatchTheSong extends CountKorean {
 
     }
 
-    private void playAscciO(int r) {
-        for (String str : MatchTheSongAscii.getInstance().getOAscii(r)) {
-            print(String.format("│%s\n", "    " + str));
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    // private void playAscciO(int r) {
+    //     for (String str : MatchTheSongAscii.getInstance().getOAscii(r)) {
+    //         print(String.format("│%s\n", "    " + str));
+    //         try {
+    //             Thread.sleep(200);
+    //         } catch (InterruptedException e) {
+    //             e.printStackTrace();
+    //         }
+    //     }
+    // }
 
     private void playMusic(MP3Player mp3Player, String filePath) {
         try {
