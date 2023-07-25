@@ -10,7 +10,6 @@ import Game.giwon.BlackjackMain;
 import Game.hero.fuckara.fuckMain;
 import Utils.SC;
 import javazoom.jl.player.MP3Player;
-import testtest.Cinemas;
 
 public class MomMain {
 	Account account = new Account();
@@ -440,9 +439,12 @@ public class MomMain {
 			}
 			mp3.play(comPath+"gogogame.mp3");
 			System.out.println("			[미니게임3] 친구랑 설득해서 같이 마트 가기~! - 친구가 좋아하는 영화맞추기 !!");
-			Thread.sleep(1000);
+			Thread.sleep(200);
 			System.out.println();
-			sc.nextInt();
+			System.out.println("			넘어가기 [0] ");
+			int nextc3c1 = sc.nextInt();
+			if (nextc3c1 == 0) {
+			}
 			
 			int beforeScore1 = account.get_totalpoint();
 			CinemaQuizMain.getInstance().isGameStart(account);
@@ -459,19 +461,14 @@ public class MomMain {
 				Thread.sleep(200);
 				System.out.println("			친구와 함께 마트에 간다.");
 				Thread.sleep(200);
-				System.out.println();
-				Thread.sleep(200);
-				System.out.println("			넘어가기 [0] ");
+
 				int c4e4 = sc.nextInt();
 				if (c4e4 == 0) {
 				}
 			} else {
 				System.out.println("[친구]헐.. 나에 대해 하나도 모르다닝 실망이얌!!! 흥 마상... 집에갈꼬얌!!");
-				System.out.println("			넘어가기 [0] ");
-				int c4e4 = sc.nextInt();
-				if (c4e4 == 0) {
+	
 				}
-			}
 			
 			System.out.println();
 			System.out.println("			넘어가기 [0] ");
@@ -608,9 +605,9 @@ public class MomMain {
 			fuckMain.FuckarratGameStart(account);
 			
 			if (account.get_totalpoint() > beforeScore) {
-				System.out.println("옛다!! 기분이다!! 5만원 쾌척");				
+				System.out.println("[할머니] 옛다!! 기분이다!! 5만원 쾌척");				
 			} else {
-				System.out.println("쯧쯧쯧....");
+				System.out.println("[할머니] 쯧쯧쯧....");
 			}
 			
 			System.out.println("			넘어가기 [0] ");
@@ -1086,9 +1083,9 @@ public class MomMain {
 			if (pickClass == 3) {
 
 				for (int a = 0; a < m.eggmongs().length; a++) {
-					System.out.println("\n\n\n\n\n\n\n\n");
+					System.out.println("\n\n\n\n\n\n\n\n\n");
 					System.out.println(m.eggmongs()[a]);
-					System.out.println("\n\n\n\n\n\n\n\n");
+					System.out.println("\n\n\n\n\n\n\n\n\n");
 					Thread.sleep(200);
 				}
 
@@ -1508,6 +1505,7 @@ public class MomMain {
 				System.out.println("\n\n");
 				Thread.sleep(1000);
 			}
+		
 
 		} catch (Exception e) {
 			e.printStackTrace();
