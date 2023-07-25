@@ -60,7 +60,14 @@ public class CinemaField {
 	public CinemaField() {
 
 	}
+	public CinemaField(String movieNameKR, int year, String movieSongName, String movieSongArtist, String movieSongFileName) {
+		this.movieNameKR = movieNameKR;
+		this.year = year;
+		this.movieSongName = movieSongName;
+		this.movieSongArtist = movieSongArtist;
+		this.movieSongFileName = movieSongFileName;
 
+	}
 	public CinemaField(String movieNameKR, String movieNameENG, int year, String movieSongName, String movieSongArtist, String movieSongFileName) {
 		this.movieNameKR = movieNameKR;
 		this.movieNameENG = movieNameENG;
