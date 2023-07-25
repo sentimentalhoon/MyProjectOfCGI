@@ -78,16 +78,16 @@ public class MiddlePage extends CountKorean {
                         .append(String.format("│%s│\n",
                                 countKorean(countSpace, "  Dain Presents : 심부름 어드벤처 | 단축키 : s")))
                         .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
-                        .append(String.format("│%s│\n", countKorean(countSpace, "")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  League of Legends")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  Fifa Online 4")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  StarCraft")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  MapleStory")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  동물의 숲")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  발로란트")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  디아블로 4")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  오버워치 2")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  로스트아크")))
+                        .append(String.format("│%s│\n", countKorean(countSpace, "  배틀그라운드")))
                         .append(String.format("│%s│", countKorean(countSpace, "")));
                 return strB.toString();
         }
