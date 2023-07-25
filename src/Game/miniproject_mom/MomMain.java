@@ -643,6 +643,10 @@ public class MomMain {
 			}
 
 			System.out.println(m.gangster());
+			if(mp3.isPlaying()) {
+				mp3.stop();
+			}
+			mp3.play(comPath+"johnCena.mp3");
 			System.out.println("\n");
 			Thread.sleep(500);
 			System.out.println("			음침한 뒷골목에서 불량배 출몰!!  ");
@@ -653,11 +657,13 @@ public class MomMain {
 			Thread.sleep(500);
 			System.out.println("			[불량배] 뒤져서 나오면 100원에 한대씩이다 ");
 			Thread.sleep(500);
+			System.out.println("			[불량배] 살고 싶으면 나랑 진검 승부!! ");
+			Thread.sleep(500);
 			if(mp3.isPlaying()) {
 				mp3.stop();
 			}
 			mp3.play(comPath+"gogogame.mp3");
-			System.out.println("			[미니게임5] 불량배와 진검승부 - 노래맞추기 !! ");
+			System.out.println("			[미니게임5] 흥 많은 불량배와 진검승부 - 불량배가 좋아하는 노래맞추기 !! ");
 			System.out.println();
 			Thread.sleep(500);
 

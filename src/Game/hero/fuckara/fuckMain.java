@@ -18,13 +18,15 @@ public class fuckMain {
 				
 				card.gameStart();
 				
-			} else if (select == 2) {
+			}else if (select == 2) {
 				break;
 				
-			} else {
+			} else if (select == 3) {
 				
+				text.gameRules();
+				
+			}else {
 				System.out.println("지원하지 않는 버튼입니다. 다시 입력해주세요");
-				
 			}
 		}
 		

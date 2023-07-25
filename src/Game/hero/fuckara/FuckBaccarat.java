@@ -136,7 +136,7 @@ public class FuckBaccarat {
 			text.playerWinner();
 			if (winnerSelect == 1) {
 				text.winnerText();
-				totalPoint += battingPoint * 2;
+				totalPoint += (battingPoint + (battingPoint*2));
 				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			} else {
@@ -149,7 +149,7 @@ public class FuckBaccarat {
 			text.bankerWinner();
 			if (winnerSelect == 2) {
 				text.winnerText();
-				totalPoint += battingPoint * 2;
+				totalPoint += (battingPoint + (battingPoint*2));
 				System.out.println();
 				System.out.println("현재 포인트 : " + totalPoint);
 			} else {
@@ -211,6 +211,7 @@ public class FuckBaccarat {
 
 			listClear();
 			System.out.println("Baccarat 게임을 시작합니다!");
+			text.firstGameRoles();
 			scoreBattingMachine();
 			// 첫번째 카드 뽑기
 			shuffle();
