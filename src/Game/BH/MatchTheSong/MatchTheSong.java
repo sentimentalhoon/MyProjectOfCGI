@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import org.mariadb.jdbc.internal.io.TraceObject;
+
 import Account.Account;
 import Game.BH.MatchTheSong.Controller.Etcaudio;
 import Game.BH.MatchTheSong.Controller.MatchTheSongController;
@@ -47,17 +49,18 @@ public class MatchTheSong extends CountKorean {
 
             try {
                 countSpace(15);
-                print("\t사용자님은 몇곡을 플레이할지 선택하여 주시기 바랍니다.\n");
+
+                println(String.format("%s", countKorean(countSpace, "    사용자님은 몇곡을 플레이할지 선택하여 주시기 바랍니다.")));
                 countSpace(3);
                 playMusic(mp3Player, etcFilePath + "곡수를_선택.mp3");
                 Thread.sleep(2500);
                 isMp3PlayerStop(mp3Player);
-                print("\t선택 >>\t");
+                print(String.format("│%s", "    선택 >>    "));
                 try {
                     selectNumSong = sc.nextInt();
                 } catch (Exception e) {
                     countSpace(2);
-                    print("\t숫자만 입력하여 주시기 바랍니다.");
+                    print(String.format("│%s│\n", countKorean(countSpace, "    숫자만 입력하여 주시기 바랍니다.")));
                     countSpace(2);
                     continue;
                 } finally {
@@ -65,8 +68,9 @@ public class MatchTheSong extends CountKorean {
                 }
                 if (selectNumSong > songs.size()) {
                     countSpace(2);
-                    System.out.printf("\t저장된 곡수보다 더 많은 숫자를 입력하였습니다. \n\n최대 입력 숫자 : %d 곡",
-                            songs.size());
+                    print(String.format("│%s│\n",
+                            countKorean(countSpace, String.format("    저장된 곡수보다 더 많은 숫자를 입력하였습니다. \n\n최대 입력 숫자 : %d 곡",
+                                    songs.size()))));
                     countSpace(2);
                     continue;
                 } else {
@@ -83,9 +87,10 @@ public class MatchTheSong extends CountKorean {
                 if (selectNumSong <= 0) {
                     playMusic(mp3Player, etcFilePath + "EndingMessage.mp3");
                     countSpace(15);
-                    print("\t모든 곡을 풀었습니다. 이용해 주셔서 감사합니다.\n");
+                    print(String.format("│%s│\n", countKorean(countSpace, "    모든 곡을 풀었습니다. 이용해 주셔서 감사합니다.")));
+
                     countSpace(3);
-                    print("\t다음에 또 뵈요!!\n");
+                    print(String.format("│%s│\n", countKorean(countSpace, "    다음에 또 뵈요!!")));
                     countSpace(5);
                     Thread.sleep(6000);
                     isMp3PlayerStop(mp3Player);
@@ -103,15 +108,13 @@ public class MatchTheSong extends CountKorean {
                 println("├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤");
 
                 countSpace(3);
-                print("\t다음의 가사를 듣고 정답을 맞춰 주시기 바랍니다.\n");
+                print(String.format("│%s│\n", countKorean(countSpace, "    다음의 가사를 듣고 정답을 맞춰 주시기 바랍니다.")));
                 countSpace(3);
                 playMusic(mp3Player, etcFilePath + "다음_가사를_듣고.mp3");
                 Thread.sleep(3000);
 
                 isMp3PlayerStop(mp3Player);
-                print("\t준비가 되셨으면 [Enter] 키를 눌러주십시요. >>\n");
-                countSpace(3);
-                sc.nextLine();
+
                 playMusic(mp3Player, etcFilePath + etcAudio.get(questionNo).getFilename());
                 Thread.sleep(3000);
                 questionNo++;
@@ -135,6 +138,8 @@ public class MatchTheSong extends CountKorean {
                         "네번째 가사 힌트입니다.", "네번째_가사_힌트입니다_.mp3", "audio_3_정답입니다.mp3", "audio_3_오답입니다.mp3",
                         songs.get(r).getSong4())) {
                     continue;
+                } else {
+                    playAscciO(r);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -156,38 +161,52 @@ public class MatchTheSong extends CountKorean {
             isMp3PlayerStop(mp3Player);
             playMusic(mp3Player, etcFilePath + hintFileString);
             countSpace(2);
-            println("\t" + ConsoleColor.CYAN_BACKGROUND_BRIGHT + hintString + ConsoleColor.RESET);
+            println(ConsoleColor.CYAN_BACKGROUND_BRIGHT + String.format("│%s│",
+                    countKorean(countSpace, "    " + hintString))
+                    + ConsoleColor.RESET);
             countSpace(2);
             Thread.sleep(3000);
 
             isMp3PlayerStop(mp3Player);
             playMusic(mp3Player, hintSongFileString);
             Thread.sleep(5000);
-            print("\t정답을 입력하여 주시기 바랍니다. 모르시면 아무 글자나 입력하여 주시면 됩니다.");
+            print(String.format("%s\n", "    정답을 입력하여 주시기 바랍니다. 모르시면 아무 글자나 입력하여 주시면 됩니다. >>    "));
             countSpace(3);
-            print("\t정답(제목) >>\t" + ConsoleColor.YELLOW_BRIGHT);
+            print(String.format("%s", "    정답(제목) >>    " + ConsoleColor.YELLOW_BRIGHT));
             inputStringTitle = sc.nextLine().toUpperCase().trim().replace(" ", "");
             print(ConsoleColor.RESET);
-            print("\t정답(가수) >>\t" + ConsoleColor.BLUE_BOLD_BRIGHT);
-            inputStringSinger = sc.nextLine().toUpperCase().trim().replace(" ", "");
-            print(ConsoleColor.RESET);
-            if (inputStringTitle != null && inputStringSinger != null) {
-                isMp3PlayerStop(mp3Player);
-                if (songs.get(r).getTitle().toUpperCase().contains(inputStringTitle)
-                        && songs.get(r).getSinger().toUpperCase().contains(inputStringSinger)) {
+
+            isMp3PlayerStop(mp3Player);
+            String songTitle = songs.get(r).getTitle().toUpperCase();
+            String singer = songs.get(r).getSinger().toUpperCase();
+
+            if (inputStringTitle != null && songTitle.contains(inputStringTitle)) {
+                print(String.format("%s", "    정답(가수) >>    " + ConsoleColor.BLUE_BRIGHT));
+                inputStringSinger = sc.nextLine().toUpperCase().trim().replace(" ", "");
+                print(ConsoleColor.RESET);
+
+                if (inputStringSinger != null
+                        && singer.contains(inputStringSinger)) {
                     playMusic(mp3Player, etcFilePath + oFileString);
                     countSpace(3);
-                    print("\t정답입니다.\n");
+                    playAscciO(r);
+                    print(String.format("│%s│\n", countKorean(countSpace, "    정답입니다.")));
                     countSpace(3);
-                    Thread.sleep(1500);
+                    isMp3PlayerStop(mp3Player);
                     return true;
                 } else {
                     playMusic(mp3Player, etcFilePath + xFileString);
                     countSpace(3);
-                    print("\t틀렸습니다.\n");
+                    print(String.format("│%s│\n", countKorean(countSpace, "    틀렸습니다.")));
                     countSpace(3);
                     Thread.sleep(1500);
                 }
+            } else {
+                playMusic(mp3Player, etcFilePath + xFileString);
+                countSpace(3);
+                print(String.format("│%s│\n", countKorean(countSpace, "    틀렸습니다.")));
+                countSpace(3);
+                Thread.sleep(1500);
             }
             isMp3PlayerStop(mp3Player);
         } catch (InterruptedException e) {
@@ -197,6 +216,17 @@ public class MatchTheSong extends CountKorean {
         }
         return false;
 
+    }
+
+    private void playAscciO(int r) {
+        for (String str : MatchTheSongAscii.getInstance().getOAscii(r)) {
+            print(String.format("│%s\n", "    " + str));
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void playMusic(MP3Player mp3Player, String filePath) {
