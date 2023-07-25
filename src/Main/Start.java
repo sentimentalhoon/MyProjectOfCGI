@@ -13,7 +13,6 @@ import Game.GameId;
 import Game.BH.MatchTheSong.MatchTheSong;
 import Game.BH.Tetris.D4mnAsciiTetris;
 import Game.Dain.CinemaQuizMain;
-import Game.giwon.Blackjack;
 import Game.giwon.BlackjackMain;
 import Game.hero.fuckara.fuckMain;
 import Game.miniproject_mom.MomMain;
@@ -100,6 +99,8 @@ public class Start {
                     if (account.isExit()) {
                         System.err.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "종료 되었습니다."
                                 + ConsoleColor.RESET);
+
+                        endingCredit();
                         break;
                     }
                     account = PageHandler.handlePage(account, account.getPages(), null);
@@ -114,5 +115,9 @@ public class Start {
                 continue;
             }
         }
+    }
+
+    private static void endingCredit() {
+
     }
 }
