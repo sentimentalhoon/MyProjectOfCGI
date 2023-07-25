@@ -274,9 +274,7 @@ public class fuckText {
 	
 	private void next() {
 		
-		
-		
-		System.out.println("                [0] >> 다음 ");
+		System.out.println("             [0] >> 다음 ");
 		enter = SC.getScanner().nextInt();
 		
 		while(true) {
@@ -298,6 +296,7 @@ public class fuckText {
 		
 	}
 
+	
 //	public static void getCardArt(List<String> cards) {
 //
 //		String[] art = new String[7];

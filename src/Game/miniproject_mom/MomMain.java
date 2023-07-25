@@ -310,7 +310,7 @@ public class MomMain {
 				sc.nextLine();
 				c = System.currentTimeMillis();
 
-				System.out.println("			5초가 된 것 같으면 <Enter>를 누르세요.");
+				System.out.println("			3초가 된 것 같으면 <Enter>를 누르세요.");
 				sc.nextLine();
 				d = System.currentTimeMillis();
 
@@ -1230,7 +1230,7 @@ public class MomMain {
 					Thread.sleep(200);
 					if (pickdra == 1) {
 						System.out.println(p.fireRage());
-						mp3.play(comPath+"dragon.mp3");
+						mp3.play(comPath+"dragonEmerge.mp3");
 						myhp -= 300;
 						Paladin.setHp(myhp);
 						System.out.println();

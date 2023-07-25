@@ -2,7 +2,11 @@ package Game.giwon;
 
 import java.util.ArrayList;
 
+import Utils.SC;
+
 public class Blackjack_text_image {
+	
+	private int enter;
 
 	public void b_mainpage() {
 
@@ -210,11 +214,26 @@ public class Blackjack_text_image {
 		System.out.println("    └────────────────────────────────────────────────────┘");
 		System.out.println();
 		System.out.println();
+		next();
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
-
+private void next() {
+		
+		System.out.println("             [0] >> 다음 ");
+		enter = SC.getScanner().nextInt();
+		
+		while(true) {
+			if(enter == 0) {
+				break;
+			}else {
+				System.out.println(" [0]번만! 눌러! 주세요! ");
+			}
+		}
+	}
+	
+	
 }
