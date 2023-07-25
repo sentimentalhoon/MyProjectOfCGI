@@ -7,6 +7,8 @@
  */
 package Main;
 
+import java.util.ArrayList;
+
 import Account.Account;
 import Board.BoardId;
 import Game.GameId;
@@ -18,6 +20,7 @@ import Game.hero.fuckara.fuckMain;
 import Game.miniproject_mom.MomMain;
 import Pages.PageId;
 import Utils.ConsoleColor;
+import Utils.Print;
 import Utils.SC;
 
 public class Start {
@@ -45,7 +48,7 @@ public class Start {
                         PageHandler.handlePage(account, PageId.CREATEACCOUNT, account.getName());
                         account.setPages(PageId.LOGIN);
                     } else {
-                        //account = PageHandler.handlePage(account, PageId.LOGIN, accountName);
+                        // account = PageHandler.handlePage(account, PageId.LOGIN, accountName);
                         account.set_totalpoint(1000);
                         account.setValid(true);
                         if (account.isValid())
@@ -85,9 +88,9 @@ public class Start {
                                 CinemaQuizMain.getInstance().isGameStart(account);
                             } else if (account.getSubPage() == GameId.TETRIS) {
                                 D4mnAsciiTetris.gameStart();
-                            } else if (account.getSubPage() == GameId.MOMSTOUCH){
+                            } else if (account.getSubPage() == GameId.MOMSTOUCH) {
                                 MomMain.getInstance().isStart(account);
-                            } else if (account.getSubPage() == GameId.MATCHTHESONG){
+                            } else if (account.getSubPage() == GameId.MATCHTHESONG) {
                                 MatchTheSong.getInstance().gameStart(account);
                             }
                         } else {
@@ -111,13 +114,56 @@ public class Start {
                 account.setSubPage(BoardId.BOARDNOTHING);
                 System.err.println(ConsoleColor.RED_BACKGROUND_BRIGHT + "오류가 발생하여 로그아웃 되었습니다. 다시 로그인하여 주시기 바랍니다."
                         + ConsoleColor.RESET);
-                        e.printStackTrace();
+                e.printStackTrace();
                 continue;
             }
         }
     }
 
     private static void endingCredit() {
+        String str = " , , , , , , , , , , , ,"
+                + "    ████████ ██   ██  █████  ███    ██ ██   ██ ███████     ████████  ██████                           ,"
+                + "       ██    ██   ██ ██   ██ ████   ██ ██  ██  ██             ██    ██    ██                          ,"
+                + "       ██    ███████ ███████ ██ ██  ██ █████   ███████        ██    ██    ██                          ,"
+                + "       ██    ██   ██ ██   ██ ██  ██ ██ ██  ██       ██        ██    ██    ██                          ,"
+                + "       ██    ██   ██ ██   ██ ██   ████ ██   ██ ███████        ██     ██████      ██     ██     ██     ,"
+                + "    ,    ,"
+                + "    장지웅                    이주섭                    윤근영                    장성문,"
+                + "    ,    ,"
+                + "    문진환                    장건욱                    홍지수                    유선웅,"
+                + "    ,    ,"
+                + "    박찬홍                    권용현                    황인우                    남현웅,"
+                + "    ,    ,"
+                + "    이나행                    서준희                    정나래                    이강련,"
+                + "    ,    ,"
+                + "    홍수양                    정현석                    조문규                    한준희,"
+                + "    ,    ,"
+                + "     █████  ███    ██ ██████                손지영 선생님,"
+                + "    ██   ██ ████   ██ ██   ██               ,"
+                + "    ███████ ██ ██  ██ ██   ██               ****** 선생님,"
+                + "    ██   ██ ██  ██ ██ ██   ██               ,"
+                + "    ██   ██ ██   ████ ██████                김민수 선생님,"
+                + "    ,    ,    ,    ,"
+                + "                               ███    ███ ██    ██     ████████ ███████  █████  ███    ███ ,"
+                + "                               ████  ████  ██  ██         ██    ██      ██   ██ ████  ████ ,"
+                + "                               ██ ████ ██   ████          ██    █████   ███████ ██ ████ ██ ,"
+                + "                               ██  ██  ██    ██           ██    ██      ██   ██ ██  ██  ██ ,"
+                + "                        ▄█     ██      ██    ██           ██    ███████ ██   ██ ██      ██ ,"
+                + " , , , , , , , , , , , , , , , , , , , ,";
+        ArrayList<String> arrayString = new ArrayList<String>();
 
+        for (String s : str.split(",")) {
+            arrayString.add(s);
+        }
+
+        for (String s : arrayString) {
+            Print.println(s);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            ;
+        }
     }
 }
