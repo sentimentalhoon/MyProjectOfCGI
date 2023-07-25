@@ -1468,18 +1468,7 @@ public class MomMain {
 						MomAscii.getInstance().getGameEndAsciiArt()[i]);
 				Thread.sleep(500);
 			}
-			
-			
-			cinemasList.add(new CinemaField("    스타워즈      ", 1977,  "The Imperial March", "Carmen Twillie", comPath + "01_Starwars.mp3"));
-			cinemasList.add(new CinemaField("     조 커       ", 2019, "Rocken And Roll(Part 2)", "Gary Glitter", comPath + "02_Joker.mp3"));
-			cinemasList.add(new CinemaField("    해리포터      ", 2003, "Hedwig's Theme", "Christoph Eschenbach", comPath + "03_HarryPotter.mp3"));
-			cinemasList.add(new CinemaField("    라이언킹      ", 1994, "Circle of Life", "Carmen Twillie", comPath + "04_LionKing.mp3"));
-			cinemasList.add(new CinemaField("    겨울왕국      ", 2013, "Love is An Open Door", "Kristen Bell", comPath + "05_Frozen.mp3"));
-			cinemasList.add(new CinemaField("   캐리비안의해적   ", 2003, "He's a Pirate", "Klaus Badelt", comPath + "06_PiratesOfTheCarribean.mp3"));
-			cinemasList.add(new CinemaField("     타이타닉     ", 1997, "My Heart Will Go On", "Celine Dion", comPath + "07_Titanic.mp3"));
-			cinemasList.add(new CinemaField("  슈퍼마리오브라더스  ", 2023,"Peaches", "Jack Black", comPath + "08_SuperMarioBrothers.mp3"));
-			cinemasList.add(new CinemaField("     알라딘       ", 1992 , "Friend Like Me", "Ne-Yo", comPath + "09_Aladdin.mp3"));
-			cinemasList.add(new CinemaField("      레옹       ", 1994, "Shape Of My Heart", "Sting", comPath + "10_Leon.mp3"));
+		
 
 			System.out.println(
 					"       ================================================================================================================\n");

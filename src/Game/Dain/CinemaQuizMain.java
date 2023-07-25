@@ -29,15 +29,26 @@ public class CinemaQuizMain {
 		ArrayList<CinemaField> cinemasList = new ArrayList<CinemaField>();
 		String comPath = "data\\song\\cinema\\";
 		MP3Player mp3 = new MP3Player();
-
+	
+		
 		try {
-			cinemasList = CinemaDataTable.getInstance(comPath).getCinemaList();
+			cinemasList.add(new CinemaField("    스타워즈      ", 1977,  "The Imperial March", "Carmen Twillie", comPath + "01_Starwars.mp3"));
+			cinemasList.add(new CinemaField("     조 커       ", 2019, "Rocken And Roll(Part 2)", "Gary Glitter", comPath + "02_Joker.mp3"));
+			cinemasList.add(new CinemaField("    해리포터      ", 2003, "Hedwig's Theme", "Christoph Eschenbach", comPath + "03_HarryPotter.mp3"));
+			cinemasList.add(new CinemaField("    라이언킹      ", 1994, "Circle of Life", "Carmen Twillie", comPath + "04_LionKing.mp3"));
+			cinemasList.add(new CinemaField("    겨울왕국      ", 2013, "Love is An Open Door", "Kristen Bell", comPath + "05_Frozen.mp3"));
+			cinemasList.add(new CinemaField("   캐리비안의해적   ", 2003, "He's a Pirate", "Klaus Badelt", comPath + "06_PiratesOfTheCarribean.mp3"));
+			cinemasList.add(new CinemaField("     타이타닉     ", 1997, "My Heart Will Go On", "Celine Dion", comPath + "07_Titanic.mp3"));
+			cinemasList.add(new CinemaField("  슈퍼마리오브라더스  ", 2023,"Peaches", "Jack Black", comPath + "08_SuperMarioBrothers.mp3"));
+			cinemasList.add(new CinemaField("     알라딘       ", 1992 , "Friend Like Me", "Ne-Yo", comPath + "09_Aladdin.mp3"));
+			cinemasList.add(new CinemaField("      레옹       ", 1994, "Shape Of My Heart", "Sting", comPath + "10_Leon.mp3"));
+//			cinemasList = CinemaDataTable.getInstance(comPath).getCinemaList();
 			mp3.play(comPath + "opening.mp3");
 
 			CinemaAscii.getInstance().openingAsciiArt();
 			String line = "  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n";
 			int timeLap = 200; // 시간 간격 (200밀리초)
-
+						
 			for (int i = 0; i < line.length(); i++) {
 				System.out.print(line.charAt(i));
 				try {
@@ -91,28 +102,28 @@ public class CinemaQuizMain {
 			getQuiz(9, sc, cinemasList, mp3, comPath, "09_other.mp3");
 			getQuiz(10, sc, cinemasList, mp3, comPath, "10_other.mp3");
 
-			System.out.println(
-					"       ================================================================================================================\n");
-			Thread.sleep(200);
-			System.out.println();
-			Thread.sleep(200);
-			System.out.println(
-					"              MOVIE NAME                   YEAR                        TITLE                         ARTIST    ");
-			Thread.sleep(200);
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			Thread.sleep(200);
-			for (int i = 0; i < cinemasList.size(); i++) {
-				String mname = cinemasList.get(i).getMovieNameKR();
-				int year = cinemasList.get(i).getYear();
-				String title = cinemasList.get(i).getMovieSongName();
-				String artist = cinemasList.get(i).getMovieSongArtist();
-				System.out.println("          " + mname + "               " + year + "                " + title
-						+ "             " + artist);
-				System.out.println("\n\n");
-				Thread.sleep(1000);
-			}
+//			System.out.println(
+//					"       ================================================================================================================\n");
+//			Thread.sleep(200);
+//			System.out.println();
+//			Thread.sleep(200);
+//			System.out.println(
+//					"              MOVIE NAME                   YEAR                        TITLE                         ARTIST    ");
+//			Thread.sleep(200);
+//			System.out.println();
+//			System.out.println();
+//			System.out.println();
+//			Thread.sleep(200);
+//			for (int i = 0; i < cinemasList.size(); i++) {
+//				String mname = cinemasList.get(i).getMovieNameKR();
+//				int year = cinemasList.get(i).getYear();
+//				String title = cinemasList.get(i).getMovieSongName();
+//				String artist = cinemasList.get(i).getMovieSongArtist();
+//				System.out.println("          " + mname + "               " + year + "                " + title
+//						+ "             " + artist);
+//				System.out.println("\n\n");
+//				Thread.sleep(1000);
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -178,7 +189,7 @@ public class CinemaQuizMain {
 			} else if (playMusic == 2) {
 				CinemaAscii.getInstance().getCinemaPosterAsciiArt(number);
 			} else if (playMusic == 3) {
-				mp3.play(fileNameString);
+				mp3.play(comPath + fileNameString);
 			} else if (playMusic == 4) {
 				System.out.println("     다음 문제로 넘어갑니다...     ");
 				if (mp3.isPlaying()) {
