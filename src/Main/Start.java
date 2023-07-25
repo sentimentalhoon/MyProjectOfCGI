@@ -22,6 +22,7 @@ import Pages.PageId;
 import Utils.ConsoleColor;
 import Utils.Print;
 import Utils.SC;
+import javazoom.jl.player.MP3Player;
 
 public class Start {
     public static void indexPageStart(Account account) {
@@ -100,6 +101,7 @@ public class Start {
                     }
 
                     if (account.isExit()) {
+
                         System.err.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT + "종료 되었습니다."
                                 + ConsoleColor.RESET);
 
@@ -121,6 +123,8 @@ public class Start {
     }
 
     private static void endingCredit() {
+        MP3Player mp3Player = new MP3Player();
+        mp3Player.play("data\\audiobook\\etc\\cut_dear_name_iu.mp3");
         String str = " , , , , , , , , , , , ,"
                 + "    ████████ ██   ██  █████  ███    ██ ██   ██ ███████     ████████  ██████                           ,"
                 + "       ██    ██   ██ ██   ██ ████   ██ ██  ██  ██             ██    ██    ██                          ,"
@@ -149,7 +153,7 @@ public class Start {
                 + "                               ██ ████ ██   ████          ██    █████   ███████ ██ ████ ██ ,"
                 + "                               ██  ██  ██    ██           ██    ██      ██   ██ ██  ██  ██ ,"
                 + "                        ▄█     ██      ██    ██           ██    ███████ ██   ██ ██      ██ ,"
-                + " , , , , , , , , , , , , , , , , , , , ,";
+                + ".,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,";
         ArrayList<String> arrayString = new ArrayList<String>();
 
         for (String s : str.split(",")) {
@@ -159,7 +163,7 @@ public class Start {
         for (String s : arrayString) {
             Print.println(s);
             try {
-                Thread.sleep(200);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
