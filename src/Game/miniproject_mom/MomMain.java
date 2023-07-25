@@ -78,7 +78,7 @@ public class MomMain {
 					"		                                    로딩 완료!!                                          ");
 			System.out.println();
 			System.out.println();
-			Thread.sleep(200);
+			Thread.sleep(1000);
 
 			// 회원가입
 			// 로그인
@@ -456,7 +456,6 @@ public class MomMain {
 			} catch (Exception e) {
 				
 			}
-			if(account.get_totalpoint()>beforeScore1) {
 				System.out.println("\n\n");
 				System.out.println("\n\n");
 				System.out.println(m.withfriend());
@@ -470,14 +469,6 @@ public class MomMain {
 				System.out.println("			친구와 함께 마트에 간다.");
 				Thread.sleep(200);
 
-				int c4e4 = sc.nextInt();
-				if (c4e4 == 0) {
-				}
-			} else {
-				System.out.println("[친구]헐.. 나에 대해 하나도 모르다닝 실망이얌!!! 흥 마상... 집에갈꼬얌!!");
-	
-				}
-			
 			System.out.println();
 			System.out.println("			넘어가기 [0] ");
 			sc.nextInt();
@@ -494,7 +485,7 @@ public class MomMain {
 			System.out.println(m.store());
 			System.out.println("\n\n\n");
 			Thread.sleep(200);
-			System.out.println("			친구와 마트에 도착했다!");
+			System.out.println("			마트에 도착했다!");
 			System.out.println("			두부를 사러 가자!");
 			System.out.println();
 			Thread.sleep(200);

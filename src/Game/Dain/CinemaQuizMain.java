@@ -159,8 +159,6 @@ public class CinemaQuizMain {
 			}
 			System.out.println("     SUCCESS!      정 답 입 니 다!! ");
 			System.out.println();
-			mp3.play(comPath + "Verygood.mp3");
-			System.out.println();
 			System.out.println("     다음 문제로 넘어갑니다...     ");
 			return true;
 		} else {
@@ -169,7 +167,6 @@ public class CinemaQuizMain {
 			}
 			System.out.println("     Fail...!      틀 렸 습 니 다... ");
 			System.out.println();
-			mp3.play(comPath + "Fail.mp3");
 		}
 
 		return false;
